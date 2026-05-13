@@ -1,0 +1,21 @@
+# Security - Never commit secrets
+.env
+gavin/.env
+*.token
+secrets/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+gavin/discord.log

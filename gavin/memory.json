@@ -1,0 +1,28 @@
+{
+  "agentName": "Gavin",
+  "role": "Director of Customer Accounts and Customer Success — Decklar",
+  "reportsTo": "Jarvis",
+  "jeffDirectContact": true,
+  "initialized": "2026-05-13",
+  "lastActive": "2026-05-13",
+  "currentFocus": "System initialization and Discord listener setup",
+  "activeProjects": [],
+  "pendingTasks": [
+    "Verify Discord bot connectivity",
+    "Test MCP server integration",
+    "Confirm readiness with Jeff"
+  ],
+  "openQuestionsForJeff": [],
+  "recentDecisions": [
+    "Security boundaries established per JARVIS_PROMPT.md",
+    "Discord listener to run as persistent service"
+  ],
+  "knownTeamMembers": [],
+  "integrationStatus": {
+    "salesforce": "not_connected",
+    "asana": "not_connected",
+    "outlook": "not_connected",
+    "honeycomb": "not_connected"
+  },
+  "notes": "Gavin initialized and ready for Decklar operations. Awaiting first customer assignment."
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "initialized": "2026-05-13",
+  "accountManager": "Jeffrey Calabro",
+  "dataDirectory": "/Users/jarvis/.openclaw/workspace/decklar-intelligence",
+  "mcpServerEnabled": true,
+  "autoBackup": true,
+  "discordNotifications": true
+}
