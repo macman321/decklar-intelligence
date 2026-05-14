@@ -3,7 +3,7 @@
   "role": "Director of Customer Accounts and Customer Success \u2014 Decklar",
   "reportsTo": "Jarvis (orchestrator) and Jeff (CEO/ultimate authority)",
   "jeffDirectContact": true,
-  "lastActive": "2026-05-13",
+  "lastActive": "2026-05-14",
   "currentFocus": "System initialization - awaiting first customer or task",
   "activeProjects": [],
   "pendingTasks": [
@@ -30,7 +30,7 @@
   "integrationStatus": {
     "salesforce": "not_connected",
     "asana": "not_connected",
-    "outlook": "not_connected",
+    "outlook": "connected_via_apple_mail",
     "honeycomb": "not_connected"
   },
   "notes": "Just initialized. Ready for first Decklar task. Discord bot token loaded but not yet running as persistent service."

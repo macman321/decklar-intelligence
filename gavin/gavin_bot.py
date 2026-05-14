@@ -7,13 +7,22 @@ Uses LLM for natural responses. Maintains conversation memory.
 """
 
 import os
-import sys
 import json
 import discord
 from discord.ext import commands
 from datetime import datetime
 from pathlib import Path
 import openai
+
+# Add import for Outlook integration
+import sys
+sys.path.insert(0, str(Path.home() / "decklar-intelligence/gavin/integrations"))
+try:
+    import outlook
+    OUTLOOK_AVAILABLE = True
+except Exception as e:
+    OUTLOOK_AVAILABLE = False
+    print(f"Outlook integration not available: {e}", file=sys.stderr)
 
 # ── Config ────────────────────────────────────────────────────────
 DATA_DIR = Path.home() / "decklar-intelligence"
@@ -244,7 +253,7 @@ OpenAI: {'✅' if OPENAI_API_KEY else '❌ not configured'}
 Integrations:
 • Honeycomb: {memory.get('integrationStatus', {}).get('honeycomb', 'not_connected')}
 • Salesforce: {memory.get('integrationStatus', {}).get('salesforce', 'not_connected')}
-• Outlook: {memory.get('integrationStatus', {}).get('outlook', 'not_connected')}
+• Outlook: {memory.get('integrationStatus', {}).get('outlook', 'not_connected')} {'✅' if OUTLOOK_AVAILABLE else '❌'}
 • Asana: {memory.get('integrationStatus', {}).get('asana', 'not_connected')}"""
     
     await ctx.send(status_msg)
@@ -253,7 +262,58 @@ Integrations:
 async def memory(ctx):
     """Show what's in Gavin's memory"""
     conv_count = len(list((GAVIN_DIR / "conversations").glob("*.json")))
-    await ctx.send(f"I'm tracking {conv_count} active conversations. My identity and role are loaded from `~/decklar-intelligence/gavin/identity.md`.")
+    await ctx.send(f"I'm tracking {conv_count} active conversations. My identity and role are loaded from `~/decklar-intelligence/gavin/SOUL.md`.")
+
+@bot.command()
+async def emails(ctx, hours: int = 12):
+    """Get morning email brief (default: last 12 hours)"""
+    if not OUTLOOK_AVAILABLE:
+        await ctx.send("📧 Outlook integration not available. Check setup.")
+        return
+    
+    async with ctx.typing():
+        brief = outlook.get_morning_brief()
+    
+    # Split if too long
+    if len(brief) > 2000:
+        parts = []
+        current = ""
+        for line in brief.split('\n'):
+            if len(current) + len(line) + 1 > 1900:
+                parts.append(current)
+                current = line + '\n'
+            else:
+                current += line + '\n'
+        if current:
+            parts.append(current)
+        
+        for part in parts:
+            await ctx.send(part)
+    else:
+        await ctx.send(brief)
+
+@bot.command()
+async def search_emails(ctx, *, query: str):
+    """Search emails by keyword"""
+    if not OUTLOOK_AVAILABLE:
+        await ctx.send("📧 Outlook integration not available.")
+        return
+    
+    await ctx.send(f"🔍 Searching for '{query}' in recent emails...")
+    
+    async with ctx.typing():
+        reader = outlook.OutlookReader()
+        results = reader.search_emails(query, days=7)
+    
+    if not results:
+        await ctx.send(f"No emails found matching '{query}' in the last 7 days.")
+        return
+    
+    response = f"**Found {len(results)} emails matching '{query}':**\n\n"
+    for e in results[:10]:
+        response += f"• **{e['subject']}** — {e['from']}\n"
+    
+    await ctx.send(response)
 
 # ── Main ──────────────────────────────────────────────────────────
 def main():
