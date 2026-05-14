@@ -1,5 +1,13 @@
-{
-  "team": [],
-  "lastUpdated": "2026-05-13",
-  "notes": "Decklar team members will be added here as identified. Default access: read-only."
-}
+[
+  {
+    "name": "Jeff Calabro",
+    "role": "Director of Customer Accounts and Customer Success",
+    "department": "Customer Success",
+    "discordId": "1502678773911392396",
+    "email": "jeffcalabro32@gmail.com",
+    "authority": "full",
+    "status": "active",
+    "notes": "My boss. Can command me. Only person who can modify system state.",
+    "addedDate": "2026-05-13"
+  }
+]

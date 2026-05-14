@@ -1,4 +1,23 @@
-{
-  "projects": [],
-  "lastUpdated": "2026-05-13"
-}
+[
+  {
+    "projectId": "init-001",
+    "name": "Gavin System Initialization",
+    "description": "Set up Gavin's infrastructure: Discord bot, data directory, memory files",
+    "status": "in_progress",
+    "owner": "Jarvis",
+    "priority": "high",
+    "createdDate": "2026-05-13",
+    "targetDate": "2026-05-13",
+    "openItems": [
+      "Create persistent Discord bot listener",
+      "Test message reception from Jeff",
+      "Verify file upload handling"
+    ],
+    "completedItems": [
+      "Created decklar-intelligence directory structure",
+      "Wrote identity.md",
+      "Initialized memory.json",
+      "Loaded Discord bot credentials"
+    ]
+  }
+]

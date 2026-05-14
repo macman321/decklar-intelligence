@@ -1,0 +1,2 @@
+# Gavin Discord Bot Requirements
+discord.py>=2.3.0

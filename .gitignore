@@ -1,21 +1,27 @@
-# Security - Never commit secrets
-.env
-gavin/.env
-*.token
-secrets/
+# Gavin's .gitignore
+# Keep sensitive data out of version control
 
-# Python
+# Credentials and tokens
+*.plist
+launch_*.sh
+
+# Sensitive environment
+.env
+.env.local
+
+# Large logs
+gavin.log
+*.log
+
+# Runtime files
+*.pid
+nohup.out
+
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
-.Python
-*.so
-
-# OS
 .DS_Store
-Thumbs.db
 
-# Logs
-*.log
-gavin/discord.log
+# Inbox (transient files)
+inbox/

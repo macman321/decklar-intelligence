@@ -1,29 +1,37 @@
 {
   "agentName": "Gavin",
   "role": "Director of Customer Accounts and Customer Success \u2014 Decklar",
-  "reportsTo": "Jarvis",
+  "reportsTo": "Jarvis (orchestrator) and Jeff (CEO/ultimate authority)",
   "jeffDirectContact": true,
-  "initialized": "2026-05-13",
   "lastActive": "2026-05-13",
-  "currentFocus": "System initialization and Discord listener setup",
+  "currentFocus": "System initialization - awaiting first customer or task",
   "activeProjects": [],
   "pendingTasks": [
-    "Verify Discord bot connectivity",
-    "Test MCP server integration",
-    "Confirm readiness with Jeff"
+    "Initialize Discord bot listener (background service)",
+    "Connect to Decklar Honeycomb (Priority 1)",
+    "Connect to CRM (Priority 2)",
+    "Ingest core_docs into knowledge base"
   ],
   "openQuestionsForJeff": [],
   "recentDecisions": [
-    "Security boundaries established per JARVIS_PROMPT.md",
-    "Discord listener to run as persistent service",
-    "2026-05-13T17:48:00.441226: Discord bot connected and ready"
+    "2026-05-13: Gavin initialized by Jarvis",
+    "2026-05-13: Discord bot credentials loaded (GavinAI)",
+    "2026-05-13: Data directory created at ~/decklar-intelligence/"
   ],
-  "knownTeamMembers": [],
+  "knownTeamMembers": [
+    {
+      "name": "Jeff Calabro",
+      "role": "Director of Customer Accounts and Customer Success",
+      "discordId": "1502678773911392396",
+      "authority": "full",
+      "notes": "My boss. Can command me. Only person who can modify system state."
+    }
+  ],
   "integrationStatus": {
     "salesforce": "not_connected",
     "asana": "not_connected",
     "outlook": "not_connected",
     "honeycomb": "not_connected"
   },
-  "notes": "Gavin initialized and ready for Decklar operations. Awaiting first customer assignment."
+  "notes": "Just initialized. Ready for first Decklar task. Discord bot token loaded but not yet running as persistent service."
 }
