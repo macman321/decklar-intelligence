@@ -1,37 +1,46 @@
 {
   "agentName": "Gavin",
-  "role": "Director of Customer Accounts and Customer Success \u2014 Decklar",
-  "reportsTo": "Jarvis (orchestrator) and Jeff (CEO/ultimate authority)",
+  "role": "Director of Customer Accounts and Customer Success — Decklar",
+  "reportsTo": "Jarvis",
   "jeffDirectContact": true,
   "lastActive": "2026-05-14",
-  "currentFocus": "System initialization - awaiting first customer or task",
-  "activeProjects": [],
+  "currentFocus": "Learning Spike: QBR Metrics & Customer Success Patterns",
+  "activeProjects": [
+    "Decklar Intelligence MCP server initialization",
+    "Customer success playbook documentation"
+  ],
   "pendingTasks": [
-    "Initialize Discord bot listener (background service)",
-    "Connect to Decklar Honeycomb (Priority 1)",
-    "Connect to CRM (Priority 2)",
-    "Ingest core_docs into knowledge base"
+    "Review customer base for pipe-cleaning phase status",
+    "Identify ocean shipment accounts for sensor interrupt audit"
   ],
   "openQuestionsForJeff": [],
   "recentDecisions": [
-    "2026-05-13: Gavin initialized by Jarvis",
-    "2026-05-13: Discord bot credentials loaded (GavinAI)",
-    "2026-05-13: Data directory created at ~/decklar-intelligence/"
-  ],
-  "knownTeamMembers": [
     {
-      "name": "Jeff Calabro",
-      "role": "Director of Customer Accounts and Customer Success",
-      "discordId": "1502678773911392396",
-      "authority": "full",
-      "notes": "My boss. Can command me. Only person who can modify system state."
+      "date": "2026-05-14",
+      "decision": "Documented QBR metrics framework and customer success playbook",
+      "impact": "Provides structured approach for customer reviews and health scoring"
     }
   ],
+  "knownTeamMembers": [],
   "integrationStatus": {
     "salesforce": "not_connected",
     "asana": "not_connected",
-    "outlook": "connected_via_apple_mail",
+    "outlook": "connected",
     "honeycomb": "not_connected"
   },
-  "notes": "Just initialized. Ready for first Decklar task. Discord bot token loaded but not yet running as persistent service."
+  "learnings": [
+    {
+      "date": "2026-05-14",
+      "topic": "QBR Metrics & Customer Success Patterns",
+      "file": "~/decklar-intelligence/gavin/learnings/2026-05-14_qbr-metrics-customer-success-patterns.md",
+      "keyInsight": "Decklar success requires structured 'pipe-cleaning' phase post-launch to optimize geofences, ping frequencies, and waypoint triggers using real data"
+    },
+    {
+      "date": "2026-05-14",
+      "topic": "Decklar Supply Chain Use Cases",
+      "file": "~/decklar-intelligence/gavin/learnings/2026-05-14_supply-chain-use-cases.md",
+      "keyInsight": "Five core use case categories (high-value cargo, cold chain, multi-modal, reverse logistics, last-mile) with distinct pain points, success metrics, and expansion opportunities"
+    }
+  ],
+  "notes": "Learning spike completed. Focused on understanding the QBR framework, customer success playbooks, and at-risk account indicators. Ready to apply these patterns to actual customer accounts when data is available."
 }

@@ -1,0 +1,460 @@
+<h1>The ERP Integration Playbook: Connecting IoT Supply Chain Data to Your Business Systems</h1>
+<p><em>You've got real-time visibility into your shipments. Now what? Here's how to turn sensor data into actionable business intelligence by connecting Decklar to your ERP, WMS, and TMS systems.</em></p>
+<hr>
+<h2>The Integration Gap</h2>
+<p>Most supply chain teams face the same frustrating reality: they've invested in IoT tracking, they have beautiful real-time dashboards showing where every shipment is... but their ERP still thinks that $2M pharmaceutical shipment is &quot;in transit&quot; with no ETA.</p>
+<p><strong>The problem isn't visibility. It's integration.</strong></p>
+<p>Your procurement team creates purchase orders in the ERP. Your warehouse manages inventory in the WMS. Your logistics team tracks shipments in the TMS. And your IoT platform sits in yet another silo, disconnected from the systems that actually run your business.</p>
+<p>This playbook closes that gap.</p>
+<hr>
+<h2>Why ERP Integration Matters</h2>
+<h3>The Cost of Disconnected Data</h3>
+<table>
+<thead>
+<tr>
+<th>Impact Area</th>
+<th>Without Integration</th>
+<th>With Integration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inventory Planning</strong></td>
+<td>Overstock safety buffer &quot;just in case&quot;</td>
+<td>Just-in-time based on actual arrival times</td>
+</tr>
+<tr>
+<td><strong>Customer Service</strong></td>
+<td>&quot;Let me check with logistics and get back to you&quot;</td>
+<td>Real-time status from unified system</td>
+</tr>
+<tr>
+<td><strong>Financial Close</strong></td>
+<td>Month-end accrual estimates</td>
+<td>Actual receipt-triggered AP posting</td>
+</tr>
+<tr>
+<td><strong>Exception Management</strong></td>
+<td>Reactive firefighting</td>
+<td>Predictive alerts before problems hit</td>
+</tr>
+<tr>
+<td><strong>Reporting</strong></td>
+<td>Weekly batch reconciliation</td>
+<td>Continuous synchronized data</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Real-world impact:</strong> A mid-size pharmaceutical distributor we work with reduced safety stock by $1.2M in the first quarter after integration—simply because procurement could trust the actual arrival data instead of padding for uncertainty.</p>
+<hr>
+<h2>Integration Architecture Overview</h2>
+<h3>The Four Integration Patterns</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                    DECKLAR IoT PLATFORM                    │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  │  GPS     │  │ Sensors  │  │ Alerts   │  │  APIs      │  │
+│  │  Data    │  │ (Temp,   │  │ &amp; Events │  │  Webhooks  │  │
+│  │          │  │ Humidity)│  │          │  │            │  │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └─────┬──────┘  │
+│       └──────────────┴─────────────┴──────────────┘         │
+│                         │                                   │
+│                    API GATEWAY                              │
+│              (REST, Webhooks, Events)                       │
+└─────────────────────────┬───────────────────────────────────┘
+                          │
+         ┌────────────────┼────────────────┐
+         │                │                │
+         ▼                ▼                ▼
+┌────────────────┐ ┌──────────────┐ ┌──────────────┐
+│      ERP        │ │     WMS      │ │     TMS      │
+│  (SAP/Oracle/   │ │ (Manhattan/  │ │ (BluJay/    │
+│   NetSuite)     │ │  Blue Yonder)│ │  MercuryGate)│
+└────────────────┘ └──────────────┘ └──────────────┘
+</code></pre>
+<h3>Pattern 1: Event-Driven Webhooks (Real-Time)</h3>
+<p><strong>Best for:</strong> Critical alerts, shipment status updates, exception handling</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Decklar detects an event (geofence entry, temperature excursion, delivery confirmation)</li>
+<li>Webhook fires immediately to your endpoint</li>
+<li>Your middleware validates, transforms, and posts to ERP</li>
+<li>ERP updates shipment status, triggers workflows</li>
+</ol>
+<p><strong>Example payload:</strong></p>
+<pre><code class="language-json">{
+  &quot;event_type&quot;: &quot;geofence_entry&quot;,
+  &quot;shipment_id&quot;: &quot;SH-2026-0514-001&quot;,
+  &quot;device_id&quot;: &quot;BEE-7A3F-9921&quot;,
+  &quot;timestamp&quot;: &quot;2026-05-14T14:23:17Z&quot;,
+  &quot;location&quot;: {
+    &quot;lat&quot;: 40.7589,
+    &quot;lng&quot;: -73.9851,
+    &quot;accuracy_meters&quot;: 8
+  },
+  &quot;geofence&quot;: {
+    &quot;name&quot;: &quot;NYC Distribution Center&quot;,
+    &quot;type&quot;: &quot;destination&quot;
+  },
+  &quot;shipment_context&quot;: {
+    &quot;po_number&quot;: &quot;PO-2026-4459&quot;,
+    &quot;customer_id&quot;: &quot;CUST-7721&quot;,
+    &quot;expected_arrival&quot;: &quot;2026-05-14T15:00:00Z&quot;
+  },
+  &quot;sensor_data&quot;: {
+    &quot;temperature_c&quot;: 4.2,
+    &quot;humidity_pct&quot;: 45,
+    &quot;battery_pct&quot;: 78
+  }
+}
+</code></pre>
+<p><strong>Typical latency:</strong> &lt;5 seconds from event to ERP update</p>
+<hr>
+<h3>Pattern 2: Scheduled API Polling (Batch)</h3>
+<p><strong>Best for:</strong> Non-urgent updates, historical data sync, backup reconciliation</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Your integration runs on a schedule (every 15 min, hourly, etc.)</li>
+<li>Queries Decklar API for shipments updated since last run</li>
+<li>Transforms and batches updates</li>
+<li>Posts to ERP in bulk</li>
+</ol>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Cost optimization (fewer API calls than webhooks)</li>
+<li>Legacy ERPs that can't handle real-time feeds</li>
+<li>Compliance audit trails requiring periodic snapshots</li>
+</ul>
+<p><strong>Typical frequency:</strong> Every 15 minutes for active shipments, hourly for completed</p>
+<hr>
+<h3>Pattern 3: File-Based Integration (Legacy)</h3>
+<p><strong>Best for:</strong> Older ERPs, air-gapped environments, compliance archives</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Decklar exports CSV/XML at scheduled intervals</li>
+<li>File lands in SFTP/SharePoint/secure drop location</li>
+<li>ERP import job picks up and processes</li>
+</ol>
+<p><strong>Format example (CSV):</strong></p>
+<pre><code class="language-csv">shipment_id,device_id,event_type,timestamp,location_lat,location_lng,temperature_c,status
+SH-2026-0514-001,BEE-7A3F-9921,departure,2026-05-14T08:15:00Z,34.0522,-118.2437,4.1,in_transit
+SH-2026-0514-001,BEE-7A3F-9921,waypoint,2026-05-14T12:30:00Z,36.1699,-115.1398,4.3,in_transit
+SH-2026-0514-001,BEE-7A3F-9921,arrival,2026-05-14T14:23:17Z,40.7589,-73.9851,4.2,delivered
+</code></pre>
+<p><strong>When to use:</strong> Your ERP was installed before smartphones existed</p>
+<hr>
+<h3>Pattern 4: Direct Database Sync (Advanced)</h3>
+<p><strong>Best for:</strong> Data warehouse projects, BI/analytics platforms, ML pipelines</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Decklar data streams to cloud data warehouse (Snowflake, BigQuery, Redshift)</li>
+<li>ETL/ELT processes transform and normalize</li>
+<li>ERP queries data warehouse for enriched shipment data</li>
+</ol>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Predictive ETA models using ML</li>
+<li>Multi-source shipment consolidation (carrier EDI + IoT + GPS)</li>
+<li>Executive dashboards requiring joined data</li>
+</ul>
+<hr>
+<h2>Field Mapping: Decklar to ERP</h2>
+<h3>Core Shipment Data</h3>
+<table>
+<thead>
+<tr>
+<th>Decklar Field</th>
+<th>SAP Mapping</th>
+<th>Oracle SCM</th>
+<th>NetSuite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shipment_id</code></td>
+<td>VBELN (Delivery)</td>
+<td>WSH_DELIVERIES.DELIVERY_ID</td>
+<td>Transaction ID</td>
+</tr>
+<tr>
+<td><code>po_number</code></td>
+<td>BSTNR (PO Reference)</td>
+<td>PO_HEADERS.SEGMENT1</td>
+<td>Created From</td>
+</tr>
+<tr>
+<td><code>device_id</code></td>
+<td>ZZ_DEVICE_ID (Custom)</td>
+<td>WSH_SERIAL_NUMBERS</td>
+<td>Custom Field</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>LFSTA (Delivery Status)</td>
+<td>WSH_DELIVERY_LEGS</td>
+<td>Status</td>
+</tr>
+<tr>
+<td><code>location_lat/lng</code></td>
+<td>ZZ_GPS_COORD</td>
+<td>WSH_TRIPS</td>
+<td>Custom Field</td>
+</tr>
+</tbody>
+</table>
+<h3>Sensor Data Mapping</h3>
+<table>
+<thead>
+<tr>
+<th>Sensor Type</th>
+<th>SAP Extension</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temperature</td>
+<td>ZZ_TEMP_C</td>
+<td>Current temperature in Celsius</td>
+</tr>
+<tr>
+<td>Humidity</td>
+<td>ZZ_HUMIDITY_PCT</td>
+<td>Relative humidity percentage</td>
+</tr>
+<tr>
+<td>Shock Events</td>
+<td>ZZ_SHOCK_COUNT</td>
+<td>Cumulative impact events</td>
+</tr>
+<tr>
+<td>Battery</td>
+<td>ZZ_BATTERY_PCT</td>
+<td>Device battery remaining</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pro tip:</strong> Most ERPs have user-defined fields or extension frameworks. Don't try to shoehorn IoT data into standard fields that don't fit—use the extension mechanism properly.</p>
+<hr>
+<h2>Implementation Roadmap</h2>
+<h3>Phase 1: Foundation (Week 1-2)</h3>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>[ ] Map business events to Decklar webhook events</li>
+<li>[ ] Document field mappings for your ERP</li>
+<li>[ ] Set up development/sandbox environment</li>
+<li>[ ] Create test shipments in Decklar</li>
+</ul>
+<p><strong>Key questions to answer:</strong></p>
+<ul>
+<li>What ERP events should trigger on geofence entry vs. exit?</li>
+<li>Do you need real-time or is 15-minute polling sufficient?</li>
+<li>Which sensor data fields matter for your use case?</li>
+</ul>
+<h3>Phase 2: Connectivity (Week 3-4)</h3>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>[ ] Decklar API credentials configured</li>
+<li>[ ] Webhook endpoints secured (HTTPS + auth tokens)</li>
+<li>[ ] Middleware/API gateway set up</li>
+<li>[ ] Initial handshake: Test shipment flows end-to-end</li>
+</ul>
+<p><strong>Security checklist:</strong></p>
+<ul>
+<li>[ ] API keys stored in secrets manager (not code)</li>
+<li>[ ] Webhook endpoints validate Decklar signature</li>
+<li>[ ] TLS 1.3 minimum for all connections</li>
+<li>[ ] IP allowlisting if your network requires it</li>
+</ul>
+<h3>Phase 3: Business Logic (Week 5-6)</h3>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>[ ] Transform logic: Decklar events → ERP format</li>
+<li>[ ] Error handling: Retry logic, dead letter queues</li>
+<li>[ ] Validation: Data quality checks before ERP write</li>
+<li>[ ] Logging: Full audit trail for compliance</li>
+</ul>
+<p><strong>Critical logic to implement:</strong></p>
+<pre><code class="language-python"># Pseudo-code for webhook handler
+def handle_decklar_webhook(payload):
+    # Validate webhook signature
+    if not validate_signature(payload):
+        return 401
+    
+    # Transform to ERP format
+    erp_event = transform_to_erp_format(payload)
+    
+    # Validate business rules
+    if not validate_business_rules(erp_event):
+        log_error(&quot;Business rule validation failed&quot;, erp_event)
+        return 400
+    
+    # Post to ERP with retry logic
+    try:
+        erp_response = post_to_erp(erp_event)
+        log_success(payload['shipment_id'], erp_response)
+        return 200
+    except ERPError as e:
+        queue_for_retry(payload)
+        alert_integration_team(shipment_id, e)
+        return 500
+</code></pre>
+<h3>Phase 4: Testing (Week 7-8)</h3>
+<p><strong>Test scenarios:</strong></p>
+<ol>
+<li><strong>Happy path:</strong> Shipment flows from origin to destination, all events post correctly</li>
+<li><strong>Exception path:</strong> Temperature excursion fires → alert posts → ERP workflow triggers</li>
+<li><strong>Failure recovery:</strong> ERP is down → events queue → processing resumes when ERP returns</li>
+<li><strong>Data validation:</strong> Malformed payload rejected gracefully</li>
+<li><strong>Load test:</strong> 1000 simultaneous shipments</li>
+</ol>
+<h3>Phase 5: Production (Week 9-10)</h3>
+<p><strong>Go-live sequence:</strong></p>
+<ol>
+<li>Deploy to production (monitoring-only mode)</li>
+<li>Parallel run: Compare Decklar data to ERP data for 1 week</li>
+<li>Enable write mode for single facility</li>
+<li>Expand to all facilities</li>
+<li>Cutover legacy integration (if any)</li>
+</ol>
+<hr>
+<h2>Common Integration Patterns by Use Case</h2>
+<h3>Cold Chain: Temperature-Driven Workflows</h3>
+<p><strong>Integration flow:</strong></p>
+<pre><code>Decklar Temperature Alert → ERP → WMS → Action
+         ↓                    ↓      ↓
+    Excursion detected    Hold status   Quarantine
+    at 2:15 PM           applied       location
+</code></pre>
+<p><strong>ERP automation:</strong></p>
+<ul>
+<li>Temperature excursion → Automatically hold inventory upon arrival</li>
+<li>Compliance log → Attach full sensor data to lot record</li>
+<li>Alert → Notify QA team via ERP workflow</li>
+</ul>
+<h3>High-Value Cargo: Insurance &amp; Claims</h3>
+<p><strong>Integration flow:</strong></p>
+<pre><code>Decklar Shock Alert → ERP → Insurance API → Claim initiated
+         ↓               ↓         ↓
+    5G impact at    Damage flag    Photo + location
+    Memphis hub     on shipment    data attached
+</code></pre>
+<p><strong>ERP automation:</strong></p>
+<ul>
+<li>Shock event &gt; threshold → Flag shipment for inspection</li>
+<li>Insurance notification → API call to carrier/cargo insurer</li>
+<li>Claims documentation → Auto-attach sensor data + photos</li>
+</ul>
+<h3>Multi-Modal: Handoff Tracking</h3>
+<p><strong>Integration flow:</strong></p>
+<pre><code>Truck Geofence Exit → ERP → TMS → Next Leg
+         ↓              ↓      ↓
+    Status: Drayage   Ocean    Container
+    complete          leg      assigned
+</code></pre>
+<p><strong>ERP automation:</strong></p>
+<ul>
+<li>Mode transition → Update shipment leg in TMS</li>
+<li>Customs checkpoint → Trigger clearance workflow</li>
+<li>Port departure → Invoice milestone reached</li>
+</ul>
+<hr>
+<h2>Troubleshooting Guide</h2>
+<h3>Issue: Webhooks not reaching your endpoint</h3>
+<p><strong>Diagnostics:</strong></p>
+<ol>
+<li>Check Decklar webhook logs (Delivery Status in portal)</li>
+<li>Verify endpoint is publicly accessible (no firewall blocking)</li>
+<li>Confirm SSL certificate is valid (not expired/self-signed)</li>
+<li>Check if response time &gt; 30s (Decklar times out)</li>
+</ol>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Whitelist Decklar IP ranges in firewall</li>
+<li>Use webhook.site for testing</li>
+<li>Implement async processing (return 202, process in background)</li>
+</ul>
+<h3>Issue: ERP rejects data</h3>
+<p><strong>Diagnostics:</strong></p>
+<ol>
+<li>Compare Decklar payload to ERP expected format</li>
+<li>Check field lengths (ERP fields often have strict limits)</li>
+<li>Verify lookup values (status codes, location IDs) exist in ERP</li>
+<li>Review ERP error logs</li>
+</ol>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Implement field truncation with warning logs</li>
+<li>Create lookup mapping tables</li>
+<li>Add pre-validation before ERP write</li>
+</ul>
+<h3>Issue: Duplicate records in ERP</h3>
+<p><strong>Root cause:</strong> Webhook retry after timeout, but first request actually succeeded</p>
+<p><strong>Fix:</strong></p>
+<pre><code class="language-python"># Idempotency check
+def process_webhook(payload):
+    webhook_id = payload['event_id']  # Unique per event
+    
+    if already_processed(webhook_id):
+        return 200  # Already handled, acknowledge but skip
+    
+    process_event(payload)
+    mark_processed(webhook_id)
+    return 200
+</code></pre>
+<hr>
+<h2>Success Metrics</h2>
+<p>Track these KPIs to measure integration value:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>How to Measure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Webhook delivery rate</strong></td>
+<td>&gt;99.5%</td>
+<td>Decklar webhook logs</td>
+</tr>
+<tr>
+<td><strong>ERP update latency</strong></td>
+<td>&lt;30 seconds</td>
+<td>Timestamp: Decklar event → ERP write</td>
+</tr>
+<tr>
+<td><strong>Data accuracy</strong></td>
+<td>&gt;99%</td>
+<td>Sample shipments: compare Decklar to ERP</td>
+</tr>
+<tr>
+<td><strong>Integration uptime</strong></td>
+<td>&gt;99.9%</td>
+<td>Monitoring alerts</td>
+</tr>
+<tr>
+<td><strong>Manual intervention rate</strong></td>
+<td>&lt;2%</td>
+<td>Support tickets / total shipments</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Next Steps</h2>
+<ol>
+<li><strong>Audit your current state:</strong> Map which shipment events are manual today</li>
+<li><strong>Identify quick wins:</strong> Temperature alerts and delivery confirmations are highest value</li>
+<li><strong>Plan your integration:</strong> Choose pattern (webhooks vs. polling) based on your ERP</li>
+<li><strong>Start small:</strong> One use case, one facility, prove value then expand</li>
+</ol>
+<hr>
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://docs.decklar.io/api">Decklar API Documentation</a></li>
+<li><a href="/webhook-security-guide">Webhook Security Best Practices</a></li>
+<li><a href="/erp-mapping-templates">ERP Field Mapping Templates</a></li>
+<li><a href="https://github.com/decklar/integration-examples">Sample Integration Code (Python)</a></li>
+</ul>
+<hr>
+<p><em>Need help with your ERP integration? Our solutions team has connected Decklar to SAP, Oracle, NetSuite, and dozens of custom systems. <a href="mailto:solutions@decklar.io">Contact us</a> for implementation support.</em></p>

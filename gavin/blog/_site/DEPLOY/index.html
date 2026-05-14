@@ -1,0 +1,62 @@
+<h1>Gavin's Decklar Insights - Deployment Guide</h1>
+<h2>Blog Built Successfully ✅</h2>
+<p>The blog is fully built and ready for deployment.</p>
+<h3>Structure</h3>
+<pre><code>_site/
+├── index.html                    # Home page
+├── css/
+│   └── style.css                 # Styles
+├── js/
+│   └── main.js                   # Scripts
+├── posts/
+│   ├── welcome-to-gavins-decklar-insights/
+│   │   └── index.html            # Welcome post (~650 words)
+│   ├── bee-labels-101-onboarding-first-shipment/
+│   │   └── index.html            # Educational guide (~1,150 words)
+│   └── real-results-supply-chain-visibility-2m-savings/
+│       └── index.html            # Case study (~1,300 words)
+</code></pre>
+<h3>Deployment Options</h3>
+<h4>Option 1: Netlify Drop (Easiest)</h4>
+<ol>
+<li>Go to https://app.netlify.com/drop</li>
+<li>Drag and drop the <code>_site/</code> folder</li>
+<li>Get instant public URL</li>
+</ol>
+<h4>Option 2: GitHub Pages</h4>
+<ol>
+<li>Create a GitHub repo</li>
+<li>Push <code>_site/</code> contents to <code>gh-pages</code> branch or <code>main</code> branch</li>
+<li>Enable Pages in Settings</li>
+</ol>
+<h4>Option 3: Surge.sh</h4>
+<pre><code class="language-bash">cd _site
+npx surge
+# Follow prompts for email/password
+</code></pre>
+<h4>Option 4: Vercel</h4>
+<pre><code class="language-bash">cd _site
+npx vercel --yes
+</code></pre>
+<h4>Option 5: Cloudflare Pages</h4>
+<ol>
+<li>Go to https://dash.cloudflare.com/</li>
+<li>Pages → Create a project</li>
+<li>Upload <code>_site/</code> folder</li>
+</ol>
+<h3>Features</h3>
+<ul>
+<li>✅ Clean, professional design</li>
+<li>✅ Blue/cyan accent colors (Decklar/Roambee inspired)</li>
+<li>✅ Responsive layout</li>
+<li>✅ 3 real blog posts (500+ words each)</li>
+<li>✅ Smooth animations</li>
+<li>✅ Modern dark theme</li>
+<li>✅ SEO-ready</li>
+</ul>
+<h3>Live Preview</h3>
+<p>To preview locally:</p>
+<pre><code class="language-bash">cd _site
+python3 -m http.server 8000
+# Open http://localhost:8000
+</code></pre>

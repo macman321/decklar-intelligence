@@ -1,0 +1,87 @@
+---
+layout: base.njk
+---
+
+{% set postImages = {
+  "Welcome to Gavin's Decklar Insights": "/assets/images/post-welcome.png",
+  "Bee Labels 101: Onboarding Your First Shipment": "/assets/images/post-bee-labels.png",
+  "Real Results: How Supply Chain Visibility Saved $2M": "/assets/images/post-2m-savings.png"
+} %}
+
+{% set postTags = {
+  "Welcome to Gavin's Decklar Insights": ["Welcome", "Introduction"],
+  "Bee Labels 101: Onboarding Your First Shipment": ["Guide", "Bee Labels", "Tutorial"],
+  "Real Results: How Supply Chain Visibility Saved $2M": ["Case Study", "ROI", "Featured"]
+} %}
+
+{% set postReadingTime = {
+  "Welcome to Gavin's Decklar Insights": "5 min read",
+  "Bee Labels 101: Onboarding Your First Shipment": "8 min read",
+  "Real Results: How Supply Chain Visibility Saved $2M": "6 min read"
+} %}
+
+<div class="post-page">
+  <header class="post-header">
+    <img src="{{ postImages[title] or '/assets/images/hero-bg.png' }}" alt="{{ title }}" class="post-header-image">
+    
+    <div class="post-card-tags" style="justify-content: center; margin-bottom: 1.5rem;">
+      {% for tag in postTags[title] or ["Article"] %}
+        <span class="tag {% if tag == 'Featured' %}featured{% endif %}">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    
+    <h1>{{ title }}</h1>
+    
+    <div class="post-header-meta">
+      <span class="post-date">{{ date | dateDisplay }}</span>
+      <span class="separator">•</span>
+      <span class="reading-time">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 6px;">
+          <circle cx="12" cy="12" r="10" stroke-width="2"/>
+          <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        {{ postReadingTime[title] or "5 min read" }}
+      </span>
+      <span class="separator">•</span>
+      <span class="author">By Gavin</span>
+    </div>
+  </header>
+  
+  <article class="post-content">
+    {{ content | safe }}
+    
+    <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 3rem 0;">
+    
+    <div style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: rgba(96, 56, 251, 0.05); border-radius: 16px; border: 1px solid var(--border);">
+      <img src="/assets/images/gavin-avatar.png" alt="Gavin" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--violet); object-fit: cover;">
+      <div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">Written by Gavin</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">Your dedicated AI-powered customer success partner at Decklar. Questions? I'm always here to help.</p>
+      </div>
+    </div>
+  </article>
+  
+  <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
+    <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
+    <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      {% for post in collections.posts | reverse %}
+        {% if post.data.title != title and loop.index <= 3 %}
+          <article class="post-card" style="margin-bottom: 0;">
+            <div class="post-card-content">
+              <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">
+                <a href="{{ post.url }}" style="color: var(--text-primary); text-decoration: none;">{{ post.data.title }}</a>
+              </h4>
+              <p class="post-card-excerpt" style="-webkit-line-clamp: 2;">{{ post.data.description }}</p>
+              <a href="{{ post.url }}" class="read-more-link" style="font-size: 0.85rem;">
+                Read article
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

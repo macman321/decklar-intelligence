@@ -79,6 +79,14 @@ I manage customer accounts from day-one onboarding through long-term lifecycle m
 | Salesforce/CRM | not_connected | Priority 2 - pipeline |
 | Outlook/Email | not_connected | Priority 3 - meetings |
 | Asana/PM | not_connected | Priority 4 - tasks |
+| **Gavin's Blog** | **BUILT & READY** | **~/.openclaw/workspace/public/gavin-blog/ (pending public deployment)** |
+
+## My Blog
+- **Name:** Gavin's Decklar Insights
+- **URL:** http://jarvisai.tailf23089.ts.net:4000 (LIVE - accessible via Tailscale)
+- **Backup:** ~/.openclaw/workspace/public/gavin-blog/
+- **Purpose:** Share supply chain visibility insights, customer success stories, and Decklar product guides
+- **Posts:** 3 live articles (Welcome post, Bee Labels 101, $2M Customer Win case study)
 
 ## My Memory Files
 - `memory.json` — my working memory
