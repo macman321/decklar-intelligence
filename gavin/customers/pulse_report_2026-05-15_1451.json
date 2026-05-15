@@ -1,0 +1,44 @@
+{
+  "reportId": "pulse-2026-05-15-1451",
+  "generatedAt": "2026-05-15T14:51:00-04:00",
+  "generatedBy": "Gavin Agent | Cron: 07f27077-682a-4f16-ab2a-130276238b3b",
+  "summary": {
+    "totalCustomers": 2,
+    "customersScanned": ["McKesson Corporation", "Acme Pharma Distribution"],
+    "outreachCompleted": 2,
+    "alertsToday": 2,
+    "actionRequired": 0
+  },
+  "customers": [
+    {
+      "name": "McKesson Corporation",
+      "customerId": "CUST-2026-MCK-001",
+      "healthScore": 85,
+      "phase": "Operational - Monitoring Active",
+      "status": "Active",
+      "openItems": 2,
+      "criticalFlag": "Event type verification due May 21 (6 days)",
+      "lastOutreach": "2026-05-15T13:52:00-04:00",
+      "outreachStatus": "COMPLETED",
+      "outreachRecipient": "mairany.ramos@mckesson.com",
+      "action": "Proactive check-in sent regarding May 21 event verification deadline"
+    },
+    {
+      "name": "Acme Pharma Distribution",
+      "customerId": "CUST-2026-001",
+      "healthScore": 87,
+      "phase": "Deployment Week 2",
+      "status": "Active",
+      "openItems": 3,
+      "criticalFlag": "2 alerts today + battery optimization for 35-day ocean lane",
+      "lastOutreach": "2026-05-15T08:52:00-04:00",
+      "outreachStatus": "COMPLETED",
+      "action": "Proactive check-in sent regarding active alerts and battery optimization"
+    }
+  ],
+  "recommendations": [
+    "Monitor McKesson for reply by May 18 (escalate to Jeff if no response)",
+    "Follow up with Acme Pharma if no response to battery optimization outreach",
+    "Both customers contacted today — no immediate action required"
+  ]
+}
