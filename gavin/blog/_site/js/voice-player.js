@@ -123,7 +123,7 @@ class VoicePlayer {
         });
       } else {
         // Fallback: fetch then play
-        const response = await fetch('http://localhost:4005/api/tts/stream', {
+        const response = await fetch('https://voice-api.decklar.io/api/tts/stream', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: this.text, postId: this.postId })
@@ -147,7 +147,7 @@ class VoicePlayer {
 
   async fetchAndStreamAudio() {
     try {
-      const response = await fetch('http://localhost:4005/api/tts/stream', {
+      const response = await fetch('https://voice-api.decklar.io/api/tts/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: this.text, postId: this.postId })
@@ -240,7 +240,7 @@ class VoicePlayer {
       this.audioElement.crossOrigin = 'anonymous';
       
       // For summary, we fetch the condensed audio
-      const response = await fetch('http://localhost:4005/api/summarize', {
+      const response = await fetch('https://voice-api.decklar.io/api/summarize', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: fullText, postId: this.postId })

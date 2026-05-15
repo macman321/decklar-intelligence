@@ -19,7 +19,7 @@
 
   // Get API base URL from config if available
   const blogConfig = window.BLOG_CONFIG || {};
-  const API_BASE_URL = blogConfig.VOICE_API_URL || 'http://localhost:4005';
+  const API_BASE_URL = blogConfig.VOICE_API_URL || 'https://voice-api.decklar.io';
 
   // State
   let isOpen = false;

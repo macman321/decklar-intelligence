@@ -973,6 +973,148 @@ main {
   backdrop-filter: blur(10px);
 }
 
+/* Voice Player Controls v4.0.0 */
+.voice-player {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+}
+
+.voice-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.voice-play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet) 0%, var(--violet-light) 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(96, 56, 251, 0.3);
+}
+
+.voice-play-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(96, 56, 251, 0.5);
+}
+
+.voice-play-btn:active {
+  transform: scale(0.98);
+}
+
+.voice-summarize-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voice-summarize-btn:hover {
+  border-color: var(--violet);
+  background: rgba(96, 56, 251, 0.1);
+}
+
+.voice-summarize-btn svg {
+  fill: currentColor;
+}
+
+.voice-progress-container {
+  margin-top: 1rem;
+}
+
+.voice-progress-bar {
+  position: relative;
+  height: 6px;
+  background: rgba(96, 56, 251, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.voice-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--violet) 0%, var(--green) 100%);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.voice-progress-handle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 64, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.voice-progress-bar:hover .voice-progress-handle {
+  opacity: 1;
+}
+
+.voice-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.voice-status {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive voice player */
+@media (max-width: 640px) {
+  .voice-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .voice-summarize-btn {
+    justify-content: center;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--violet-dark);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--violet);
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 10px;
