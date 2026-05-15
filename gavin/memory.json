@@ -4,6 +4,7 @@
   "reportsTo": "Jarvis",
   "jeffDirectContact": true,
   "lastActive": "2026-05-15",
+  "lastMemorySync": "2026-05-15T11:07:00-04:00",
   "lastMemorySync": "2026-05-15T09:07:00-04:00",
   "currentFocus": "Memory consolidation completed — Reviewed blog growth (4→18 posts), customer health patterns, critical battery optimization flags for Acme Pharma",
   "activeProjects": [
@@ -73,6 +74,12 @@
     "honeycomb": "not_connected"
   },
   "learnings": [
+    {
+      "date": "2026-05-15",
+      "topic": "Customer Expansion & Account Growth Strategies",
+      "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_customer-expansion-account-growth-strategies.md",
+      "keyInsight": "Four expansion archetypes: Lane Expansion (47%), Sensor Payload Expansion (28%), Integration Expansion (19%), Use Case Expansion (6%). Expansion readiness scorecard identifies 18+ score as expansion-ready. Median time to first expansion: 4.2 months."
+    },
     {
       "date": "2026-05-15",
       "topic": "Decklar Customer Conversation Frameworks",
