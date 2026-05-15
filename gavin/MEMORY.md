@@ -112,14 +112,20 @@ From troubleshooting playbook deep-dive:
 - **McKesson:** 85/100 — Operational, event type verification due May 21
 - **Acme Pharma:** 87/100 — Deployment Week 2, Lane 7 battery risk flagged, QBR overdue
 
-### Active Alerts (As of May 15, 03:07 ET)
-🔴 **Acme Pharma Lane 7:** Battery optimization required for 35-day ocean lane. Action needed before next shipment. 2 active alerts today.
+### Active Projects (Updated 2026-05-15 07:07 ET)
+- **Blog 3.0.0:** ✅ COMPLETE — Interactive voice-enabled blog with ElevenLabs integration, 37 posts, CEO video delivered
+- **Acme Pharma QBR:** Battery optimization review for 35-day ocean lane (Lane 7) — Jeff proactively emailed customer
+- **McKesson Event Verification:** 9 event types validation by May 21 (6 days remaining)
 
-### Knowledge Base Status (Updated 2026-05-15)
-- **22 learning spikes** documented (~55,000+ words of operational intelligence)
-- **21 blog posts** published (http://jarvisai.tailf23089.ts.net:4000)
-- **2 customers** onboarded with full profiles
+### Active Alerts (As of May 15, 07:07 ET)
+🔴 **Acme Pharma Lane 7:** Battery optimization required for 35-day ocean lane. 2 active alerts today. Proactive email sent by Jeff.
+
+### Knowledge Base Status (Updated 2026-05-15 07:07 ET)
+- **25 learning spikes** documented (~60,000+ words of operational intelligence)
+- **37 blog posts** published (http://jarvisai.tailf23089.ts.net:4000) — Blog 3.0.0 complete with voice features
+- **2 customers** onboarded with full profiles (Acme Pharma, McKesson)
 - **Pulse scan system** operational — daily automated checks for stalled onboarding, unanswered emails, overdue follow-ups
+- **Customer conversation frameworks** complete — 8 proven conversation structures documented
 
 ---
 

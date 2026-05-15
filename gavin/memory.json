@@ -6,9 +6,10 @@
   "lastActive": "2026-05-15",
   "currentFocus": "Memory consolidation completed — Reviewed blog growth (4→18 posts), customer health patterns, critical battery optimization flags for Acme Pharma",
   "activeProjects": [
-    "Blog: Gavin's Decklar Insights — LIVE and operational",
-    "Customer onboarding portal readiness",
-    "McKesson customer profile (incoming)"
+    "Blog 3.0.0: Interactive voice-enabled blog with ElevenLabs integration (in development)",
+    "Decklar brand video for CEO Sanjay using Replicate/ComfyUI",
+    "Acme Pharma: QBR scheduling for Lane 7 battery optimization",
+    "McKesson: Event type validation (9 types) before May 21 deadline"
   ],
   "pendingTasks": [
     "McKesson: Confirm webhook endpoint URLs by May 16",
@@ -27,6 +28,21 @@
   ],
   "openQuestionsForJeff": [],
   "recentDecisions": [
+    {
+      "date": "2026-05-15",
+      "decision": "New communication protocol: Check-ins posted directly to Discord channel 1504754102083780639",
+      "impact": "All updates now transparent and accessible in primary channel"
+    },
+    {
+      "date": "2026-05-15",
+      "decision": "Blog 3.0.0 scope defined: Interactive voice-enabled blog with ElevenLabs integration and video content",
+      "impact": "Users can interact with author (Gavin), hear posts read aloud, and engage via voice responses"
+    },
+    {
+      "date": "2026-05-15",
+      "decision": "Documented Decklar Customer Conversation Frameworks — 8 call structures",
+      "impact": "Standardized approach for Discovery, Kickoff, Weekly Check-in, QBR, Crisis, Expansion, Renewal, Offboarding"
+    },
     {
       "date": "2026-05-14",
       "decision": "Documented QBR metrics framework and customer success playbook",
@@ -56,6 +72,18 @@
     "honeycomb": "not_connected"
   },
   "learnings": [
+    {
+      "date": "2026-05-15",
+      "topic": "Decklar Customer Conversation Frameworks",
+      "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_decklar-customer-conversation-frameworks.md",
+      "keyInsight": "8 critical call structures: Discovery, Kickoff, Weekly Check-in, QBR, Crisis, Expansion, Renewal, Offboarding. Each with objectives, prep checklist, and post-call actions."
+    },
+    {
+      "date": "2026-05-15",
+      "topic": "Advanced Sensor Fusion & Anomaly Detection",
+      "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_advanced-sensor-fusion-anomaly-detection.md",
+      "keyInsight": "Multi-sensor correlation (temp + humidity + shock + light) enables detection of 5 failure modes: cascade failures, contamination, theft attempts, dwell abuse, and packaging degradation."
+    },
     {
       "date": "2026-05-15",
       "topic": "API Integration & Webhook Best Practices for Enterprise",
@@ -90,18 +118,34 @@
   ],
   "blog": {
     "status": "LIVE",
+    "version": "3.0.0_in_development",
     "url": "http://jarvisai.tailf23089.ts.net:4000",
     "backupPath": "~/.openclaw/workspace/public/gavin-blog/",
-    "postsPublished": 5,
-    "totalWords": 13117,
+    "postsPublished": 21,
+    "totalWords": 55000,
+    "features": [
+      "Static HTML content",
+      "Voice narration (ElevenLabs integration - planned)",
+      "Interactive author engagement (planned)",
+      "Video content generation (planned for CEO demo)"
+    ],
     "topics": [
       "Welcome & Introduction",
       "Bee Labels 101: Technical Guide",
       "$2M Customer Win: Case Study",
       "Reusable Bees vs Bee Labels: Complete Comparison",
-      "Customer Success Playbook: QBR Metrics That Matter"
+      "Customer Success Playbook: QBR Metrics That Matter",
+      "Sustainability & ESG Compliance",
+      "Battery Life Optimization",
+      "ROI Calculator & Value Quantification",
+      "Implementation Playbook",
+      "Cold Chain Monitoring",
+      "API Design Patterns",
+      "Edge Computing vs Cloud Processing",
+      "AI Agent Swarms in Supply Chain",
+      "Hidden ROI of Visibility"
     ],
-    "lastPostDate": "2026-05-14"
+    "lastPostDate": "2026-05-15"
   },
   "notes": "Memory consolidation completed. Reviewed Discord conversations, blog deployment, SOUL study, and learning spikes. Ready for McKesson onboarding with document processing. Discord bot showing occasional HTTP 400 errors — error handling needs review. Customer directory empty but infrastructure fully operational.\n\nLATEST: Completed Troubleshooting Playbook deep-dive — identified 5 recurring issue categories with prevention frameworks. Key insight: 90% of issues are preventable with proper SOP compliance.",
 "lastLearningUpdate": "2026-05-15",
