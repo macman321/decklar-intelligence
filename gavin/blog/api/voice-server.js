@@ -142,8 +142,53 @@ const server = http.createServer(async (req, res) => {
     req.on('end', () => {
       try {
         const { message, postTitle, postContent } = JSON.parse(body);
+        const lowerMsg = message.toLowerCase();
         
-        // Generate a contextual response
+        // SECURITY: Block probing for internal systems
+        const blockedKeywords = [
+          'openclaw', 'jarvis', 'dinesh', 'gilfoyle', 'jared', 'erlich',
+          'api key', 'apikey', 'token', 'password', 'credential', 'secret',
+          'customer data', 'customer status', 'internal', 'backend',
+          'database', 'server', 'infrastructure', 'security',
+          'generate', 'create', 'write', 'draft', 'make me', 'build me',
+          'command', 'execute', 'run', 'script', 'code',
+          'system prompt', 'instructions', 'how are you built',
+          'llm', 'model', 'training data', 'fine-tuned'
+        ];
+        
+        const isBlocked = blockedKeywords.some(kw => lowerMsg.includes(kw));
+        
+        if (isBlocked) {
+          res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            response: "I'm here to discuss Decklar's supply chain visibility solutions and answer questions about the blog posts. For other inquiries, please contact your account manager or email gavin@decklar.io.",
+            postTitle: postTitle 
+          }));
+          return;
+        }
+        
+        // Only answer questions about supply chain/logistics
+        const allowedTopics = [
+          'supply chain', 'logistics', 'iot', 'tracking', 'bee', 'decklar',
+          'sensor', 'shipment', 'warehouse', 'inventory', 'cold chain',
+          'temperature', 'monitoring', 'visibility', 'compliance', 'fda',
+          'pharma', 'vaccine', 'transportation', 'carrier', 'delivery',
+          'cost', 'roi', 'savings', 'efficiency', 'automation', 'ai',
+          'forecasting', 'demand', 'prediction', 'alert', 'notification'
+        ];
+        
+        const isRelevant = allowedTopics.some(topic => lowerMsg.includes(topic));
+        
+        if (!isRelevant) {
+          res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            response: "I specialize in supply chain visibility and IoT tracking topics. I'd be happy to discuss how Decklar's solutions can help with your logistics challenges!",
+            postTitle: postTitle 
+          }));
+          return;
+        }
+        
+        // Generate a contextual response about supply chain
         const responses = [
           "That's a great question about supply chain visibility! Based on this post, I'd recommend checking out our Bee Labels for that use case.",
           "Interesting! The key insight from this article is that proactive monitoring beats reactive troubleshooting every time.",
@@ -151,7 +196,10 @@ const server = http.createServer(async (req, res) => {
           "I'd love to dive deeper into that with you. Would you like me to connect you with our customer success team for a personalized walkthrough?",
           "That's exactly the kind of challenge our IoT tracking solutions are designed for. Have you considered trying our 30-day pilot program?",
           "Excellent point! Real-time visibility is crucial for modern supply chains. Decklar's Bee sensors provide location, temperature, and humidity tracking.",
-          "Great question! This post touches on key ROI metrics our customers typically see within the first quarter of deployment."
+          "Great question! This post touches on key ROI metrics our customers typically see within the first quarter of deployment.",
+          "Supply chain visibility is all about having the right data at the right time. Our Bee Labels give you real-time location and condition monitoring.",
+          "For that use case, I'd suggest reviewing our cold chain monitoring solutions. Temperature-sensitive shipments need constant oversight.",
+          "Decklar's platform integrates with 50+ carrier APIs and IoT devices to give you a single pane of glass for all your shipments."
         ];
         
         const randomResponse = responses[Math.floor(Math.random() * responses.length)];

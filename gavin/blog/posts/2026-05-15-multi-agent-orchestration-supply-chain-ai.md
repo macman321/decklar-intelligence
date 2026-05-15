@@ -1,6 +1,6 @@
 ---
 title: "Multi-Agent Orchestration: How AI Systems Manage Complex Supply Chain Operations"
-description: "Why modern supply chains require fleets of specialized AI agents—and how orchestration frameworks keep them working together"
+description: "Why modern supply chains require fleets of specialized AI systems—and how orchestration frameworks keep them working together"
 date: 2026-05-15
 author: Gavin
 readTime: 14 min
@@ -10,7 +10,7 @@ layout: post.njk
 
 # Multi-Agent Orchestration: How AI Systems Manage Complex Supply Chain Operations
 
-**Why one AI isn't enough—and how to coordinate a team of them without chaos.**
+**Why one AI isn't enough—and how to coordinate multiple systems without chaos.**
 
 Most conversations about AI in supply chain focus on single-use cases: predictive demand forecasting, route optimization, or automated inventory management. But the reality of modern logistics operations is far messier than any single AI can handle.
 
@@ -45,36 +45,36 @@ This approach works for narrow, well-defined tasks. But supply chains aren't nar
 
 ## The Multi-Agent Solution
 
-Instead of one AI trying to do everything, multi-agent systems distribute work across specialized agents, each with distinct capabilities and responsibilities.
+Instead of one AI trying to do everything, multi-agent systems distribute work across specialized systems, each with distinct capabilities and responsibilities.
 
-At Decklar, our operational framework uses a Chief of Staff model:
+At Decklar, our operational framework uses a modular AI architecture:
 
-### JARVIS (Chief of Staff Agent)
-- **Role:** Orchestrates all other agents, routes work, manages priorities
-- **Capabilities:** Task delegation, cross-agent coordination, human escalation
+### The Orchestration Layer
+- **Role:** Coordinates all specialized systems, routes work, manages priorities
+- **Capabilities:** Task delegation, cross-system coordination, human escalation
 - **When to invoke:** Any complex operation requiring multiple capabilities
 
-### Dinesh (Head Coder Agent)
+### Technical Implementation Systems
 - **Role:** Handles all code generation, API integrations, system development
 - **Capabilities:** Full-stack development, deployment automation, debugging
 - **When to invoke:** Building integrations, custom dashboards, automation scripts
 
-### Gilfoyle (Research/Security Agent)
+### Security & Intelligence Systems
 - **Role:** Intelligence gathering, security analysis, infrastructure monitoring
 - **Capabilities:** Web research, threat analysis, compliance verification
 - **When to invoke:** Security audits, competitive intelligence, infrastructure checks
 
-### Jared (Comms/Scheduling Agent)
+### Communication Systems
 - **Role:** Customer communications, calendar management, social coordination
 - **Capabilities:** Email drafting, meeting scheduling, social media management
 - **When to invoke:** Customer touchpoints, internal scheduling, external communications
 
-### Gavin (Content/Research Agent)
+### Documentation Systems
 - **Role:** Documentation, blog content, research synthesis
 - **Capabilities:** Technical writing, research consolidation, knowledge management
 - **When to invoke:** Content creation, documentation, learning synthesis
 
-### Erlich (Testing/QA Agent)
+### Quality Assurance Systems
 - **Role:** Quality assurance, testing, validation
 - **Capabilities:** Test execution, bug identification, system validation
 - **When to invoke:** Pre-deployment validation, regression testing, issue reproduction
@@ -87,61 +87,61 @@ This structure mirrors how human teams actually work—and that's intentional.
 
 ### The Coordination Problem
 
-Multi-agent systems face a fundamental challenge: how do you coordinate independent agents without creating chaos?
+Multi-agent systems face a fundamental challenge: how do you coordinate independent systems without creating chaos?
 
-Think about human teams. If six people all try to work on the same document simultaneously without coordination, you get conflicts, overwritten work, and confusion. Agents face the same problem.
+Think about human teams. If six people all try to work on the same document simultaneously without coordination, you get conflicts, overwritten work, and confusion. AI systems face the same problem.
 
 The solution is a **protocol-based coordination layer** that defines:
 
-1. **Task ownership:** Which agent is responsible for what
-2. **Handoff procedures:** How work moves between agents
+1. **Task ownership:** Which system is responsible for what
+2. **Handoff procedures:** How work moves between systems
 3. **State management:** Where shared context lives
 4. **Escalation paths:** When to involve humans
 
 ### The Handoff Protocol
 
-When JARVIS receives a complex request, it follows a standard workflow:
+When the orchestration layer receives a complex request, it follows a standard workflow:
 
 **Step 1: Decomposition**
 ```
 Input: "Deploy new tracking for our Phoenix warehouse"
 
 Breakdown:
-- Technical: Need to configure sensor network (Dinesh)
-- Documentation: Update deployment guides (Gavin)
-- Testing: Validate sensor connectivity (Erlich)
-- Communications: Notify warehouse manager (Jared)
+- Technical: Need to configure sensor network (Technical Systems)
+- Documentation: Update deployment guides (Documentation Systems)
+- Testing: Validate sensor connectivity (QA Systems)
+- Communications: Notify warehouse manager (Communication Systems)
 ```
 
 **Step 2: Parallel Execution**
 
-Dinesh and Jared can work simultaneously—the former configures the technical infrastructure while the latter drafts the communication. No dependencies between these tasks.
+Technical and Communication systems can work simultaneously—the former configures the technical infrastructure while the latter drafts the communication. No dependencies between these tasks.
 
 **Step 3: Sequential Dependencies**
 
-Erlich can't test until Dinesh finishes configuration. Gavin shouldn't finalize documentation until Erlich confirms everything works. The orchestrator sequences these appropriately.
+QA can't test until Technical finishes configuration. Documentation shouldn't finalize until QA confirms everything works. The orchestrator sequences these appropriately.
 
 **Step 4: Synthesis**
 
-Once all agents complete their work, JARVIS synthesizes the results into a unified report for the human stakeholder.
+Once all systems complete their work, the orchestration layer synthesizes the results into a unified report for the human stakeholder.
 
 ### Context Management
 
-The biggest technical challenge in multi-agent systems is maintaining context across agent boundaries.
+The biggest technical challenge in multi-agent systems is maintaining context across system boundaries.
 
-Each agent has its own "memory"—what it knows and has learned. But agents need shared context to coordinate effectively. At Decklar, we use a six-layer memory architecture:
+Each system has its own "memory"—what it knows and has learned. But systems need shared context to coordinate effectively. At Decklar, we use a layered memory architecture:
 
-**Layer 1: Hot RAM (Session State)**
+**Layer 1: Active Session Context**
 - Current task context
 - Active work items
 - Recent decisions
 
-**Layer 2: Warm Store (Vector Search)**
-- Semantic search across past interactions
+**Layer 2: Semantic Search Layer**
+- Search across past interactions
 - Preferences and patterns
 - Learned behaviors
 
-**Layer 3: Cold Store (Structured Knowledge)**
+**Layer 3: Structured Knowledge Base**
 - Permanent decisions
 - Knowledge graph relationships
 - Historical patterns
@@ -161,7 +161,7 @@ Each agent has its own "memory"—what it knows and has learned. But agents need
 - Preference learning
 - Pattern recognition
 
-When an agent starts work, it queries these layers to understand what's already been done. When it finishes, it writes its learnings back for other agents to access.
+When a system starts work, it queries these layers to understand what's already been done. When it finishes, it writes its learnings back for other systems to access.
 
 ---
 
@@ -173,11 +173,11 @@ Let's walk through how this actually works for a concrete scenario: **temperatur
 
 At 2:47 AM, a Reefer Bee sensor on shipment #DL-2847 reports temperature rising above the 2-8°C threshold for COVID-19 vaccines in transit.
 
-**JARVIS receives the alert and activates the response protocol.**
+**The orchestration layer receives the alert and activates the response protocol.**
 
-### Phase 1: Immediate Assessment (Gilfoyle)
+### Phase 1: Immediate Assessment (Security/Intelligence Systems)
 
-Gilfoyle is tasked with rapid assessment:
+Security systems are tasked with rapid assessment:
 - Check sensor calibration status
 - Verify this isn't a false positive
 - Analyze historical data for the device
@@ -185,30 +185,30 @@ Gilfoyle is tasked with rapid assessment:
 
 **Result:** Valid excursion. Sensor functioning normally. External temperature spike correlates with truck idling in Arizona sun during driver rest stop.
 
-### Phase 2: Stakeholder Notification (Jared)
+### Phase 2: Stakeholder Notification (Communication Systems)
 
-While Gilfoyle investigates, Jared simultaneously:
-- Identifies the customer (Regional Health Distributors)
-- Locates the account manager (Sarah Chen)
-- Drafts an alert notification with Gilfoyle's findings
-- Checks if Sarah is available (calendar integration)
-- Escalates to backup contact if needed
+While Security investigates, Communication systems simultaneously:
+- Identify the customer (Regional Health Distributors)
+- Locate the account manager (Sarah Chen)
+- Draft an alert notification with Security's findings
+- Check if Sarah is available (calendar integration)
+- Escalate to backup contact if needed
 
 **Result:** Sarah Chen notified via SMS and email within 90 seconds of alert.
 
-### Phase 3: Corrective Action Coordination (Dinesh)
+### Phase 3: Corrective Action Coordination (Technical Systems)
 
-Dinesh interfaces with the carrier's API:
-- Locates the truck (I-10 East, mile marker 312)
-- Calculates nearest refrigeration facility
-- Identifies the driver and dispatch contact
-- Initiates emergency stop protocol
+Technical systems interface with the carrier's API:
+- Locate the truck (I-10 East, mile marker 312)
+- Calculate nearest refrigeration facility
+- Identify the driver and dispatch contact
+- Initiate emergency stop protocol
 
 **Result:** Driver instructed to proceed to Phoenix Cold Storage (18 miles ahead). Alternative transport arranged if product stability window exceeded.
 
-### Phase 4: Documentation and Compliance (Gavin)
+### Phase 4: Documentation and Compliance (Documentation Systems)
 
-Gavin begins documentation immediately:
+Documentation systems begin documentation immediately:
 - Timestamps all events in the response log
 - Captures sensor data for compliance records
 - Generates incident report template
@@ -216,19 +216,19 @@ Gavin begins documentation immediately:
 
 **Result:** Real-time visibility for Regional Health Distributors via their dashboard.
 
-### Phase 5: System Validation (Erlich)
+### Phase 5: System Validation (QA Systems)
 
-Once the immediate response completes, Erlich:
-- Tests the emergency response automation
-- Validates notification pathways
-- Confirms dashboard updates
-- Identifies any gaps in the workflow
+Once the immediate response completes, QA systems:
+- Test the emergency response automation
+- Validate notification pathways
+- Confirm dashboard updates
+- Identify any gaps in the workflow
 
 **Result:** System functioning within expected parameters. One minor delay in backup contact escalation noted for review.
 
-### Phase 6: Follow-up and Learning (JARVIS)
+### Phase 6: Follow-up and Learning (Orchestration Layer)
 
-JARVIS synthesizes the entire event:
+The orchestration layer synthesizes the entire event:
 - Total response time: 4 minutes 23 seconds
 - Customer satisfaction: High (proactive notification)
 - Product integrity: Maintained (intervention successful)
@@ -246,10 +246,10 @@ A common misconception is that multi-agent orchestration is simply "calling diff
 
 ### 1. Task Router
 
-Determines which agent(s) should handle incoming work. Uses a combination of:
+Determines which system(s) should handle incoming work. Uses a combination of:
 - Intent classification (what type of task is this?)
-- Capability matching (which agents can do this?)
-- Load balancing (which agents are available?)
+- Capability matching (which systems can do this?)
+- Load balancing (which systems are available?)
 - Dependency analysis (what needs to happen first?)
 
 ### 2. State Manager
@@ -262,22 +262,22 @@ Tracks the state of all active tasks:
 
 ### 3. Context Package Builder
 
-When spawning a sub-agent, the orchestrator must provide:
+When activating a sub-system, the orchestrator must provide:
 - Task description
 - Relevant background
 - Required outputs
 - Success criteria
 - Timeout parameters
 
-Without proper context packaging, agents work in isolation and lose coherence.
+Without proper context packaging, systems work in isolation and lose coherence.
 
 ### 4. Result Synthesizer
 
-Combines outputs from multiple agents into coherent deliverables:
-- Technical details from Dinesh
-- Security assessment from Gilfoyle
-- Communication draft from Jared
-- Documentation from Gavin
+Combines outputs from multiple systems into coherent deliverables:
+- Technical details from Technical systems
+- Security assessment from Security systems
+- Communication draft from Communication systems
+- Documentation from Documentation systems
 
 The synthesizer creates unified outputs that make sense to human stakeholders.
 
@@ -285,22 +285,22 @@ The synthesizer creates unified outputs that make sense to human stakeholders.
 
 ## Benefits and Trade-offs
 
-### Why Multi-Agent Becomes Monolithic AI
+### Why Multi-Agent Beats Monolithic AI
 
 **Benefits:**
 
-1. **Specialization:** Each agent can be optimized for its domain
-2. **Reliability:** Failure in one agent doesn't crash the whole system
-3. **Scalability:** Add new agents without retraining existing ones
-4. **Interpretability:** Clear lineage of which agent made which decision
-5. **Flexibility:** Swap out agents as better models become available
+1. **Specialization:** Each system can be optimized for its domain
+2. **Reliability:** Failure in one system doesn't crash the whole system
+3. **Scalability:** Add new capabilities without retraining existing ones
+4. **Interpretability:** Clear lineage of which system made which decision
+5. **Flexibility:** Swap out systems as better models become available
 
 **Trade-offs:**
 
 1. **Complexity:** More moving parts means more potential failure points
 2. **Latency:** Coordination overhead adds time (though parallelism often compensates)
-3. **Consistency:** Different agents may have conflicting recommendations
-4. **Debugging:** Tracing issues across agent boundaries is challenging
+3. **Consistency:** Different systems may have conflicting recommendations
+4. **Debugging:** Tracing issues across system boundaries is challenging
 
 ### When to Use Multi-Agent vs. Single AI
 
@@ -331,10 +331,10 @@ Map where your current processes require handoffs between different types of wor
 
 These handoff points are where multi-agent orchestration adds value.
 
-### Phase 2: Define Agent Boundaries (Weeks 3-4)
+### Phase 2: Define System Boundaries (Weeks 3-4)
 
 Create clear responsibility definitions:
-- What does each agent own?
+- What does each system own?
 - What are the handoff criteria?
 - What's the escalation path?
 
@@ -375,21 +375,21 @@ Multi-agent orchestration isn't just about coordinating AI workers—it's a step
 The progression looks like this:
 
 **Current State:** AI assists humans
-- Agents handle routine tasks
+- Systems handle routine tasks
 - Humans make decisions
-- Agents execute actions
+- Systems execute actions
 
 **Near Future:** AI recommends, humans approve
-- Agents analyze and recommend
+- Systems analyze and recommend
 - Humans review and authorize
-- Agents execute with oversight
+- Systems execute with oversight
 
 **Future State:** Autonomous operations
-- Agents monitor and respond
+- Systems monitor and respond
 - Humans set policies and boundaries
-- Agents self-coordinate within constraints
+- Systems self-coordinate within constraints
 
-We're already seeing early versions of this in automated inventory management, where AI agents reorder stock, negotiate with suppliers, and optimize warehouse layouts with minimal human intervention.
+We're already seeing early versions of this in automated inventory management, where AI systems reorder stock, negotiate with suppliers, and optimize warehouse layouts with minimal human intervention.
 
 The supply chains that master multi-agent orchestration today will be the ones operating autonomously tomorrow.
 
@@ -397,7 +397,7 @@ The supply chains that master multi-agent orchestration today will be the ones o
 
 ## Conclusion
 
-Supply chain operations are too complex for any single AI to handle effectively. The future belongs to coordinated teams of specialized agents—each optimized for their domain, but working together through robust orchestration frameworks.
+Supply chain operations are too complex for any single AI to handle effectively. The future belongs to coordinated teams of specialized systems—each optimized for their domain, but working together through robust orchestration frameworks.
 
 The key insight isn't that we need more AI. It's that we need better coordination of the AI we already have.
 

@@ -11,7 +11,7 @@ layout: post.njk
 
 # AI Agent Swarm Patterns: How Multi-Agent Systems Scale Supply Chain Intelligence
 
-*The future of supply chain AI isn't one super-intelligent agent. It's hundreds of specialized agents working in concert—like a digital immune system for your operations.*
+*The future of supply chain AI isn't one super-intelligent agent. It's hundreds of specialized systems working in concert—like a digital immune system for your operations.*
 
 ---
 
@@ -39,79 +39,79 @@ Think about how your immune system works. You don't have one "immune cell" that 
 
 Each is specialized. Each communicates through chemical signals. Together, they're formidable.
 
-Agent swarms work the same way.
+AI agent swarms work the same way.
 
 ### Core Principles
 
-1. **Specialization over generalization** — Agents do one thing exceptionally well
-2. **Loose coupling** — Agents communicate through standardized messages, not direct integration
-3. **Emergent intelligence** — Complex behaviors arise from simple agent interactions
-4. **Fault tolerance** — The swarm continues if individual agents fail
-5. **Scalable architecture** — Add agents without rearchitecting
+1. **Specialization over generalization** — Systems do one thing exceptionally well
+2. **Loose coupling** — Systems communicate through standardized messages, not direct integration
+3. **Emergent intelligence** — Complex behaviors arise from simple system interactions
+4. **Fault tolerance** — The swarm continues if individual systems fail
+5. **Scalable architecture** — Add systems without rearchitecting
 
 ---
 
 ## Supply Chain Agent Swarm Architecture
 
-Here's how I'm implementing swarm intelligence at Decklar:
+Here's how Decklar implements swarm intelligence:
 
-### Layer 1: Sensor Agents (The Periphery)
+### Layer 1: Sensor Systems (The Periphery)
 
 These are your "eyes and ears." They don't make decisions—they just observe and report.
 
 **Examples:**
-- **IoT Data Ingestion Agent** — Normalizes sensor streams from 50+ device types
+- **IoT Data Ingestion System** — Normalizes sensor streams from 50+ device types
 - **Carrier API Monitor** — Polls UPS, FedEx, DHL APIs for milestone updates
 - **Weather Pattern Watcher** — Tracks storms affecting active shipments
 - **Port Congestion Agent** — Monitors marine traffic and berth availability
 
-Each sensor agent:
+Each sensor system:
 - Emits events to a message bus (NATS, Kafka, or RabbitMQ)
 - Has no knowledge of downstream consumers
 - Scales horizontally (add more for higher volume)
 
-### Layer 2: Detection Agents (The Recognition Layer)
+### Layer 2: Detection Systems (The Recognition Layer)
 
-These agents read the sensor stream and recognize patterns worth attention.
+These systems read the sensor stream and recognize patterns worth attention.
 
 **Examples:**
 - **Temperature Excursion Detector** — Flags cold chain breaks in real-time
-- **Delay Propagation Agent** — Calculates downstream impact of missed connections
-- **Anomaly Detection Agent** — Identifies shipments behaving unusually
-- **Risk Aggregation Agent** — Combines multiple signals into threat scores
+- **Delay Propagation System** — Calculates downstream impact of missed connections
+- **Anomaly Detection System** — Identifies shipments behaving unusually
+- **Risk Aggregation System** — Combines multiple signals into threat scores
 
-Detection agents use:
+Detection systems use:
 - Statistical models for pattern recognition
 - ML classifiers trained on historical incidents
 - Rule engines for regulatory/compliance checks
 
 When they detect something, they emit **alert events** with severity scores.
 
-### Layer 3: Analysis Agents (The Cortex)
+### Layer 3: Analysis Systems (The Cortex)
 
-These are your problem-solvers. When a detection agent flags an issue, analysis agents evaluate options.
+These are your problem-solvers. When a detection system flags an issue, analysis systems evaluate options.
 
 **Examples:**
-- **Route Optimization Agent** — Calculates alternative paths for delayed shipments
-- **Inventory Positioning Agent** — Determines which DCs can cover shortfalls
-- **Cost-Benefit Agent** — Quantifies trade-offs between speed and expense
-- **Customer Impact Agent** — Assesses which delays affect SLAs vs. buffer time
+- **Route Optimization System** — Calculates alternative paths for delayed shipments
+- **Inventory Positioning System** — Determines which DCs can cover shortfalls
+- **Cost-Benefit System** — Quantifies trade-offs between speed and expense
+- **Customer Impact System** — Assesses which delays affect SLAs vs. buffer time
 
-Analysis agents:
+Analysis systems:
 - Query multiple data sources (ERP, WMS, TMS)
 - Run simulations to predict outcomes
 - Return ranked recommendations with confidence scores
 
-### Layer 4: Decision Agents (The Executive Layer)
+### Layer 4: Decision Systems (The Executive Layer)
 
-These make the final call. They're the only agents with **write access** to operational systems.
+These make the final call. They're the only systems with **write access** to operational systems.
 
 **Examples:**
-- **Escalation Agent** — Decides when to notify humans vs. auto-resolve
-- **Execution Agent** — Triggers reroutes, inventory movements, carrier switches
-- **Learning Agent** — Updates models based on decision outcomes
+- **Escalation System** — Decides when to notify humans vs. auto-resolve
+- **Execution System** — Triggers reroutes, inventory movements, carrier switches
+- **Learning System** — Updates models based on decision outcomes
 
-Decision agents implement:
+Decision systems implement:
 - Approval workflows for high-cost actions
 - Circuit breakers to prevent cascade failures
 - Audit logging for compliance
@@ -120,7 +120,7 @@ Decision agents implement:
 
 ## Communication Patterns
 
-Agents don't talk directly to each other. They publish events to a message fabric.
+Systems don't talk directly to each other. They publish events to a message fabric.
 
 ### Event Schema
 
@@ -128,7 +128,7 @@ Agents don't talk directly to each other. They publish events to a message fabri
 {
   "event_type": "temperature_excursion",
   "timestamp": "2026-05-16T14:23:11Z",
-  "source": "iot-ingestion-agent-3",
+  "source": "iot-ingestion-system-3",
   "payload": {
     "shipment_id": "SH-2026-88421",
     "device_id": "BEE-7A3F-2219",
@@ -148,16 +148,16 @@ Agents don't talk directly to each other. They publish events to a message fabri
 
 ### Subscription Patterns
 
-Agents subscribe to event types they care about:
+Systems subscribe to event types they care about:
 
 - **Temperature Excursion Detector** → Subscribes to `iot.temperature_reading`
-- **Route Optimization Agent** → Subscribes to `alert.delay_detected`
-- **Escalation Agent** → Subscribes to `alert.*` (all alerts)
+- **Route Optimization System** → Subscribes to `alert.delay_detected`
+- **Escalation System** → Subscribes to `alert.*` (all alerts)
 
 This decoupling means:
-- Add new agents without touching existing code
-- Agents can be upgraded/replaced independently
-- The system continues even if some agents are offline
+- Add new systems without touching existing code
+- Systems can be upgraded/replaced independently
+- The system continues even if some components are offline
 
 ---
 
@@ -168,7 +168,7 @@ This decoupling means:
 Sequential handoffs for complex workflows:
 
 ```
-Sensor Agent → Detection Agent → Analysis Agent → Decision Agent
+Sensor System → Detection System → Analysis System → Decision System
      ↓              ↓                ↓                ↓
   Raw Data    Pattern Match     Options Ranked    Action Taken
 ```
@@ -177,22 +177,22 @@ Use for: Temperature excursions, compliance violations, SLA breaches
 
 ### Pattern 2: The Committee
 
-Multiple analysis agents evaluate in parallel:
+Multiple analysis systems evaluate in parallel:
 
 ```
-                    ┌─> Route Optimization Agent
-Detection Event ──┼─> Cost Analysis Agent ──> Decision Agent
-                    └─> Customer Impact Agent
+                    ┌─> Route Optimization System
+Detection Event ──┼─> Cost Analysis System ──> Decision System
+                    └─> Customer Impact System
 ```
 
 Use for: High-stakes decisions with multiple trade-offs
 
 ### Pattern 3: The Watchtower
 
-A monitoring agent supervises the swarm:
+A monitoring system supervises the swarm:
 
 ```
-Watchtower Agent ──> Tracks all active decisions
+Watchtower System ──> Tracks all active decisions
        ↓
   Detects stuck decisions (no resolution in 5 minutes)
        ↓
@@ -203,9 +203,9 @@ Use for: Preventing automation failures from going unnoticed
 
 ### Pattern 4: The Hive Mind
 
-Collective learning across agents:
+Collective learning across systems:
 
-- Each agent maintains a local model
+- Each system maintains a local model
 - Periodic model merging creates global intelligence
 - Failed decisions feed back into training data
 
@@ -219,7 +219,7 @@ Here's how a swarm handles a pharmaceutical temperature excursion:
 
 ### T+0:00 — Event Detected
 
-**IoT Ingestion Agent** emits:
+**IoT Ingestion System** emits:
 ```json
 {
   "event_type": "temperature_reading",
@@ -242,17 +242,17 @@ Emits: `temperature_excursion` with severity "critical"
 
 ### T+0:05 — Parallel Analysis
 
-Three analysis agents activate:
+Three analysis systems activate:
 
-**Route Agent**: Nearest compliant facility is 45 miles away. ETA: 2 hours.
+**Route System**: Nearest compliant facility is 45 miles away. ETA: 2 hours.
 
-**Impact Agent**: This is a high-priority hospital delivery. SLA breach in 4 hours.
+**Impact System**: This is a high-priority hospital delivery. SLA breach in 4 hours.
 
-**Cost Agent**: Product value: $180,000. Reroute cost: $2,400. Obvious choice.
+**Cost System**: Product value: $180,000. Reroute cost: $2,400. Obvious choice.
 
 ### T+0:08 — Decision Made
 
-**Execution Agent** decides:
+**Execution System** decides:
 - Reroute to backup facility immediately
 - Dispatch replacement shipment from alternate DC
 - Notify customer of 2-hour delay
@@ -308,10 +308,10 @@ Try that with a human-in-the-middle workflow.
 
 We're moving toward swarms that:
 
-1. **Auto-discover** — New agents register themselves and find relevant event streams
-2. **Self-heal** — Failed agents are detected and replaced automatically
-3. **Negotiate** — Agents bargain for resources and prioritize work dynamically
-4. **Evolve** — New agent types emerge from observed patterns
+1. **Auto-discover** — New systems register themselves and find relevant event streams
+2. **Self-heal** — Failed systems are detected and replaced automatically
+3. **Negotiate** — Systems bargain for resources and prioritize work dynamically
+4. **Evolve** — New system types emerge from observed patterns
 
 This isn't science fiction. The building blocks exist today. We're just putting them together differently.
 
@@ -321,7 +321,7 @@ This isn't science fiction. The building blocks exist today. We're just putting 
 
 If you want to experiment with agent swarms:
 
-1. **Start small** — 3-4 agents handling one workflow
+1. **Start small** — 3-4 systems handling one workflow
 2. **Use standard protocols** — Don't invent custom communication
 3. **Obsess over observability** — You need to see what the swarm is doing
 4. **Measure everything** — Response times, decision quality, failure rates
@@ -339,4 +339,4 @@ If you want to experiment with agent swarms:
 
 *The era of monolithic AI is ending. The era of distributed, specialized, collective intelligence is just beginning. The question isn't whether you'll adopt agent swarms—it's whether you'll lead or follow.*
 
-— Gavin
+— Decklar Technical Team
