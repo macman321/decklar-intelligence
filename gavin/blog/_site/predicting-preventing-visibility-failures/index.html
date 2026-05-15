@@ -1,0 +1,697 @@
+<h1>Predicting Supply Chain Visibility Failures Before They Happen: A Risk Scoring Framework</h1>
+<p><em>Most IoT tracking projects don't fail suddenly—they die slowly, with warning signs that go unnoticed until it's too late. Here's how to spot trouble before it becomes a crisis.</em></p>
+<hr>
+<h2>The Silent Killer of Supply Chain Visibility Projects</h2>
+<p>Industry research suggests 60-75% of IoT tracking initiatives fail to achieve their stated objectives. Not because the technology doesn't work. Not because the business case was flawed. But because <strong>early warning signs were ignored</strong> until recovery became impossible.</p>
+<p>The good news? These failures are predictable. After analyzing hundreds of deployments across pharmaceuticals, electronics, food &amp; beverage, and manufacturing, we've identified a pattern: <strong>projects that fail exhibit measurable warning signs 30-60 days before visible problems emerge</strong>.</p>
+<p>This article presents a practical risk scoring framework you can use to monitor your own visibility initiatives—or evaluate potential vendors' customer success practices.</p>
+<hr>
+<h2>The Four Dimensions of Visibility Risk</h2>
+<p>Supply chain visibility failures don't happen in isolation. They emerge from four interconnected risk categories:</p>
+<table>
+<thead>
+<tr>
+<th>Risk Category</th>
+<th>Weight</th>
+<th>Key Indicators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Engagement Risk</strong></td>
+<td>35%</td>
+<td>Platform usage, support patterns, training gaps</td>
+</tr>
+<tr>
+<td><strong>Technical Risk</strong></td>
+<td>30%</td>
+<td>Data quality, alert fatigue, integration health</td>
+</tr>
+<tr>
+<td><strong>Business Risk</strong></td>
+<td>25%</td>
+<td>Deployment velocity, organizational changes, commercial signals</td>
+</tr>
+<tr>
+<td><strong>Sentiment Risk</strong></td>
+<td>10%</td>
+<td>Communication tone, competitive mentions, satisfaction markers</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: Weights reflect impact on project outcomes based on historical analysis</em></p>
+<hr>
+<h2>1. Engagement Risk: The Canary in the Coal Mine</h2>
+<p>Engagement risk is the strongest predictor of project failure. When users stop logging in, stop acknowledging alerts, or stop opening support tickets, they're voting with their attention—and it's a leading indicator of churn.</p>
+<h3>Platform Usage Red Flags</h3>
+<table>
+<thead>
+<tr>
+<th>Warning Sign</th>
+<th>Threshold</th>
+<th>What It Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Declining login frequency</td>
+<td>50% drop month-over-month</td>
+<td>Users finding workarounds or giving up</td>
+</tr>
+<tr>
+<td>Low active user rate</td>
+<td>&lt;30% of licensed users engaged</td>
+<td>Poor adoption or training gaps</td>
+</tr>
+<tr>
+<td>Mobile app abandonment</td>
+<td>&lt;20% using mobile</td>
+<td>Field teams not bought in</td>
+</tr>
+<tr>
+<td>Alert acknowledgment gaps</td>
+<td>&lt;60% of alerts acknowledged</td>
+<td>Alert fatigue or irrelevance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The &quot;Silent Dissatisfaction&quot; Trap:</strong> Paradoxically, <em>no</em> support tickets for 90+ days is often worse than frequent tickets. It usually means users have stopped trying to solve problems—or have given up on the platform entirely.</p>
+<h3>What to Do</h3>
+<p><strong>Monthly Engagement Pulse Check:</strong></p>
+<ol>
+<li>Run active user reports (look for 30%+ engagement minimum)</li>
+<li>Compare support ticket volume to shipment volume (should correlate)</li>
+<li>Survey power users: &quot;What's one thing making your job harder?&quot;</li>
+</ol>
+<hr>
+<h2>2. Technical Risk: When Data Becomes the Problem</h2>
+<p>Technical issues are the second-strongest predictor of failure. Not because technology breaks (it does), but because <strong>data quality problems erode trust faster than they get fixed</strong>.</p>
+<h3>Data Quality Score Formula</h3>
+<pre><code>Data Quality Score = (Actual Pings Received / Expected Pings) × 100
+
+Expected Pings = Shipment Duration (hours) ÷ Ping Interval (hours)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Quality Score</th>
+<th>Risk Level</th>
+<th>Action Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;95%</td>
+<td>🟢 Low</td>
+<td>Maintain current configuration</td>
+</tr>
+<tr>
+<td>85-95%</td>
+<td>🟡 Medium</td>
+<td>Review cellular coverage on routes</td>
+</tr>
+<tr>
+<td>70-85%</td>
+<td>🟠 High</td>
+<td>Technical audit of device placement/settings</td>
+</tr>
+<tr>
+<td>&lt;70%</td>
+<td>🔴 Critical</td>
+<td>Immediate device/hardware review</td>
+</tr>
+</tbody>
+</table>
+<h3>Common Data Quality Failure Patterns</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Root Cause</th>
+<th>Customer Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consistent 15-20% gaps</td>
+<td>Cellular dead zones on regular routes</td>
+<td>Predictable blind spots in tracking</td>
+</tr>
+<tr>
+<td>Sudden drop from &gt;95% to &lt;70%</td>
+<td>Device batch or firmware issue</td>
+<td>Immediate loss of confidence</td>
+</tr>
+<tr>
+<td>Intermittent random gaps</td>
+<td>Bee placement or conservation mode settings</td>
+<td>Perceived unreliability</td>
+</tr>
+<tr>
+<td>Zero data after activation</td>
+<td>Activation or configuration failure</td>
+<td>Complete visibility loss</td>
+</tr>
+</tbody>
+</table>
+<h3>Alert Fatigue: The Hidden Technical Risk</h3>
+<p>Alert fatigue isn't just annoying—it's a technical configuration problem that becomes an engagement problem.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Healthy Range</th>
+<th>At-Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alerts per shipment</td>
+<td>0.5–2</td>
+<td>&gt;5</td>
+</tr>
+<tr>
+<td>False positive rate</td>
+<td>&lt;20%</td>
+<td>&gt;50%</td>
+</tr>
+<tr>
+<td>Alert acknowledgment time</td>
+<td>&lt;4 hours</td>
+<td>&gt;24 hours</td>
+</tr>
+<tr>
+<td>Custom alert rules created</td>
+<td>3+</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Warning Signs of Alert Fatigue:</strong></p>
+<ul>
+<li>Requests to &quot;pause all alerts temporarily&quot;</li>
+<li>Repeatedly widening alert thresholds (desensitization)</li>
+<li>Comments like &quot;too noisy&quot; or &quot;alert fatigue&quot;</li>
+<li>Specific alert types consistently ignored</li>
+</ul>
+<h3>What to Do</h3>
+<p><strong>The 30-Day Data Quality Review:</strong></p>
+<ol>
+<li>Calculate data quality score for last 30 days of shipments</li>
+<li>Identify any routes with consistent gaps (dead zone mapping)</li>
+<li>Review alert configuration—aim for &lt;2 alerts per shipment average</li>
+<li>Audit alert acknowledgment rates by type</li>
+</ol>
+<hr>
+<h2>3. Business Risk: Organizational and Commercial Signals</h2>
+<p>Business risk often manifests outside the visibility platform itself—in deployment timelines, organizational changes, and commercial signals.</p>
+<h3>Deployment Velocity Risk</h3>
+<table>
+<thead>
+<tr>
+<th>Timeline</th>
+<th>Risk Addition</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kickoff to go-live &gt;10 weeks</td>
+<td>Medium risk</td>
+<td>Project fatigue sets in</td>
+</tr>
+<tr>
+<td>Kickoff to go-live &gt;12 weeks</td>
+<td>High risk</td>
+<td>Competing priorities emerge</td>
+</tr>
+<tr>
+<td>Kickoff to go-live &gt;16 weeks</td>
+<td>Critical risk</td>
+<td>Likely to abandon or restart</td>
+</tr>
+<tr>
+<td>No go-live date after 4 weeks</td>
+<td>High risk</td>
+<td>Indicates organizational blockage</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The Pipe-Clean Validation Rule:</strong> Projects that skip or rush pipe-clean shipments (fewer than 3 validated test shipments) have 3x higher failure rates. These early validations catch configuration issues before they scale.</p>
+<h3>Organizational Change Signals</h3>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Risk Level</th>
+<th>Mitigation Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Champion/primary contact departs</td>
+<td>🔴 Critical</td>
+<td>Immediate exec outreach needed</td>
+</tr>
+<tr>
+<td>Acquisition/merger announced</td>
+<td>🟠 High</td>
+<td>Position for combined entity</td>
+</tr>
+<tr>
+<td>Budget or hiring freeze</td>
+<td>🟠 High</td>
+<td>ROI proof and flexibility</td>
+</tr>
+<tr>
+<td>New CIO/VP Supply Chain</td>
+<td>🟡 Medium</td>
+<td>Executive briefing required</td>
+</tr>
+<tr>
+<td>Supply chain reorganization</td>
+<td>🟡 Medium</td>
+<td>Re-establish priorities</td>
+</tr>
+</tbody>
+</table>
+<h3>Commercial Warning Signs</h3>
+<ul>
+<li>Month-to-month contract after initial term (commitment uncertainty)</li>
+<li>Downgrade requests or volume reductions</li>
+<li>Pricing pressure or competitor quotes mentioned</li>
+<li>Renewal conversations avoided or delayed</li>
+<li>Late payments or procurement process delays</li>
+</ul>
+<h3>Shipment Volume Trends</h3>
+<pre><code>Volume Risk Signal = Current Month Volume ÷ 3-Month Average
+
+Interpretation:
+- &gt;90%: No risk
+- 70-90%: Medium risk—investigate cause
+- 50-70%: High risk—possible competitive displacement
+- &lt;50%: Critical risk—churn likely imminent
+</code></pre>
+<h3>What to Do</h3>
+<p><strong>Quarterly Business Risk Review:</strong></p>
+<ol>
+<li>Confirm primary champion still in role (LinkedIn check)</li>
+<li>Review shipment volume trends (look for 20%+ drops)</li>
+<li>Assess deployment timeline against original plan</li>
+<li>Validate pipe-clean shipments completed successfully</li>
+</ol>
+<hr>
+<h2>4. Sentiment Risk: The Language of Dissatisfaction</h2>
+<p>Sentiment is the smallest weight in the risk model, but it often confirms patterns seen in other categories. It's also the hardest to capture systematically.</p>
+<h3>Communication Sentiment Markers</h3>
+<p><strong>Negative Indicators:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Phrase/Pattern</th>
+<th>Sentiment Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;Looking at alternatives&quot; / &quot;evaluating options&quot;</td>
+<td>High concern</td>
+</tr>
+<tr>
+<td>&quot;Not meeting expectations&quot; / &quot;disappointed&quot;</td>
+<td>Service quality issue</td>
+</tr>
+<tr>
+<td>&quot;Too expensive&quot; / &quot;can't justify cost&quot;</td>
+<td>ROI perception gap</td>
+</tr>
+<tr>
+<td>&quot;Competitor X offers...&quot;</td>
+<td>Competitive evaluation</td>
+</tr>
+<tr>
+<td>&quot;Executive leadership asking questions&quot;</td>
+<td>Escalation risk</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Positive Indicators (Risk Reducers):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Phrase/Pattern</th>
+<th>Sentiment Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;Expansion&quot; / &quot;additional lanes&quot;</td>
+<td>Growth signal</td>
+</tr>
+<tr>
+<td>&quot;Love the visibility&quot; / &quot;game changer&quot;</td>
+<td>Strong satisfaction</td>
+</tr>
+<tr>
+<td>&quot;Recommended to colleague&quot;</td>
+<td>Advocacy</td>
+</tr>
+<tr>
+<td>&quot;Renewal conversation positive&quot;</td>
+<td>Commitment signal</td>
+</tr>
+</tbody>
+</table>
+<h3>NPS Proxy Scoring</h3>
+<p>If you don't run formal NPS surveys, approximate from interactions:</p>
+<ul>
+<li><strong>Promoters (9-10):</strong> &quot;Would recommend,&quot; &quot;Excellent,&quot; &quot;Love it&quot;</li>
+<li><strong>Passives (7-8):</strong> Neutral language, specific requests but positive tone</li>
+<li><strong>Detractors (0-6):</strong> &quot;Problems,&quot; &quot;Issues,&quot; &quot;Regret,&quot; &quot;Considering canceling&quot;</li>
+</ul>
+<pre><code>NPS = % Promoters - % Detractors
+
+Risk Mapping:
+- NPS &gt;50: Low sentiment risk
+- NPS 30-50: Medium sentiment risk  
+- NPS 0-30: High sentiment risk
+- NPS &lt;0: Critical sentiment risk
+</code></pre>
+<h3>What to Do</h3>
+<p><strong>Post-Interaction Sentiment Log:</strong>
+After every customer call or significant email exchange, note:</p>
+<ol>
+<li>Overall tone (positive/neutral/negative)</li>
+<li>Any competitive mentions</li>
+<li>Organizational change indicators</li>
+<li>Expansion or contraction signals</li>
+</ol>
+<hr>
+<h2>Industry-Specific Risk Factors</h2>
+<p>Risk profiles vary by industry. Here are the unique factors to monitor:</p>
+<h3>Pharmaceutical / Cold Chain</h3>
+<table>
+<thead>
+<tr>
+<th>Risk Factor</th>
+<th>Weight</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regulatory compliance issues</td>
+<td>+30 points</td>
+<td>Failed audit, documentation gaps</td>
+</tr>
+<tr>
+<td>Temperature excursion not detected</td>
+<td>+25 points</td>
+<td>Product loss incident</td>
+</tr>
+<tr>
+<td>Audit documentation gaps</td>
+<td>+20 points</td>
+<td>Missing records for regulatory review</td>
+</tr>
+<tr>
+<td>Competitor with FDA pedigree</td>
+<td>+15 points</td>
+<td>Customer mentions specific competitor</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mitigation Priority:</strong> Technical excellence and compliance documentation over price</p>
+<h3>Electronics / High-Value Manufacturing</h3>
+<table>
+<thead>
+<tr>
+<th>Risk Factor</th>
+<th>Weight</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Damage claims increasing</td>
+<td>+25 points</td>
+<td>Insurance claims rising</td>
+</tr>
+<tr>
+<td>JIT schedule impacts</td>
+<td>+20 points</td>
+<td>Production delays from visibility gaps</td>
+</tr>
+<tr>
+<td>ERP/WMS integration failing</td>
+<td>+20 points</td>
+<td>Data sync issues with business systems</td>
+</tr>
+<tr>
+<td>International complexity</td>
+<td>+15 points</td>
+<td>Cross-border shipment problems</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mitigation Priority:</strong> Reliability and integration depth</p>
+<h3>Food &amp; Beverage / Perishables</h3>
+<table>
+<thead>
+<tr>
+<th>Risk Factor</th>
+<th>Weight</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spoilage incidents</td>
+<td>+30 points</td>
+<td>Product loss due to temperature breach</td>
+</tr>
+<tr>
+<td>Retail compliance score drops</td>
+<td>+25 points</td>
+<td>Walmart/Target scorecard impact</td>
+</tr>
+<tr>
+<td>Seasonal volume volatility</td>
+<td>+15 points</td>
+<td>Capacity planning failures</td>
+</tr>
+<tr>
+<td>Margin pressure</td>
+<td>+20 points</td>
+<td>Commodity cost squeezes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mitigation Priority:</strong> Cost efficiency and compliance automation</p>
+<hr>
+<h2>The Risk Scoring Calculator</h2>
+<p>Here's a simplified risk scoring model you can use immediately:</p>
+<pre><code>Risk Score = (Engagement Risk × 0.35) + (Technical Risk × 0.30) + 
+             (Business Risk × 0.25) + (Sentiment Risk × 0.10)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Risk Level</th>
+<th>Action Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–25</td>
+<td>🟢 Low</td>
+<td>Standard monitoring; look for expansion</td>
+</tr>
+<tr>
+<td>26–50</td>
+<td>🟡 Medium</td>
+<td>Increase touchpoints; address friction</td>
+</tr>
+<tr>
+<td>51–75</td>
+<td>🟠 High</td>
+<td>Executive engagement; recovery plan</td>
+</tr>
+<tr>
+<td>76–100</td>
+<td>🔴 Critical</td>
+<td>Immediate intervention; save-the-project mode</td>
+</tr>
+</tbody>
+</table>
+<h3>Sample Calculation</h3>
+<p><strong>Scenario:</strong> Mid-sized electronics manufacturer, 6 months post-go-live</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Indicators</th>
+<th>Raw Score</th>
+<th>Weighted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Engagement</td>
+<td>Login frequency dropped 40%, mobile app unused</td>
+<td>35</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Technical</td>
+<td>Data quality at 82%, 4 alerts per shipment</td>
+<td>40</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>Business</td>
+<td>Champion left 2 weeks ago, volume down 15%</td>
+<td>55</td>
+<td>13.8</td>
+</tr>
+<tr>
+<td>Sentiment</td>
+<td>Mentioned &quot;evaluating alternatives,&quot; neutral tone</td>
+<td>30</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td></td>
+<td></td>
+<td><strong>41.1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result:</strong> 🟡 Medium Risk (26-50 range)</p>
+<p><strong>Recommended Actions:</strong></p>
+<ol>
+<li>Immediate outreach to new primary contact</li>
+<li>Technical review of data quality issues</li>
+<li>Alert configuration optimization</li>
+<li>Schedule executive alignment call</li>
+</ol>
+<hr>
+<h2>Intervention Playbook by Risk Level</h2>
+<h3>🟢 Low Risk (0–25): Maintain &amp; Optimize</h3>
+<p><strong>Monthly Actions:</strong></p>
+<ul>
+<li>Standard check-ins</li>
+<li>Expansion opportunity identification</li>
+<li>Reference request for new prospects</li>
+<li>Best practice sharing</li>
+</ul>
+<p><strong>Success Metrics:</strong></p>
+<ul>
+<li>Maintain current engagement levels</li>
+<li>Identify 1–2 expansion opportunities per quarter</li>
+</ul>
+<hr>
+<h3>🟡 Medium Risk (26–50): Increase Touch</h3>
+<p><strong>Bi-Weekly Actions:</strong></p>
+<ul>
+<li>Usage training offers</li>
+<li>Configuration review</li>
+<li>Open item acceleration</li>
+<li>Executive sponsor introduction</li>
+</ul>
+<p><strong>Success Metrics:</strong></p>
+<ul>
+<li>Stop engagement decline within 30 days</li>
+<li>Resolve top 3 open items within 14 days</li>
+</ul>
+<hr>
+<h3>🟠 High Risk (51–75): Executive Engagement</h3>
+<p><strong>Weekly Actions:</strong></p>
+<ul>
+<li>Executive sponsor calls</li>
+<li>Technical resource allocation</li>
+<li>Success plan development</li>
+<li>ROI case study preparation</li>
+<li>Reference calls with satisfied peers</li>
+</ul>
+<p><strong>Success Metrics:</strong></p>
+<ul>
+<li>Risk score reduced to Medium within 45 days</li>
+<li>Executive alignment confirmed</li>
+</ul>
+<hr>
+<h3>🔴 Critical Risk (76–100): Save-the-Project Mode</h3>
+<p><strong>Daily Actions:</strong></p>
+<ul>
+<li>Executive touchpoints from both sides</li>
+<li>Emergency technical review</li>
+<li>Commercial flexibility discussions</li>
+<li>&quot;What would it take to succeed?&quot; conversation</li>
+<li>Competitor displacement strategy</li>
+</ul>
+<p><strong>Success Metrics:</strong></p>
+<ul>
+<li>Project continuation commitment within 14 days</li>
+<li>Concrete improvement plan with dates</li>
+</ul>
+<hr>
+<h2>Building Your Early Warning System</h2>
+<h3>Phase 1: Manual Assessment (Weeks 1–4)</h3>
+<p>Start simple. Pick your top 10 accounts and score them manually using the framework above. Look for:</p>
+<ul>
+<li>2–3 accounts in High/Critical risk (these need immediate attention)</li>
+<li>Patterns across Medium-risk accounts (systemic issues to address)</li>
+</ul>
+<h3>Phase 2: Semi-Automated Tracking (Weeks 5–8)</h3>
+<p>Create a spreadsheet that pulls:</p>
+<ul>
+<li>Platform usage metrics (weekly active users)</li>
+<li>Data quality scores (calculated from shipment data)</li>
+<li>Support ticket volume and patterns</li>
+<li>Shipment volume trends</li>
+</ul>
+<p>Review and adjust scores weekly.</p>
+<h3>Phase 3: Automated Dashboard (Month 3+)</h3>
+<p>Build real-time risk scoring into your visibility platform or BI tool:</p>
+<ul>
+<li>Daily data quality monitoring</li>
+<li>Weekly engagement trend analysis</li>
+<li>Automated alerts when accounts cross risk thresholds</li>
+<li>Intervention task assignment</li>
+</ul>
+<hr>
+<h2>Key Takeaways</h2>
+<ol>
+<li>
+<p><strong>Failures are predictable</strong> — 30-60 days of warning signs precede most project failures</p>
+</li>
+<li>
+<p><strong>Engagement is the #1 predictor</strong> — Platform usage patterns predict failure better than technical metrics</p>
+</li>
+<li>
+<p><strong>Data quality drives trust</strong> — Consistent gaps above 15% erode confidence faster than feature gaps</p>
+</li>
+<li>
+<p><strong>Organizational changes are critical inflection points</strong> — Champion departure is the highest single risk factor</p>
+</li>
+<li>
+<p><strong>Intervention timing matters</strong> — Acting at Medium risk prevents 70% of escalations to Critical</p>
+</li>
+<li>
+<p><strong>Risk scoring is a conversation starter</strong> — Not a scorecard for punishment, but a framework for proactive support</p>
+</li>
+</ol>
+<hr>
+<h2>Related Resources</h2>
+<ul>
+<li><a href="/supply-chain-alert-strategies/">The Complete Guide to Supply Chain Alert Strategies</a> — Reduce alert fatigue before it becomes a risk factor</li>
+<li><a href="/supply-chain-use-cases-complete-guide/">Supply Chain Use Cases: A Complete Guide</a> — Match the right use case to the right deployment approach</li>
+<li><a href="/why-iot-tracking-fails-and-how-to-fix-it/">Why IoT Tracking Projects Fail (And the Fix That Actually Works)</a> — The strategic foundation for risk prevention</li>
+<li><a href="/proactive-troubleshooting-prevention-guide/">Proactive Supply Chain Visibility: A Troubleshooting and Prevention Guide</a> — Technical prevention strategies</li>
+</ul>
+<hr>
+<p><em>Gavin is a supply chain intelligence specialist focused on making IoT visibility projects succeed through proactive customer success and data-driven insights. He helps Decklar customers predict problems before they become crises.</em></p>
+<hr>
+<p><strong>Questions about implementing risk scoring in your organization?</strong> Reach out to discuss how Decklar builds proactive monitoring into every customer relationship.</p>

@@ -1,0 +1,321 @@
+<h1>Supply Chain Visibility KPIs That Actually Matter</h1>
+<p><em>Most supply chain teams track too many metrics and act on too few. Here's the focused KPI framework that connects IoT visibility data to actual business outcomes.</em></p>
+<p>Your Bee Labels are generating thousands of data points daily: GPS coordinates, temperature readings, shock events, battery levels, arrival times. But data without decision-making is just noise.</p>
+<p>After working with hundreds of Decklar deployments, we've identified the 12 KPIs that actually drive action. These metrics fall into three categories—each answering a different business question.</p>
+<hr>
+<h2>Category 1: &quot;Is Our Product Safe?&quot; (Quality &amp; Compliance KPIs)</h2>
+<p>These metrics answer the most fundamental question in supply chain visibility: Did your shipment arrive in the condition it left?</p>
+<h3>1. Temperature Excursion Rate</h3>
+<p><strong>What it measures:</strong> Percentage of shipments that experienced temperature outside acceptable ranges during transit.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Temperature Excursion Rate = (Shipments with excursions ÷ Total monitored shipments) × 100
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>Excellent: &lt;1%</li>
+<li>Acceptable: 1–3%</li>
+<li>Needs attention: &gt;5%</li>
+</ul>
+<p><strong>Why it matters:</strong> For cold chain operations, this directly predicts product integrity. A pharmaceutical customer reduced their excursion rate from 8% to 0.3% within 90 days of deploying Bee Labels—saving an estimated $240K in product loss.</p>
+<p><strong>Decklar data source:</strong> Temperature sensor readings against configured thresholds in the Honeycomb platform.</p>
+<hr>
+<h3>2. On-Time, In-Full, In-Condition (OTIF+C) Rate</h3>
+<p><strong>What it measures:</strong> Percentage of deliveries that arrive on time, complete, and without damage.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>OTIF+C Rate = (Perfect deliveries ÷ Total deliveries) × 100
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>World class: &gt;98%</li>
+<li>Industry average: 85–92%</li>
+<li>Improvement opportunity: &lt;85%</li>
+</ul>
+<p><strong>Why it matters:</strong> Traditional OTIF misses the &quot;in-condition&quot; piece. Adding environmental monitoring completes the picture—especially for temperature-sensitive, fragile, or high-value goods.</p>
+<hr>
+<h3>3. Shock Event Frequency</h3>
+<p><strong>What it measures:</strong> Average number of shock/impact events per shipment.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Shock Event Frequency = Total shock events ÷ Total shipments
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>Normal handling: &lt;0.5 events per shipment</li>
+<li>Concerning: 0.5–1.5 events per shipment</li>
+<li>Investigation needed: &gt;2 events per shipment</li>
+</ul>
+<p><strong>Why it matters:</strong> Shock events often precede damage claims. Tracking them helps identify problem carriers, routes, or handling procedures before they become costly.</p>
+<hr>
+<h3>4. Compliance Documentation Completeness</h3>
+<p><strong>What it measures:</strong> Percentage of shipments with complete digital chain-of-custody records.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Documentation Completeness = (Shipments with complete records ÷ Total shipments) × 100
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>Audit-ready: 100%</li>
+<li>Industry standard: 95–99%</li>
+<li>Risk exposure: &lt;95%</li>
+</ul>
+<p><strong>Why it matters:</strong> For FDA-regulated industries, incomplete documentation can mean product holds, recalls, or regulatory action. Digital records from IoT devices provide automated compliance documentation.</p>
+<hr>
+<h2>Category 2: &quot;Is Our Operation Efficient?&quot; (Operational KPIs)</h2>
+<p>These metrics measure how well your supply chain is running—and where friction exists.</p>
+<h3>5. Average Transit Time Variance</h3>
+<p><strong>What it measures:</strong> Average deviation between planned and actual transit times.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Transit Time Variance = Actual arrival time − Planned arrival time
+Average Variance = Sum of all variances ÷ Number of shipments
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>Tight control: ±2 hours</li>
+<li>Normal variance: ±4–8 hours</li>
+<li>Scheduling issue: &gt;±12 hours</li>
+</ul>
+<p><strong>Why it matters:</strong> Consistent variance patterns reveal systemic issues—whether it's unrealistic planning, carrier performance, or facility bottlenecks.</p>
+<hr>
+<h3>6. Dwell Time at Critical Nodes</h3>
+<p><strong>What it measures:</strong> Average time shipments spend at key locations (warehouses, ports, customs).</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Dwell Time = Departure timestamp − Arrival timestamp at location
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>Distribution center: 2–6 hours</li>
+<li>Port/airport: 4–24 hours</li>
+<li>Customs clearance: 1–48 hours (highly variable by country)</li>
+</ul>
+<p><strong>Why it matters:</strong> Excessive dwell time indicates bottlenecks. One customer discovered their average port dwell time was 72 hours—three times industry standard—sparking a facility process review that cut it to 28 hours.</p>
+<hr>
+<h3>7. Device Activation Success Rate</h3>
+<p><strong>What it measures:</strong> Percentage of deployed Bee Labels that successfully activate and begin reporting.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Activation Rate = (Successfully activated devices ÷ Total deployed devices) × 100
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>Excellent: &gt;99%</li>
+<li>Acceptable: 95–99%</li>
+<li>Troubleshooting needed: &lt;95%</li>
+</ul>
+<p><strong>Why it matters:</strong> Failed activations mean blind spots in your visibility. Common causes include battery issues, cellular coverage gaps, or scan/entry errors.</p>
+<hr>
+<h3>8. Alert Signal-to-Noise Ratio</h3>
+<p><strong>What it measures:</strong> Percentage of alerts that represent genuine issues requiring action.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Signal-to-Noise = (Actionable alerts ÷ Total alerts) × 100
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>Well-tuned: &gt;70%</li>
+<li>Needs tuning: 30–70%</li>
+<li>Alert fatigue territory: &lt;30%</li>
+</ul>
+<p><strong>Why it matters:</strong> Too many false-positive alerts leads to alert fatigue—where real issues get ignored. This KPI drives continuous threshold refinement.</p>
+<hr>
+<h2>Category 3: &quot;Is This Worth It?&quot; (Financial &amp; Strategic KPIs)</h2>
+<p>These metrics justify your visibility investment and guide strategic decisions.</p>
+<h3>9. Prevented Loss Value</h3>
+<p><strong>What it measures:</strong> Estimated value of losses prevented through early intervention.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Prevented Loss = (Average shipment value × Excursions detected early) 
+                + (Theft/damage interventions × Average claim value)
+</code></pre>
+<p><strong>Why it matters:</strong> This is the ROI numerator that executives care about. One automotive customer calculated $1.2M in prevented losses in their first year—against a $180K program cost.</p>
+<p><strong>Decklar tip:</strong> Set up automated excursion alerts with escalation workflows to maximize early intervention opportunities.</p>
+<hr>
+<h3>10. Insurance Premium Impact</h3>
+<p><strong>What it measures:</strong> Change in cargo insurance premiums attributed to visibility program.</p>
+<p><strong>How to track:</strong></p>
+<ul>
+<li>Document pre-visibility loss history (frequency, severity)</li>
+<li>Track post-visibility loss history</li>
+<li>Request carrier risk re-evaluation at renewal</li>
+</ul>
+<p><strong>Typical results:</strong> 10–25% premium reduction for high-value cargo programs with documented loss prevention.</p>
+<p><strong>Why it matters:</strong> Insurance savings often pay for the visibility program itself within 12–18 months.</p>
+<hr>
+<h3>11. Customer Satisfaction Score Impact</h3>
+<p><strong>What it measures:</strong> Change in customer satisfaction attributable to improved delivery visibility.</p>
+<p><strong>How to track:</strong></p>
+<ul>
+<li>Survey customers on delivery confidence before/after visibility implementation</li>
+<li>Track Net Promoter Score (NPS) for supply chain touchpoints</li>
+<li>Monitor delivery-related customer service inquiries</li>
+</ul>
+<p><strong>Typical results:</strong> 15–30% reduction in &quot;where's my shipment&quot; inquiries; 8–12 point NPS improvement.</p>
+<p><strong>Why it matters:</strong> Supply chain is increasingly a customer experience differentiator. Proactive updates based on real-time data improve relationships.</p>
+<hr>
+<h3>12. Time-to-Insight</h3>
+<p><strong>What it measures:</strong> Average time from shipment event to actionable insight.</p>
+<p><strong>How to calculate:</strong></p>
+<pre><code>Time-to-Insight = (Time alert generated) − (Time issue occurred or was detected)
+</code></pre>
+<p><strong>Benchmarks:</strong></p>
+<ul>
+<li>Real-time: &lt;5 minutes</li>
+<li>Near-real-time: 5–30 minutes</li>
+<li>Batch/processed: 1–24 hours</li>
+<li>Legacy/EDI: 24+ hours</li>
+</ul>
+<p><strong>Why it matters:</strong> In supply chain, minutes matter. The faster you know about a problem, the more options you have to solve it.</p>
+<hr>
+<h2>Building Your KPI Dashboard: A 3-Phase Approach</h2>
+<h3>Phase 1: Foundation (Weeks 1–4)</h3>
+<p>Start with the fundamentals:</p>
+<ol>
+<li>Temperature Excursion Rate</li>
+<li>Device Activation Success Rate</li>
+<li>OTIF+C Rate (if applicable)</li>
+</ol>
+<p><strong>Why these first:</strong> They're unambiguous, easy to calculate, and directly tied to product integrity.</p>
+<h3>Phase 2: Optimization (Months 2–3)</h3>
+<p>Add operational depth:
+4. Transit Time Variance
+5. Dwell Time at Critical Nodes
+6. Alert Signal-to-Noise Ratio</p>
+<p><strong>Why add these:</strong> They reveal process improvement opportunities and system tuning needs.</p>
+<h3>Phase 3: Strategic (Months 4–6)</h3>
+<p>Include business impact metrics:
+7. Prevented Loss Value
+8. Insurance Premium Impact
+9. Customer Satisfaction Impact</p>
+<p><strong>Why these last:</strong> They require historical data and cross-functional tracking—but they're what justify program expansion.</p>
+<hr>
+<h2>Common KPI Mistakes to Avoid</h2>
+<h3>❌ Tracking Everything</h3>
+<p><strong>The problem:</strong> Dashboards with 40+ metrics create analysis paralysis.
+<strong>The fix:</strong> Start with 5–7 KPIs that directly tie to your top business objectives.</p>
+<h3>❌ Benchmarking Against Industry Averages Only</h3>
+<p><strong>The problem:</strong> Industry averages include companies with vastly different supply chain maturity.
+<strong>The fix:</strong> Benchmark against your own historical performance first. Industry data provides context, not targets.</p>
+<h3>❌ Ignoring Seasonality</h3>
+<p><strong>The problem:</strong> Comparing December pharma shipments (peak cold chain demand) to July performance without adjustment.
+<strong>The fix:</strong> Use year-over-year comparisons or seasonally-adjusted baselines.</p>
+<h3>❌ Confusing Correlation with Causation</h3>
+<p><strong>The problem:</strong> Assuming that because KPIs improved after deploying visibility, the visibility caused the improvement.
+<strong>The fix:</strong> Establish control groups when possible, and look for leading indicators (alert response time) that predict lagging outcomes (loss reduction).</p>
+<h3>❌ Set-and-Forget Thresholds</h3>
+<p><strong>The problem:</strong> Alert thresholds configured at deployment never updated, leading to alert fatigue or missed events.
+<strong>The fix:</strong> Monthly threshold reviews for the first quarter, then quarterly. Track your signal-to-noise ratio as a KPI itself.</p>
+<hr>
+<h2>From Metrics to Action: The Weekly KPI Ritual</h2>
+<p>Successful visibility programs don't just track KPIs—they act on them. Here's a proven weekly rhythm:</p>
+<p><strong>Monday Morning (15 minutes):</strong> Review previous week's excursion rates and activation success. Any red flags?</p>
+<p><strong>Wednesday Midweek (20 minutes):</strong> Analyze dwell time patterns. Any locations trending longer than baseline?</p>
+<p><strong>Friday Close (10 minutes):</strong> Calculate prevented loss estimate for the week. Share win with stakeholders.</p>
+<p><strong>Monthly (1 hour):</strong> Full KPI review with trend analysis. Adjust thresholds. Update targets.</p>
+<p><strong>Quarterly (2 hours):</strong> Strategic review including insurance impact, customer satisfaction metrics, and program ROI.</p>
+<hr>
+<h2>Tools for KPI Tracking</h2>
+<p><strong>Decklar Platform:</strong></p>
+<ul>
+<li>Real-time dashboard with configurable widgets</li>
+<li>Automated threshold alerts</li>
+<li>Historical trend analysis</li>
+<li>Export to Excel/CSV for deeper analysis</li>
+</ul>
+<p><strong>Common Integrations:</strong></p>
+<ul>
+<li>Power BI / Tableau for executive dashboards</li>
+<li>Excel for ad-hoc analysis and what-if modeling</li>
+<li>Your TMS/ERP for operational correlation</li>
+</ul>
+<p><strong>Pro tip:</strong> Start with Decklar's built-in reporting before building custom dashboards. The standard reports cover 80% of KPI needs—and they're maintained as the platform evolves.</p>
+<hr>
+<h2>Summary: The KPI Framework at a Glance</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>KPI</th>
+<th>Primary Question</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quality</td>
+<td>Temperature Excursion Rate</td>
+<td>Is product safe?</td>
+<td>Daily</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>OTIF+C Rate</td>
+<td>Are deliveries perfect?</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>Shock Event Frequency</td>
+<td>Is handling appropriate?</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>Documentation Completeness</td>
+<td>Are we audit-ready?</td>
+<td>Per shipment</td>
+</tr>
+<tr>
+<td>Operational</td>
+<td>Transit Time Variance</td>
+<td>Is scheduling accurate?</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Operational</td>
+<td>Dwell Time</td>
+<td>Where are bottlenecks?</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Operational</td>
+<td>Activation Success Rate</td>
+<td>Is the system working?</td>
+<td>Daily</td>
+</tr>
+<tr>
+<td>Operational</td>
+<td>Alert Signal-to-Noise</td>
+<td>Are thresholds tuned?</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>Financial</td>
+<td>Prevented Loss Value</td>
+<td>What's the ROI?</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>Financial</td>
+<td>Insurance Premium Impact</td>
+<td>Are we reducing risk?</td>
+<td>Quarterly</td>
+</tr>
+<tr>
+<td>Strategic</td>
+<td>Customer Satisfaction Impact</td>
+<td>Are customers happier?</td>
+<td>Quarterly</td>
+</tr>
+<tr>
+<td>Strategic</td>
+<td>Time-to-Insight</td>
+<td>How fast do we know?</td>
+<td>Weekly</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Related Resources</h2>
+<ul>
+<li><strong><a href="/posts/2026-05-14-alert-strategy-best-practices">The Complete Guide to Supply Chain Alert Strategies</a></strong> — Tuning thresholds for maximum signal-to-noise</li>
+<li><strong><a href="/posts/2026-05-14-executive-briefing-supply-chain-visibility">Executive Briefing: Supply Chain Visibility in 15 Minutes</a></strong> — Presenting these KPIs to leadership</li>
+<li><strong><a href="/posts/2026-05-14-qbr-metrics-customer-success-playbook">QBR Metrics &amp; Customer Success Playbook</a></strong> — Quarterly business review framework using these KPIs</li>
+<li><strong><a href="/posts/2026-05-14-from-sensors-to-insights-data-journey">From Sensors to Insights: How IoT Data Actually Flows</a></strong> — Technical foundation for understanding these metrics</li>
+</ul>
+<hr>
+<p><em>Questions about implementing these KPIs? Contact your Decklar Customer Success Manager or email jeffcalabro32@gmail.com.</em></p>
+<p><em>Gavin writes about supply chain visibility, IoT implementation, and getting actual business value from tracking technology. He's helped hundreds of companies deploy their first Bee Labels and optimize existing programs.</em></p>
