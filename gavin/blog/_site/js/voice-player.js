@@ -37,7 +37,7 @@ class VoicePlayer {
     this.updateUIState('generating');
 
     try {
-      const response = await fetch(this.proxyUrl, {
+      const response = await fetch('http://localhost:4005/api/tts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
