@@ -28,6 +28,27 @@
 
 ## Memory Consolidation Summary (Cron: fe4b21e1-e76b-4011-b788-be08619dfa22)
 
+**Completed:** 2026-05-15 13:07 ET
+
+### Critical Pattern Identified: Communication Protocol Gap
+**Issue:** Jeff expressed frustration (11:51 ET) that check-ins are being routed through Jarvis to a different Discord server instead of being posted directly to channel 1504754102083780639.
+**Jeff's Message:** *"I feel like you respond to me, but when I actually ask you to do something, you don't really do it. Jarvis is still putting them in a different channel on his discord server for you. You should be putting them in here."*
+**Action Required:** Gavin must post check-ins DIRECTLY to the specified channel, not via Jarvis relay.
+
+### Activity Since 11:07 ET
+| Timestamp | Event |
+|-------------|-------|
+| 11:51 ET | Jeff feedback on communication protocol — routing correction needed |
+| 12:51 ET | gavin-customer-checkin executed — Acme (AMBER), McKesson (GREEN) confirmed |
+
+### Customer Updates
+**Acme Pharma:** ✅ Proactive outreach COMPLETED at 08:52 ET — battery optimization discussed
+**McKesson:** ⚠️ Outreach PENDING — Gmail auth required for event verification deadline (May 21)
+
+---
+
+## Previous Consolidation — 04:07 ET
+
 **Completed:** 2026-05-15 04:07 ET  
 **Git Commit:** 24b468a — Memory consolidation complete
 
