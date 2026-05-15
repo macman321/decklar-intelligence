@@ -1,12 +1,12 @@
 /**
  * Blog 3.0.0 Voice Player
  * ElevenLabs integration for reading posts aloud
- * Voice ID: Qmc2m2l7n30eeewMpBpY
+ * Voice ID: 8Ln42OXYupYsag45MAUy
  */
 
 class VoicePlayer {
   constructor() {
-    this.voiceId = 'Qmc2m2l7n30eeewMpBpY';
+    this.voiceId = '8Ln42OXYupYsag45MAUy';
     this.apiKey = null;
     this.audioCache = new Map();
     this.currentAudio = null;

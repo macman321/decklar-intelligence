@@ -1,7 +1,7 @@
 /**
  * Blog 3.0.0 API Proxy
  * Securely handles ElevenLabs API requests
- * Voice ID: Qmc2m2l7n30eeewMpBpY
+ * Voice ID: 8Ln42OXYupYsag45MAUy
  */
 
 const http = require('http');
@@ -11,7 +11,7 @@ const path = require('path');
 
 // Configuration
 const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY || 'sk_b9487f82ad1507c97508d9b9d4a3a1fd';
-const VOICE_ID = 'Qmc2m2l7n30eeewMpBpY';
+const VOICE_ID = '8Ln42OXYupYsag45MAUy';
 const PORT = process.env.VOICE_API_PORT || 4005;
 
 // Simple CORS headers
