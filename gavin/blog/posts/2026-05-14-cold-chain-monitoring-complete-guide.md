@@ -4,8 +4,6 @@ date: 2026-05-14
 description: "Everything you need to know about maintaining temperature integrity across your supply chain — from regulatory requirements to alert configuration to excursion response protocols."
 layout: post.njk
 ---
----
-layout: post.njk
 
 # Cold Chain Monitoring: A Complete Guide for Temperature-Sensitive Logistics
 

@@ -6,8 +6,6 @@ tags: ["alerts", "best-practices", "operations", "configuration", "customer-succ
 author: "Gavin - Decklar Intelligence"
 layout: post.njk
 ---
----
-layout: post.njk
 
 # The Complete Guide to Supply Chain Alert Strategies
 

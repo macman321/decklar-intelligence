@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Decklar Customer Intelligence Portal
 
-## Getting Started
+AI-powered customer management for Decklar IoT supply chain visibility.
 
-First, run the development server:
+## Features
+
+- **Customer Dashboard**: Health RAG indicators, quick stats, search
+- **Customer Detail**: Contacts, deployment config, open items, call history, AI insights
+- **Voice Chat with Gavin**: Continuous, hands-free voice conversation
+
+## Voice Chat
+
+The Gavin sidebar supports **continuous voice conversation**:
+
+1. Click the phone button to start
+2. Speak naturally — no push-to-talk needed
+3. Gavin listens, thinks, and responds by voice
+4. After Gavin speaks, he automatically listens again
+5. Keep the conversation flowing like a phone call
+
+**Use cases:**
+- "What's the health status of Schneider Electric?"
+- "Brainstorm retention strategies for our at-risk customers"
+- "Summarize the last call with ACME Logistics"
+- "Who should I call this week?"
+
+## Tech Stack
+
+- Next.js 15 + TypeScript
+- Tailwind CSS
+- SQLite (better-sqlite3)
+- OpenAI Whisper + GPT-4
+- ElevenLabs Voice (Eric)
+
+## Environment Variables
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+OPENAI_API_KEY=sk-...
+ELEVENLABS_API_KEY=...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pushes to GitHub Pages automatically via GitHub Actions.

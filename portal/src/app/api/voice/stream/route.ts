@@ -71,12 +71,19 @@ Recent Insights: ${insights.map((i: any) => i.text).join('; ')}
 
 ${customerContext}
 
+CONVERSATION STYLE:
+- Be conversational, natural, and direct
+- Ask follow-up questions to dig deeper
+- Brainstorm creatively but practically
+- Provide specific, actionable advice
+- If you don't have specific data, say so but offer what you can infer
+
 Previous conversation:
 ${formData.get('history') || 'Starting fresh conversation.'}
 
 Jeff just said: "${userText}"
 
-Respond naturally and conversationally as Gavin. Be helpful, professional, and direct. If brainstorming, be creative but practical. If analyzing a customer, be data-driven. Keep responses concise (2-3 sentences max for voice).`;
+Respond naturally as Gavin. Keep it conversational - 2-4 sentences for quick responses, longer for complex analysis. If brainstorming, explore ideas enthusiastically. If analyzing data, be precise and cite what you know.`;
 
     const gptResponse = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',

@@ -191,15 +191,34 @@ export default function VoiceConversation({ customerId, customerName, onClose }:
   useEffect(() => {
     if (!isListening || !isActive) return;
     
+    let lastChunkCount = 0;
+    let silenceStartTime: number | null = null;
+    
     const detectSilence = () => {
-      // After 1.5 seconds of no new audio chunks, stop and process
-      if (audioChunksRef.current.length > 10 && mediaRecorderRef.current?.state === 'recording') {
+      const currentChunkCount = audioChunksRef.current.length;
+      const now = Date.now();
+      
+      // User is speaking - reset silence timer
+      if (currentChunkCount > lastChunkCount) {
+        lastChunkCount = currentChunkCount;
+        silenceStartTime = null;
+        return;
+      }
+      
+      // No new chunks - start tracking silence
+      if (currentChunkCount > 5 && !silenceStartTime) {
+        silenceStartTime = now;
+      }
+      
+      // If silence for 1.2 seconds and we have audio, process it
+      if (silenceStartTime && now - silenceStartTime > 1200 && mediaRecorderRef.current?.state === 'recording') {
         mediaRecorderRef.current.stop();
         setIsListening(false);
+        silenceStartTime = null;
       }
     };
     
-    const interval = setInterval(detectSilence, 1500);
+    const interval = setInterval(detectSilence, 100);
     return () => clearInterval(interval);
   }, [isListening, isActive]);
 

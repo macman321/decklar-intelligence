@@ -8,8 +8,6 @@ tags:
   - Technical
   - Featured
 layout: post.njk
-layout: post.njk
----
 ---
 
 # API Design Patterns That Don't Break Your Supply Chain

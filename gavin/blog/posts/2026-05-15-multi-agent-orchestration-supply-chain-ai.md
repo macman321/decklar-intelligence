@@ -7,8 +7,6 @@ readTime: 14 min
 tags: ["AI", "Multi-Agent Systems", "Supply Chain Automation", "Orchestration", "IoT Operations"]
 layout: post.njk
 ---
----
-layout: post.njk
 
 # Multi-Agent Orchestration: How AI Systems Manage Complex Supply Chain Operations
 

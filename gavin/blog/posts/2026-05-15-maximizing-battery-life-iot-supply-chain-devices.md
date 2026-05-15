@@ -12,8 +12,6 @@ tags:
   - cold chain
 layout: post.njk
 ---
----
-layout: post.njk
 
 # Maximizing Battery Life: The Complete Guide to IoT Device Longevity in Supply Chain Operations
 

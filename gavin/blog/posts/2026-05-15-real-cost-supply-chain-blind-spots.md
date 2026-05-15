@@ -8,8 +8,6 @@ tags:
   - Risk Management
   - Featured
 layout: post.njk
-layout: post.njk
----
 ---
 
 # The Real Cost of Supply Chain Blind Spots: What You Can't See Is Hurting You

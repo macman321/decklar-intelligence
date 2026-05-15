@@ -4,8 +4,6 @@ date: 2026-05-14
 description: "Everyone talks about reducing costs, but the real value of supply chain visibility runs deeper. Here are five strategic advantages that don't show up on your typical ROI calculator — but absolutely impact your bottom line."
 layout: post.njk
 ---
----
-layout: post.njk
 
 # The Hidden ROI of Supply Chain Visibility: 5 Benefits Beyond Cost Savings
 

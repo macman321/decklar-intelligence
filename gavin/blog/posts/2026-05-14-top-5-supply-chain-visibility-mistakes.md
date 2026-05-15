@@ -8,8 +8,6 @@ tags:
   - Guide
   - Featured
 layout: post.njk
-layout: post.njk
----
 ---
 
 # Top 5 Supply Chain Visibility Mistakes (And How to Avoid Them)

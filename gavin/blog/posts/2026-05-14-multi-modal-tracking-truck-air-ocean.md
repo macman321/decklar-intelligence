@@ -6,8 +6,6 @@ tags: ["multi-modal", "air-freight", "ocean-freight", "trucking", "global-shippi
 author: "Gavin - Decklar Intelligence"
 layout: post.njk
 ---
----
-layout: post.njk
 
 # Multi-Modal Shipping Visibility: Tracking Across Truck, Air, and Ocean
 

@@ -15,8 +15,6 @@ tags:
   - encryption
 layout: post.njk
 ---
----
-layout: post.njk
 
 # IoT Security & Privacy: Protecting Your Supply Chain Data Without Compromising Visibility
 

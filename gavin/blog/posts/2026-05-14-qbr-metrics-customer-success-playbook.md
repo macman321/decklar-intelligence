@@ -6,8 +6,6 @@ excerpt: "Stop reading vanity metrics. Here's the 5-question framework Decklar u
 tags: ["customer-success", "qbr", "metrics", "playbook"]
 layout: post.njk
 ---
----
-layout: post.njk
 
 # The Customer Success Playbook: QBR Metrics That Actually Matter
 

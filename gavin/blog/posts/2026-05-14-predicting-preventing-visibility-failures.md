@@ -7,8 +7,6 @@ permalink: /predicting-preventing-visibility-failures/
 tags: ["risk management", "customer success", "implementation", "data quality", "churn prevention"]
 layout: post.njk
 ---
----
-layout: post.njk
 
 # Predicting Supply Chain Visibility Failures Before They Happen: A Risk Scoring Framework
 

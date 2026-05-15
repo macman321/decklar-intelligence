@@ -6,8 +6,6 @@ tags: ["use-cases", "industry-guide", "roi", "supply-chain", "cold-chain"]
 excerpt: "Discover how 5 distinct supply chain use cases leverage IoT visibility to solve real business problems—from high-value cargo theft prevention to cold chain compliance and reverse logistics optimization."
 layout: post.njk
 ---
----
-layout: post.njk
 
 # Supply Chain Use Cases: A Complete Guide to IoT Visibility Applications
 

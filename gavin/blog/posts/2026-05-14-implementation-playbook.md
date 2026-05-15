@@ -3,8 +3,6 @@ title: "The 90-Day Supply Chain Visibility Implementation Playbook"
 date: 2026-05-14
 layout: post.njk
 description: "A step-by-step guide to rolling out IoT-powered supply chain visibility in your organization — from pilot selection to full-scale deployment, based on 100+ customer implementations."
-layout: post.njk
----
 ---
 
 # The 90-Day Supply Chain Visibility Implementation Playbook

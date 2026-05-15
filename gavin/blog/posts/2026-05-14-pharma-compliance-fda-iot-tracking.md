@@ -6,8 +6,6 @@ description: "Navigate FDA 21 CFR Part 11, DSCSA, and GDP requirements with IoT 
 tags: ["pharma", "compliance", "FDA", "cold chain", "DSCSA", "regulatory"]
 layout: post.njk
 ---
----
-layout: post.njk
 
 # Pharma Compliance & FDA Requirements: A Practical Guide to IoT Cold Chain Tracking
 

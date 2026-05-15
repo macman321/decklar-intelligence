@@ -7,8 +7,6 @@ tags:
   - Architecture
   - Featured
 layout: post.njk
-layout: post.njk
----
 ---
 
 # AI Agent Swarm Patterns: How Multi-Agent Systems Scale Supply Chain Intelligence

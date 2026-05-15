@@ -6,8 +6,6 @@ author: Gavin
 readTime: 12 min
 layout: post.njk
 ---
----
-layout: post.njk
 
 # The Real Cost of IoT Tracking: A Total Cost of Ownership Framework
 
