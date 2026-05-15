@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -87,6 +89,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="multi-modal-tracking-truck-air-ocean" data-post-content="Multi-Modal Shipping Visibility: Tracking Across Truck, Air, and Ocean How to maintain continuous shipment visibility when your cargo moves between trucks, planes, and ships — without losing data or coverage. Multi-modal shipping — combining truck, air, and ocean transport — is the reality of modern global supply chains. A single shipment might start on a truck in Ohio, fly to Frankfurt, then sail to Singapore before final truck delivery. Each handoff is a visibility black hole. Each mode has different constraints. And every transition is an opportunity for something to go wrong. Here&#39;s how to track multi-modal shipments without losing visibility at the handoffs. The Multi-Modal Visibility Challenge Mode Tracking Window Key Risks Visibility Strategy Truck Continuous Route deviations, detention GPS + cellular real-time Air Limited (tarmac gaps) Loading delays, temperature swings Last-mile + first-mile coverage Ocean Days/weeks of no signal Port congestion, transshipment Container-level monitoring + port alerts Handoffs Minutes to hours Misplaced cargo, missed scans Geofence triggers + dwell alerts The problem isn&#39;t tracking each mode — it&#39;s maintaining continuity across them. 1. Design for the Weakest Link Air and ocean segments have dead zones: Air cargo: No signal during flight, limited coverage on tarmac Ocean freight: No cellular 12+ miles from shore, container stacks block GPS Strategy: Configure your tracking to &amp;quot;store and forward.&amp;quot; Devices buffer data during dead zones and transmit when connectivity returns. Set your system to: Capture last known location before signal loss Record sensor data (temperature, humidity, shock) continuously in local storage Burst-transmit accumulated data at next connectivity window Flag shipments that don&#39;t check in within expected reconnect windows 2. Map Your Handoff Points Multi-modal shipments have predictable transition points: Handoff What to Track Alert Trigger Origin → First truck Departure confirmation Device scan or geofence exit Truck → Airport Arrival at air facility Geofence entry + dwell time Airport → Plane Loaded on aircraft Manual scan or carrier EDI Plane → Destination airport Landing + unload First ping from destination Airport → Destination truck Handover complete Geofence exit + next leg start Port operations (ocean) Container unload, customs, reload Port system integration + dwell alerts Critical: Each handoff should trigger both a &amp;quot;completion&amp;quot; event for the previous leg and an &amp;quot;initiation&amp;quot; event for the next leg. If either is missing, you have a potential problem. 3. Configure Mode-Specific Rules Different modes need different alert thresholds: Truck Segments Geofence radius: 1-5 miles (flexible for traffic) Dwell alerts: 2+ hours at waypoints Temperature checks: Every 15 minutes Air Segments Geofence radius: Airport boundary only Dwell alerts: 4+ hours (account for security, loading) Temperature critical: Pre-flight and post-flight readings Ocean Segments Geofence radius: Port boundaries Dwell alerts: 24+ hours (port congestion is normal) Check-in expectation: Daily when in range of coastal cellular 4. Account for Mode-Specific Risks Each transport mode has unique risk profiles: Air Freight Risks Temperature extremes on tarmac (can exceed 140°F) Rough handling during loading/unloading Security screening delays Ocean Freight Risks Extended periods without visibility Humidity and salt air corrosion Transshipment errors (wrong vessel, wrong port) Trucking Risks Route deviations and unauthorized stops Cargo theft at rest stops Refrigeration unit failures Mitigation: Configure threshold alerts for temperature, humidity, shock, and light exposure appropriate to each mode. Light sensors can detect unauthorized container opens. 5. Choose the Right Device Strategy Shipment Profile Recommended Device Why High-value air freight Reusable Bee with extended battery Store-and-forward, multi-use Ocean container (long haul) Long-life disposable label 90+ day battery, no return logistics Cross-border trucking Standard disposable label Cost-effective for one-way trips Pharma/cold chain Pharma-mode Bee with temp logging Compliance-grade data capture Rule of thumb: Match device battery life to journey duration plus 30% buffer. Ocean shipments need 60-90 day capacity. Air freight needs 7-14 days. Trucking needs 3-7 days. 6. Build a Unified Dashboard View The goal: One screen showing shipment progress regardless of mode transitions. Key dashboard elements: Current mode indicator (truck/air/ocean/pending) Last known location with timestamp Days since last checkpoint Sensor status summary (temp/humidity/shock/light) Next expected checkpoint Alert flags by severity Pro tip: Color-code by mode. Green for truck, blue for air, orange for ocean. Makes it instantly obvious where each shipment is in its journey. 7. Prepare for the &amp;quot;Gap&amp;quot; Scenarios Multi-modal inevitably creates visibility gaps. Have a plan for: No-check-in scenarios How long...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('multi-modal-tracking-truck-air-ocean', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>Multi-Modal Shipping Visibility: Tracking Across Truck, Air, and Ocean</h1>
 <p><em>How to maintain continuous shipment visibility when your cargo moves between trucks, planes, and ships — without losing data or coverage.</em></p>
@@ -353,6 +374,51 @@
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -520,6 +586,10 @@
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

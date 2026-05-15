@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -83,6 +85,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="ai-agent-swarm-patterns" data-post-content="AI Agent Swarm Patterns: How Multi-Agent Systems Scale Supply Chain Intelligence The future of supply chain AI isn&#39;t one super-intelligent agent. It&#39;s hundreds of specialized agents working in concert—like a digital immune system for your operations. The Limits of Monolithic AI We&#39;ve tried the single-agent approach. One massive language model, fed with all the supply chain data, expected to make every decision. It doesn&#39;t scale. The problems are predictable: Context windows overflow — You can&#39;t fit an entire global supply chain in a prompt Latency kills responsiveness — Complex queries take 30+ seconds, too slow for operational decisions Single points of failure — When the agent is down, everything stops No specialization — A generalist can&#39;t optimize a cold chain like a specialist can The solution isn&#39;t bigger models. It&#39;s distributed intelligence. What Is an Agent Swarm? Think about how your immune system works. You don&#39;t have one &amp;quot;immune cell&amp;quot; that does everything. You have: Macrophages that engulf invaders T-cells that coordinate responses Antibodies that mark threats Memory cells that learn from past encounters Each is specialized. Each communicates through chemical signals. Together, they&#39;re formidable. Agent swarms work the same way. Core Principles Specialization over generalization — Agents do one thing exceptionally well Loose coupling — Agents communicate through standardized messages, not direct integration Emergent intelligence — Complex behaviors arise from simple agent interactions Fault tolerance — The swarm continues if individual agents fail Scalable architecture — Add agents without rearchitecting Supply Chain Agent Swarm Architecture Here&#39;s how I&#39;m implementing swarm intelligence at Decklar: Layer 1: Sensor Agents (The Periphery) These are your &amp;quot;eyes and ears.&amp;quot; They don&#39;t make decisions—they just observe and report. Examples: IoT Data Ingestion Agent — Normalizes sensor streams from 50+ device types Carrier API Monitor — Polls UPS, FedEx, DHL APIs for milestone updates Weather Pattern Watcher — Tracks storms affecting active shipments Port Congestion Agent — Monitors marine traffic and berth availability Each sensor agent: Emits events to a message bus (NATS, Kafka, or RabbitMQ) Has no knowledge of downstream consumers Scales horizontally (add more for higher volume) Layer 2: Detection Agents (The Recognition Layer) These agents read the sensor stream and recognize patterns worth attention. Examples: Temperature Excursion Detector — Flags cold chain breaks in real-time Delay Propagation Agent — Calculates downstream impact of missed connections Anomaly Detection Agent — Identifies shipments behaving unusually Risk Aggregation Agent — Combines multiple signals into threat scores Detection agents use: Statistical models for pattern recognition ML classifiers trained on historical incidents Rule engines for regulatory/compliance checks When they detect something, they emit alert events with severity scores. Layer 3: Analysis Agents (The Cortex) These are your problem-solvers. When a detection agent flags an issue, analysis agents evaluate options. Examples: Route Optimization Agent — Calculates alternative paths for delayed shipments Inventory Positioning Agent — Determines which DCs can cover shortfalls Cost-Benefit Agent — Quantifies trade-offs between speed and expense Customer Impact Agent — Assesses which delays affect SLAs vs. buffer time Analysis agents: Query multiple data sources (ERP, WMS, TMS) Run simulations to predict outcomes Return ranked recommendations with confidence scores Layer 4: Decision Agents (The Executive Layer) These make the final call. They&#39;re the only agents with write access to operational systems. Examples: Escalation Agent — Decides when to notify humans vs. auto-resolve Execution Agent — Triggers reroutes, inventory movements, carrier switches Learning Agent — Updates models based on decision outcomes Decision agents implement: Approval workflows for high-cost actions Circuit breakers to prevent cascade failures Audit logging for compliance Communication Patterns Agents don&#39;t talk directly to each other. They publish events to a message fabric. Event Schema { &amp;quot;event_type&amp;quot;: &amp;quot;temperature_excursion&amp;quot;, &amp;quot;timestamp&amp;quot;: &amp;quot;2026-05-16T14:23:11Z&amp;quot;, &amp;quot;source&amp;quot;: &amp;quot;iot-ingestion-agent-3&amp;quot;, &amp;quot;payload&amp;quot;: { &amp;quot;shipment_id&amp;quot;: &amp;quot;SH-2026-88421&amp;quot;, &amp;quot;device_id&amp;quot;: &amp;quot;BEE-7A3F-2219&amp;quot;, &amp;quot;temperature_c&amp;quot;: 12.4, &amp;quot;threshold_c&amp;quot;: 8.0, &amp;quot;duration_minutes&amp;quot;: 23, &amp;quot;location&amp;quot;: { &amp;quot;lat&amp;quot;: 40.7128, &amp;quot;lng&amp;quot;: -74.0060, &amp;quot;accuracy_m&amp;quot;: 50 } }, &amp;quot;severity&amp;quot;: &amp;quot;critical&amp;quot;, &amp;quot;correlation_id&amp;quot;: &amp;quot;corr-7f3a-9d21-b884&amp;quot; } Subscription Patterns Agents subscribe to event types they care about: Temperature Excursion Detector → Subscribes to iot.temperature_reading Route Optimization Agent → Subscribes to...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('ai-agent-swarm-patterns', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>AI Agent Swarm Patterns: How Multi-Agent Systems Scale Supply Chain Intelligence</h1>
 <p><em>The future of supply chain AI isn't one super-intelligent agent. It's hundreds of specialized agents working in concert—like a digital immune system for your operations.</em></p>
@@ -369,6 +390,51 @@ Detection Event ──┼─&gt; Cost Analysis Agent ──&gt; Decision Agent
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -536,6 +602,10 @@ Detection Event ──┼─&gt; Cost Analysis Agent ──&gt; Decision Agent
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

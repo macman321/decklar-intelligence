@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -87,6 +89,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="qbr-metrics-customer-success-playbook" data-post-content="The Customer Success Playbook: QBR Metrics That Actually Matter Your supply chain visibility platform is collecting data. But are you using it to drive decisions? I&#39;ve sat through enough QBRs to know the difference between a report and a roadmap. Most teams spend 45 minutes reviewing dashboards that tell them what they already know. The best teams? They use five questions to uncover the invisible friction that&#39;s costing them money. Here&#39;s the framework we use with Decklar customers. The Five Questions That Cut Through Noise 1. &amp;quot;Where are your alerts clustering?&amp;quot; Why it matters: An alert in isolation is noise. Fifteen alerts from the same facility in two weeks? That&#39;s a pattern. What to look for: Geofence violations at specific origin points (often indicates address/database errors) Temperature excursions on recurring lanes (cold chain calibration issues) Device &amp;quot;went dark&amp;quot; events in specific regions (connectivity dead zones) The pivot: Turn location-based alert clusters into operational tickets. One fix at the facility level prevents 20 future alerts. 2. &amp;quot;What percentage of shipments had zero incidents?&amp;quot; Why it matters: Everyone tracks when things go wrong. But &amp;quot;boring shipments&amp;quot; — the ones that went from A to B with no drama — tell you if your baseline configuration is actually working. The benchmark: &amp;gt;90% clean shipments: Your thresholds are calibrated correctly 70-90%: Review your geofence radii and alert sensitivity &amp;lt;70%: You have a configuration problem, not a supply chain problem The pivot: Don&#39;t optimize for the exceptions. Optimize the baseline so exceptions are actually exceptional. 3. &amp;quot;How many alerts converted into action?&amp;quot; Why it matters: An alert that&#39;s ignored is worse than no alert at all. It trains your team to ignore the system. What to measure: Alerts acknowledged within 15 minutes Alerts that triggered a workflow (driver called, customer notified, inspection scheduled) Alerts that led to a claim filed or damage prevented The pivot: If your alert-to-action ratio is low, you have an integration problem, not a visibility problem. Connect Decklar to your TMS or operational dashboards. 4. &amp;quot;Where are your customers checking tracking?&amp;quot; Why it matters: Your external tracking links aren&#39;t just for transparency — they&#39;re a heat map of customer anxiety. What to look for: High tracking volume on specific lanes = visibility gaps customers are manually filling Multiple checks on the same shipment = delivery expectation misalignment External shares to new email addresses = stakeholder expansion opportunities The pivot: High tracking activity is a signal. Either automate the update frequency on those lanes, or add proactive notifications before customers need to check. 5. &amp;quot;What&#39;s your time-to-resolution on exceptions?&amp;quot; Why it matters: The cost of an incident is directly proportional to how long it takes to resolve. The tiers: &amp;lt;2 hours: Real-time rerouting, driver contact, customer notification 2-6 hours: Standard exception workflow, next-day mitigation &amp;gt;6 hours: You&#39;re managing damage, not preventing it The pivot: If your time-to-resolution is creeping up, audit your escalation chains. The right person needs to know at the right time. The &amp;quot;Pipe-Cleaning&amp;quot; Phase: Month 2-3 Post-Go-Live Here&#39;s something most vendors won&#39;t tell you: Your first 30 days of data will be noisy. Geofences will be too tight or too loose. Ping frequencies will need tuning. Waypoint triggers will fire at the wrong times. We call this the &amp;quot;pipe-cleaning&amp;quot; phase, and it&#39;s critical. Month 1: Collect data. Don&#39;t optimize yet. Let the system show you where the friction is. Month 2-3: Review the five questions above. Adjust geofence radii based on actual facility layouts. Tune alert thresholds based on real temperature and shock readings. Consolidate waypoint alerts that fire too frequently. Month 4+: Your baseline is clean. Now you&#39;re optimizing for speed, cost, and expansion — not debugging configuration. The Red Flags We Watch For &amp;quot;We&#39;re getting too many alerts.&amp;quot; Usually means thresholds are too sensitive, not that your supply chain is broken. &amp;quot;The data doesn&#39;t match our TMS.&amp;quot; Check your shipment start/stop logic. A one-minute difference in when a shipment &amp;quot;starts&amp;quot; creates mismatches. &amp;quot;Our customers aren&#39;t using the tracking links.&amp;quot; Either they don&#39;t know about them (training gap) or they don&#39;t trust them (data quality issue). The One Metric That Rules Them All Incidents detected before the customer knew about them. That&#39;s it. That&#39;s the scoreboard. If Decklar is flagging temperature excursions, delays, or damage risks before your customer calls you — you&#39;re winning. If customers are calling you first, visibility isn&#39;t the problem. Reaction time is. A QBR Template You Can Steal Section Time Owner Output Alert Cluster Analysis 10 min Ops Lead 2-3 facility-specific tickets Clean Shipment % Review 5...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('qbr-metrics-customer-success-playbook', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>The Customer Success Playbook: QBR Metrics That Actually Matter</h1>
 <p><em>Your supply chain visibility platform is collecting data. But are you using it to drive decisions?</em></p>
@@ -233,6 +254,51 @@
       </div>
     </div>
   </article>
+  
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
   
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
@@ -401,6 +467,10 @@
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

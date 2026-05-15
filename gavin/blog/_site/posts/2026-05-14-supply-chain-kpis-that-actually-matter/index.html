@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -83,6 +85,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="supply-chain-kpis-that-actually-matter" data-post-content="Supply Chain Visibility KPIs That Actually Matter Most supply chain teams track too many metrics and act on too few. Here&#39;s the focused KPI framework that connects IoT visibility data to actual business outcomes. Your Bee Labels are generating thousands of data points daily: GPS coordinates, temperature readings, shock events, battery levels, arrival times. But data without decision-making is just noise. After working with hundreds of Decklar deployments, we&#39;ve identified the 12 KPIs that actually drive action. These metrics fall into three categories—each answering a different business question. Category 1: &amp;quot;Is Our Product Safe?&amp;quot; (Quality &amp;amp; Compliance KPIs) These metrics answer the most fundamental question in supply chain visibility: Did your shipment arrive in the condition it left? 1. Temperature Excursion Rate What it measures: Percentage of shipments that experienced temperature outside acceptable ranges during transit. How to calculate: Temperature Excursion Rate = (Shipments with excursions ÷ Total monitored shipments) × 100 Benchmarks: Excellent: &amp;lt;1% Acceptable: 1–3% Needs attention: &amp;gt;5% Why it matters: For cold chain operations, this directly predicts product integrity. A pharmaceutical customer reduced their excursion rate from 8% to 0.3% within 90 days of deploying Bee Labels—saving an estimated $240K in product loss. Decklar data source: Temperature sensor readings against configured thresholds in the Honeycomb platform. 2. On-Time, In-Full, In-Condition (OTIF+C) Rate What it measures: Percentage of deliveries that arrive on time, complete, and without damage. How to calculate: OTIF+C Rate = (Perfect deliveries ÷ Total deliveries) × 100 Benchmarks: World class: &amp;gt;98% Industry average: 85–92% Improvement opportunity: &amp;lt;85% Why it matters: Traditional OTIF misses the &amp;quot;in-condition&amp;quot; piece. Adding environmental monitoring completes the picture—especially for temperature-sensitive, fragile, or high-value goods. 3. Shock Event Frequency What it measures: Average number of shock/impact events per shipment. How to calculate: Shock Event Frequency = Total shock events ÷ Total shipments Benchmarks: Normal handling: &amp;lt;0.5 events per shipment Concerning: 0.5–1.5 events per shipment Investigation needed: &amp;gt;2 events per shipment Why it matters: Shock events often precede damage claims. Tracking them helps identify problem carriers, routes, or handling procedures before they become costly. 4. Compliance Documentation Completeness What it measures: Percentage of shipments with complete digital chain-of-custody records. How to calculate: Documentation Completeness = (Shipments with complete records ÷ Total shipments) × 100 Benchmarks: Audit-ready: 100% Industry standard: 95–99% Risk exposure: &amp;lt;95% Why it matters: For FDA-regulated industries, incomplete documentation can mean product holds, recalls, or regulatory action. Digital records from IoT devices provide automated compliance documentation. Category 2: &amp;quot;Is Our Operation Efficient?&amp;quot; (Operational KPIs) These metrics measure how well your supply chain is running—and where friction exists. 5. Average Transit Time Variance What it measures: Average deviation between planned and actual transit times. How to calculate: Transit Time Variance = Actual arrival time − Planned arrival time Average Variance = Sum of all variances ÷ Number of shipments Benchmarks: Tight control: ±2 hours Normal variance: ±4–8 hours Scheduling issue: &amp;gt;±12 hours Why it matters: Consistent variance patterns reveal systemic issues—whether it&#39;s unrealistic planning, carrier performance, or facility bottlenecks. 6. Dwell Time at Critical Nodes What it measures: Average time shipments spend at key locations (warehouses, ports, customs). How to calculate: Dwell Time = Departure timestamp − Arrival timestamp at location Benchmarks: Distribution center: 2–6 hours Port/airport: 4–24 hours Customs clearance: 1–48 hours (highly variable by country) Why it matters: Excessive dwell time indicates bottlenecks. One customer discovered their average port dwell time was 72 hours—three times industry standard—sparking a facility process review that cut it to 28 hours. 7. Device Activation Success Rate What it measures: Percentage of deployed Bee Labels that successfully activate and begin reporting. How to calculate: Activation Rate = (Successfully activated devices ÷ Total deployed devices) × 100 Benchmarks: Excellent: &amp;gt;99% Acceptable: 95–99% Troubleshooting needed: &amp;lt;95% Why it matters: Failed activations mean blind spots in your visibility. Common causes include battery issues, cellular coverage gaps, or scan/entry errors. 8. Alert Signal-to-Noise Ratio What it measures: Percentage of alerts that represent genuine issues requiring action. How to calculate: Signal-to-Noise = (Actionable alerts ÷ Total alerts) × 100 Benchmarks: Well-tuned: &amp;gt;70% Needs tuning: 30–70% Alert fatigue territory: &amp;lt;30% Why it matters: Too many false-positive alerts...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('supply-chain-kpis-that-actually-matter', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>Supply Chain Visibility KPIs That Actually Matter</h1>
 <p><em>Most supply chain teams track too many metrics and act on too few. Here's the focused KPI framework that connects IoT visibility data to actual business outcomes.</em></p>
@@ -418,6 +439,51 @@ Average Variance = Sum of all variances ÷ Number of shipments
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -585,6 +651,10 @@ Average Variance = Sum of all variances ÷ Number of shipments
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

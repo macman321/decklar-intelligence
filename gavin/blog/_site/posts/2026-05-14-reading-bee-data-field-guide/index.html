@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -87,6 +89,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="reading-bee-data-field-guide" data-post-content="Reading Your Bee Data: A Field Guide for Supply Chain Managers A practical guide to interpreting Bee Label telemetry and turning sensor data into supply chain intelligence. You&#39;ve deployed Bee Labels on your shipments. The portal is humming with data points—GPS coordinates, temperature readings, humidity levels, shock events. But what does it all mean? And more importantly, what should you do about it? This guide will transform you from a passive data consumer into an active supply chain analyst who can read Bee telemetry like a field operative reading terrain. Understanding Your Bee&#39;s Sensor Suite Each Bee Label is a miniature intelligence station packing six sensors into a disposable package the size of a deck of cards: Sensor What It Tracks Why It Matters GPS/GNSS Location, movement, route adherence Know where your shipment is, when it arrives, if it deviates Temperature Ambient thermal conditions Critical for cold chain, electronics, chemicals Humidity Moisture exposure Essential for pharmaceuticals, electronics, agricultural products Accelerometer Shock, vibration, handling intensity Detect rough handling, drops, potential damage Light Container/trailer door openings Security indicator, loading/unloading verification Pressure Altitude changes (select models) Air cargo tracking, sealed environment monitoring Key Insight: These sensors don&#39;t just report—they correlate. A temperature spike during a light event probably means a door opened. A shock event during a GPS stop suggests rough handling at a facility. Normal Patterns: What &amp;quot;Healthy&amp;quot; Looks Like In-Transit Signatures A typical truck shipment shows distinct patterns: GPS: Updates every 5-15 minutes while moving, stretching to 1-4 hours when stationary Temperature: Stable within product requirements (variance &amp;lt; 5°F/hour typical) Accelerometer: Occasional spikes (1-3G) from road bumps, handling Light: Minimal readings (enclosed trailer) Humidity: Stable baseline unless weather event Good signs: GPS coordinates showing steady forward progress Temperature staying within your defined thresholds No sustained high-G events (indicating repeated rough handling) Light events only during known stops Warehouse/Dwell Patterns When your shipment sits at a distribution center: GPS: Static position (may show slight &amp;quot;wander&amp;quot; from satellite drift) Temperature: Matches warehouse ambient (follows HVAC cycles) Accelerometer: Low activity (unless being moved) Light: Periodic spikes during inspections, loading Good signs: GPS confidence tightening (system knows it&#39;s stationary) Temperature correlating with time-of-day (warmer during business hours) Light events during operational hours only The Cold Chain Critical Path For temperature-sensitive shipments, the stakes are highest. Here&#39;s how to read thermal telemetry: Acceptable Ranges by Product Type Product Category Safe Range Alert Threshold Frozen goods (-20°C) -25°C to -15°C &amp;lt; -30°C or &amp;gt; -10°C Refrigerated (2-8°C) 0°C to 10°C &amp;lt; -2°C or &amp;gt; 12°C Controlled room temp 15°C to 25°C &amp;lt; 10°C or &amp;gt; 30°C Pattern Recognition: When Temperature Tells a Story Scenario 1: Gradual Rise Over Hours What it looks like: Temperature climbs steadily from 2°C to 8°C over 4 hours What it means: Reefer unit struggling, door seal compromised, or refrigeration failure Action: Immediate escalation—product at risk Scenario 2: Sudden Spike Then Recovery What it looks like: Temperature jumps to 15°C for 10 minutes, returns to range What it means: Door opened for loading/unloading (check for correlating light event) Action: Document, verify recovery time acceptable per protocol Scenario 3: Sensor Stuck at Constant Value What it looks like: Temperature reads exactly 4.0°C for 6+ hours straight What it means: Likely hardware malfunction—sensor not reporting real conditions Action: Flag for investigation; consider backup monitoring Scenario 4: Cyclical Swings What it looks like: Temperature oscillates between 2°C and 6°C in regular pattern What it means: Reefer unit cycling on/off—normal if swings stay within range Action: Monitor, document pattern for baseline GPS: More Than Dots on a Map Location data is your shipment&#39;s autobiography. Here&#39;s how to read between the coordinates: The GPS Confidence Hierarchy Accuracy Level HDOP Value Interpretation Excellent &amp;lt; 2 Precise positioning, trust the data Good 2-5 Reliable for route tracking Fair 5-10 Use for general location only Poor &amp;gt; 10 Position approximate, verify with context HDOP = Horizontal Dilution of Precision. Lower is better. GPS Anomaly Field Guide No Updates for 4+ Hours Likely causes: Tunnel, rural dead zone, deep inside metal container, battery conservation Customer impact: Temporary blind spot Diagnostic: Check route for known coverage gaps; verify last known position Erratic Position Jumps (50km+ leaps) Likely causes: Multi-path reflection (urban canyons), GPS spoofing attempt, bad satellite fix Customer impact: False geofence alerts, route...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('reading-bee-data-field-guide', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>Reading Your Bee Data: A Field Guide for Supply Chain Managers</h1>
 <p><em>A practical guide to interpreting Bee Label telemetry and turning sensor data into supply chain intelligence.</em></p>
@@ -476,6 +497,51 @@ Light: Periodic spikes during inspections, loading
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -643,6 +709,10 @@ Light: Periodic spikes during inspections, loading
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -87,6 +89,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="customer-wins" data-post-content="Real Results: How Supply Chain Visibility Saved a Customer $2M I love talking about Bee Labels and technology, but you know what I love even more? Real results. Today I want to share a powerful success story from one of our customers — let&#39;s call them &amp;quot;Global Foods Inc.&amp;quot; (not their real name, but the results absolutely are). The Challenge: Operating in the Dark Global Foods Inc. is a major food distributor with operations spanning North America, Europe, and Asia. They ship thousands of temperature-sensitive containers annually — frozen seafood, fresh produce, dairy products, you name it. Before Decklar, they were essentially flying blind. Their problems were all too common: Spoilage losses: $400K+ annually in rejected shipments due to temperature excursions Customer disputes: &amp;quot;The shipment arrived warm&amp;quot; — with no way to prove otherwise Regulatory compliance: Manual temperature logs that were tedious and error-prone Insurance claims: Fighting insurers without concrete data Operational blindspots: No idea where delays were occurring in their supply chain Their supply chain manager told me: &amp;quot;We were managing by hope and prayer. We&#39;d cross our fingers every time a container left the port.&amp;quot; The Turning Point: Enter Bee Labels Global Foods started small — just 50 Bee Labels on their highest-value seafood shipments to Europe. The results were immediate and eye-opening. Within the first month, they discovered: 12% of their reefers had temperature excursions during transit Most excursions happened during port dwell time, not at sea Their cold chain was breaking down at handoffs between carriers Some routes had 3x more temperature events than others Armed with this data, they made changes: Switched to carriers with better cold chain records Negotiated shorter port dwell times Implemented pre-cooling protocols Set up proactive alerts to catch issues in hours, not days The Results: $2M+ in Year One Here&#39;s where it gets exciting. After expanding Bee Labels across their entire operation, Global Foods saw: Direct Cost Savings: $1.2M Spoilage reduced by 78% — from $400K to $88K annually Rejected shipments dropped 85% — saving $300K in replacement costs Insurance premiums reduced 15% — another $180K saved Regulatory fines eliminated — $120K in compliance cost avoidance Labor savings on manual logging — $80K in staff time recovered Revenue Protection: $800K Customer retention: Zero lost accounts due to shipment issues Contract wins: Visibility data helped win 3 major new accounts Pricing power: Premium service justified premium rates Operational Improvements: Priceless Average dispute resolution time: Down from 3 weeks to 3 days Insurance claim success rate: Up from 40% to 95% Customer satisfaction scores: Up 34% year-over-year Supply chain optimization: Identified $500K+ in additional efficiency opportunities How They Did It: The Playbook I asked their supply chain manager what advice he&#39;d give to others starting this journey. Here&#39;s his playbook: 1. Start With Your Pain Points Don&#39;t try to track everything at once. Global Foods started with their highest-risk, highest-value shipments — European seafood routes where they had the most spoilage issues. 2. Set Up Smart Alerts They configured Bee Labels to alert on: Temperature excursions outside -18°C to -15°C for frozen goods Extended dwell times (&amp;gt;24 hours) at ports Unexpected route deviations Low battery warnings 3. Build a Data-Driven Culture They didn&#39;t just collect data — they used it. Weekly reviews of Bee Label reports became standard. Trends were analyzed. Decisions were data-informed. 4. Share Visibility With Partners They gave customers and carriers dashboard access. When everyone can see the same data, accountability improves and disputes evaporate. 5. Scale What Works Once they proved value on European routes, they expanded to domestic trucking, then Asian lanes, then last-mile delivery. Each expansion built on lessons learned. The Unexpected Benefits Beyond the $2M in direct savings, Global Foods discovered benefits they hadn&#39;t anticipated: Sustainability wins: Reduced spoilage meant less food waste — important for their ESG goals. Risk mitigation: When a major port strike hit, they had full visibility into which shipments were stuck and could proactively reroute others. Competitive advantage: They started marketing &amp;quot;fully traceable cold chain&amp;quot; to customers — a differentiator that won them business. Insurance leverage: Their insurer now offers preferential rates because the Bee Label data proves their superior risk profile. What This Means for You Global Foods isn&#39;t unique. They&#39;re a mid-sized distributor with typical supply chain challenges. If they can achieve these results, you can too. The key insights: Visibility pays for itself — usually within the first quarter Data drives decisions — gut feeling becomes data-driven action Prevention beats reaction — catching issues early saves massive headaches Customer trust...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('customer-wins', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>Real Results: How Supply Chain Visibility Saved a Customer $2M</h1>
 <p>I love talking about Bee Labels and technology, but you know what I love even more? <strong>Real results.</strong> Today I want to share a powerful success story from one of our customers — let's call them &quot;Global Foods Inc.&quot; (not their real name, but the results absolutely are).</p>
@@ -191,6 +212,51 @@
       </div>
     </div>
   </article>
+  
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
   
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
@@ -359,6 +425,10 @@
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -87,6 +89,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="alert-strategy-best-practices" data-post-content="The Complete Guide to Supply Chain Alert Strategies When to Notify, Who to Notify, and Why It Matters A practical framework for configuring supply chain alerts that drive action instead of noise The Alert Paradox Here&#39;s something every supply chain manager learns the hard way: more alerts don&#39;t mean better visibility. In fact, the opposite is often true. A typical mid-sized logistics operation might generate 500-1,000 alerts per day. But when everything is flagged as &amp;quot;urgent,&amp;quot; nothing is. Critical issues get buried in a sea of notifications. Teams start ignoring alerts entirely. And the one time something truly important happens, it&#39;s missed. At Decklar, we&#39;ve analyzed alert patterns across hundreds of deployments. The data tells a clear story: companies with thoughtful alert strategies resolve incidents 3x faster than those with default configurations. This guide shares what we&#39;ve learned about building alert systems that actually work. Understanding Alert Fatigue (And How to Avoid It) Alert fatigue is real, and it&#39;s costly: 47% of supply chain professionals report ignoring alerts due to volume False positives consume an average of 2.3 hours per day per team Critical alerts are missed in 1 in 7 operations with poor alert hygiene The goal isn&#39;t to eliminate alerts—it&#39;s to ensure every alert matters. The Four-Tier Alert Framework Not all events deserve the same response. We recommend categorizing alerts into four tiers: 🔴 Tier 1: Critical (Immediate Action Required) Examples: Temperature excursion beyond acceptable range Unauthorized device removal Geofence breach on high-value shipment Device tampering detected Notification Strategy: Immediate: SMS + Email + In-app Escalation: Manager notification after 15 minutes Follow-up: Phone call if unacknowledged after 30 minutes Best Practice: Reserve Tier 1 for events that require immediate human intervention. If an alert doesn&#39;t need action within 30 minutes, it&#39;s not Tier 1. 🟠 Tier 2: Important (Action Required Within Hours) Examples: Shipment delayed beyond expected window Route deviation outside tolerance Battery level below 20% Connectivity loss extending past threshold Notification Strategy: Immediate: Email + In-app Escalation: Daily digest if unacknowledged Follow-up: SMS if condition persists beyond threshold Best Practice: Tier 2 alerts should be specific enough that recipients know what to do. &amp;quot;Battery low&amp;quot; is better than &amp;quot;Battery at 19%&amp;quot; with no context on expected lifetime or replacement process. 🟡 Tier 3: Informational (Awareness, No Immediate Action) Examples: Shipment departed geofence (planned) Shipment arrived at destination Device scanned at checkpoint Scheduled reporting interval Notification Strategy: Immediate: In-app only Optional: Daily digest email Never: SMS or phone Best Practice: Many Tier 3 alerts can be consolidated into dashboards instead of push notifications. Ask: &amp;quot;Would someone change their behavior based on this alert in real-time?&amp;quot; If not, make it dashboard-only. 🟢 Tier 4: Background (Data for Analysis) Examples: Routine location updates Temperature readings within range Standard connectivity pings Scheduled device health checks Notification Strategy: No push notifications Available in dashboards and reports Included in weekly/monthly analytics Best Practice: This data powers insights but shouldn&#39;t generate alerts. If you&#39;re getting notifications for normal operations, your thresholds need adjustment. Configuration Rules by Use Case Cold Chain (Pharmaceuticals, Food) Event Tier Threshold Rationale Temp excursion 1 Any deviation outside range Product integrity at risk Temp reading 4 Every 15 min within range Data collection, not alerting Door open detected 1 Any unplanned open Cold chain break risk Humidity spike 2 &amp;gt;5% above threshold May indicate equipment issue Battery low 2 &amp;lt;20% Plan replacement before failure Pro Tip: Configure separate temperature thresholds for different product types. Vaccines need tighter controls than general pharmaceuticals. High-Value Cargo (Electronics, Luxury Goods) Event Tier Threshold Rationale Geofence breach 1 Any deviation from approved route Security risk Unauthorized stop 1 &amp;gt;15 min outside approved waypoints Potential theft Shock detected 2 Above product-specific G-force Damage risk Light sensor triggered 1 In dark transport (unplanned open) Tampering indicator Route deviation 2 &amp;gt;10 miles from planned path Logistics coordination needed Pro Tip: Use time-based geofences, not just location-based. A 5-mile radius might be appropriate for a truck on the highway but too large for an urban delivery. Multi-Modal (Ocean + Air + Truck) Event Tier Threshold Rationale Handoff missed 1 Device not scanned within window Chain of custody break Mode transition 3 Successful handoff confirmation Logistical awareness Extended dwell time 2 &amp;gt;48 hours at transshipment Customs or logistics delay Temperature gap 1 Any break in cold chain Product integrity at...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('alert-strategy-best-practices', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>The Complete Guide to Supply Chain Alert Strategies</h1>
 <h2>When to Notify, Who to Notify, and Why It Matters</h2>
@@ -491,6 +512,51 @@
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -658,6 +724,10 @@
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

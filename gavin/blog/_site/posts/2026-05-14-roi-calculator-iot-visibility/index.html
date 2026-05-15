@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -87,6 +89,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="roi-calculator-iot-visibility" data-post-content="The Supply Chain Manager&#39;s Guide to Calculating ROI on IoT Visibility So you&#39;re convinced supply chain visibility is valuable — but now you need to convince your CFO. I&#39;ve been there. There&#39;s nothing quite like the feeling of knowing something would transform your operation, but facing a blank stare when you mention &amp;quot;real-time tracking&amp;quot; and &amp;quot;IoT sensors.&amp;quot; Today, I&#39;m giving you the exact framework I use with Decklar customers to build bulletproof ROI calculations. This isn&#39;t theoretical fluff — these are the numbers that get budgets approved. Why Most ROI Calculations Fail Before we dive into the math, let&#39;s talk about why most visibility ROI proposals get rejected: They&#39;re too vague. &amp;quot;We&#39;ll save money on spoilage&amp;quot; doesn&#39;t impress finance teams. They want specifics. They ignore implementation costs. If your calculation doesn&#39;t include onboarding time, training, and process changes, it&#39;s not credible. They miss the hidden benefits. Insurance savings, customer retention, and operational insights often dwarf direct cost reductions. They&#39;re overly optimistic. Assuming 100% spoilage elimination or zero implementation friction destroys credibility. Let&#39;s fix all of that. The Decklar ROI Framework I break ROI into five categories. For each, we&#39;ll identify the inputs, set realistic assumptions, and calculate annual value. Category 1: Direct Loss Prevention This is the easiest category to calculate — and often the most compelling. What to measure: Annual spoiled/rejected shipments (units and value) Average value per rejected shipment Root cause breakdown (temperature, damage, delays, other) The calculation: Annual Spoilage Value = (Shipments Rejected × Avg Value) + (Partial Claims × Avg Claim Value) Preventable Losses = Annual Spoilage Value × % Attributable to Lack of Visibility Annual Savings = Preventable Losses × Expected Prevention Rate Realistic assumptions: IoT visibility typically prevents 60-80% of environment-related spoilage Damage/delay prevention varies by operation (30-60%) Start conservative — use 50-60% for your initial projection Example: Annual rejected shipments: 200 Average shipment value: $5,000 Annual spoilage value: $1,000,000 Visibility-preventable: 70% ($700,000) Expected prevention: 60% Annual savings: $420,000 Category 2: Dispute Resolution &amp;amp; Claims Visibility doesn&#39;t just prevent problems — it resolves them faster and cheaper. What to measure: Annual shipment disputes with customers/carriers Average time to resolve disputes (days) Labor hours spent on dispute resolution Insurance claims filed and success rate Average claim value The calculation: Labor Savings = (Disputes × Hours per Dispute × Hourly Rate) × Efficiency Gain Claim Improvement = (Claims × Success Rate Improvement × Avg Claim Value) Working Capital Impact = (Avg Dispute Value × Days Reduced × Cost of Capital %) / 365 Realistic assumptions: Visibility data reduces dispute resolution time by 70-80% Insurance claim success rates improve from ~40% to 90%+ with data Cost of capital: typically 8-12% for most companies Example: Annual disputes: 150 Hours per dispute: 8 Hourly rate: $50 Efficiency gain: 75% Labor savings: $45,000 Annual claims: 50 Current success rate: 40% With visibility: 90% Average claim: $3,000 Claim improvement: $75,000 Average dispute value: $8,000 Days reduced: 14 Cost of capital: 10% Working capital benefit: $3,068 Annual savings: $123,068 Category 3: Insurance &amp;amp; Risk This category often surprises people with how substantial it is. What to measure: Annual cargo insurance premiums Deductibles paid per year Risk category classification with insurers The calculation: Premium Reduction = Annual Premium × Expected Reduction % Deductible Savings = Claims Prevented × Deductible Amount Category Improvement = Premium Difference Between Risk Categories Realistic assumptions: 12-18% premium reduction is typical after 12-18 months of visibility data Some insurers offer immediate 5-10% discounts for tracked shipments Category improvements (standard → preferred) can be 20-30% Example: Annual premium: $200,000 Year 1 discount: 8% Year 2+ discount: 15% Annual savings Year 1: $16,000 Annual savings Year 2+: $30,000 Category 4: Customer &amp;amp; Revenue Impact This is where visibility becomes a competitive weapon. What to measure: Customer churn rate and reasons Average customer lifetime value (LTV) Win/loss rate on competitive deals Premium pricing opportunities The calculation: Retention Value = (Churn Reduction × Customers × Avg LTV) / LTV Period Win Rate Improvement = (New Win Rate - Current Win Rate) × Deal Value × Pipeline Premium Pricing = Tracked Shipments × Premium per Shipment Realistic assumptions: Visibility reduces churn from supply chain issues by 60-80% Data transparency can improve win rates 10-20% in competitive situations Premium pricing of 2-5% is achievable for guaranteed visibility Example: Annual customer churn: 5 Churn from supply chain issues: 40% (2 customers)...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('roi-calculator-iot-visibility', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>The Supply Chain Manager's Guide to Calculating ROI on IoT Visibility</h1>
 <p>So you're convinced supply chain visibility is valuable — but now you need to convince your CFO. I've been there. There's nothing quite like the feeling of knowing something would transform your operation, but facing a blank stare when you mention &quot;real-time tracking&quot; and &quot;IoT sensors.&quot;</p>
@@ -560,6 +581,51 @@ ROI: 1,141%
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -727,6 +793,10 @@ ROI: 1,141%
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

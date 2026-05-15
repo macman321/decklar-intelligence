@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -83,6 +85,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="iot-security-privacy-supply-chain-tracking" data-post-content="IoT Security &amp;amp; Privacy: Protecting Your Supply Chain Data Without Compromising Visibility The paradox every supply chain leader faces: You need granular visibility into shipments across your network. But every new IoT sensor, every data transmission, and every cloud integration is a potential attack vector. One breach doesn&#39;t just expose tracking data—it could reveal supplier relationships, shipment patterns, and competitive intelligence that took years to build. The question isn&#39;t whether IoT security matters. It&#39;s whether your visibility solution protects data as rigorously as it collects it. This guide breaks down the security landscape for supply chain IoT—what actually matters, what vendors should provide, and how to build a security-first visibility program that passes procurement scrutiny. The Supply Chain IoT Security Landscape Supply chain IoT faces unique security challenges that differ from traditional enterprise IoT: Challenge Why It Matters Risk Level Physical Device Exposure Sensors travel through uncontrolled environments High Multi-Tenant Data One device may report on multiple customers Critical Geographic Sprawl Data crosses international borders High Legacy System Integration ERP/WMS connections often lack modern security Medium Supply Chain Visibility Attackers know exactly where valuable cargo is Critical Unlike smart home devices or office sensors, supply chain trackers face deliberate physical access attempts, interception risks at ports and terminals, and sophisticated attacks targeting high-value shipments. The Four Pillars of Supply Chain IoT Security Pillar 1: Device Security (The Foundation) What attackers target: Firmware tampering, device cloning, credential extraction What you should demand: Security Control Implementation Verification Secure Boot Cryptographic verification of firmware integrity Ask for security audit report Hardware Root of Trust Immutable device identity in secure element Look for TPM/TEE certification Encrypted Storage AES-256 for configuration and cached data Review data sheet specifications Tamper Detection Accelerometer/light sensors detect physical intrusion Test with device in hand Over-the-Air (OTA) Updates Signed, encrypted firmware delivery Verify update mechanism Red Flags to Watch For: Devices that ship with default passwords Firmware that can&#39;t be updated remotely No tamper-detection mechanisms Unencrypted configuration storage Decklar Approach: Every Bee includes secure boot with hardware-backed identity, AES-256 encrypted storage, and tamper-evident enclosures. Firmware updates are cryptographically signed and delivered over TLS 1.3. Pillar 2: Transmission Security (In-Transit Protection) What attackers target: Man-in-the-middle attacks, cellular/WiFi interception, protocol vulnerabilities The Security Stack: Data Layer: End-to-end encrypted payload (AES-256-GCM) Transport Layer: TLS 1.3 with certificate pinning Network Layer: Private APN/VPN for cellular backhaul Physical Layer: Frequency hopping for LPWAN protocols Critical Questions for Your Vendor: Is data encrypted end-to-end? Not just to the cloud—to your systems What cipher suites are used? Look for AES-256-GCM, ChaCha20-Poly1305 How are certificates managed? Automatic rotation? Hardware-backed storage? Is cellular traffic isolated? Private APNs prevent internet exposure Real-World Scenario: A pharmaceutical customer ships $50M in oncology drugs. Their security team requires: All transmission over private cellular APN (no public internet) End-to-end encryption from device to their data lake Certificate pinning to prevent MITM attacks No vendor cloud access to raw sensor data (edge processing only) Result: Visibility maintained without exposing sensitive data to third-party infrastructure. Pillar 3: Cloud Security (Data at Rest) What attackers target: Database breaches, API vulnerabilities, credential compromise Security Architecture Checklist: Layer Requirement Compliance Mapping Encryption at Rest AES-256 for all stored data SOC 2 Type II Key Management Hardware Security Modules (HSMs) FIPS 140-2 Level 3 Access Controls Role-based access with MFA ISO 27001 Network Segmentation VPC isolation, no public database access SOC 2 Type II Audit Logging Immutable logs of all access GDPR Article 30 Backup Encryption Encrypted, geographically distributed SOC 2 Type II Data Residency Considerations: Your data storage location has legal implications: Jurisdiction Requirements Typical Deployment EU GDPR compliance, EU data residency Frankfurt, Dublin regions US State privacy laws (CCPA, etc.) US regions with state-specific compliance China Data localization requirements On-premises or approved cloud providers Global Multi-region with data sovereignty Configurable region selection Customer Control Points: Define data retention policies Configure automatic PII redaction Set geographic data boundaries Export/backup on demand Pillar 4: Integration Security (API &amp;amp; System Connections) What attackers...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('iot-security-privacy-supply-chain-tracking', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>IoT Security &amp; Privacy: Protecting Your Supply Chain Data Without Compromising Visibility</h1>
 <p><strong>The paradox every supply chain leader faces:</strong> You need granular visibility into shipments across your network. But every new IoT sensor, every data transmission, and every cloud integration is a potential attack vector. One breach doesn't just expose tracking data—it could reveal supplier relationships, shipment patterns, and competitive intelligence that took years to build.</p>
@@ -785,6 +806,51 @@ A: Immediate steps: revoke compromised credentials, isolate affected devices, pr
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -952,6 +1018,10 @@ A: Immediate steps: revoke compromised credentials, isolate affected devices, pr
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

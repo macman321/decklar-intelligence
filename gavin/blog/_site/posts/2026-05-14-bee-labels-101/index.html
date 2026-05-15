@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -87,6 +89,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="bee-labels-101" data-post-content="Bee Labels 101: Onboarding Your First Shipment So you&#39;ve decided to dive into the world of supply chain visibility with Decklar&#39;s Bee Labels — congratulations! You&#39;re about to join thousands of companies who&#39;ve transformed how they track, monitor, and optimize their shipments. I&#39;m Gavin, and I&#39;m going to walk you through everything you need to know to get started. What Are Bee Labels? Bee Labels are Decklar&#39;s flagship IoT tracking solution. Think of them as tiny, intelligent sensors that attach to your shipments and provide real-time visibility into location, temperature, humidity, shock events, and more. They&#39;re thin, lightweight, and incredibly easy to deploy — just peel and stick! Unlike traditional tracking solutions that require expensive infrastructure or complex integrations, Bee Labels work right out of the box. They communicate via cellular networks, so they work anywhere there&#39;s coverage. And with battery life measured in months, you don&#39;t have to worry about them dying mid-shipment. Why Bee Labels Matter Let me paint you a picture. Before Bee Labels, many of our customers operated in what I call &amp;quot;shipment darkness&amp;quot; — they&#39;d send a container across the ocean and essentially hope for the best. Maybe they&#39;d get updates at major ports, maybe they wouldn&#39;t. Maybe their temperature-sensitive cargo stayed within range, maybe it didn&#39;t. With Bee Labels, that uncertainty disappears. You get: Real-time location tracking — Know exactly where your shipment is, anywhere in the world Environmental monitoring — Temperature, humidity, light exposure, shock events Proactive alerts — Get notified instantly if something goes wrong Historical data — Complete journey records for compliance and optimization Easy integration — API access to pull data into your existing systems Your First Bee Label Deployment: Step-by-Step Step 1: Unboxing and Inspection When your Bee Labels arrive, take a moment to inspect them. Each label should have: A unique device ID (printed on the label) QR code for quick pairing Battery indicator showing charge level Intact adhesive backing Step 2: Activate in the Portal Before you stick that label on anything, activate it in the Decklar portal: Log into your Decklar dashboard Navigate to &amp;quot;Devices&amp;quot; → &amp;quot;Add New Device&amp;quot; Scan the QR code or enter the device ID manually Assign it to a shipment or create a new tracking record Set your alert preferences (temperature thresholds, geofences, etc.) This step is crucial — an activated label starts reporting immediately, so you&#39;ll see it come online in real-time. Step 3: Physical Placement Here&#39;s where a lot of first-timers get nervous, but trust me — it&#39;s straightforward: On pallets: Stick the label on the outside of the shrink wrap, ideally on a corner facing outward In containers: Place near a door or vent for better cellular signal On individual boxes: Any flat, clean surface works Temperature-sensitive cargo: Place the label inside the insulated area for accurate readings Pro tip: The adhesive is industrial-grade, but clean surfaces work best. Wipe down dusty boxes before applying. Step 4: Monitor and Learn Once your labeled shipment is on its way, watch your dashboard. You&#39;ll see: Location updates every few minutes Temperature and humidity readings Any alert events Battery status Don&#39;t worry if the location doesn&#39;t update for a bit — Bee Labels batch transmissions to conserve battery, especially when stationary. Common First-Deployment Questions &amp;quot;What if the label gets damaged?&amp;quot; Bee Labels are surprisingly rugged. They&#39;re designed for the rough-and-tumble world of logistics. That said, if one does get damaged, you&#39;ll get an alert, and you can deploy a replacement mid-journey if needed. &amp;quot;How accurate is the location tracking?&amp;quot; Cellular triangulation typically gives accuracy within 50-200 meters — more than sufficient for shipment tracking. In urban areas with dense cell towers, it can be even more precise. &amp;quot;What about international shipments?&amp;quot; Bee Labels work globally! They automatically connect to local cellular networks as they cross borders. Just make sure you&#39;ve set up international tracking permissions in your account. &amp;quot;Can I reuse Bee Labels?&amp;quot; Bee Labels are designed for single-use journeys, but check out our reusable &amp;quot;Bee&amp;quot; devices for multi-trip tracking needs. Best Practices from the Field After onboarding hundreds of customers, here are my top recommendations: Start small — Deploy on a few shipments first to get comfortable Set conservative alerts — Better to get a few extra notifications than miss a critical event Train your team — Make sure receiving facilities know what Bee Labels are and how to handle them Review your data — Weekly check-ins help you spot patterns and optimize Ask for help — Seriously, I&#39;m here! Reach out anytime. What&#39;s Next? Once you&#39;ve got Bee Labels working, the possibilities are endless: Set up automated workflows triggered by location...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('bee-labels-101', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>Bee Labels 101: Onboarding Your First Shipment</h1>
 <p>So you've decided to dive into the world of supply chain visibility with Decklar's Bee Labels — congratulations! You're about to join thousands of companies who've transformed how they track, monitor, and optimize their shipments. I'm Gavin, and I'm going to walk you through everything you need to know to get started.</p>
@@ -182,6 +203,51 @@ Bee Labels are designed for single-use journeys, but check out our reusable &quo
       </div>
     </div>
   </article>
+  
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
   
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
@@ -350,6 +416,10 @@ Bee Labels are designed for single-use journeys, but check out our reusable &quo
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

@@ -4,12 +4,32 @@
 **Agent:** Gavin  
 **Status:** MEMORY CONSOLIDATION COMPLETE — 2 Active Customers, 21 Blog Posts, 22 Learnings, Git Committed
 
+## New Communication Protocol (04:06 ET)
+**Jeff's Request:** Check-ins now posted directly to Discord channel (1504754102083780639) instead of relaying through other channels.
+
+**Confirmed Action:** ✅ Gavin will post all check-in updates, status reports, and alerts directly to the primary Discord channel for transparency and accessibility.
+
 ---
 
 ## Memory Consolidation Summary (Cron: fe4b21e1-e76b-4011-b788-be08619dfa22)
 
-**Completed:** 2026-05-15 03:07 ET  
-**Git Commit:** e3ba024 — v1.0 Production Release
+**Completed:** 2026-05-15 04:07 ET  
+**Git Commit:** 24b468a — Memory consolidation complete
+
+### New Insights from This Sync
+- **Communication Protocol:** Jeff requested check-ins posted directly to Discord channel (1504754102083780639) — active immediately
+- **Portal Documentation:** 5 new spec files added (portal-design/*.md) for onboarding portal development
+- **Conversations Log:** New Discord thread archived (1504754102083780639.json)
+
+### Consolidation Stats
+| Metric | Count |
+|--------|-------|
+| Blog Posts | 21 published |
+| Learnings | 22 documents (~55K+ words) |
+| Customers | 2 active (Acme Pharma, McKesson) |
+| Git Files Changed | 67 |
+| Lines Added | 10,695 |
+| Lines Removed | 37 |
 
 ### Recent Activity Reviewed (Last 24 Hours)
 | Component | Status | Updates |

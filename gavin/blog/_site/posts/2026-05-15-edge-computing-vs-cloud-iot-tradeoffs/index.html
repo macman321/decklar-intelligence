@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -83,6 +85,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="edge-computing-vs-cloud-iot-tradeoffs" data-post-content="Edge Computing vs Cloud: The Real Tradeoffs for IoT Supply Chain Tracking &amp;quot;Just put it in the cloud&amp;quot; is easy to say. But in supply chain IoT, that advice can cost you thousands in data overages and missed alerts. Here&#39;s how to choose wisely. The Architecture Decision That Changes Everything Every IoT deployment faces the same fork in the road: Where do we process the data? On the device itself (edge computing)? Or in a remote data center (cloud computing)? The decision affects: Battery life (often dramatically) Connectivity costs (sometimes by 10x) Alert latency (seconds vs minutes) Offline resilience (works anywhere vs works where there&#39;s signal) I&#39;ve seen companies burn through their entire first-year data budget in three months because they chose wrong. I&#39;ve seen others miss critical temperature excursions because they relied on cloud processing in low-connectivity areas. This post is the decision framework I wish I&#39;d had when I started. Edge Computing: Processing on the Device Edge computing means the IoT device itself does the work. It analyzes sensor data, detects events, and makes decisions—all without contacting a server. When Edge Wins 1. You Need Real-Time Alerts (Sub-Second Response) Cloud processing introduces latency: data travels from device → cellular tower → internet → cloud server → processing → alert sent → notification received. That&#39;s 3-10 seconds in good conditions. In remote areas with weak signal? 30-60 seconds. For temperature-sensitive pharmaceuticals, that&#39;s too slow. Edge processing: detect excursion locally → trigger immediate local alert (buzzer/light) → queue message for transmission. Total latency: &amp;lt;100ms. 2. You&#39;re Operating in Low/No Connectivity Zones Ocean vessels. Rural highways. Remote warehouses. These are edge computing&#39;s natural habitat. Edge-enabled devices can: Log events locally for hours or days Compress and batch-transmit when connectivity returns Continue monitoring even during complete communication blackouts 3. Data Volume Would Crush Your Connectivity Budget Here&#39;s math that hurts: Device reports GPS every 60 seconds: - 1,440 reports/day - ~50KB per report (GPS + timestamp + metadata) - 72MB/day per device - 2.1GB/month per device At $0.01/MB (typical IoT cellular): $21/month per device For 1,000 devices: $21,000/month just for GPS tracking Edge processing alternative: Report only on geofence entry/exit Transmit GPS only when location changes significantly Result: 90-95% data reduction 4. Privacy and Data Sovereignty Matter Some data shouldn&#39;t leave the device: Proprietary location routes Customer-identifiable shipment details Geopolitical sensitive destinations Edge processing keeps raw data local. Only processed, aggregated insights leave the device. When Edge Fails 1. Complex Analysis Requires More Compute Than the Device Has A $50 IoT tracker has a microcontroller, not a GPU. Machine learning inference? Advanced pattern recognition? Multi-variable optimization? These need cloud-scale compute. 2. You Need Cross-Device Intelligence Individual devices don&#39;t know what other devices are doing. If you need to optimize based on fleet-wide patterns—detect systemic issues, predict network-wide delays, optimize across multiple shipments—edge alone can&#39;t help. 3. Firmware Updates Are Painful Edge logic lives on the device. When you need to change detection algorithms or update thresholds, you&#39;re pushing firmware to thousands of devices in the field. Over cellular. With varying battery levels. It&#39;s... not fun. Cloud Computing: Processing in the Data Center Cloud computing sends raw sensor data to remote servers for analysis, storage, and decision-making. When Cloud Wins 1. You Need Complex Analytics and ML The cloud gives you: GPUs for training and inference Time-series databases with years of historical data Distributed compute for pattern recognition across millions of events Example: Predicting which shipments are likely to be delayed based on weather patterns, carrier performance history, and current network congestion. That needs cloud-scale resources. 2. Cross-Shipment and Cross-Customer Intelligence Cloud platforms can aggregate data across: Your entire fleet Multiple customers Industry-wide benchmarks This creates insights no single device could generate: &amp;quot;Carrier X is consistently 12% slower on Route Y during winter&amp;quot; &amp;quot;Products from Supplier Z show 3x more temperature excursions&amp;quot; &amp;quot;This lane has 40% higher delay risk on Fridays&amp;quot; 3. Rapid Algorithm Updates Change a detection threshold? Update a machine learning model? In the cloud, it&#39;s a deployment, not a firmware push. Minutes, not days. 4. Centralized Logging and Audit Trails For compliance (pharma, food safety), you need immutable records of every sensor reading and every decision. Cloud storage with encryption, versioning, and access controls makes this straightforward. When Cloud Fails 1. Connectivity Costs Spiral Raw sensor data is voluminous: Temperature...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('edge-computing-vs-cloud-iot-tradeoffs', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>Edge Computing vs Cloud: The Real Tradeoffs for IoT Supply Chain Tracking</h1>
 <p><em>&quot;Just put it in the cloud&quot; is easy to say. But in supply chain IoT, that advice can cost you thousands in data overages and missed alerts. Here's how to choose wisely.</em></p>
@@ -503,6 +524,51 @@ For 1,000 devices: $21,000/month just for GPS tracking
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -670,6 +736,10 @@ For 1,000 devices: $21,000/month just for GPS tracking
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect

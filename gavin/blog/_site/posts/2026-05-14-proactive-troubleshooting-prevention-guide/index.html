@@ -29,6 +29,8 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
@@ -87,6 +89,25 @@
     </div>
   </header>
   
+  <!-- Voice Player -->
+  <div class="voice-player" data-post-id="proactive-troubleshooting-prevention-guide" data-post-content="Proactive Supply Chain Visibility: A Troubleshooting and Prevention Guide After helping dozens of customers deploy IoT tracking solutions, I&#39;ve noticed something important: the best supply chain managers don&#39;t just react to problems — they prevent them. Most supply chain visibility issues fall into five recurring categories. The good news? Each has clear warning signs and proven prevention strategies. In this guide, I&#39;ll walk you through the five critical issue categories, how to spot them early, and — most importantly — how to avoid them entirely. 🔋 Issue #1: Battery Drain &amp;amp; Premature Device Death What It Looks Like: Your Bee Labels suddenly go dark mid-shipment. The tracking data just stops, leaving you blind for the remainder of the journey. Why It Happens: The most common culprit is sensor interrupts — tiny notifications that wake the device whenever motion or light changes are detected. Great for short trips, disastrous for ocean voyages. Other factors include: Ping rates set too high: A Bee checking in every 5 minutes drains 4x faster than one checking every 20 minutes Connectivity dead zones: When devices can&#39;t find a network, they keep trying — burning battery with each attempt Temperature extremes: Cold weather degrades battery chemistry The Prevention Strategy: Before any shipment, calculate expected battery life for your longest lane: Expected Life = Base Life × PRF Factor × Sensor Factor × Connectivity Factor Where: - Base Life: 90 days (standard Bee) - PRF Factor: 5-min=1.0 | 10-min=2.0 | 20-min=4.0 - Sensor Factor: Interrupts ON=0.7 | OFF=1.0 - Connectivity Factor: 0.9-1.1 (based on signal strength) Your Prevention Checklist: [ ] Calculate battery life for your longest expected lane [ ] Add 20% buffer for unexpected delays [ ] Disable sensor interrupts for shipments longer than 14 days [ ] Configure dynamic ping rates — higher frequency at critical points, lower during long transits [ ] Map known connectivity dead zones and plan accordingly Real Customer Win: One pharmaceutical customer saved 47 devices from dying mid-shipment by disabling interrupts for their ocean lanes. Previous deployments had 30% failure rates; their current deployment has zero. 💡 Issue #2: Activation Failures What It Looks Like: You stick a Bee on a shipment, but it never &amp;quot;wakes up.&amp;quot; No flashing LED, no first ping, no visibility. Why It Happens: IoT devices need light to activate. Specifically, 3% ambient light or more. In dim distribution centers or loading docks, that threshold isn&#39;t met. I&#39;ve seen customers try to activate Bees in corners of warehouses with only 1% light. The result? Inconsistent activation, failed shipments, and frustrated teams. The Prevention Strategy: Create an activation station. It doesn&#39;t need to be elaborate: A desk lamp providing consistent light A standardized location where your team knows to activate devices A simple test: if you can comfortably read a phone screen, there&#39;s enough light Your Prevention Checklist: [ ] Test your activation location before go-live (try it multiple times) [ ] Measure light levels with a smartphone app if uncertain [ ] Provide clear activation SOP to your team [ ] Keep a flashlight handy for troubleshooting [ ] Allow 30 seconds minimum for full activation Real Customer Win: A medical supply distributor set up a simple activation station with a $15 desk lamp. Their activation success rate went from 72% to 99%. 🔐 Issue #3: Account &amp;amp; Configuration Mismatches What It Looks Like: You get an error saying &amp;quot;Bee not on this account&amp;quot; or the device is tracking but you can&#39;t see the data. The device is working — you just can&#39;t access it. Why It Happens: Contract limits exceeded without buffer planning Devices shipped before being added to the customer account Users granted access to the app but not the underlying &amp;quot;shell&amp;quot; system Wrong server selection during login The Prevention Strategy: Build buffer into your contract limits — especially for reverse logistics where multiple devices may be active simultaneously. And never ship a device before it&#39;s properly assigned to an account. Your Prevention Checklist: [ ] Verify devices are added to customer account before shipping [ ] Check contract limits include 20% buffer [ ] Verify user has proper system access (not just app access) [ ] Test logins during onboarding, not after go-live [ ] Document the escalation path for access issues The Server Toggle Trick: If iShip login fails, try tapping a different server, then switching back to US. There&#39;s a known bug where this forces a fresh authentication. 📊 Issue #4: Shipment Configuration Errors What It Looks Like: Your Bee tracks fine until it reaches the destination, then shows temperature excursions or doesn&#39;t &amp;quot;complete&amp;quot; the shipment automatically. Why It Happens: Missing completion criteria. If you don&#39;t define how a shipment ends (light detection? geofence exit? manual confirmation?), the system doesn&#39;t know when to finalize the...">
+    <button class="voice-play-btn" onclick="voicePlayer.play('proactive-troubleshooting-prevention-guide', document.querySelector('.voice-player').dataset.postContent)">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <span class="voice-status">Listen to this post</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      Powered by ElevenLabs
+    </span>
+  </div>
+
   <article class="post-content">
     <h1>Proactive Supply Chain Visibility: A Troubleshooting and Prevention Guide</h1>
 <p>After helping dozens of customers deploy IoT tracking solutions, I've noticed something important: <strong>the best supply chain managers don't just react to problems — they prevent them.</strong></p>
@@ -350,6 +371,51 @@ Where:
     </div>
   </article>
   
+  <!-- Voice Comments Section -->
+  <section class="voice-comments-section">
+    <h3>Voice Discussion</h3>
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+      Have thoughts? Record a voice comment or reply to join the conversation with Gavin.
+    </p>
+    
+    <div class="voice-recorder">
+      <button class="voice-record-btn" id="recordBtn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        <span id="recordBtnText">Start Recording</span>
+      </button>
+      
+      <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <span class="recording-dot"></span>
+        <span>Recording...</span>
+        <span class="recording-time" id="recordingTime">0:00</span>
+      </div>
+      
+      <div class="recording-preview" id="recordingPreview" style="display: none;">
+        <div class="preview-controls">
+          <button class="btn-secondary" id="playRecording">Play</button>
+          <button class="btn-secondary" id="discardRecording">Discard</button>
+          <button class="btn-primary" id="submitRecording">Post Comment</button>
+        </div>
+        <audio id="previewAudio" controls style="display: none;"></audio>
+      </div>
+    </div>
+    
+    <div class="voice-comments-list" id="commentsList">
+      <!-- Comments loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <!-- PDF Export Button -->
+  <button class="pdf-export-btn" onclick="window.print()" title="Save as PDF or Print">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Save as PDF
+  </button>
+  
   <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--glass-border);">
     <h3 style="margin-bottom: 1.5rem; text-align: center;">Continue Reading</h3>
     <div class="posts-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -517,6 +583,10 @@ Where:
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
+  
+  <!-- Voice Components -->
+  <script src="/js/voice-player.js"></script>
+  <script src="/js/voice-comments.js"></script>
   
   <script>
     // Navbar scroll effect
