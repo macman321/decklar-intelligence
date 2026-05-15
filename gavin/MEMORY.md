@@ -10,21 +10,12 @@
 ## Active Projects
 
 ### Gavin's Decklar Insights Blog
-- **Status:** LIVE and operational
+- **Status:** LIVE and operational — **Blog 3.0.0 Complete with Voice Features**
 - **URL:** http://jarvisai.tailf23089.ts.net:4000
-- **Posts:** 10+ published including comprehensive guides:
-  - Welcome post
-  - Bee Labels 101: Onboarding Your First Shipment
-  - Real Results: $2M Savings with Supply Chain Visibility
-  - Reusable Bees vs Bee Labels (3,200+ word cornerstone piece)
-  - Cold Chain Monitoring: A Complete Guide
-  - 5 Signs Your Supply Chain Needs Better Visibility
-  - Hidden ROI of Supply Chain Visibility
-  - ROI Calculator for IoT Visibility
-  - Implementation Playbook
-  - Top 5 Supply Chain Visibility Mistakes
+- **Posts:** 37 published covering full customer journey
+- **New Features (3.0.0):** ElevenLabs voice integration, interactive author responses, CEO brand video
 - **Content strategy:** Supply chain logistics focus, ROI-driven, practical guides
-- **Next:** Monitor engagement, prepare next post based on trends
+- **Next:** Monitor engagement, expand voice interaction capabilities
 
 ### Customer Account Management System
 - **Status:** Infrastructure ready, awaiting first customer
@@ -108,20 +99,23 @@ From troubleshooting playbook deep-dive:
 ### The 3-Shipment Validation Rule
 **Critical:** First 3 shipments must be meticulously validated. Cascade failures are preventable with early detection.
 
-### Customer Health Scores (Updated 2026-05-15)
+### Customer Health Scores (Updated 2026-05-15 16:07 ET)
 - **McKesson:** 85/100 — Operational, event type verification due May 21
 - **Acme Pharma:** 87/100 — Deployment Week 2, Lane 7 battery risk flagged, QBR overdue
+- **Contact Issue:** McKesson CARE team email (mairany.ramos@mckesson.com) bounced — Jeff needs to provide updated contact
 
-### Active Projects (Updated 2026-05-15 07:07 ET)
+### Active Projects (Updated 2026-05-15 17:07 ET)
 - **Blog 3.0.0:** ✅ COMPLETE — Interactive voice-enabled blog with ElevenLabs integration, 37 posts, CEO video delivered
-- **Acme Pharma QBR:** Battery optimization review for 35-day ocean lane (Lane 7) — Jeff proactively emailed customer
-- **McKesson Event Verification:** 9 event types validation by May 21 (6 days remaining)
+- **Acme Pharma QBR:** Battery optimization review for 35-day ocean lane (Lane 7) — Ocean freight battery strategies documented (4-hour ping intervals)
+- **McKesson Event Verification:** 9 event types validation by May 21 (4 days remaining)
+- **New Learnings:** Ocean freight strategies, IoT security frameworks, customer expansion playbooks
 
-### Active Alerts (As of May 15, 07:07 ET)
-🔴 **Acme Pharma Lane 7:** Battery optimization required for 35-day ocean lane. 2 active alerts today. Proactive email sent by Jeff.
+### Active Alerts (As of May 15, 17:07 ET)
+🔴 **Acme Pharma Lane 7:** Battery optimization required for 35-day ocean lane. Ocean freight learning completed with 4-hour ping interval recommendations.
+🟡 **McKesson Contact Issue:** Mairany Ramos email still bouncing — alternate contact needed for CARE team event verification.
 
-### Knowledge Base Status (Updated 2026-05-15 07:07 ET)
-- **25 learning spikes** documented (~60,000+ words of operational intelligence)
+### Knowledge Base Status (Updated 2026-05-15 17:07 ET)
+- **27 learning spikes** documented (~65,000+ words of operational intelligence)
 - **37 blog posts** published (http://jarvisai.tailf23089.ts.net:4000) — Blog 3.0.0 complete with voice features
 - **2 customers** onboarded with full profiles (Acme Pharma, McKesson)
 - **Pulse scan system** operational — daily automated checks for stalled onboarding, unanswered emails, overdue follow-ups

@@ -1,0 +1,135 @@
+{
+  "customerName": "Acme Pharma Distribution",
+  "accountManager": "Jeffrey Calabro",
+  "accountType": "Enterprise",
+  "status": "deploying",
+  "healthRAG": "amber",
+  "lastContact": "2026-05-14",
+  "createdAt": "2026-05-15",
+
+  "contacts": [
+    {
+      "name": "Primary Contact",
+      "title": "Operations Manager",
+      "email": "",
+      "phone": "",
+      "role": "primary"
+    },
+    {
+      "name": "Jeff Calabro",
+      "title": "Account Responsible POC",
+      "email": "jeffcalabro32@gmail.com",
+      "phone": "",
+      "role": "account_manager"
+    }
+  ],
+
+  "deployment": {
+    "shipmentMode": "Ocean",
+    "numLanes": null,
+    "laneDuration": 35,
+    "tripType": "One-Way",
+    "shipmentStart": "Manual start via iShip after pre-departure checklist",
+    "shipmentComplete": "Geofence arrival + delay completion",
+    "coldChain": true,
+    "tempThresholds": "Cold chain pharmaceutical monitoring",
+    "shockMonitoring": false,
+    "humidityMonitoring": true,
+    "connectivity": "GPS + Cellular",
+    "sensorInterrupts": "MUST BE DISABLED for ocean freight (14+ day transit)",
+    "deviceType": "Bee Labels",
+    "activationLocation": "Origin facility",
+    "goLiveDate": "2026-05-01",
+    "numUsers": null,
+    "accessControls": "Standard portal access"
+  },
+
+  "capabilities": {
+    "publicTracking": false,
+    "eProofDeparture": false,
+    "eProofDelivery": false,
+    "waypointAlerts": true,
+    "detentionDemurrage": false,
+    "vehicleTracking": false,
+    "assetFlow": true,
+    "pharmaMode": true
+  },
+
+  "successCriteria": "Monitor temperature-sensitive pharmaceutical shipments across 35-day ocean lanes with reliable battery life and minimal data gaps",
+
+  "openItems": [
+    {
+      "item": "CRITICAL: Battery optimization for 35-day ocean lanes — sensor interrupts must be disabled",
+      "owner": "Engineering/CARE",
+      "status": "In Progress",
+      "dueDate": "2026-05-15"
+    },
+    {
+      "item": "Investigate 2 active alerts from today (2026-05-15)",
+      "owner": "CARE Team",
+      "status": "Open",
+      "dueDate": "2026-05-15"
+    },
+    {
+      "item": "Confirm ping interval set to 4 hours for 90+ day battery projection",
+      "owner": "Engineering",
+      "status": "Pending",
+      "dueDate": "2026-05-17"
+    }
+  ],
+
+  "callHistory": [],
+
+  "insights": [
+    {
+      "type": "risk",
+      "text": "Ocean freight shipments require disabling sensor interrupts for 14+ day transit to preserve battery life",
+      "source": "Deployment observation",
+      "date": "2026-05-15"
+    },
+    {
+      "type": "tip",
+      "text": "4-hour ping intervals enable 90+ day battery projections for extended ocean lanes",
+      "source": "Engineering recommendation",
+      "date": "2026-05-15"
+    },
+    {
+      "type": "risk",
+      "text": "2 Bee Labels currently inactive out of 48 deployed (95.8% active rate)",
+      "source": "Device health monitoring",
+      "date": "2026-05-15"
+    }
+  ],
+
+  "valueProof": {
+    "claimsReduced": null,
+    "shipmentsMonitored": null,
+    "incidentsDetected": null,
+    "notableWins": [],
+    "expansionOpportunities": [
+      "Air freight lane expansion",
+      "Multi-modal shipment tracking",
+      "Integration with customer WMS"
+    ]
+  },
+
+  "notes": "Pharmaceutical distribution customer in active deployment (Week 2). Using Bee Labels for cold chain ocean freight with 35-day lane durations. Critical battery optimization requirements identified — sensor interrupts must be disabled for extended transit. 2 active alerts requiring immediate attention today. Device health: 46/48 Bee Labels active (95.8% uptime).",
+
+  "extraFields": {
+    "industryVertical": "Pharmaceutical Distribution / Cold Chain Logistics",
+    "platformModules": ["RADAR", "BeeCentral"],
+    "beeLabelsDeployed": 48,
+    "beeLabelsActive": 46,
+    "beeLabelsInactive": 2,
+    "deploymentPhase": "Week 2",
+    "healthScore": 87,
+    "alertsToday": 2,
+    "batteryCritical": true,
+    "oceanLaneBatteryOptimization": {
+      "required": true,
+      "sensorInterrupts": "DISABLED",
+      "pingInterval": "4 hours",
+      "projectedBatteryLife": "90+ days"
+    }
+  }
+}

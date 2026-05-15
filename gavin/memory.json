@@ -19,6 +19,20 @@
     "McKesson: Validate all 9 event types before May 21 deadline",
     "Identify ocean shipment accounts for sensor interrupt audit"
   ],
+  "recentLearning": {
+    "date": "2026-05-15",
+    "topic": "Ocean Freight Battery Optimization Strategies",
+    "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_ocean-freight-battery-optimization-strategies.md",
+    "keyInsight": "Ocean freight requires specialized 'maritime mode' configuration: disable all non-temperature sensor interrupts, use Dynamic PRF with 4-hour intervals at sea, and 90+ day battery projection with 20% buffer. APL incident root cause: sensor interrupts draining battery on 60-day shipments.",
+    "priority": "HIGH",
+    "relatedIncidents": ["APL battery drain", "McKesson ocean lanes"],
+    "actionItems": [
+      "Audit existing ocean freight customer configurations",
+      "Create 'Ocean Mode' preset for Honeycomb",
+      "Build battery projection calculator",
+      "Schedule proactive outreach to APL-type customers"
+    ]
+  },
   "lastCheckIn": "2026-05-14T20:41:00-04:00",
   "checkInStatus": "completed",
   "recentActivity": [
@@ -159,6 +173,7 @@
 "lastLearningUpdate": "2026-05-15",
 "criticalInsights": [
 "Battery drain = #1 issue. Prevention: disable interrupts for shipments >14 days",
+"Ocean freight = specialized mode required: 4-hour pings, interrupts disabled, 90+ day projection",
 "Activation failures = light threshold <3%. Prevention: require lamp at activation station",
 "Account config issues = contract limits exceeded. Prevention: build 20% buffer in contracts",
 "First 3 shipments must be meticulously validated — cascade failures preventable",

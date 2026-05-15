@@ -10,7 +10,7 @@
     window.BLOG_CONFIG = {
         // Voice API endpoint
         VOICE_API_URL: isLocalhost 
-            ? 'https://voice-api.decklar.io' 
+            ? 'http://localhost:4005' 
             : (isGitHubPages 
                 ? 'https://gavin-voice-api.onrender.com'  // Update this after Render deploy
                 : 'https://voice-api.decklar.io'),

@@ -1,0 +1,50 @@
+{
+  "reportId": "pulse-2026-05-15-1551",
+  "generatedAt": "2026-05-15T15:51:00-04:00",
+  "generatedBy": "Gavin Agent | Cron: 07f27077-682a-4f16-ab2a-130276238b3b",
+  "summary": {
+    "totalCustomers": 2,
+    "customersScanned": ["McKesson Corporation", "Acme Pharma Distribution"],
+    "outreachCompleted": 2,
+    "alertsToday": 2,
+    "actionRequired": 1
+  },
+  "customers": [
+    {
+      "name": "McKesson Corporation",
+      "customerId": "CUST-2026-MCK-001",
+      "healthScore": 85,
+      "phase": "Operational - Monitoring Active",
+      "status": "Contact Issue",
+      "openItems": 4,
+      "criticalFlag": "CONTACT EMAIL BOUNCED - mairany.ramos@mckesson.com not found",
+      "lastOutreach": "2026-05-15T13:52:00-04:00",
+      "outreachStatus": "FAILED - Bounced",
+      "outreachRecipient": "mairany.ramos@mckesson.com",
+      "action": "URGENT: Jeff to provide correct contact email. Event verification due May 21 (6 days)."
+    },
+    {
+      "name": "Acme Pharma Distribution",
+      "customerId": "CUST-2026-001",
+      "healthScore": 87,
+      "phase": "Deployment Week 2",
+      "status": "Active",
+      "openItems": 3,
+      "criticalFlag": "2 alerts today + battery optimization for 35-day ocean lane",
+      "lastOutreach": "2026-05-15T08:52:00-04:00",
+      "outreachStatus": "COMPLETED - Awaiting Response",
+      "action": "Proactive check-in sent regarding active alerts and battery optimization"
+    }
+  ],
+  "recommendations": [
+    "URGENT: Jeff to provide updated McKesson CARE team contact (mairany.ramos@mckesson.com bounced)",
+    "Follow up with Acme Pharma if no response by Monday (5/18)",
+    "Event verification deadline for McKesson approaching - 6 days remaining"
+  ],
+  "actionsTaken": [
+    "Updated mckesson.json with contact issue flag",
+    "Created mckesson_contact_issue_2026-05-15.md documentation",
+    "Confirmed Acme Pharma outreach was completed this morning",
+    "Scanned for new inbound emails from customers - none found"
+  ]
+}

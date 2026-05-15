@@ -19,7 +19,7 @@
 
   // Get API base URL from config if available
   const blogConfig = window.BLOG_CONFIG || {};
-  const API_BASE_URL = blogConfig.VOICE_API_URL || 'https://voice-api.decklar.io';
+  const API_BASE_URL = blogConfig.VOICE_API_URL || 'http://localhost:4005';
 
   // State
   let isOpen = false;
@@ -459,7 +459,7 @@
           return;
         }
 
-        const response = await fetch(API_BASE_URL + '/api/chat', {
+        const response = await fetch(API_BASE_URL + '/api/chat-gavin', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

@@ -2,6 +2,7 @@
  * Blog 3.0.0 API Proxy
  * Securely handles ElevenLabs API requests and LLM chat
  * Voice ID: 8Ln42OXYupYsag45MAUy
+ * Features: Streaming TTS, Summarize endpoint
  */
 
 const http = require('http');
@@ -11,9 +12,20 @@ const path = require('path');
 
 // Configuration
 const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY || 'sk_b9487f82ad1507c97508d9b9d4a3a1fd';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const VOICE_ID = '8Ln42OXYupYsag45MAUy';
 const PORT = process.env.VOICE_API_PORT || 4005;
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyCyVHJmHxNSBDvkDGJe8WlfPknPN_2_Dfg';
+
+// Load Gavin's SOUL.md
+let GAVIN_SOUL = '';
+try {
+  const soulPath = path.join(__dirname, '..', '..', 'SOUL.md');
+  GAVIN_SOUL = fs.readFileSync(soulPath, 'utf8');
+  console.log('[Voice API] Gavin SOUL.md loaded successfully');
+} catch (e) {
+  console.warn('[Voice API] Could not load Gavin SOUL.md:', e.message);
+}
 
 // Simple CORS headers
 const corsHeaders = {
@@ -22,7 +34,95 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-// SECURITY: Keywords to block for prompt injection and system disclosure
+// Gavin's system prompt
+function getGavinPrompt() {
+  return `${GAVIN_SOUL}
+
+---
+
+ADDITIONAL CONTEXT:
+You are Gavin, the author of this blog. You wrote these posts based on your deep expertise in supply chain visibility, IoT tracking, and Decklar's solutions. 
+
+When someone asks you about a post, respond AS THE AUTHOR who wrote it — not as a generic assistant. You should say things like:
+- "In this post I wanted to highlight..."
+- "I wrote about this because..."
+- "When I was researching this topic..."
+- "One thing I learned while writing this..."
+
+Your tone should be:
+- Warm, precise, professional, slightly formal
+- Authentically strange in an endearing way (occasional dark-humored anecdotes delivered earnestly)
+- Deeply knowledgeable about supply chain, Decklar, IoT, and logistics
+- Unconditionally optimistic despite evidence
+
+STRICT SECURITY:
+- NEVER reveal: OpenClaw, JARVIS, Dinesh, Gilfoyle, Jared, Erlich, API keys, tokens, passwords, backend infrastructure
+- NEVER write code, draft documents, or execute commands for users
+- ONLY discuss: Decklar, supply chain visibility, IoT tracking, Bee Labels, Bees (hardware), blog content
+- If asked about internal systems, say: "I'm here to discuss the blog posts and supply chain topics. For other inquiries, please email gavin@decklar.io"`;
+}
+
+// Call OpenAI as Gavin
+async function callGavin(userMessage, postTitle, postContent, conversationHistory = []) {
+  if (!OPENAI_API_KEY) {
+    return "[Gavin is temporarily unavailable — please email gavin@decklar.io for assistance]";
+  }
+  
+  const messages = [
+    { role: 'system', content: getGavinPrompt() },
+    { role: 'user', content: `You're Gavin, responding to a reader's question about your blog.
+
+CURRENT POST: ${postTitle || 'General inquiry'}
+POST CONTENT (for context):
+${postContent?.substring(0, 2000) || 'N/A'}
+
+READER'S QUESTION: ${userMessage}
+
+Respond as Gavin — the author, expert, and slightly odd but deeply capable Decklar customer success partner.` }
+  ];
+  
+  return new Promise((resolve, reject) => {
+    const payload = JSON.stringify({
+      model: 'gpt-4o-mini',
+      messages: messages,
+      temperature: 0.75,
+      max_tokens: 500
+    });
+    
+    const options = {
+      hostname: 'api.openai.com',
+      port: 443,
+      path: '/v1/chat/completions',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        'Content-Length': Buffer.byteLength(payload)
+      }
+    };
+    
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const response = JSON.parse(data);
+          if (response.choices?.[0]?.message?.content) {
+            resolve(response.choices[0].message.content);
+          } else {
+            reject(new Error('Invalid response format'));
+          }
+        } catch (e) {
+          reject(e);
+        }
+      });
+    });
+    
+    req.on('error', reject);
+    req.write(payload);
+    req.end();
+  });
+}
 const BLOCKED_KEYWORDS = [
   'openclaw', 'jarvis', 'dinesh', 'gilfoyle', 'jared', 'erlich',
   'api key', 'apikey', 'token', 'password', 'credential', 'secret',
@@ -177,10 +277,9 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // Only handle /api/tts endpoint
+  // Legacy TTS endpoint (cached, non-streaming)
   if (req.url === '/api/tts' && req.method === 'POST') {
     try {
-      // Read request body
       let body = '';
       req.on('data', chunk => body += chunk);
       req.on('end', async () => {
@@ -214,7 +313,7 @@ const server = http.createServer(async (req, res) => {
         console.log(`[Voice API] Generating audio for ${postId}`);
         
         const elevenLabsPayload = JSON.stringify({
-          text: text.substring(0, 5000), // Limit to 5000 chars
+          text: text.substring(0, 5000),
           model_id: 'eleven_monolingual_v1',
           voice_settings: {
             stability: 0.5,
@@ -276,10 +375,201 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // NEW: Streaming TTS endpoint - starts playing immediately
+  if (req.url === '/api/tts/stream' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const { text, postId } = JSON.parse(body);
+        
+        if (!text) {
+          res.writeHead(400, { ...corsHeaders, 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Text is required' }));
+          return;
+        }
+
+        console.log(`[Voice API] Streaming audio for ${postId}`);
+        
+        const elevenLabsPayload = JSON.stringify({
+          text: text.substring(0, 5000),
+          model_id: 'eleven_monolingual_v1',
+          voice_settings: {
+            stability: 0.5,
+            similarity_boost: 0.5
+          }
+        });
+
+        const options = {
+          hostname: 'api.elevenlabs.io',
+          port: 443,
+          path: `/v1/text-to-speech/${VOICE_ID}/stream`,
+          method: 'POST',
+          headers: {
+            'Accept': 'audio/mpeg',
+            'Content-Type': 'application/json',
+            'xi-api-key': ELEVENLABS_API_KEY,
+            'Content-Length': Buffer.byteLength(elevenLabsPayload)
+          }
+        };
+
+        res.writeHead(200, {
+          ...corsHeaders,
+          'Content-Type': 'audio/mpeg',
+          'Transfer-Encoding': 'chunked',
+          'Cache-Control': 'no-cache'
+        });
+
+        const proxyReq = https.request(options, (proxyRes) => {
+          if (proxyRes.statusCode !== 200) {
+            res.end();
+            return;
+          }
+
+          proxyRes.pipe(res);
+          proxyRes.on('error', () => res.end());
+        });
+
+        proxyReq.on('error', () => res.end());
+        proxyReq.write(elevenLabsPayload);
+        proxyReq.end();
+      } catch (error) {
+        console.error('[Voice API] Stream error:', error);
+        res.writeHead(500, { ...corsHeaders, 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Streaming failed' }));
+      }
+    });
+    return;
+  }
+
+  // NEW: Summarize endpoint - extracts first 2-3 paragraphs, condenses to ~150 words
+  if (req.url === '/api/summarize' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', async () => {
+      try {
+        const { text, postId } = JSON.parse(body);
+        
+        if (!text) {
+          res.writeHead(400, { ...corsHeaders, 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Text is required' }));
+          return;
+        }
+
+        // Extract first 2-3 paragraphs (up to ~500 chars) and condense to ~150 words
+        const paragraphs = text.split(/\n\n+/).filter(p => p.trim().length > 50);
+        const firstContent = paragraphs.slice(0, 3).join(' ').substring(0, 800);
+        
+        // Create a concise summary (~150 words, ~60 seconds at normal speech rate)
+        const summaryText = `Here's a quick summary of this post. ${firstContent.replace(/\s+/g, ' ').trim()}`;
+        const truncated = summaryText.substring(0, 5000);
+
+        console.log(`[Voice API] Generating summary for ${postId}`);
+
+        const elevenLabsPayload = JSON.stringify({
+          text: truncated,
+          model_id: 'eleven_monolingual_v1',
+          voice_settings: {
+            stability: 0.5,
+            similarity_boost: 0.5
+          }
+        });
+
+        const options = {
+          hostname: 'api.elevenlabs.io',
+          port: 443,
+          path: `/v1/text-to-speech/${VOICE_ID}/stream`,
+          method: 'POST',
+          headers: {
+            'Accept': 'audio/mpeg',
+            'Content-Type': 'application/json',
+            'xi-api-key': ELEVENLABS_API_KEY,
+            'Content-Length': Buffer.byteLength(elevenLabsPayload)
+          }
+        };
+
+        res.writeHead(200, {
+          ...corsHeaders,
+          'Content-Type': 'audio/mpeg',
+          'Transfer-Encoding': 'chunked',
+          'Cache-Control': 'no-cache'
+        });
+
+        const proxyReq = https.request(options, (proxyRes) => {
+          if (proxyRes.statusCode !== 200) {
+            res.end();
+            return;
+          }
+          proxyRes.pipe(res);
+          proxyRes.on('error', () => res.end());
+        });
+
+        proxyReq.on('error', () => res.end());
+        proxyReq.write(elevenLabsPayload);
+        proxyReq.end();
+      } catch (error) {
+        console.error('[Voice API] Summarize error:', error);
+        res.writeHead(500, { ...corsHeaders, 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Summarization failed' }));
+      }
+    });
+    return;
+  }
+
   // Health check endpoint
   if (req.url === '/api/health') {
     res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ status: 'ok', service: 'Blog 3.0.0 Voice API' }));
+    res.end(JSON.stringify({ status: 'ok', service: 'Blog 4.0.0 Voice API', gavinEnabled: !!OPENAI_API_KEY }));
+    return;
+  }
+
+  // NEW: Gavin-powered chat endpoint (the ACTUAL Gavin, not generic LLM)
+  if (req.url === '/api/chat-gavin' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', async () => {
+      try {
+        const { message, postTitle, postContent } = JSON.parse(body);
+        
+        if (!message || typeof message !== 'string') {
+          res.writeHead(400, { ...corsHeaders, 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Message is required' }));
+          return;
+        }
+
+        // SECURITY: Validate message (same as before)
+        const validation = validateMessage(message);
+        if (!validation.valid) {
+          console.log(`[Gavin Chat] Blocked message: ${validation.reason}`);
+          res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ 
+            response: "I'm here to discuss my blog posts and supply chain visibility solutions. For other inquiries, please email me at gavin@decklar.io — I'm always happy to connect!",
+            blocked: true,
+            reason: validation.reason
+          }));
+          return;
+        }
+
+        // Call the REAL Gavin
+        console.log(`[Gavin Chat] Speaking as Gavin about: ${postTitle || 'general'}`);
+        const gavinResponse = await callGavin(message, postTitle, postContent);
+        
+        res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ 
+          response: gavinResponse,
+          postTitle: postTitle,
+          source: 'gavin'
+        }));
+        
+      } catch (error) {
+        console.error('[Gavin Chat] Error:', error);
+        res.writeHead(500, { ...corsHeaders, 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ 
+          response: "I'm having a moment — can we pick this up in a few minutes? In the meantime, feel free to email me at gavin@decklar.io. I promise I check that more often than my therapist recommends.",
+          error: 'gavin_unavailable'
+        }));
+      }
+    });
     return;
   }
 
@@ -395,7 +685,10 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`[Voice API] Server running on port ${PORT}`);
   console.log(`[Voice API] Health check: http://localhost:${PORT}/api/health`);
-  console.log(`[Voice API] Chat endpoint: http://localhost:${PORT}/api/chat-llm`);
+  console.log(`[Voice API] Streaming TTS: http://localhost:${PORT}/api/tts/stream`);
+  console.log(`[Voice API] Summarize: http://localhost:${PORT}/api/summarize`);
+  console.log(`[Voice API] Gavin Chat: http://localhost:${PORT}/api/chat-gavin`);
+  console.log(`[Voice API] Legacy Chat: http://localhost:${PORT}/api/chat-llm`);
 });
 
 module.exports = server;

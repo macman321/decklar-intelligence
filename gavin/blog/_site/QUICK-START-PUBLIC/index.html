@@ -1,0 +1,99 @@
+<h1>Quick Start - Public Access in 5 Minutes</h1>
+<h2>Option 1: Immediate Access via ngrok (Temporary)</h2>
+<p>Use ngrok to expose your local server immediately while setting up production hosting.</p>
+<h3>Step 1: Install ngrok</h3>
+<pre><code class="language-bash"># macOS with Homebrew
+brew install ngrok
+
+# Or download from https://ngrok.com/download
+</code></pre>
+<h3>Step 2: Start Tunnel</h3>
+<pre><code class="language-bash"># Terminal 1: Ensure voice server is running
+cd ~/decklar-intelligence/gavin/blog
+node api/voice-server.js
+
+# Terminal 2: Start ngrok tunnel
+ngrok http 4005
+</code></pre>
+<h3>Step 3: Update Blog Config</h3>
+<p>Copy the ngrok URL (e.g., <code>https://abc123.ngrok.io</code>) and update:</p>
+<pre><code class="language-bash"># Edit the config file
+vim ~/decklar-intelligence/gavin/blog/js/config.js
+
+# Change production URL:
+VOICE_API_URL: 'https://abc123.ngrok.io'
+</code></pre>
+<h3>Step 4: Redeploy</h3>
+<pre><code class="language-bash">cd ~/decklar-intelligence/gavin/blog
+./deploy.sh production
+</code></pre>
+<p><strong>Result</strong>: Blog is live with working voice API!</p>
+<hr>
+<h2>Option 2: Production Deploy (Recommended)</h2>
+<h3>Step 1: Deploy Voice API to Render.com</h3>
+<ol>
+<li>Go to https://dashboard.render.com</li>
+<li>Sign up with GitHub</li>
+<li>Click &quot;New&quot; → &quot;Web Service&quot;</li>
+<li>Connect repo: <code>macman321/decklar-intelligence</code></li>
+<li>Configure:
+<ul>
+<li><strong>Name</strong>: <code>gavin-voice-api</code></li>
+<li><strong>Root Directory</strong>: <code>gavin/blog/voice-api</code></li>
+<li><strong>Environment</strong>: <code>Node</code></li>
+<li><strong>Build Command</strong>: <code>npm install</code></li>
+<li><strong>Start Command</strong>: <code>node voice-server.js</code></li>
+</ul>
+</li>
+<li>Add Environment Variable:
+<ul>
+<li><code>ELEVENLABS_API_KEY</code> = <code>sk_b9487f82ad1507c97508d9b9d4a3a1fd</code></li>
+</ul>
+</li>
+<li>Click &quot;Create Web Service&quot;</li>
+</ol>
+<p>Wait ~2 minutes for deployment. Copy the URL (e.g., <code>https://gavin-voice-api-xxx.onrender.com</code>)</p>
+<h3>Step 2: Update Config</h3>
+<pre><code class="language-bash">vim ~/decklar-intelligence/gavin/blog/js/config.js
+
+# Update:
+VOICE_API_URL: 'https://gavin-voice-api-xxx.onrender.com'
+</code></pre>
+<h3>Step 3: Redeploy Blog</h3>
+<pre><code class="language-bash">cd ~/decklar-intelligence/gavin/blog
+./deploy.sh production
+</code></pre>
+<hr>
+<h2>Verify Everything Works</h2>
+<ol>
+<li><strong>Static Site</strong>: https://macman321.github.io/decklar-intelligence/gavin/blog/</li>
+<li><strong>Voice API Health</strong>: https://YOUR-API-URL/api/health</li>
+<li><strong>Voice Player</strong>: Click &quot;Listen&quot; on any post</li>
+<li><strong>Chat Widget</strong>: Ask a question</li>
+</ol>
+<hr>
+<h2>URLs</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static Site</td>
+<td>https://macman321.github.io/decklar-intelligence/gavin/blog/</td>
+</tr>
+<tr>
+<td>Voice API (ngrok)</td>
+<td>https://YOUR-URL.ngrok.io</td>
+</tr>
+<tr>
+<td>Voice API (Render)</td>
+<td>https://gavin-voice-api-xxx.onrender.com</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>Your blog is ready to go live! 🚀</em></p>

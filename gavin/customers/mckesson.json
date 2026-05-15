@@ -34,14 +34,19 @@
   "openItems": [
     { "item": "Process full McKesson Knowledge Base documentation into customer memory", "owner": "Gavin", "status": "Completed", "dueDate": "2026-05-14", "completedAt": "2026-05-14T22:50:00Z" },
     { "item": "Verify all 9 event types are properly configured in Honeycomb", "owner": "CARE Team", "status": "Pending", "dueDate": "2026-05-21" },
-    { "item": "Review RADAR automation roadmap items for deployment priority", "owner": "Jeff Calabro", "status": "Pending", "dueDate": null }
+    { "item": "Review RADAR automation roadmap items for deployment priority", "owner": "Jeff Calabro", "status": "Pending", "dueDate": null },
+    { "item": "Update contact email - mairany.ramos@mckesson.com bounced (recipient not found)", "owner": "Jeff Calabro", "status": "Action Required", "dueDate": "2026-05-15" }
+  ],
+  "contactIssues": [
+    { "date": "2026-05-15", "email": "mairany.ramos@mckesson.com", "issue": "Bounced - recipient not found", "severity": "High" }
   ],
   "healthScore": 85,
   "nextActions": [
     "Complete full documentation ingest",
     "Schedule QBR with McKesson team",
-    "Validate pre-departure alert sensitivity"
+    "Validate pre-departure alert sensitivity",
+    "Obtain correct contact email for McKesson CARE team"
   ],
   "knowledgeBaseLocation": "~/decklar-intelligence/inbox/McKessonKnowledgeBase.doc",
-  "lastUpdated": "2026-05-14T22:18:00Z"
+  "lastUpdated": "2026-05-15T14:52:00Z"
 }
