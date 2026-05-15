@@ -48,30 +48,38 @@
           font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        .gavin-chat-toggle {
-          width: 60px;
-          height: 60px;
+      .gavin-chat-toggle {
+          width: 64px;
+          height: 64px;
           border-radius: 50%;
           background: linear-gradient(135deg, ${CONFIG.primaryColor} 0%, ${CONFIG.accentColor} 100%);
-          border: none;
+          border: 3px solid rgba(255, 255, 255, 0.2);
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 28px;
+          overflow: hidden;
+          padding: 2px;
           box-shadow: 0 4px 20px rgba(96, 56, 251, 0.4);
           transition: all 0.3s ease;
           animation: gavin-pulse 2s infinite;
         }
 
-        .gavin-chat-toggle:hover {
-          transform: scale(1.1);
-          box-shadow: 0 6px 30px rgba(96, 56, 251, 0.6);
+        .gavin-chat-toggle img {
+          width: 95%;
+          height: 95%;
+          border-radius: 50%;
+          object-fit: cover;
         }
 
-        @keyframes gavin-pulse {
-          0%, 100% { box-shadow: 0 4px 20px rgba(96, 56, 251, 0.4); }
-          50% { box-shadow: 0 4px 30px rgba(0, 255, 64, 0.4); }
+        .gavin-chat-toggle.speaking {
+          animation: gavin-speaking-toggle 0.3s ease-in-out infinite;
+          box-shadow: 0 0 30px ${CONFIG.accentColor}, 0 0 60px ${CONFIG.primaryColor};
+        }
+
+        @keyframes gavin-speaking-toggle {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 255, 64, 0.6); }
+          50% { transform: scale(1.08); box-shadow: 0 0 40px rgba(0, 255, 64, 1), 0 0 60px rgba(96, 56, 251, 0.8); }
         }
 
         .gavin-chat-container {
@@ -111,7 +119,25 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 20px;
+          overflow: hidden;
+          padding: 2px;
+        }
+
+        .gavin-chat-avatar img {
+          width: 90%;
+          height: 90%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .gavin-chat-avatar.speaking {
+          animation: gavin-speaking 0.3s ease-in-out infinite;
+          box-shadow: 0 0 20px ${CONFIG.accentColor}, 0 0 40px ${CONFIG.primaryColor};
+        }
+
+        @keyframes gavin-speaking {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
         }
 
         .gavin-chat-info h4 {
@@ -285,7 +311,7 @@
 
       <div class="gavin-chat-container" id="gavin-chat-container">
         <div class="gavin-chat-header">
-          <div class="gavin-chat-avatar"><img src="/assets/images/gavin-avatar.png" style="width: 24px; height: 24px; border-radius: 50%;"></div>
+          <div class="gavin-chat-avatar" id="gavin-chat-avatar"><img src="/assets/images/gavin-avatar.png"></div>
           <div class="gavin-chat-info">
             <h4>${CONFIG.botName}</h4>
             <span>Ask me anything</span>
@@ -309,7 +335,7 @@
       </div>
 
       <button class="gavin-chat-toggle" id="gavin-chat-toggle" title="Chat with Gavin">
-        <img src="/assets/images/gavin-avatar.png" style="width: 28px; height: 28px; border-radius: 50%;">
+        <img src="/assets/images/gavin-avatar.png">
       </button>
     `;
 
@@ -330,6 +356,7 @@
     const send = document.getElementById('gavin-chat-send');
     const messages = document.getElementById('gavin-chat-messages');
     const typing = document.getElementById('gavin-chat-typing');
+    const avatar = document.getElementById('gavin-chat-avatar');
 
     // Toggle chat
     toggle.addEventListener('click', () => {
@@ -373,6 +400,30 @@
       msg.textContent = text;
       messages.appendChild(msg);
       messages.scrollTop = messages.scrollHeight;
+
+      // If this is a bot message, speak it and animate avatar
+      if (sender === 'bot') {
+        speakResponse(text, avatar);
+      }
+    }
+
+    function speakResponse(text, avatarEl) {
+      // Check if voice player exists
+      if (typeof voicePlayer !== 'undefined' && voicePlayer.speak) {
+        // Animate avatar while speaking
+        const audio = new Audio();
+        avatarEl.classList.add('speaking');
+        
+        // Stop animation after estimated speaking time
+        const words = text.split(' ').length;
+        const estimatedSeconds = words * 0.4; // ~150 words per minute
+        setTimeout(() => {
+          avatarEl.classList.remove('speaking');
+        }, estimatedSeconds * 1000);
+        
+        // Use TTS if available
+        voicePlayer.speak('gavin-chat', text);
+      }
     }
 
     function showTyping() {

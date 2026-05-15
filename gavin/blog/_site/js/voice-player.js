@@ -116,6 +116,17 @@ class VoicePlayer {
     const btn = player.querySelector('.voice-play-btn');
     const status = player.querySelector('.voice-status');
 
+    // Animate chat avatar when playing
+    const chatAvatar = document.getElementById('gavin-chat-avatar');
+    const chatToggle = document.getElementById('gavin-chat-toggle');
+    
+    if (chatAvatar) {
+      chatAvatar.classList.toggle('speaking', state === 'playing');
+    }
+    if (chatToggle) {
+      chatToggle.classList.toggle('speaking', state === 'playing');
+    }
+
     switch(state) {
       case 'generating':
         btn.innerHTML = '<span class="voice-spinner"></span>';
