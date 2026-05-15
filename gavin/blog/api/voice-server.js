@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY || '';
+const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY || 'sk_2f1c8e9a7b3d5f4a6e8c0b2d4f6a8c0e'; // Use configured key or fallback
 const VOICE_ID = 'Qmc2m2l7n30eeewMpBpY';
 const PORT = process.env.VOICE_API_PORT || 4005;
 

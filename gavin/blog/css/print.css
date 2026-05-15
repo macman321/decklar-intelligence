@@ -1,0 +1,170 @@
+/* Print/PDF Export Styles */
+/* Matches blog dark theme - NOT white background */
+
+@media print {
+  /* Base styles */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: var(--bg-dark, #0A0A0F) !important;
+    color: var(--text-primary, #FFFFFF) !important;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Remove unnecessary elements */
+  .navbar,
+  .footer,
+  .newsletter-section,
+  .voice-player,
+  .voice-comments,
+  .chat-widget {
+    display: none !important;
+  }
+
+  /* Keep hero with dark background */
+  .hero {
+    background: var(--bg-dark, #0A0A0F) !important;
+    min-height: auto !important;
+    padding: 2rem !important;
+  }
+
+  .hero h1 {
+    color: var(--text-primary, #FFFFFF) !important;
+    font-size: 2rem !important;
+  }
+
+  .hero-description {
+    color: var(--text-secondary, rgba(255,255,255,0.7)) !important;
+  }
+
+  /* Post cards with dark background */
+  .post-card {
+    background: var(--bg-card, rgba(19,22,32,0.8)) !important;
+    border: 1px solid var(--border, rgba(96,56,251,0.2)) !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Post page styling */
+  .post-page {
+    background: var(--bg-dark, #0A0A0F) !important;
+    color: var(--text-primary, #FFFFFF) !important;
+    padding: 0 !important;
+  }
+
+  .post-header {
+    background: linear-gradient(180deg, rgba(96,56,251,0.1) 0%, transparent 100%) !important;
+    padding: 2rem !important;
+  }
+
+  .post-header h1 {
+    color: var(--text-primary, #FFFFFF) !important;
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .post-header-meta {
+    color: var(--text-secondary, rgba(255,255,255,0.7)) !important;
+  }
+
+  .post-content {
+    background: transparent !important;
+    color: var(--text-primary, #FFFFFF) !important;
+    padding: 2rem !important;
+  }
+
+  .post-content h2,
+  .post-content h3,
+  .post-content h4 {
+    color: var(--text-primary, #FFFFFF) !important;
+    page-break-after: avoid;
+  }
+
+  .post-content p {
+    color: var(--text-secondary, rgba(255,255,255,0.8)) !important;
+    line-height: 1.7 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Links in print */
+  a {
+    color: var(--violet, #6038FB) !important;
+    text-decoration: none !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: var(--text-muted, rgba(255,255,255,0.5)) !important;
+  }
+
+  /* Code blocks */
+  pre,
+  code {
+    background: var(--bg-navy, #0D1117) !important;
+    color: var(--green, #00FF40) !important;
+    border: 1px solid var(--border, rgba(96,56,251,0.2)) !important;
+    break-inside: avoid;
+  }
+
+  /* Blockquotes */
+  blockquote {
+    border-left: 3px solid var(--violet, #6038FB) !important;
+    background: rgba(96,56,251,0.05) !important;
+    padding: 1rem 1.5rem !important;
+    margin: 1.5rem 0 !important;
+    color: var(--text-primary, #FFFFFF) !important;
+  }
+
+  /* Tables */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: var(--bg-card, rgba(19,22,32,0.8)) !important;
+    break-inside: avoid;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--border, rgba(96,56,251,0.2)) !important;
+    padding: 0.75rem !important;
+    color: var(--text-primary, #FFFFFF) !important;
+  }
+
+  th {
+    background: rgba(96,56,251,0.1) !important;
+    font-weight: 600 !important;
+  }
+
+  /* Page breaks */
+  .post-card,
+  .section-header,
+  pre,
+  table,
+  blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  /* Ensure dark background on all elements */
+  main,
+  section,
+  article,
+  div {
+    background: transparent !important;
+  }
+}
+
+/* Screen preview of print styles */
+.print-preview body {
+  background: var(--bg-dark, #0A0A0F) !important;
+  color: var(--text-primary, #FFFFFF) !important;
+}
