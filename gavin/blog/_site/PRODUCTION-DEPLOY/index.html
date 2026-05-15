@@ -1,0 +1,176 @@
+<h1>Production Deployment Guide - Gavin's Decklar Blog</h1>
+<h2>Overview</h2>
+<p>The blog consists of two components:</p>
+<ol>
+<li><strong>Static Site</strong> (Eleventy) → GitHub Pages</li>
+<li><strong>Voice API</strong> (Node.js) → Render.com or Railway</li>
+</ol>
+<hr>
+<h2>Step 1: Deploy Static Site to GitHub Pages</h2>
+<pre><code class="language-bash">cd ~/decklar-intelligence/gavin/blog
+
+# Run the deploy script
+./deploy.sh production
+</code></pre>
+<p>Or manually:</p>
+<pre><code class="language-bash"># Build the site
+npm run build
+
+# Deploy _site/ contents to gh-pages branch
+cd _site
+git init
+git checkout -b gh-pages
+git add -A
+git commit -m &quot;Deploy $(date)&quot;
+git push -f https://github.com/macman321/decklar-intelligence.git gh-pages:gh-pages
+</code></pre>
+<p><strong>Result</strong>: Site at <code>https://macman321.github.io/decklar-intelligence/gavin/blog/</code></p>
+<hr>
+<h2>Step 2: Deploy Voice API to Render.com (FREE)</h2>
+<h3>2.1 Sign up / Log in</h3>
+<ul>
+<li>Go to https://render.com</li>
+<li>Connect your GitHub account</li>
+</ul>
+<h3>2.2 Create Web Service</h3>
+<ol>
+<li>Click &quot;New&quot; → &quot;Web Service&quot;</li>
+<li>Connect your GitHub repo: <code>macman321/decklar-intelligence</code></li>
+<li>Configure:
+<ul>
+<li><strong>Name</strong>: <code>gavin-voice-api</code></li>
+<li><strong>Runtime</strong>: Node</li>
+<li><strong>Build Command</strong>: <code>cd gavin/blog/voice-api &amp;&amp; echo &quot;Ready&quot;</code></li>
+<li><strong>Start Command</strong>: <code>cd gavin/blog/voice-api &amp;&amp; node voice-server.js</code></li>
+<li><strong>Plan</strong>: Free</li>
+</ul>
+</li>
+</ol>
+<h3>2.3 Set Environment Variables</h3>
+<p>In Render Dashboard → Environment:</p>
+<pre><code>ELEVENLABS_API_KEY=sk_b9487f82ad1507c97508d9b9d4a3a1fd
+PORT=4005
+VOICE_API_PORT=4005
+NODE_ENV=production
+</code></pre>
+<h3>2.4 Health Check</h3>
+<p>Render will auto-detect <code>/api/health</code> endpoint.</p>
+<p><strong>Result</strong>: API at <code>https://gavin-voice-api.onrender.com</code></p>
+<hr>
+<h2>Step 3: Update Frontend API URLs</h2>
+<p>Once the Voice API is deployed, update the static site config:</p>
+<pre><code class="language-bash"># Edit config.js
+vim ~/decklar-intelligence/gavin/blog/js/config.js
+
+# Update production URL:
+VOICE_API_URL: 'https://gavin-voice-api.onrender.com'
+</code></pre>
+<p>Rebuild and redeploy:</p>
+<pre><code class="language-bash">cd ~/decklar-intelligence/gavin/blog
+npm run build
+./deploy.sh production
+</code></pre>
+<hr>
+<h2>Step 4: Test Everything</h2>
+<ol>
+<li><strong>Static Site</strong>: Visit <code>https://macman321.github.io/decklar-intelligence/gavin/blog/</code></li>
+<li><strong>Voice API</strong>: Test <code>https://gavin-voice-api.onrender.com/api/health</code></li>
+<li><strong>Full Flow</strong>: Try the voice player on any post</li>
+</ol>
+<hr>
+<h2>Alternative: Railway.app</h2>
+<p>Similar process to Render:</p>
+<ol>
+<li>Sign up at https://railway.app</li>
+<li>Connect GitHub repo</li>
+<li>Use <code>voice-api/railway.json</code> for config</li>
+<li>Set <code>ELEVENLABS_API_KEY</code> in environment variables</li>
+</ol>
+<hr>
+<h2>Custom Domain (Optional)</h2>
+<h3>For Static Site (GitHub Pages):</h3>
+<ol>
+<li>Add <code>CNAME</code> file to <code>static/</code> folder with domain name</li>
+<li>Configure DNS A/ALIAS records pointing to GitHub Pages IPs</li>
+</ol>
+<h3>For Voice API (Render):</h3>
+<ol>
+<li>In Render Dashboard → Settings → Custom Domain</li>
+<li>Add custom domain and configure DNS</li>
+</ol>
+<hr>
+<h2>Monitoring</h2>
+<h3>Render Dashboard</h3>
+<ul>
+<li>Uptime monitoring built-in</li>
+<li>Logs available in Dashboard → Logs</li>
+<li>Auto-restart on failure (Free tier: 15 min sleep after inactivity)</li>
+</ul>
+<h3>GitHub Pages</h3>
+<ul>
+<li>Automatic HTTPS</li>
+<li>CDN included</li>
+<li>No monitoring needed (static files)</li>
+</ul>
+<hr>
+<h2>Security Checklist</h2>
+<ul>
+<li>[ ] <code>ELEVENLABS_API_KEY</code> stored only in server environment</li>
+<li>[ ] No API keys in frontend code ✓ (verified)</li>
+<li>[ ] CORS configured on server ✓ (already set)</li>
+<li>[ ] Chat widget blocks sensitive keywords ✓ (already implemented)</li>
+<li>[ ] HTTPS enforced on both services</li>
+</ul>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Voice API not responding</h3>
+<ol>
+<li>Check Render Logs</li>
+<li>Verify <code>ELEVENLABS_API_KEY</code> is set</li>
+<li>Test health endpoint: <code>curl https://gavin-voice-api.onrender.com/api/health</code></li>
+</ol>
+<h3>Static site not updating</h3>
+<ol>
+<li>Clear browser cache (hard refresh: Cmd+Shift+R)</li>
+<li>Verify GitHub Pages deployment in repo Settings → Pages</li>
+<li>Check Actions tab for build errors</li>
+</ol>
+<h3>CORS errors</h3>
+<ol>
+<li>Verify API domain matches <code>config.js</code> VOICE_API_URL</li>
+<li>Check server CORS headers in <code>voice-server.js</code></li>
+</ol>
+<hr>
+<h2>Cost</h2>
+<ul>
+<li><strong>GitHub Pages</strong>: FREE (unlimited public repos)</li>
+<li><strong>Render Web Service</strong>: FREE (sleeps after 15 min inactivity, auto-wakes)</li>
+<li><strong>ElevenLabs API</strong>: ~$5/mo for typical blog usage</li>
+<li><strong>Total</strong>: ~$5/month</li>
+</ul>
+<hr>
+<h2>Deployed URLs</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static Site</td>
+<td>https://macman321.github.io/decklar-intelligence/gavin/blog/</td>
+</tr>
+<tr>
+<td>Voice API</td>
+<td>https://gavin-voice-api.onrender.com</td>
+</tr>
+<tr>
+<td>Health Check</td>
+<td>https://gavin-voice-api.onrender.com/api/health</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>Generated: $(date)</em></p>

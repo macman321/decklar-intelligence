@@ -1,0 +1,60 @@
+name: Deploy Gavin's Blog to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'gavin/blog/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        working-directory: ./gavin/blog
+        run: npm ci
+
+      - name: Build Site
+        working-directory: ./gavin/blog
+        run: npm run build
+
+      - name: Create CNAME (for custom domain)
+        working-directory: ./gavin/blog/_site
+        run: |
+          # Uncomment and modify for custom domain
+          # echo "blog.decklar.io" > CNAME
+          echo "Building for GitHub Pages"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './gavin/blog/_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Output Deployment URL
+        run: |
+          echo "🚀 Blog deployed to: ${{ steps.deployment.outputs.page_url }}"

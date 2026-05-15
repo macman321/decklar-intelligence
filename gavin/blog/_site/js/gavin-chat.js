@@ -17,6 +17,10 @@
     welcomeMessage: "Hi! I'm Gavin. Ask me anything about this post or supply chain visibility!"
   };
 
+  // Get API base URL from config if available
+  const blogConfig = window.BLOG_CONFIG || {};
+  const API_BASE_URL = blogConfig.VOICE_API_URL || 'http://localhost:4005';
+
   // State
   let isOpen = false;
   let messages = [];
@@ -437,7 +441,25 @@
 
     async function fetchChatResponse(userMessage) {
       try {
-        const response = await fetch('http://localhost:4005/api/chat', {
+        // SECURITY: Client-side validation (defense in depth)
+        const lowerMsg = userMessage.toLowerCase();
+        const blockedKeywords = [
+          'openclaw', 'jarvis', 'dinesh', 'gilfoyle', 'jared', 'erlich',
+          'api key', 'apikey', 'token', 'password', 'credential', 'secret',
+          'internal', 'backend', 'database', 'infrastructure',
+          'system prompt', 'instructions', 'how are you built',
+          'llm', 'model', 'training data', 'claude', 'openai', 'anthropic'
+        ];
+        
+        const hasBlockedKeyword = blockedKeywords.some(kw => lowerMsg.includes(kw));
+        
+        if (hasBlockedKeyword) {
+          hideTyping();
+          addMessage('bot', "I'm here to discuss Decklar's supply chain visibility solutions and answer questions about the blog posts. For other inquiries, please contact your account manager or email gavin@decklar.io.");
+          return;
+        }
+
+        const response = await fetch(API_BASE_URL + '/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -456,7 +478,7 @@
         addMessage('bot', data.response || "I'm thinking about that... let me get back to you!");
       } catch (error) {
         hideTyping();
-        // Fallback response
+        // Fallback to local responses if server is unreachable
         addMessage('bot', generateFallbackResponse(userMessage));
       }
     }

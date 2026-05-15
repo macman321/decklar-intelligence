@@ -94,21 +94,54 @@
   
   <!-- Voice Player -->
   <div class="voice-player" data-post-id="implementation-playbook" data-post-content="The 90-Day Supply Chain Visibility Implementation Playbook I&#39;ve guided over 100 Decklar customers through their first visibility deployment. Some went from zero to full coverage in 90 days. Others are still wrestling with spreadsheets a year later. The difference? Having a playbook. Today, I&#39;m sharing the exact framework I use with customers who want to move fast and see ROI quickly. No theory — just battle-tested steps from real implementations. Phase 1: Foundation (Days 1-14) Day 1-3: Pick Your Pilot The biggest mistake I see: Starting too big. Don&#39;t try to track everything everywhere on day one. Pick ONE lane, ONE customer, or ONE product category. My pilot selection criteria: High pain (frequent issues, customer complaints, losses) High value (expensive products, important customer, strategic lane) Controllable scope (you can influence the outcome) Measurable outcomes (you&#39;ll know if it worked) Example pilots that work: &amp;quot;Our weekly seafood shipments to RestaurantCo — we lose $50K/year on temperature excursions&amp;quot; &amp;quot;All containers through Port of Long Beach — dwell time is killing us&amp;quot; &amp;quot;Pharma shipments to Hospital Network — compliance audits are brutal&amp;quot; Your homework: Write down 3-5 potential pilots. Rank them by pain × value × controllability. Pick the winner. Day 4-7: Assemble Your Team You need three roles, even if one person wears multiple hats: The Champion: Someone with authority to make decisions and remove blockers. Usually a supply chain director or VP. The Operator: Someone who lives in the day-to-day shipments. They know where the bodies are buried. Usually a logistics manager or coordinator. The Analyst: Someone who can look at data and tell stories. They&#39;ll make the business case for expansion. Could be you, could be someone from finance. Pro tip: Include someone from IT early. They&#39;ll have opinions about integrations and security. Better to hear them now than at go-live. Day 8-14: Define Success Before you stick a single Bee Label, know what winning looks like. Write down your hypotheses: &amp;quot;We think 20% of our refrigerated shipments have undetected temperature excursions&amp;quot; &amp;quot;We believe port dwell time exceeds 48 hours on 30% of our Asia imports&amp;quot; &amp;quot;We estimate $100K in annual losses from disputed deliveries we can&#39;t prove&amp;quot; Set your targets: Visibility target: &amp;quot;Track 100% of pilot shipments within 30 days&amp;quot; Outcome target: &amp;quot;Reduce temperature excursions by 50% within 60 days&amp;quot; Business target: &amp;quot;Eliminate customer disputes on tracked shipments&amp;quot; Baseline your current state: How many shipments in your pilot scope monthly? What&#39;s your current spoilage/rejection rate? How long do disputes take to resolve? What are you spending on manual track-and-trace? You&#39;ll need these numbers for your Phase 3 business case. Phase 2: Pilot Launch (Days 15-45) Day 15-21: Configure Your Environment Portal setup: Create your Decklar account Set up user access (start with your core team) Configure alert thresholds (start conservative — you can tighten later) Set up your first dashboards Integration decisions: Will you use Decklar&#39;s web dashboard only? Do you need API integration with your TMS/WMS? Are you pulling data into Power BI/Tableau? Who gets alerts and how (email, SMS, Slack)? My recommendation: Start simple. Web dashboard + email alerts. Add integrations once you know what you actually need. Day 22-30: Train Your Team Handlers and warehouse staff: How to activate Bee Labels (scan → stick → done) Proper placement (clean, flat surface, visible to sky if possible) What to do if a label won&#39;t scan (don&#39;t panic, try again, escalate if needed) Operations team: How to read the dashboard What different alert types mean Escalation procedures for critical events How to run basic reports Customer service: How to look up shipment status What to tell customers who ask &amp;quot;where&#39;s my shipment?&amp;quot; How to export tracking data for dispute resolution Training tip: Do it live with real shipments. Classroom training is forgettable. Hands-on with actual labels sticks. Day 31-45: Execute and Observe This is where the magic happens. Your job in this phase: Apply labels to EVERY pilot shipment (100% coverage, no exceptions) Watch the dashboard like a hawk for the first week Document everything: issues, wins, surprises, questions Hold daily 15-minute standups for the first two weeks What to expect: Week 1: Excitement and some fumbling. Labels getting applied wrong. Alerts firing more than expected (that&#39;s good — it means you&#39;re seeing things you missed before). Week 2: Patterns emerge. &amp;quot;Oh wow, all our Tuesday shipments have temperature spikes.&amp;quot; &amp;quot;The Dallas warehouse consistently has 24-hour dwell times.&amp;quot; Week 3: Operational changes start. You&#39;re rerouting around problem carriers. You&#39;re calling customers before they call you. Week 4: Habits form. Checking the dashboard becomes automatic. Alerts get tuned to reduce noise....">
-    <button class="voice-play-btn" onclick="voicePlayer.play('implementation-playbook', document.querySelector('.voice-player').dataset.postContent)">
-      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
-    <span class="voice-status">Listen to this post</span>
-    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
-      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
-        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-        <line x1="12" y1="19" x2="12" y2="23"/>
-        <line x1="8" y1="23" x2="16" y2="23"/>
-      </svg>
-      Powered by ElevenLabs
-    </span>
+    <div class="voice-player-row">
+      <button class="voice-play-btn" onclick="window.voicePlayer.play('implementation-playbook', document.querySelector('.voice-player').dataset.postContent)" title="Play/Pause">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      
+      <div class="voice-controls">
+        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(-10)" title="Rewind 10s">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/>
+            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
+          </svg>
+        </button>
+        <span class="voice-status">Listen to this post</span>
+        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(10)" title="Forward 10s">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
+            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
+          </svg>
+        </button>
+      </div>
+      
+      <button class="voice-summarize-btn" onclick="window.voicePlayer.playSummary('implementation-playbook', document.querySelector('.voice-player').dataset.postContent)" title="Summarize (~60 sec)">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        Summarize
+      </button>
+      
+      <span class="voice-powered-by">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+        ElevenLabs
+      </span>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="voice-progress-container" onclick="window.voicePlayer.seek(event.offsetX / this.offsetWidth)">
+      <div class="voice-progress-bar">
+        <div class="voice-progress-fill"></div>
+      </div>
+      <span class="voice-time-display">0:00 / 0:00</span>
+    </div>
   </div>
 
   <article class="post-content">
@@ -594,6 +627,7 @@
     </div>
   </footer>
   
+  <script src="/js/config.js?v=304"></script>
   <script src="/js/voice-player.js?v=304"></script>
   <script src="/js/voice-comments.js"></script>
   <script src="/js/gavin-chat.js?v=304"></script>

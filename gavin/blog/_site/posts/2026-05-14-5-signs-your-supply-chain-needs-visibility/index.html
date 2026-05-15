@@ -94,21 +94,54 @@
   
   <!-- Voice Player -->
   <div class="voice-player" data-post-id="5-signs-your-supply-chain-needs-visibility" data-post-content="5 Signs Your Supply Chain Needs Better Visibility (And What to Do About It) I&#39;ve talked to hundreds of supply chain managers over the past year, and I can usually tell within five minutes whether they&#39;re operating with visibility or flying blind. The symptoms are that obvious once you know what to look for. Today I&#39;m sharing the five telltale signs that your supply chain desperately needs better visibility. If you recognize more than two of these, it&#39;s time to talk. Sign #1: You Can&#39;t Answer &amp;quot;Where&#39;s My Shipment?&amp;quot; in Under 60 Seconds The Scenario: Your CEO calls. Your biggest customer emails. Your production manager stops by your desk. They all ask the same question: &amp;quot;Where&#39;s the shipment?&amp;quot; And you... can&#39;t answer immediately. What Happens: You start making calls. Carrier A says &amp;quot;it&#39;s in transit.&amp;quot; Carrier B says &amp;quot;we show it picked up.&amp;quot; The port terminal has no record. Twenty minutes later, you&#39;ve pieced together a vague story that might be accurate, or might be three hours old. The Cost: Your time (and credibility) evaporates Decision-makers lose confidence in logistics Customer service quality degrades You become the bottleneck The Fix: Real-time GPS tracking via Bee Labels gives you instant location answers. Open your dashboard, see the dot on the map, relay the status. Ten seconds, not twenty minutes. Reality Check: One of our customers calculated they were spending 12 hours per week just answering &amp;quot;where is it?&amp;quot; questions. That&#39;s 30% of a full-time employee. Visibility eliminated that entirely. Sign #2: You&#39;re Finding Out About Problems From Customers (Not Your Systems) The Scenario: The phone rings. It&#39;s your customer. &amp;quot;Hey, just wanted to let you know the shipment arrived warm. The whole lot&#39;s rejected.&amp;quot; Or: &amp;quot;Your delivery never showed up yesterday — where is it?&amp;quot; What Happens: Your stomach drops. You had no idea. You check your carrier&#39;s portal — it says &amp;quot;delivered.&amp;quot; You check the BOL — signature illegible. You scramble to understand what went wrong while your customer waits for answers you don&#39;t have. The Cost: Customer trust erodes You&#39;re reactive instead of proactive Recovery is expensive (expedited replacement, credits, apologies) Sometimes the relationship never recovers The Fix: Proactive alerts. Bee Labels notify you instantly when temperature thresholds are breached or shipments deviate from expected routes. You know about problems in minutes, not days. You call the customer before they call you. Pro Tip: The power dynamic shifts dramatically when you say &amp;quot;I noticed an issue and I&#39;m already handling it&amp;quot; versus &amp;quot;I&#39;m so sorry, I didn&#39;t know.&amp;quot; That&#39;s the difference visibility makes. Sign #3: Your &amp;quot;Data&amp;quot; Is a Collection of PDFs, Spreadsheets, and Phone Notes The Scenario: Someone asks for proof of cold chain compliance. You start hunting: the carrier&#39;s PDF temperature log, the warehouse spreadsheet, an email from the driver, a handwritten note from the receiving dock. It&#39;s scattered across inboxes, shared drives, and desk drawers. What Happens: Audit time becomes nightmare time. Compliance reviews take days. When there&#39;s a dispute, you can&#39;t produce coherent evidence. You know the data exists somewhere, but accessing it is a project. The Cost: Regulatory risk (incomplete records = violations) Inability to defend against claims Wasted staff hours on data archaeology Missed insights (you can&#39;t analyze data you can&#39;t find) The Fix: Centralized, continuous data collection. Every Bee Label generates a complete journey record — timestamped, geotagged, immutable. One dashboard. One source of truth. Export compliance reports in seconds, not hours. Customer Story: A pharmaceutical customer told us their FDA audit preparation went from two weeks of staff time to two hours. The auditors were impressed by the data quality. Visibility became a competitive advantage. Sign #4: You&#39;re Making Carrier Decisions Based on Gut Feel, Not Performance Data The Scenario: It&#39;s time to renew carrier contracts. Someone asks: &amp;quot;How did Carrier X perform this year?&amp;quot; You think about it. They seemed okay? There were a few issues, but nothing major? You check your notes — sparse. You check your memory — hazy. What Happens: You renew contracts based on relationships, not metrics. Underperforming carriers keep getting business because you can&#39;t prove they&#39;re underperforming. Excellent carriers don&#39;t get rewarded because you can&#39;t prove they&#39;re excellent. Everyone gets treated the same regardless of actual performance. The Cost: You keep using bad carriers (and paying for their mistakes) You can&#39;t negotiate from a position of strength (no data = no leverage) Good carriers leave for customers who value them Your supply chain doesn&#39;t improve The Fix: Performance analytics. Bee Labels generate objective data on every carrier, every lane, every shipment: on-time rates, temperature compliance, dwell times, route...">
-    <button class="voice-play-btn" onclick="voicePlayer.play('5-signs-your-supply-chain-needs-visibility', document.querySelector('.voice-player').dataset.postContent)">
-      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
-    <span class="voice-status">Listen to this post</span>
-    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
-      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
-        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-        <line x1="12" y1="19" x2="12" y2="23"/>
-        <line x1="8" y1="23" x2="16" y2="23"/>
-      </svg>
-      Powered by ElevenLabs
-    </span>
+    <div class="voice-player-row">
+      <button class="voice-play-btn" onclick="window.voicePlayer.play('5-signs-your-supply-chain-needs-visibility', document.querySelector('.voice-player').dataset.postContent)" title="Play/Pause">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      
+      <div class="voice-controls">
+        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(-10)" title="Rewind 10s">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/>
+            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
+          </svg>
+        </button>
+        <span class="voice-status">Listen to this post</span>
+        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(10)" title="Forward 10s">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
+            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
+          </svg>
+        </button>
+      </div>
+      
+      <button class="voice-summarize-btn" onclick="window.voicePlayer.playSummary('5-signs-your-supply-chain-needs-visibility', document.querySelector('.voice-player').dataset.postContent)" title="Summarize (~60 sec)">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        Summarize
+      </button>
+      
+      <span class="voice-powered-by">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+        ElevenLabs
+      </span>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="voice-progress-container" onclick="window.voicePlayer.seek(event.offsetX / this.offsetWidth)">
+      <div class="voice-progress-bar">
+        <div class="voice-progress-fill"></div>
+      </div>
+      <span class="voice-time-display">0:00 / 0:00</span>
+    </div>
   </div>
 
   <article class="post-content">
@@ -495,6 +528,7 @@
     </div>
   </footer>
   
+  <script src="/js/config.js?v=304"></script>
   <script src="/js/voice-player.js?v=304"></script>
   <script src="/js/voice-comments.js"></script>
   <script src="/js/gavin-chat.js?v=304"></script>

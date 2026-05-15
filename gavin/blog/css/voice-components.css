@@ -1,18 +1,25 @@
 /**
  * Blog 3.0.0 Voice Components
- * Audio player and voice comment styles
+ * Streaming TTS, Playback Controls, and Summarize
  */
 
 /* Voice Player Component */
 .voice-player {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
   padding: 1rem 1.25rem;
   background: linear-gradient(135deg, rgba(96, 56, 251, 0.1) 0%, rgba(96, 56, 251, 0.05) 100%);
   border: 1px solid var(--violet);
   border-radius: 16px;
   margin: 2rem 0;
+}
+
+.voice-player-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .voice-play-btn {
@@ -41,9 +48,119 @@
   transform: none;
 }
 
+.voice-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.voice-skip-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(96, 56, 251, 0.15);
+  color: var(--violet-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.voice-skip-btn:hover {
+  background: var(--violet);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.voice-skip-btn:active {
+  transform: translateY(0);
+}
+
+.voice-summarize-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 20px;
+  border: 1px solid var(--violet);
+  background: transparent;
+  color: var(--violet-light);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.voice-summarize-btn:hover {
+  background: var(--violet);
+  color: white;
+  box-shadow: 0 2px 8px rgba(96, 56, 251, 0.3);
+}
+
+.voice-summarize-btn.active {
+  background: var(--violet);
+  color: white;
+}
+
+.voice-powered-by {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Progress Bar */
+.voice-progress-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+
+.voice-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(96, 56, 251, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.voice-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--violet), var(--violet-light));
+  border-radius: 2px;
+  transition: width 0.1s ease;
+}
+
+.voice-progress-container:hover .voice-progress-bar {
+  height: 6px;
+}
+
+.voice-time-display {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  min-width: 80px;
+  text-align: right;
+}
+
+/* Status text in controls */
 .voice-status {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  min-width: 100px;
+  text-align: center;
 }
 
 .voice-spinner {

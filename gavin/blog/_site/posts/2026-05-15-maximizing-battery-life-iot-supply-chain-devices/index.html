@@ -90,21 +90,54 @@
   
   <!-- Voice Player -->
   <div class="voice-player" data-post-id="maximizing-battery-life-iot-supply-chain-devices" data-post-content="Maximizing Battery Life: The Complete Guide to IoT Device Longevity in Supply Chain Operations How to get 2-3 years from devices that &amp;quot;should&amp;quot; last 6 months The Battery Problem Nobody Talks About You&#39;ve deployed 500 IoT tracking devices across your supply chain. Six months later, 40% are dead. Another quarter, and you&#39;re at 60% attrition. By month 12, you&#39;re replacing devices faster than you&#39;re getting insights from them. This isn&#39;t a hardware failure problem. It&#39;s a battery optimization problem. At Decklar, we&#39;ve learned that battery life isn&#39;t just about the milliamp-hours printed on the spec sheet. It&#39;s about how you configure, deploy, and manage those devices in the wild. The difference between 6-month and 24-month battery life often comes down to configuration decisions made before the first device ever ships. Understanding Battery Drain: The Four Culprits Before we talk solutions, let&#39;s identify what kills IoT device batteries: 1. Transmission Frequency Every time your device &amp;quot;checks in,&amp;quot; it burns energy. A device reporting every 5 minutes uses roughly 12x more power than one reporting hourly. For non-critical shipments, that difference can mean 6 months versus 2 years of operational life. 2. GPS Lock Time GPS is power-hungry, but the real killer isn&#39;t the fix itself—it&#39;s the time spent searching for satellites. Indoor locations, urban canyons, and ocean transport create conditions where devices hunt for signal for minutes instead of seconds. 3. Temperature Extremes Cold chain monitoring is essential, but lithium batteries hate the cold. At -20°C, battery capacity drops 30-50%. At +60°C (container tops in direct sun), self-discharge accelerates dramatically. 4. Sleep Mode Inefficiency Poorly configured sleep modes can drain 20-30% of battery capacity. The device thinks it&#39;s &amp;quot;asleep,&amp;quot; but background processes keep ticking. The Decklar Battery Optimization Framework After managing thousands of devices across every mode of transport, here&#39;s our battle-tested approach to maximizing battery life: Phase 1: Right-Size Your Reporting Intervals Not every shipment needs real-time tracking. Use tiered reporting based on risk: Shipment Type Recommended Interval Battery Life Impact High-value pharma (cold chain) 5-15 minutes Baseline (6-12 months) Standard ambient freight 1-4 hours 2x extension (12-18 months) Long-haul ocean containers 6-24 hours 4x extension (18-36 months) Backup/emergency tracking Daily or event-triggered 10x extension (3-5 years) Pro tip: Start conservative. You can always increase frequency if a shipment needs closer monitoring. Killing batteries with aggressive defaults is expensive to reverse. Phase 2: Smart GPS Strategies GPS is your biggest power consumer. Optimize it: Enable assisted GPS (A-GPS) when cellular connectivity is available. It reduces lock time from 30-60 seconds to 2-5 seconds—roughly a 10x power savings per fix. Use WiFi and cellular tower triangulation as primary location sources, with GPS only for fine-tuning when precision matters. For most supply chain use cases, 100-meter accuracy is sufficient. Implement location confidence thresholds. Don&#39;t force a GPS fix if cellular triangulation shows the device hasn&#39;t moved significantly. Skip the fix, save the power. Configure geofence-aware behavior. When a device is &amp;quot;home&amp;quot; at a warehouse or distribution center, it can drop to daily check-ins. Ramp up frequency only when the device enters transit. Phase 3: Temperature-Aware Configuration Cold chain is unavoidable, but you can minimize battery impact: Use lithium-thionyl chloride (Li-SOCl2) batteries for extreme cold environments. They maintain performance down to -55°C versus -20°C for standard lithium-ion. Implement temperature-adjusted reporting. When devices detect they&#39;re in cold storage, automatically reduce reporting frequency. The data you&#39;re getting isn&#39;t changing rapidly anyway. Position devices strategically. Mount trackers on container walls rather than floors (better temperature stability). Avoid direct sun exposure on ocean crossings—use shaded mounting positions. Consider heated enclosures for ultra-cold applications. A small resistive heater powered by a larger battery pack can actually extend overall operational life by keeping the primary cell in its optimal temperature range. Phase 4: Deep Sleep Optimization The difference between &amp;quot;good&amp;quot; and &amp;quot;great&amp;quot; battery life often lives in sleep mode configuration: Disable unnecessary sensors during sleep. If you&#39;re only monitoring location and temperature, shut down accelerometers, light sensors, and humidity sensors between wake cycles. Use hardware interrupts instead of polling. Configure devices to wake on motion (shipment started) or temperature threshold breach, rather than checking these values on a schedule. Implement adaptive sleep cycles. Devices should sleep longer when stationary, wake more frequently during movement, then return to deep sleep when the...">
-    <button class="voice-play-btn" onclick="voicePlayer.play('maximizing-battery-life-iot-supply-chain-devices', document.querySelector('.voice-player').dataset.postContent)">
-      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
-    <span class="voice-status">Listen to this post</span>
-    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
-      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
-        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-        <line x1="12" y1="19" x2="12" y2="23"/>
-        <line x1="8" y1="23" x2="16" y2="23"/>
-      </svg>
-      Powered by ElevenLabs
-    </span>
+    <div class="voice-player-row">
+      <button class="voice-play-btn" onclick="window.voicePlayer.play('maximizing-battery-life-iot-supply-chain-devices', document.querySelector('.voice-player').dataset.postContent)" title="Play/Pause">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      
+      <div class="voice-controls">
+        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(-10)" title="Rewind 10s">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/>
+            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
+          </svg>
+        </button>
+        <span class="voice-status">Listen to this post</span>
+        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(10)" title="Forward 10s">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
+            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
+          </svg>
+        </button>
+      </div>
+      
+      <button class="voice-summarize-btn" onclick="window.voicePlayer.playSummary('maximizing-battery-life-iot-supply-chain-devices', document.querySelector('.voice-player').dataset.postContent)" title="Summarize (~60 sec)">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        Summarize
+      </button>
+      
+      <span class="voice-powered-by">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+        ElevenLabs
+      </span>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="voice-progress-container" onclick="window.voicePlayer.seek(event.offsetX / this.offsetWidth)">
+      <div class="voice-progress-bar">
+        <div class="voice-progress-fill"></div>
+      </div>
+      <span class="voice-time-display">0:00 / 0:00</span>
+    </div>
   </div>
 
   <article class="post-content">
@@ -534,6 +567,7 @@
     </div>
   </footer>
   
+  <script src="/js/config.js?v=304"></script>
   <script src="/js/voice-player.js?v=304"></script>
   <script src="/js/voice-comments.js"></script>
   <script src="/js/gavin-chat.js?v=304"></script>

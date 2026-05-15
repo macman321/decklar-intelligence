@@ -1,0 +1,15 @@
+{
+  "name": "gavin-voice-api",
+  "version": "1.0.0",
+  "description": "Voice API proxy for Gavin's Decklar Blog",
+  "main": "voice-server.js",
+  "scripts": {
+    "start": "node voice-server.js",
+    "dev": "node voice-server.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

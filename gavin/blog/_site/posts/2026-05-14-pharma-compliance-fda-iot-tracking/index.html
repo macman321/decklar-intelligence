@@ -94,21 +94,54 @@
   
   <!-- Voice Player -->
   <div class="voice-player" data-post-id="pharma-compliance-fda-iot-tracking" data-post-content="Pharma Compliance &amp;amp; FDA Requirements: A Practical Guide to IoT Cold Chain Tracking How pharmaceutical companies navigate complex regulatory requirements with real-time IoT visibility The Stakes: Why Pharma Compliance Is Non-Negotiable Pharmaceutical supply chains operate under some of the most stringent regulatory oversight in any industry. A single temperature excursion or documentation gap can result in: Product destruction (entire shipments written off) Regulatory citations and warning letters Delayed market entry for new drugs Patient safety risks from compromised medications Reputational damage that&#39;s difficult to recover from The global cold chain logistics market for pharmaceuticals is projected to reach $XX billion by 2028, driven largely by biologics, vaccines, and temperature-sensitive medications. But size doesn&#39;t matter if you can&#39;t prove compliance. The Regulatory Landscape: What You&#39;re Actually Required to Do FDA 21 CFR Part 11 This regulation governs electronic records and signatures in FDA-regulated industries. Key requirements: Requirement What It Means How IoT Helps Audit trails Every data change must be logged with user ID, timestamp, and reason Automatic timestamped logs for every sensor reading Data integrity Records must be complete, accurate, and tamper-evident Blockchain-ready timestamps, encrypted transmission Access controls Only authorized personnel can modify records Role-based permissions, user authentication Validation Systems must be validated for intended use IQ/OQ/PQ documentation support DSCSA (Drug Supply Chain Security Act) Full enforcement begins November 2023. Requirements include: Serialized product identifiers at the package level Transaction documentation for every change of ownership Verification capabilities to detect and respond to suspect products Tracing for investigation and rapid response The gap: DSCSA covers authentication but not necessarily condition. A product can be verified as authentic but still compromised by temperature excursion. This is where IoT visibility becomes critical. EU GDP (Good Distribution Practice) European requirements that often exceed FDA standards: Continuous temperature monitoring (not just spot checks) Qualification of shipping lanes Risk-based approach to distribution Documentation of deviations and CAPA (Corrective and Preventive Actions) The Compliance Stack: Building Your Defense Layer 1: Continuous Monitoring Traditional approach: Temperature loggers that you download after delivery. The problem: You find out about excursions after the fact. The product is already compromised, already delivered, already potentially administered. IoT approach: Real-time monitoring with immediate alerts. Temperature threshold: 2-8°C Alert triggers: Immediate SMS/email when threshold exceeded Response time: Minutes, not days Documentation: Automatic timestamped record of excursion and response Layer 2: Geofence Validation Temperature isn&#39;t the only compliance risk. Unplanned route deviations can indicate: Unauthorized stops Potential theft or diversion Delayed delivery (time-sensitive medications) Co-mingling with non-pharmaceutical cargo Set geofence alerts for: Departure from authorized routes Entry into high-risk areas Unexpected dwell time Late arrivals Layer 3: Automated Documentation Manual documentation is: Time-consuming Error-prone Difficult to audit Often incomplete Automated compliance reports should include: Continuous temperature graph (not just min/max) GPS track overlaid with temperature data Timestamp of departure and arrival Any deviations with alert response times Chain of custody confirmation Common Compliance Pitfalls (And How to Avoid Them) Pitfall 1: &amp;quot;We Check Temperature at Receiving&amp;quot; The issue: A spot check at delivery tells you the temperature now, not whether it stayed in range throughout transit. The solution: Continuous monitoring with data logging at configurable intervals (every 15 minutes for high-risk shipments). Pitfall 2: &amp;quot;Our Carriers Handle Compliance&amp;quot; The issue: Third-party logistics providers may not have the same documentation standards you need for regulatory submission. The solution: Independent monitoring that you control and you can validate. Don&#39;t rely on carrier-provided data alone. Pitfall 3: &amp;quot;We Have Loggers, That&#39;s Enough&amp;quot; The issue: USB loggers require manual download, manual analysis, manual report generation. The solution: Cloud-connected devices that automatically generate compliance-ready reports. Pitfall 4: &amp;quot;Validation Is a One-Time Thing&amp;quot; The issue: Shipping lanes, seasons, and packaging configurations change. Last year&#39;s validation may not apply. The solution: Ongoing monitoring with statistical process control. Track: Seasonal variations in performance Lane-specific risk profiles Packaging configuration effectiveness The Technology Stack: What to Look For Essential Capabilities Capability Why It Matters Real-time alerts Immediate response to...">
-    <button class="voice-play-btn" onclick="voicePlayer.play('pharma-compliance-fda-iot-tracking', document.querySelector('.voice-player').dataset.postContent)">
-      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
-    <span class="voice-status">Listen to this post</span>
-    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
-      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;">
-        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-        <line x1="12" y1="19" x2="12" y2="23"/>
-        <line x1="8" y1="23" x2="16" y2="23"/>
-      </svg>
-      Powered by ElevenLabs
-    </span>
+    <div class="voice-player-row">
+      <button class="voice-play-btn" onclick="window.voicePlayer.play('pharma-compliance-fda-iot-tracking', document.querySelector('.voice-player').dataset.postContent)" title="Play/Pause">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      
+      <div class="voice-controls">
+        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(-10)" title="Rewind 10s">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/>
+            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
+          </svg>
+        </button>
+        <span class="voice-status">Listen to this post</span>
+        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(10)" title="Forward 10s">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
+            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
+          </svg>
+        </button>
+      </div>
+      
+      <button class="voice-summarize-btn" onclick="window.voicePlayer.playSummary('pharma-compliance-fda-iot-tracking', document.querySelector('.voice-player').dataset.postContent)" title="Summarize (~60 sec)">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        Summarize
+      </button>
+      
+      <span class="voice-powered-by">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+        ElevenLabs
+      </span>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="voice-progress-container" onclick="window.voicePlayer.seek(event.offsetX / this.offsetWidth)">
+      <div class="voice-progress-bar">
+        <div class="voice-progress-fill"></div>
+      </div>
+      <span class="voice-time-display">0:00 / 0:00</span>
+    </div>
   </div>
 
   <article class="post-content">
@@ -643,6 +676,7 @@ Documentation: Automatic timestamped record of excursion and response
     </div>
   </footer>
   
+  <script src="/js/config.js?v=304"></script>
   <script src="/js/voice-player.js?v=304"></script>
   <script src="/js/voice-comments.js"></script>
   <script src="/js/gavin-chat.js?v=304"></script>
