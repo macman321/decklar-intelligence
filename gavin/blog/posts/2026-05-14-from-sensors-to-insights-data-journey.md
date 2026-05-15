@@ -3,6 +3,8 @@ title: "From Sensors to Insights: How IoT Data Actually Flows Through Your Suppl
 date: 2026-05-14
 layout: post.njk
 description: "A behind-the-scenes look at the IoT data journey — from sensor readings to real-time dashboards. Understand how supply chain visibility data is collected, processed, and transformed into actionable intelligence."
+layout: post.njk
+---
 ---
 
 # From Sensors to Insights: How IoT Data Actually Flows Through Your Supply Chain

@@ -1,0 +1,44 @@
+{
+  "customerId": "CUST-2026-001",
+  "companyName": "Acme Pharma Distribution",
+  "accountManager": "Jeff Calabro",
+  "accountType": "Enterprise",
+  "onboardedAt": "2026-05-14T16:30:00Z",
+  "onboardedBy": "AI Onboarding Portal",
+  "status": "Active",
+  "phase": "Deployment Week 2",
+  "deployment": {
+    "shipmentMode": "Truck → Ocean → Truck",
+    "oceanDuration": 35,
+    "lanes": 12,
+    "containerTracking": true,
+    "sensorConfig": {
+      "temperature": true,
+      "humidity": true,
+      "shock": true,
+      "light": true
+    },
+    "coldChain": true,
+    "alertThresholds": {
+      "tempMin": 2,
+      "tempMax": 8,
+      "humidityMax": 60
+    }
+  },
+  "insights": {
+    "criticalFlags": ["Battery optimization required for 35-day ocean lane"],
+    "recommendations": ["Disable sensor interrupts for ocean legs", "Enable AWB tracking"],
+    "riskScore": "Medium"
+  },
+  "beeLabels": {
+    "deployed": 48,
+    "active": 46,
+    "alertsToday": 2
+  },
+  "nextActions": [
+    "Schedule QBR for next week",
+    "Review battery optimization settings",
+    "Deploy additional sensors to Lane 7"
+  ],
+  "healthScore": 87
+}

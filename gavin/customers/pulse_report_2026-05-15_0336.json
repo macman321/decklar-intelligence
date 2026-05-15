@@ -1,0 +1,60 @@
+{
+  "reportGeneratedAt": "2026-05-15T03:36:00Z",
+  "generatedBy": "Gavin Agent",
+  "trigger": "Scheduled cron checkin",
+  "customers": [
+    {
+      "companyName": "Acme Pharma Distribution",
+      "healthScore": 87,
+      "ragStatus": "AMBER",
+      "phase": "Deployment Week 2",
+      "lastContact": "2026-05-14",
+      "alertsToday": 2,
+      "criticalFlags": [
+        "Battery optimization required for 35-day ocean lane"
+      ],
+      "beeLabels": {
+        "deployed": 48,
+        "active": 46
+      },
+      "attentionNeeded": true,
+      "reason": "2 active alerts today + battery optimization concern for ocean lanes. Proactive check-in recommended."
+    },
+    {
+      "companyName": "McKesson Corporation",
+      "healthScore": 85,
+      "ragStatus": "GREEN",
+      "phase": "Operational - Monitoring Active",
+      "lastContact": "2026-05-14",
+      "openItems": [
+        {
+          "item": "Verify all 9 event types are properly configured in Honeycomb",
+          "owner": "CARE Team",
+          "status": "Pending",
+          "dueDate": "2026-05-21",
+          "daysUntilDue": 6
+        },
+        {
+          "item": "Review RADAR automation roadmap items for deployment priority",
+          "owner": "Jeff Calabro",
+          "status": "Pending",
+          "dueDate": null
+        }
+      ],
+      "attentionNeeded": false,
+      "reason": "Healthy operational account. One pending item with CARE Team due in 6 days."
+    }
+  ],
+  "summary": {
+    "totalCustomers": 2,
+    "needsAttention": 1,
+    "amberStatus": 1,
+    "greenStatus": 1,
+    "totalOpenItems": 2,
+    "overdueItems": 0
+  },
+  "recommendations": [
+    "Proactive outreach to Acme Pharma regarding today's 2 alerts and battery optimization",
+    "Follow up with CARE Team on McKesson event type verification (due 2026-05-21)"
+  ]
+}

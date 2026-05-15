@@ -1,0 +1,135 @@
+{
+  "customerName": "McKesson Corporation",
+  "accountManager": "Jeffrey Calabro",
+  "accountType": "Enterprise",
+  "status": "active",
+  "healthRAG": "green",
+  "lastContact": "2026-05-14",
+  "createdAt": "2026-05-14",
+
+  "contacts": [
+    { 
+      "name": "Mairany Ramos", 
+      "title": "Primary Contact (CARE)", 
+      "email": "", 
+      "phone": "", 
+      "role": "primary" 
+    },
+    { 
+      "name": "Jeff Calabro", 
+      "title": "Account Responsible POC", 
+      "email": "jeffcalabro32@gmail.com", 
+      "phone": "", 
+      "role": "account_manager" 
+    }
+  ],
+
+  "deployment": {
+    "shipmentMode": "Truck",
+    "numLanes": null,
+    "laneDuration": null,
+    "tripType": "One-Way",
+    "shipmentStart": "Manual start via iShip after pre-departure checklist",
+    "shipmentComplete": "Delay Completion — geofence + delay required",
+    "coldChain": true,
+    "tempThresholds": "Cold chain pharmaceutical monitoring",
+    "shockMonitoring": false,
+    "humidityMonitoring": false,
+    "connectivity": "GPS + Cellular",
+    "sensorInterrupts": "Temperature monitoring via ambient light sensor (door-state detection)",
+    "deviceType": "BSF devices — assigned per shipment via iShip",
+    "activationLocation": "Origin facility",
+    "lightConfirmed": "Dark = door closed (loaded), Light = door open",
+    "deviceExpiry": "",
+    "goLiveDate": "2026-05-14",
+    "numUsers": null,
+    "accessControls": "SSO integration configured"
+  },
+
+  "capabilities": {
+    "publicTracking": false,
+    "eProofDeparture": false,
+    "eProofDelivery": false,
+    "waypointAlerts": true,
+    "detentionDemurrage": false,
+    "vehicleTracking": false,
+    "assetFlow": true,
+    "pharmaMode": true
+  },
+
+  "successCriteria": "Prevent temperature excursions during pharmaceutical cold chain shipments, with particular emphasis on pre-departure readiness validation",
+
+  "openItems": [
+    { 
+      "item": "Honeycomb platform configuration review (pending)", 
+      "owner": "Engineering/CARE", 
+      "status": "Pending", 
+      "dueDate": null 
+    },
+    { 
+      "item": "RADAR automation enhancements — predictive/preventive capabilities", 
+      "owner": "Engineering", 
+      "status": "In Progress", 
+      "dueDate": null 
+    }
+  ],
+
+  "callHistory": [],
+
+  "insights": [
+    { 
+      "type": "tip", 
+      "text": "Pre-departure phase is highest-risk for preventable temperature excursions", 
+      "source": "Knowledge Base Section 1.2", 
+      "date": "2026-05-14" 
+    },
+    { 
+      "type": "risk", 
+      "text": "SSO failures affect all users — immediate escalation required", 
+      "source": "Troubleshooting Section 4.1", 
+      "date": "2026-05-14" 
+    },
+    { 
+      "type": "opportunity", 
+      "text": "Temperature monitoring only valid after: device loaded + door shut (dark) + settlement time complete", 
+      "source": "Workflow Section 3.2", 
+      "date": "2026-05-14" 
+    }
+  ],
+
+  "valueProof": {
+    "claimsReduced": null,
+    "shipmentsMonitored": null,
+    "incidentsDetected": null,
+    "notableWins": [],
+    "expansionOpportunities": [
+      "Automation enhancements for predictive/preventive RADAR capabilities",
+      "Expanded event type coverage beyond current 9 types"
+    ]
+  },
+
+  "notes": "Enterprise healthcare customer using Decklar for cold chain temperature monitoring across pharmaceutical shipments. Account is operationally active with fully documented end-to-end monitoring flow. 9 defined RADAR event types active. Platform modules: RADAR, BeeCentral (24x7 Risk Monitoring), iShip CARE. Focus on pre-departure readiness where historically more preventable excursions occur.",
+
+  "extraFields": {
+    "industryVertical": "Healthcare / Pharmaceutical Supply Chain",
+    "platformModules": ["RADAR", "BeeCentral", "iShip CARE"],
+    "eventTypes": [
+      "Ready to Ship",
+      "Temperature Monitoring", 
+      "Device in Jeopardy",
+      "ETA at Risk / Stopped / Delayed",
+      "Late Linehaul Departure",
+      "Proximity",
+      "Departure Missed",
+      "Shipment Deviation",
+      "Red Zone Stop (15 min)"
+    ],
+    "alertPriorities": {
+      "high": ["Temperature", "Ready to Ship", "Device in Jeopardy", "Departure Missed", "ETA at Risk", "Deviation", "Red Zone"],
+      "low": ["Late Linehaul Departure", "Proximity"]
+    },
+    "escalationPath": "CARE Analyst → CARE Lead → Engineering → CSM → Customer",
+    "settlementTimeLogic": "Temperature readings valid only after: device inside container + door shut (dark ambient light) + settlement time complete",
+    "ssoDomain": "Configured for McKesson — verify user email domain matches for access issues"
+  }
+}

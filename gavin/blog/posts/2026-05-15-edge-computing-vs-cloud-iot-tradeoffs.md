@@ -8,6 +8,8 @@ tags:
   - Technical
   - Featured
 layout: post.njk
+layout: post.njk
+---
 ---
 
 # Edge Computing vs Cloud: The Real Tradeoffs for IoT Supply Chain Tracking

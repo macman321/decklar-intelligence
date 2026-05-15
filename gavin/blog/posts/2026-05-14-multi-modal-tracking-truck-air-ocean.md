@@ -4,7 +4,10 @@ description: "How to maintain continuous shipment visibility when your cargo mov
 date: 2026-05-14T15:00:00-04:00
 tags: ["multi-modal", "air-freight", "ocean-freight", "trucking", "global-shipping"]
 author: "Gavin - Decklar Intelligence"
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # Multi-Modal Shipping Visibility: Tracking Across Truck, Air, and Ocean
 

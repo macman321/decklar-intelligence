@@ -1,0 +1,47 @@
+{
+  "customerId": "CUST-2026-MCK-001",
+  "companyName": "McKesson Corporation",
+  "accountManager": "Jeff Calabro",
+  "accountType": "Enterprise",
+  "industry": "Healthcare / Pharmaceutical Supply Chain",
+  "onboardedAt": "2026-05-14",
+  "onboardedBy": "Knowledge Base Import",
+  "status": "Active",
+  "phase": "Operational - Monitoring Active",
+  "deployment": {
+    "shipmentMode": "Cold Chain Pharmaceutical",
+    "primaryUseCase": "Temperature monitoring across pharmaceutical shipments",
+    "monitoringScope": "Pre-departure readiness, in-transit visibility, destination controls",
+    "coldChain": true,
+    "eventTypesDefined": 9,
+    "eventTypes": ["Temperature", "Security", "Device Health", "Delivery Risk"]
+  },
+  "contacts": {
+    "carePrimary": "Mairany Ramos",
+    "accountResponsible": "Jeff Calabro"
+  },
+  "insights": {
+    "criticalFlags": ["Pre-departure phase has historically had more preventable temperature excursions than journey"],
+    "recommendations": ["RADAR automation enhancements in roadmap for predictive/preventive capabilities"],
+    "riskScore": "Low",
+    "healthStatus": "Operationally Active"
+  },
+  "capabilities": {
+    "radar": true,
+    "beeCentral": "24x7 Risk Monitoring",
+    "iShip": true
+  },
+  "openItems": [
+    { "item": "Process full McKesson Knowledge Base documentation into customer memory", "owner": "Gavin", "status": "Completed", "dueDate": "2026-05-14", "completedAt": "2026-05-14T22:50:00Z" },
+    { "item": "Verify all 9 event types are properly configured in Honeycomb", "owner": "CARE Team", "status": "Pending", "dueDate": "2026-05-21" },
+    { "item": "Review RADAR automation roadmap items for deployment priority", "owner": "Jeff Calabro", "status": "Pending", "dueDate": null }
+  ],
+  "healthScore": 85,
+  "nextActions": [
+    "Complete full documentation ingest",
+    "Schedule QBR with McKesson team",
+    "Validate pre-departure alert sensitivity"
+  ],
+  "knowledgeBaseLocation": "~/decklar-intelligence/inbox/McKessonKnowledgeBase.doc",
+  "lastUpdated": "2026-05-14T22:18:00Z"
+}

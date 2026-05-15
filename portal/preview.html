@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decklar Customer Portal - Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        decklar: {
+                            50: '#EFF6FF',
+                            100: '#DBEAFE',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                            900: '#1E3A8A',
+                        },
+                        dark: {
+                            900: '#0F172A',
+                            800: '#1E293B',
+                            700: '#334155',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-dark-900 text-white min-h-screen">
+    <!-- Header -->
+    <header class="bg-dark-800 border-b border-dark-700 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-decklar-500 to-decklar-700 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-cube text-white text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-white">Decklar</h1>
+                    <p class="text-xs text-slate-400">Customer Intelligence Portal</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="px-4 py-2 bg-decklar-600 hover:bg-decklar-700 rounded-lg text-sm font-medium transition-colors">
+                    <i class="fas fa-plus mr-2"></i>New Customer
+                </button>
+                <div class="w-10 h-10 bg-dark-700 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-slate-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex">
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Stats Row -->
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <div class="bg-dark-800 rounded-xl p-5 border border-dark-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-slate-400 text-sm">Total Customers</span>
+                        <div class="w-8 h-8 bg-decklar-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building text-decklar-500 text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-white">5</div>
+                    <div class="text-xs text-emerald-400 mt-1">+1 this month</div>
+                </div>
+                
+                <div class="bg-dark-800 rounded-xl p-5 border border-dark-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-slate-400 text-sm">Active Deployments</span>
+                        <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-rocket text-emerald-400 text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-white">4</div>
+                    <div class="text-xs text-emerald-400 mt-1">80% deployed</div>
+                </div>
+                
+                <div class="bg-dark-800 rounded-xl p-5 border border-dark-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-slate-400 text-sm">At Risk</span>
+                        <div class="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-exclamation-triangle text-red-400 text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-white">1</div>
+                    <div class="text-xs text-red-400 mt-1">Needs attention</div>
+                </div>
+                
+                <div class="bg-dark-800 rounded-xl p-5 border border-dark-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-slate-400 text-sm">Open Items</span>
+                        <div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-tasks text-amber-400 text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-white">7</div>
+                    <div class="text-xs text-amber-400 mt-1">2 overdue</div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="mb-6">
+                <div class="relative">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" placeholder="Search customers, contacts, or insights..." 
+                           class="w-full bg-dark-800 border border-dark-700 rounded-xl py-3 pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-decklar-500">
+                </div>
+            </div>
+
+            <!-- Customer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Schneider Electric - Green -->
+                <div class="bg-dark-800 rounded-xl p-5 border border-dark-700 hover:border-decklar-500/50 transition-all cursor-pointer group">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold">
+                                SE
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Schneider Electric</h3>
+                                <span class="text-xs text-slate-400">Enterprise</span>
+                            </div>
+                        </div>
+                        <div class="w-3 h-3 bg-emerald-500 rounded-full" title="Healthy"></div>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Industry</span>
+                            <span class="text-slate-300">Electrical Equipment</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Last Contact</span>
+                            <span class="text-emerald-400">May 10</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Status</span>
+                            <span class="text-emerald-400">Live</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dark-700 flex items-center justify-between">
+                        <span class="text-xs text-slate-500">1 proactive insight</span>
+                        <button class="text-decklar-500 text-sm font-medium group-hover:underline">View →</button>
+                    </div>
+                </div>
+
+                <!-- ACME Logistics - Amber -->
+                <div class="bg-dark-800 rounded-xl p-5 border border-dark-700 hover:border-amber-500/50 transition-all cursor-pointer group">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center text-white font-bold">
+                                AL
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">ACME Logistics</h3>
+                                <span class="text-xs text-slate-400">SMB</span>
+                            </div>
+                        </div>
+                        <div class="w-3 h-3 bg-amber-500 rounded-full" title="Attention Needed"></div>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Industry</span>
+                            <span class="text-slate-300">3PL Logistics</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Last Contact</span>
+                            <span class="text-amber-400">May 5</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Go-Live</span>
+                            <span class="text-amber-400">Jun 1</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dark-700 flex items-center justify-between">
+                        <span class="text-xs text-amber-400">⚠️ Timeline risk</span>
+                        <button class="text-decklar-500 text-sm font-medium group-hover:underline">View →</button>
+                    </div>
+                </div>
+
+                <!-- Global Pharma - Red -->
+                <div class="bg-dark-800 rounded-xl p-5 border border-red-500/30 hover:border-red-500/50 transition-all cursor-pointer group">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center text-white font-bold">
+                                GP
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Global Pharma Inc</h3>
+                                <span class="text-xs text-slate-400">Enterprise</span>
+                            </div>
+                        </div>
+                        <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse" title="At Risk"></div>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Industry</span>
+                            <span class="text-slate-300">Pharmaceutical</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Last Contact</span>
+                            <span class="text-red-400">Apr 15</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Status</span>
+                            <span class="text-red-400">Stalled</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dark-700 flex items-center justify-between">
+                        <span class="text-xs text-red-400">🚨 30 days no response</span>
+                        <button class="text-decklar-500 text-sm font-medium group-hover:underline">View →</button>
+                    </div>
+                </div>
+
+                <!-- Fresh Foods - Green -->
+                <div class="bg-dark-800 rounded-xl p-5 border border-dark-700 hover:border-emerald-500/50 transition-all cursor-pointer group">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold">
+                                FF
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Fresh Foods Distribution</h3>
+                                <span class="text-xs text-slate-400">Mid-Market</span>
+                            </div>
+                        </div>
+                        <div class="w-3 h-3 bg-emerald-500 rounded-full" title="Healthy"></div>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Industry</span>
+                            <span class="text-slate-300">Food & Beverage</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Last Contact</span>
+                            <span class="text-emerald-400">May 12</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Claim Reduction</span>
+                            <span class="text-emerald-400">34%</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dark-700 flex items-center justify-between">
+                        <span class="text-xs text-emerald-400">⭐ Great ROI story</span>
+                        <button class="text-decklar-500 text-sm font-medium group-hover:underline">View →</button>
+                    </div>
+                </div>
+
+                <!-- Titanium - Amber -->
+                <div class="bg-dark-800 rounded-xl p-5 border border-dark-700 hover:border-amber-500/50 transition-all cursor-pointer group">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-600 rounded-lg flex items-center justify-center text-white font-bold">
+                                TM
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Titanium Manufacturing</h3>
+                                <span class="text-xs text-slate-400">Enterprise</span>
+                            </div>
+                        </div>
+                        <div class="w-3 h-3 bg-amber-500 rounded-full" title="Attention Needed"></div>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Industry</span>
+                            <span class="text-slate-300">Industrial Mfg</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Last Contact</span>
+                            <span class="text-slate-300">May 8</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Opportunity</span>
+                            <span class="text-amber-400">Shock monitoring</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-dark-700 flex items-center justify-between">
+                        <span class="text-xs text-amber-400">💡 Upsell potential</span>
+                        <button class="text-decklar-500 text-sm font-medium group-hover:underline">View →</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Gavin AI Sidebar -->
+        <aside class="w-80 bg-dark-800 border-l border-dark-700 flex flex-col">
+            <div class="p-4 border-b border-dark-700">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-decklar-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-robot text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white">Gavin</h3>
+                        <div class="flex items-center gap-1">
+                            <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                            <span class="text-xs text-slate-400">AI Assistant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex-1 p-4 overflow-y-auto space-y-4">
+                <!-- Proactive Insight -->
+                <div class="bg-dark-700/50 rounded-lg p-3 border border-decklar-500/30">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-lightbulb text-amber-400 text-xs"></i>
+                        <span class="text-xs font-medium text-amber-400">Proactive Insight</span>
+                    </div>
+                    <p class="text-sm text-slate-300">Global Pharma Inc hasn't responded in 30 days. Consider escalating to their new CTO starting June 1.</p>
+                </div>
+                
+                <!-- Another Insight -->
+                <div class="bg-dark-700/50 rounded-lg p-3 border border-emerald-500/30">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-chart-line text-emerald-400 text-xs"></i>
+                        <span class="text-xs font-medium text-emerald-400">Opportunity</span>
+                    </div>
+                    <p class="text-sm text-slate-300">Schneider Electric mentioned South American expansion in Q3. Prepare expansion proposal?</p>
+                </div>
+                
+                <!-- Chat Message -->
+                <div class="flex gap-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-decklar-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-white text-xs"></i>
+                    </div>
+                    <div class="bg-dark-700 rounded-lg p-3 text-sm text-slate-300">
+                        I can help you research stakeholders, analyze customer health, or prepare reports. What would you like to know?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-4 border-t border-dark-700">
+                <div class="relative">
+                    <input type="text" placeholder="Ask Gavin anything..." 
+                           class="w-full bg-dark-900 border border-dark-700 rounded-lg py-3 pl-4 pr-12 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-decklar-500">
+                    <button class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-decklar-600 rounded-md flex items-center justify-center hover:bg-decklar-700 transition-colors">
+                        <i class="fas fa-microphone text-white text-xs"></i>
+                    </button>
+                </div>
+                <div class="flex justify-center mt-2">
+                    <span class="text-xs text-slate-500">Voice enabled • Say "Hey Gavin"</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

@@ -2,7 +2,10 @@
 title: "Supply Chain Sustainability & ESG: How IoT Visibility Drives Environmental Accountability"
 date: 2026-05-14
 description: "ESG reporting requirements are tightening. Customers are demanding transparency. Learn how IoT supply chain visibility helps you measure, verify, and report your environmental impact with hard data."
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # Supply Chain Sustainability & ESG: How IoT Visibility Drives Environmental Accountability
 

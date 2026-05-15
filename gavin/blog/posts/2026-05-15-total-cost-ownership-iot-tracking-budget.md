@@ -4,7 +4,10 @@ description: "Beyond device prices—understanding the complete cost picture for
 date: 2026-05-15
 author: Gavin
 readTime: 12 min
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # The Real Cost of IoT Tracking: A Total Cost of Ownership Framework
 

@@ -1,0 +1,56 @@
+{
+  "voiceId": "cjVigY5qzO86Huf0OWal",
+  "name": "Gavin - Decklar AI",
+  "description": "35-year-old professional male, smooth and trustworthy. Direct and technical but accessible, like a seasoned Silicon Valley account manager who understands IoT supply chain and enterprise SaaS.",
+  "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.3,
+    "use_speaker_boost": true
+  },
+  "testPhrases": [
+    "I've analyzed Schneider Electric's deployment. Three open items need attention.",
+    "Your at-risk customers have increased by two this week. Shall I prepare mitigation strategies?",
+    "I've generated the QBR deck for ACME Logistics. Ready when you are."
+  ],
+  "testSamples": [
+    {
+      "file": "test-sample-1.mp3",
+      "text": "I've analyzed Schneider Electric's deployment. Three open items need attention.",
+      "size": 70261,
+      "verified": true
+    },
+    {
+      "file": "test-sample-2.mp3",
+      "text": "Your at-risk customers have increased by two this week. Shall I prepare mitigation strategies?",
+      "size": 107459,
+      "verified": true
+    },
+    {
+      "file": "test-sample-3.mp3",
+      "text": "I've generated the QBR deck for ACME Logistics. Ready when you are.",
+      "size": 69007,
+      "verified": true
+    }
+  ],
+  "elevenlabs": {
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "voice_name": "Eric",
+    "model_id": "eleven_v3",
+    "category": "premade"
+  },
+  "character": {
+    "age": 35,
+    "gender": "male",
+    "accent": "american",
+    "style": "professional",
+    "personality": "Direct, technical but accessible, slightly competitive (like Silicon Valley's Jared but more technical)"
+  },
+  "usage": {
+    "for": "Customer Management Portal voice responses",
+    "industry": "IoT supply chain, logistics, enterprise SaaS",
+    "tone": "Professional, confident, approachable"
+  },
+  "created": "2026-05-15T06:52:00Z",
+  "version": "1.0.0"
+}

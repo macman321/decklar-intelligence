@@ -2,7 +2,10 @@
 title: "Reusable Bees vs Bee Labels: Which Tracking Solution is Right for You?"
 date: 2026-05-14
 description: "A practical guide to choosing between Decklar's disposable Bee Labels and reusable Bee devices based on your use case, shipment patterns, and ROI goals."
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # Reusable Bees vs Bee Labels: Which Tracking Solution is Right for You?
 

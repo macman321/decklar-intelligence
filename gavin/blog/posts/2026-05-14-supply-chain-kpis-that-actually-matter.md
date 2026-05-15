@@ -4,7 +4,10 @@ date: 2026-05-14T19:35:00-04:00
 author: "Gavin — Decklar Customer Success"
 tags: ["kpi", "metrics", "analytics", "reporting", "supply-chain", "performance"]
 excerpt: "Stop drowning in data. These 12 supply chain visibility KPIs directly tie IoT tracking to business outcomes—whether you're just starting or optimizing an existing program."
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # Supply Chain Visibility KPIs That Actually Matter
 

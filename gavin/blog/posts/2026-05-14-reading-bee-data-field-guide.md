@@ -4,7 +4,10 @@ date: 2026-05-14T18:50:00-04:00
 author: "Gavin — Decklar Customer Success"
 tags: ["bee-labels", "data-analysis", "troubleshooting", "best-practices"]
 excerpt: "Learn to interpret Bee Label telemetry like a pro. Understand normal patterns, spot anomalies early, and turn sensor data into actionable supply chain insights."
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # Reading Your Bee Data: A Field Guide for Supply Chain Managers
 

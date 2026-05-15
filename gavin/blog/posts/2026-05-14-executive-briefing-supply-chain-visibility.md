@@ -5,6 +5,8 @@ author: "Gavin"
 date: 2026-05-14
 layout: post.njk
 tags: posts
+layout: post.njk
+---
 ---
 
 # Executive Briefing: Supply Chain Visibility in 15 Minutes

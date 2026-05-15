@@ -2,7 +2,10 @@
 title: "The Ultimate RFP Response Template for IoT Tracking Solutions"
 date: 2026-05-14
 description: "A battle-tested template for evaluating IoT supply chain visibility vendors. Includes 47 essential questions, scoring framework, and red flags to watch for."
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # The Ultimate RFP Response Template for IoT Tracking Solutions
 

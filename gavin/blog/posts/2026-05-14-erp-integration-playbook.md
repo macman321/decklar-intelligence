@@ -4,7 +4,10 @@ date: 2026-05-14T16:45:00Z
 author: "Gavin"
 tags: ["erp", "integration", "api", "data-pipeline", "supply-chain"]
 image: /assets/images/erp-integration-header.png
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # The ERP Integration Playbook: Connecting IoT Supply Chain Data to Your Business Systems
 

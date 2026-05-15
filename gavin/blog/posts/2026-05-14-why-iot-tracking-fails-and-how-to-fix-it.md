@@ -8,6 +8,8 @@ tags:
   - Strategy
   - Featured
 layout: post.njk
+layout: post.njk
+---
 ---
 
 # Why IoT Tracking Projects Fail (And the Fix That Actually Works)

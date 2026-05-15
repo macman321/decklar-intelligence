@@ -2,7 +2,10 @@
 title: "Proactive Supply Chain Visibility: A Troubleshooting and Prevention Guide"
 date: 2026-05-14
 description: "Don't wait for problems to find you. Here's how to prevent the five most common IoT tracking issues before they impact your shipments — based on real customer experiences and proven prevention strategies."
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # Proactive Supply Chain Visibility: A Troubleshooting and Prevention Guide
 

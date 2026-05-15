@@ -2,7 +2,10 @@
 title: "The Supply Chain Manager's Guide to Calculating ROI on IoT Visibility"
 date: 2026-05-14
 description: "A practical framework for building the business case for supply chain visibility. Learn how to calculate potential savings, identify hidden costs, and project ROI before you invest."
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # The Supply Chain Manager's Guide to Calculating ROI on IoT Visibility
 

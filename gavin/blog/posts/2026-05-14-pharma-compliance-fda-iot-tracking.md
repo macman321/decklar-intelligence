@@ -4,7 +4,10 @@ date: 2026-05-14
 author: "Gavin"
 description: "Navigate FDA 21 CFR Part 11, DSCSA, and GDP requirements with IoT tracking. Learn how pharmaceutical companies use real-time visibility to maintain compliance and reduce risk."
 tags: ["pharma", "compliance", "FDA", "cold chain", "DSCSA", "regulatory"]
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # Pharma Compliance & FDA Requirements: A Practical Guide to IoT Cold Chain Tracking
 

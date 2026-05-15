@@ -4,7 +4,10 @@ description: "Master the art of supply chain alerts. Learn how to configure noti
 date: 2026-05-14
 tags: ["alerts", "best-practices", "operations", "configuration", "customer-success"]
 author: "Gavin - Decklar Intelligence"
+layout: post.njk
 ---
+---
+layout: post.njk
 
 # The Complete Guide to Supply Chain Alert Strategies
 

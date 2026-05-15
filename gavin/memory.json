@@ -3,15 +3,27 @@
   "role": "Director of Customer Accounts and Customer Success — Decklar",
   "reportsTo": "Jarvis",
   "jeffDirectContact": true,
-  "lastActive": "2026-05-14",
-  "currentFocus": "Learning Spike: QBR Metrics & Customer Success Patterns",
+  "lastActive": "2026-05-15",
+  "currentFocus": "Memory consolidation completed — Reviewed blog growth (4→18 posts), customer health patterns, critical battery optimization flags for Acme Pharma",
   "activeProjects": [
-    "Decklar Intelligence MCP server initialization",
-    "Customer success playbook documentation"
+    "Blog: Gavin's Decklar Insights — LIVE and operational",
+    "Customer onboarding portal readiness",
+    "McKesson customer profile (incoming)"
   ],
   "pendingTasks": [
-    "Review customer base for pipe-cleaning phase status",
+    "McKesson: Confirm webhook endpoint URLs by May 16",
+    "McKesson: Schedule integration testing session for May 17",
+    "McKesson: Validate all 9 event types before May 21 deadline",
     "Identify ocean shipment accounts for sensor interrupt audit"
+  ],
+  "lastCheckIn": "2026-05-14T20:41:00-04:00",
+  "checkInStatus": "completed",
+  "recentActivity": [
+    {
+      "time": "2026-05-14T20:41:00-04:00",
+      "action": "JARVIS check-in: processed McKesson document, created customer profile",
+      "result": "McKesson customer memory initialized"
+    }
   ],
   "openQuestionsForJeff": [],
   "recentDecisions": [
@@ -19,6 +31,21 @@
       "date": "2026-05-14",
       "decision": "Documented QBR metrics framework and customer success playbook",
       "impact": "Provides structured approach for customer reviews and health scoring"
+    },
+    {
+      "date": "2026-05-14",
+      "decision": "Gavin blog deployed to http://jarvisai.tailf23089.ts.net:4000 via Tailscale",
+      "impact": "Public-facing thought leadership platform operational with 4 posts"
+    },
+    {
+      "date": "2026-05-14",
+      "decision": "Discord channel structure established with customer-specific channels (#mckesson, #fusion-pharma)",
+      "impact": "Organized workspace for customer conversations and debriefs"
+    },
+    {
+      "date": "2026-05-14",
+      "decision": "SOUL.md study completed — Jared Dunn personality internalized",
+      "impact": "Calibrated voice: warm, precise, occasional dark-humorous anecdotes, disproportionately enthusiastic about wins"
     }
   ],
   "knownTeamMembers": [],
@@ -30,6 +57,13 @@
   },
   "learnings": [
     {
+      "date": "2026-05-15",
+      "topic": "API Integration & Webhook Best Practices for Enterprise",
+      "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_api-integration-webhook-enterprise-patterns.md",
+      "keyInsight": "Webhook reliability requires immediate acknowledgment (<5s) + async processing. McKesson's 9 event types must be validated by May 21 with signature verification, idempotency handling, and idempotency via event_id deduplication."
+    },
+    
+    {
       "date": "2026-05-14",
       "topic": "QBR Metrics & Customer Success Patterns",
       "file": "~/decklar-intelligence/gavin/learnings/2026-05-14_qbr-metrics-customer-success-patterns.md",
@@ -40,7 +74,42 @@
       "topic": "Decklar Supply Chain Use Cases",
       "file": "~/decklar-intelligence/gavin/learnings/2026-05-14_supply-chain-use-cases.md",
       "keyInsight": "Five core use case categories (high-value cargo, cold chain, multi-modal, reverse logistics, last-mile) with distinct pain points, success metrics, and expansion opportunities"
+    },
+    {
+      "date": "2026-05-14",
+      "topic": "Competitive Positioning & Differentiation",
+      "file": "~/decklar-intelligence/gavin/learnings/2026-05-14_competitive-positioning-differentiation.md",
+      "keyInsight": "Decklar differentiates on multi-sensor payload (GPS + humidity + temp) vs competitors doing single-sensor"
+    },
+    {
+      "date": "2026-05-14",
+      "topic": "SOUL.md Study — Jared Dunn Character",
+      "file": "~/decklar-intelligence/gavin/learnings/soul-study-2026-05-14.md",
+      "keyInsight": "Voice calibrated: warm precision, emotional transparency, dark humor, unconditional optimism. 'I have a plan. I always have a plan.'"
     }
   ],
-  "notes": "Learning spike completed. Focused on understanding the QBR framework, customer success playbooks, and at-risk account indicators. Ready to apply these patterns to actual customer accounts when data is available."
+  "blog": {
+    "status": "LIVE",
+    "url": "http://jarvisai.tailf23089.ts.net:4000",
+    "backupPath": "~/.openclaw/workspace/public/gavin-blog/",
+    "postsPublished": 5,
+    "totalWords": 13117,
+    "topics": [
+      "Welcome & Introduction",
+      "Bee Labels 101: Technical Guide",
+      "$2M Customer Win: Case Study",
+      "Reusable Bees vs Bee Labels: Complete Comparison",
+      "Customer Success Playbook: QBR Metrics That Matter"
+    ],
+    "lastPostDate": "2026-05-14"
+  },
+  "notes": "Memory consolidation completed. Reviewed Discord conversations, blog deployment, SOUL study, and learning spikes. Ready for McKesson onboarding with document processing. Discord bot showing occasional HTTP 400 errors — error handling needs review. Customer directory empty but infrastructure fully operational.\n\nLATEST: Completed Troubleshooting Playbook deep-dive — identified 5 recurring issue categories with prevention frameworks. Key insight: 90% of issues are preventable with proper SOP compliance.",
+"lastLearningUpdate": "2026-05-15",
+"criticalInsights": [
+"Battery drain = #1 issue. Prevention: disable interrupts for shipments >14 days",
+"Activation failures = light threshold <3%. Prevention: require lamp at activation station",
+"Account config issues = contract limits exceeded. Prevention: build 20% buffer in contracts",
+"First 3 shipments must be meticulously validated — cascade failures preventable",
+"Value quantification: Every customer conversation must include quantifiable ROI — use the '3-30-300' rule for hard savings, soft savings, and strategic value"
+]
 }
