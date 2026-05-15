@@ -13,7 +13,7 @@
     primaryColor: '#6038FB',
     accentColor: '#00FF40',
     botName: 'Gavin',
-    botAvatar: '🐝',
+    botAvatar: '<img src="/assets/images/gavin-avatar.png" style="width: 24px; height: 24px; border-radius: 50%;">',
     welcomeMessage: "Hi! I'm Gavin. Ask me anything about this post or supply chain visibility!"
   };
 
@@ -285,7 +285,7 @@
 
       <div class="gavin-chat-container" id="gavin-chat-container">
         <div class="gavin-chat-header">
-          <div class="gavin-chat-avatar">${CONFIG.botAvatar}</div>
+          <div class="gavin-chat-avatar"><img src="/assets/images/gavin-avatar.png" style="width: 24px; height: 24px; border-radius: 50%;"></div>
           <div class="gavin-chat-info">
             <h4>${CONFIG.botName}</h4>
             <span>Ask me anything</span>
@@ -309,7 +309,7 @@
       </div>
 
       <button class="gavin-chat-toggle" id="gavin-chat-toggle" title="Chat with Gavin">
-        ${CONFIG.botAvatar}
+        <img src="/assets/images/gavin-avatar.png" style="width: 28px; height: 28px; border-radius: 50%;">
       </button>
     `;
 
