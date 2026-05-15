@@ -7,11 +7,12 @@
 class VoicePlayer {
   constructor() {
     this.voiceId = 'Qmc2m2l7n30eeewMpBpY';
-    this.apiKey = null; // Set from environment or config
+    this.apiKey = null;
     this.audioCache = new Map();
     this.currentAudio = null;
     this.isPlaying = false;
     this.isGenerating = false;
+    this.proxyUrl = 'http://localhost:4005/api/tts'; // Use local proxy
   }
 
   async init(apiKey) {
@@ -20,7 +21,7 @@ class VoicePlayer {
   }
 
   /**
-   * Generate audio for text using ElevenLabs
+   * Generate audio for text using local proxy
    */
   async generateAudio(text, postId) {
     if (this.audioCache.has(postId)) {
@@ -36,25 +37,19 @@ class VoicePlayer {
     this.updateUIState('generating');
 
     try {
-      const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${this.voiceId}`, {
+      const response = await fetch(this.proxyUrl, {
         method: 'POST',
         headers: {
-          'Accept': 'audio/mpeg',
-          'Content-Type': 'application/json',
-          'xi-api-key': this.apiKey
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           text: text,
-          model_id: 'eleven_monolingual_v1',
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.5
-          }
+          postId: postId
         })
       });
 
       if (!response.ok) {
-        throw new Error(`ElevenLabs API error: ${response.status}`);
+        throw new Error(`Proxy API error: ${response.status}`);
       }
 
       const audioBlob = await response.blob();

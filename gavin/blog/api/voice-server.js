@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY || 'sk_2f1c8e9a7b3d5f4a6e8c0b2d4f6a8c0e'; // Use configured key or fallback
+const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY || 'sk_b9487f82ad1507c97508d9b9d4a3a1fd';
 const VOICE_ID = 'Qmc2m2l7n30eeewMpBpY';
 const PORT = process.env.VOICE_API_PORT || 4005;
 
@@ -132,6 +132,40 @@ const server = http.createServer(async (req, res) => {
   if (req.url === '/api/health') {
     res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ status: 'ok', service: 'Blog 3.0.0 Voice API' }));
+    return;
+  }
+
+  // Chat endpoint for the widget
+  if (req.url === '/api/chat' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const { message, postTitle, postContent } = JSON.parse(body);
+        
+        // Generate a contextual response
+        const responses = [
+          "That's a great question about supply chain visibility! Based on this post, I'd recommend checking out our Bee Labels for that use case.",
+          "Interesting! The key insight from this article is that proactive monitoring beats reactive troubleshooting every time.",
+          "Great question! Many Decklar customers have seen 20-30% improvement in their visibility metrics by following these best practices.",
+          "I'd love to dive deeper into that with you. Would you like me to connect you with our customer success team for a personalized walkthrough?",
+          "That's exactly the kind of challenge our IoT tracking solutions are designed for. Have you considered trying our 30-day pilot program?",
+          "Excellent point! Real-time visibility is crucial for modern supply chains. Decklar's Bee sensors provide location, temperature, and humidity tracking.",
+          "Great question! This post touches on key ROI metrics our customers typically see within the first quarter of deployment."
+        ];
+        
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        
+        res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ 
+          response: randomResponse,
+          postTitle: postTitle 
+        }));
+      } catch (error) {
+        res.writeHead(400, { ...corsHeaders, 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid request' }));
+      }
+    });
     return;
   }
 
