@@ -1132,3 +1132,45 @@ main {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--violet);
 }
+
+/* ==================== NATIVE VOICE BUTTON (Siri TTS) ==================== */
+.native-voice-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, var(--violet) 0%, var(--violet-light) 100%);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(96, 56, 251, 0.3);
+}
+
+.native-voice-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(96, 56, 251, 0.4);
+}
+
+.native-voice-btn.playing {
+  background: linear-gradient(135deg, var(--green) 0%, #00CC33 100%);
+  box-shadow: 0 0 20px rgba(0, 255, 64, 0.4);
+  animation: voicePulse 2s ease-in-out infinite;
+}
+
+@keyframes voicePulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 64, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(0, 255, 64, 0.6); }
+}
+
+.post-header-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
