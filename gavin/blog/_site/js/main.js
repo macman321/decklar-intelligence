@@ -21,19 +21,27 @@ class NativeVoicePlayer {
   loadVoices() {
     this.voices = this.synth.getVoices();
     
-    // Prefer Siri voice on iOS, then system defaults
-    this.preferredVoice = this.voices.find(v => 
-      v.name.includes('Samantha') || // iOS Siri (US)
-      v.name.includes('Karen') ||    // iOS Siri (AU)
-      v.name.includes('Daniel') ||  // iOS Siri (UK)
-      v.name.includes('Moira') ||    // iOS Siri (IE)
-      v.name.includes('Tessa')      // iOS Siri (ZA)
-    ) || this.voices.find(v => 
-      v.name.includes('Alex') ||     // macOS default
-      v.name.includes('Fred')
-    ) || this.voices[0];
+    // On iOS/macOS, DON'T set a preferred voice - use system default
+    // This respects the user's Siri voice settings
+    // Only set a fallback on non-Apple devices if needed
+    const isApple = /iPad|iPhone|iPod|Mac/.test(navigator.userAgent);
     
-    console.log('[NativeVoice] Voices loaded:', this.voices.length, 'Selected:', this.preferredVoice?.name);
+    if (!isApple) {
+      // On non-Apple, try to find a decent voice
+      this.preferredVoice = this.voices.find(v => 
+        v.default || v.lang.startsWith('en')
+      ) || this.voices[0];
+    } else {
+      // On Apple devices, let the system handle voice selection
+      // User's Siri settings will be used automatically
+      this.preferredVoice = null;
+      console.log('[NativeVoice] iOS/macOS detected - using system default voice (respects Siri settings)');
+    }
+    
+    console.log('[NativeVoice] Voices available:', this.voices.length);
+    if (this.preferredVoice) {
+      console.log('[NativeVoice] Selected:', this.preferredVoice.name);
+    }
   }
 
   speak(text) {
