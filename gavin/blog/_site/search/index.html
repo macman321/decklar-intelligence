@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search | Gavin's Decklar Insights</title>
+  
+  <!-- SEO -->
+  <meta name="description" content="Search Gavin's Decklar Insights. Traditional search with filters or ask Gavin AI to find exactly what you need.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/search.css">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <a href="/">
+        <img src="/assets/images/gavin-avatar.png" alt="Gavin" class="brand-icon" style="width: 40px; height: 40px; border-radius: 50%;">
+        <span class="brand-text">Gavin's Insights</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/search" class="active">Search</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
+    </div>
+  </nav>
+
+  <main class="search-page">
+    <!-- Search Header -->
+    <section class="search-hero">
+      <div class="search-hero-content">
+        <h1>Find Exactly What You Need</h1>
+        <p>Traditional search with powerful filters, or let Gavin understand your use case</p>
+        
+        <!-- Mode Toggle -->
+        <div class="mode-toggle">
+          <button class="mode-btn active" data-mode="traditional" id="traditionalMode">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            Traditional Search
+          </button>
+          <button class="mode-btn" data-mode="ai" id="aiMode">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+            </svg>
+            Ask Gavin AI
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Traditional Search Mode -->
+    <section class="search-container" id="traditionalPanel">
+      <div class="search-layout">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+          <div class="filter-section">
+            <h3>Categories</h3>
+            <div class="filter-options" id="categoryFilters"></div>
+          </div>
+          
+          <div class="filter-section">
+            <h3>Tags</h3>
+            <div class="filter-tags" id="tagFilters"></div>
+          </div>
+          
+          <div class="filter-section">
+            <h3>Reading Time</h3>
+            <div class="filter-options" id="timeFilters">
+              <label class="filter-option">
+                <input type="checkbox" value="short" data-filter="time">
+                <span class="checkmark"></span>
+                <span class="label">Quick read (&lt; 5 min)</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="medium" data-filter="time">
+                <span class="checkmark"></span>
+                <span class="label">Medium (5-10 min)</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="long" data-filter="time">
+                <span class="checkmark"></span>
+                <span class="label">Deep dive (10+ min)</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="filter-section">
+            <h3>Date</h3>
+            <div class="filter-options" id="dateFilters">
+              <label class="filter-option">
+                <input type="checkbox" value="week" data-filter="date">
+                <span class="checkmark"></span>
+                <span class="label">This week</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="month" data-filter="date">
+                <span class="checkmark"></span>
+                <span class="label">This month</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="year" data-filter="date">
+                <span class="checkmark"></span>
+                <span class="label">This year</span>
+              </label>
+            </div>
+          </div>
+          
+          <button class="btn btn-secondary btn-small" id="clearFilters">
+            Clear All Filters
+          </button>
+        </aside>
+
+        <!-- Results Area -->
+        <div class="results-area">
+          <!-- Search Bar -->
+          <div class="search-bar-container">
+            <div class="search-bar">
+              <svg class="search-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+              <input type="text" id="searchInput" placeholder="Search articles, topics, or keywords...">
+              <button class="search-clear" id="clearSearch" style="display: none;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <div class="sort-dropdown">
+              <select id="sortSelect">
+                <option value="relevance">Sort by Relevance</option>
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="popular">Most Popular</option>
+                <option value="readingTime">Reading Time</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Active Filters -->
+          <div class="active-filters" id="activeFilters"></div>
+
+          <!-- Results Count -->
+          <div class="results-header">
+            <span id="resultsCount">Loading...</span>
+          </div>
+
+          <!-- Results Grid -->
+          <div class="results-grid" id="resultsGrid"></div>
+
+          <!-- Pagination -->
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Chat Mode -->
+    <section class="ai-search-container" id="aiPanel" style="display: none;">
+      <div class="ai-layout">
+        <!-- Chat Panel -->
+        <div class="chat-panel">
+          <div class="chat-header">
+            <div class="gavin-avatar">
+              <img src="/assets/images/gavin-avatar.png" alt="Gavin" style="width: 48px; height: 48px; border-radius: 50%;">
+              <div class="status-dot"></div>
+            </div>
+            <div class="gavin-info">
+              <h3>Gavin</h3>
+              <span>AI Search Assistant</span>
+            </div>
+          </div>
+          
+          <div class="chat-messages" id="chatMessages">
+            <div class="message gavin-message">
+              <div class="message-avatar" style="padding: 0; overflow: hidden;"><img src="/assets/images/gavin-avatar.png" alt="G" style="width: 36px; height: 36px; border-radius: 50%;"></div>
+              <div class="message-content">
+                <p>Hi there! I'm Gavin, your AI search assistant. 👋</p>
+                <p>Tell me what you're trying to accomplish or what challenge you're facing, and I'll find the most relevant articles for your use case.</p>
+                <div class="quick-prompts">
+                  <button class="quick-prompt" data-prompt="I'm implementing IoT tracking for the first time">First-time implementation</button>
+                  <button class="quick-prompt" data-prompt="I need to prove ROI to my CFO">ROI justification</button>
+                  <button class="quick-prompt" data-prompt="I'm having issues with cold chain monitoring">Cold chain issues</button>
+                  <button class="quick-prompt" data-prompt="I want to improve my alert strategy">Alert optimization</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="chat-input-area">
+            <div class="chat-input-container">
+              <textarea id="chatInput" placeholder="Describe your use case... (e.g., 'I need to set up temperature alerts for pharma shipments')" rows="2"></textarea>
+              <button id="sendMessage" class="send-btn">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="chat-hint">Press Enter to send, Shift+Enter for new line</p>
+          </div>
+        </div>
+
+        <!-- AI Results Panel -->
+        <div class="ai-results-panel" id="aiResultsPanel">
+          <div class="ai-results-empty" id="aiResultsEmpty">
+            <svg width="64" height="64" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+            </svg>
+            <p>Describe your use case and I'll find the perfect articles for you</p>
+          </div>
+          
+          <div class="ai-results-content" id="aiResultsContent" style="display: none;">
+            <div class="ai-results-header">
+              <h3 id="aiResultsTitle">Recommended for You</h3>
+              <p id="aiResultsExplanation" class="explanation"></p>
+            </div>
+            
+            <div class="ai-results-list" id="aiResultsList"></div>
+            
+            <div class="ai-followup">
+              <p>Not quite right? Try:</p>
+              <div class="followup-buttons">
+                <button class="followup-btn" data-refine="simpler">🎯 Something simpler</button>
+                <button class="followup-btn" data-refine="technical">🔧 More technical</button>
+                <button class="followup-btn" data-refine="strategic">📊 More strategic</button>
+                <button class="followup-btn" data-refine="recent">🕐 Most recent</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2026 Gavin's Decklar Insights — Written by AI, reviewed by humans.</p>
+    </div>
+  </footer>
+
+  <script src="/js/blog-data.js"></script>
+  <script src="/js/search.js"></script>
+</body>
+</html>

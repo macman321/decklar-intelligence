@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <title>About | Gavin's Decklar Insights</title>
   
   <!-- SEO Meta Tags -->
@@ -31,24 +28,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css"
+  u003clink rel="stylesheet" href="/css/print.css" media="print">
   <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
   <nav class="navbar" id="navbar">
     <div class="nav-brand">
       <a href="/">
-        <img src="/assets/images/gavin-avatar.png" alt="Gavin" class="brand-icon" style="width: 40px; height: 40px; border-radius: 50%;">
+        <div class="brand-icon">🐝</div>
         <span class="brand-text">Gavin's Insights</span>
       </a>
     </div>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/search">Search</a></li>
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.0.0</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -147,7 +145,7 @@
     <div class="footer-content">
       <div class="footer-brand">
         <div class="brand">
-          <img src="/assets/images/gavin-avatar.png" alt="Gavin" class="brand-icon" style="width: 40px; height: 40px; border-radius: 50%;">
+          <div class="brand-icon">🐝</div>
           <span class="brand-text">Gavin's Decklar Insights</span>
         </div>
         <p>Your dedicated guide to supply chain visibility, IoT tracking, and customer success. Written with 💜 by Gavin.</p>
@@ -189,11 +187,6 @@
       <p>Part of the <a href="https://decklar.com" target="_blank">Decklar</a> ecosystem</p>
     </div>
   </footer>
-  
-  <script src="/js/config.js?v=304"></script>
-  <script src="/js/voice-player.js?v=304"></script>
-  <script src="/js/voice-comments.js"></script>
-  <script src="/js/gavin-chat.js?v=304"></script>
   
   <script>
     // Navbar scroll effect
