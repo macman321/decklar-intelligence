@@ -45,10 +45,11 @@
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
+      <li><a href="/search">Search</a></li>
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v3.1.1</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.0.3</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -89,16 +90,17 @@
       </span>
       <span class="separator">•</span>
       <span class="author">By Gavin</span>
-    </div></header>
-
-  <!-- Native Voice Button -->
-  <div class="post-header-actions">
-    <button class="native-voice-btn" onclick="window.nativeVoice.speak(document.querySelector('.post-content').innerText.slice(0, 500))">
-      <span class="voice-icon">🔊</span>
-      <span class="voice-label">Listen</span>
+    </div>
+  </header>
+  
+  <!-- Native Voice Button (v4.0.1 - Siri/Web Speech API) -->
+  <div class="native-voice-section" style="text-align: center; margin: 2rem 0;">
+    <button class="native-voice-btn" onclick="window.nativeVoice && window.nativeVoice.speak(this.dataset.text)" data-text="Real Results: How Supply Chain Visibility Saved a Customer $2M I love talking about Bee Labels and technology, but you know what I love even more? Real results. Today I want to share a powerful success story from one of our customers — let&#39;s call them &amp;quot;Global Foods Inc.&amp;quot; (not their real name, but the results absolutely are). The Challenge: Operating in the Dark Global Foods Inc. is a major food distributor with operations spanning North America, Europe, and Asia. They ship thousands of..." style="background: var(--violet); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s;">
+      <span style="font-size: 1.2rem;">🔊</span>
+      <span>Listen with Siri</span>
     </button>
+    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Uses your device's native voice</p>
   </div>
-
 
   <article class="post-content">
     <h1>Real Results: How Supply Chain Visibility Saved a Customer $2M</h1>
@@ -418,12 +420,10 @@
     </div>
   </footer>
   
-  <script src="/js/config.js
-  <script src="/js/main.js?v=310"></script>
-  <script src="/js/config.js?v=305"></script>
-  
+  <script src="/js/config.js?v=401"></script>
+  <script src="/js/native-voice.js?v=401"></script>
   <script src="/js/voice-comments.js"></script>
-  <script src="/js/gavin-chat.js?v=304"></script>
+  <script src="/js/gavin-chat.js?v=401"></script>
   
   <script>
     // Navbar scroll effect

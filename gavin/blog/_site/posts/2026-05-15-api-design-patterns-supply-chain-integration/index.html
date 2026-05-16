@@ -45,10 +45,11 @@
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
+      <li><a href="/search">Search</a></li>
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v3.1.1</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.0.3</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -85,16 +86,17 @@
       </span>
       <span class="separator">•</span>
       <span class="author">By Gavin</span>
-    </div></header>
-
-  <!-- Native Voice Button -->
-  <div class="post-header-actions">
-    <button class="native-voice-btn" onclick="window.nativeVoice.speak(document.querySelector('.post-content').innerText.slice(0, 500))">
-      <span class="voice-icon">🔊</span>
-      <span class="voice-label">Listen</span>
+    </div>
+  </header>
+  
+  <!-- Native Voice Button (v4.0.1 - Siri/Web Speech API) -->
+  <div class="native-voice-section" style="text-align: center; margin: 2rem 0;">
+    <button class="native-voice-btn" onclick="window.nativeVoice && window.nativeVoice.speak(this.dataset.text)" data-text="API Design Patterns That Don&#39;t Break Your Supply Chain If your API can&#39;t handle a carrier&#39;s 3 AM maintenance window, a warehouse&#39;s spotty WiFi, or a customer&#39;s bespoke ERP from 2008, it&#39;s not ready for supply chain operations. The Integration Reality Check Every supply chain visibility project eventually hits the same wall: integration with existing systems. Your shiny new IoT platform needs to talk to: An ERP that hasn&#39;t been updated since 2015 A WMS running on-premises behind a firewall A TMS..." style="background: var(--violet); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s;">
+      <span style="font-size: 1.2rem;">🔊</span>
+      <span>Listen with Siri</span>
     </button>
+    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Uses your device's native voice</p>
   </div>
-
 
   <article class="post-content">
     <h1>API Design Patterns That Don't Break Your Supply Chain</h1>
@@ -767,12 +769,10 @@ Content-Type: application/json
     </div>
   </footer>
   
-  <script src="/js/config.js
-  <script src="/js/main.js?v=310"></script>
-  <script src="/js/config.js?v=305"></script>
-  
+  <script src="/js/config.js?v=401"></script>
+  <script src="/js/native-voice.js?v=401"></script>
   <script src="/js/voice-comments.js"></script>
-  <script src="/js/gavin-chat.js?v=304"></script>
+  <script src="/js/gavin-chat.js?v=401"></script>
   
   <script>
     // Navbar scroll effect

@@ -45,10 +45,11 @@
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
+      <li><a href="/search">Search</a></li>
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v3.1.1</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.0.3</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -85,16 +86,17 @@
       </span>
       <span class="separator">•</span>
       <span class="author">By Gavin</span>
-    </div></header>
-
-  <!-- Native Voice Button -->
-  <div class="post-header-actions">
-    <button class="native-voice-btn" onclick="window.nativeVoice.speak(document.querySelector('.post-content').innerText.slice(0, 500))">
-      <span class="voice-icon">🔊</span>
-      <span class="voice-label">Listen</span>
+    </div>
+  </header>
+  
+  <!-- Native Voice Button (v4.0.1 - Siri/Web Speech API) -->
+  <div class="native-voice-section" style="text-align: center; margin: 2rem 0;">
+    <button class="native-voice-btn" onclick="window.nativeVoice && window.nativeVoice.speak(this.dataset.text)" data-text="Supply Chain Visibility KPIs That Actually Matter Most supply chain teams track too many metrics and act on too few. Here&#39;s the focused KPI framework that connects IoT visibility data to actual business outcomes. Your Bee Labels are generating thousands of data points daily: GPS coordinates, temperature readings, shock events, battery levels, arrival times. But data without decision-making is just noise. After working with hundreds of Decklar deployments, we&#39;ve identified the 12 KPIs that..." style="background: var(--violet); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s;">
+      <span style="font-size: 1.2rem;">🔊</span>
+      <span>Listen with Siri</span>
     </button>
+    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Uses your device's native voice</p>
   </div>
-
 
   <article class="post-content">
     <h1>Supply Chain Visibility KPIs That Actually Matter</h1>
@@ -644,12 +646,10 @@ Average Variance = Sum of all variances ÷ Number of shipments
     </div>
   </footer>
   
-  <script src="/js/config.js
-  <script src="/js/main.js?v=310"></script>
-  <script src="/js/config.js?v=305"></script>
-  
+  <script src="/js/config.js?v=401"></script>
+  <script src="/js/native-voice.js?v=401"></script>
   <script src="/js/voice-comments.js"></script>
-  <script src="/js/gavin-chat.js?v=304"></script>
+  <script src="/js/gavin-chat.js?v=401"></script>
   
   <script>
     // Navbar scroll effect
