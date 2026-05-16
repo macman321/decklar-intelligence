@@ -48,7 +48,7 @@
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.0.0</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v3.1.1</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -85,60 +85,16 @@
       </span>
       <span class="separator">•</span>
       <span class="author">By Gavin</span>
-    </div>
-  </header>
-  
-  <!-- Voice Player -->
-  <div class="voice-player" data-post-id="api-design-patterns-supply-chain-integration" data-post-content="API Design Patterns That Don&#39;t Break Your Supply Chain If your API can&#39;t handle a carrier&#39;s 3 AM maintenance window, a warehouse&#39;s spotty WiFi, or a customer&#39;s bespoke ERP from 2008, it&#39;s not ready for supply chain operations. The Integration Reality Check Every supply chain visibility project eventually hits the same wall: integration with existing systems. Your shiny new IoT platform needs to talk to: An ERP that hasn&#39;t been updated since 2015 A WMS running on-premises behind a firewall A TMS that only speaks SOAP A carrier API with 99.7% uptime (which means 26 hours of downtime per year) A customer EDI system that sends 847s at 2 AM in their local time I&#39;ve seen beautiful visibility platforms fail because their APIs were designed by developers who&#39;d never operated at supply chain scale. This post is the API design guide I wish I&#39;d had before my first major integration. Pattern 1: Idempotency — The Safety Net The Problem Networks fail. Timeouts happen. Your HTTP request might reach the server, process successfully, and the response gets lost. Your client retries. Now you have duplicate data. In supply chain, duplicates aren&#39;t just annoying—they&#39;re dangerous: Duplicate shipment records Double-counted inventory Repeated customer notifications Phantom purchase orders The Solution Idempotent operations produce the same result whether called once or ten times. Non-idempotent (dangerous): POST /shipments/create { &amp;quot;order_id&amp;quot;: &amp;quot;12345&amp;quot;, &amp;quot;items&amp;quot;: [...] } Call this twice? Get two shipments. Idempotent (safe): PUT /shipments/ORDER-12345 { &amp;quot;items&amp;quot;: [...], &amp;quot;status&amp;quot;: &amp;quot;created&amp;quot; } Call this ten times? Same shipment, updated to same state. Implementation Strategies 1. Client-Generated IDs Let the client generate unique IDs, not the server: { &amp;quot;shipment_id&amp;quot;: &amp;quot;uuid-generated-by-client&amp;quot;, &amp;quot;order_id&amp;quot;: &amp;quot;12345&amp;quot;, &amp;quot;items&amp;quot;: [...] } Server stores with client ID. Duplicate submissions with same ID? Return existing record. 2. Idempotency Keys For POST operations that must create resources: POST /shipments Idempotency-Key: 550e8400-e29b-41d4-a716-446655440000 { &amp;quot;order_id&amp;quot;: &amp;quot;12345&amp;quot;, &amp;quot;items&amp;quot;: [...] } Server stores the key → response mapping for 24+ hours. Same key? Return cached response. 3. Conditional Updates Prevent lost update problems: PATCH /shipments/SHIP-12345 If-Match: &amp;quot;abc123-etag&amp;quot; { &amp;quot;status&amp;quot;: &amp;quot;in_transit&amp;quot; } If ETag changed since client read the data? 409 Conflict. Prevents overwriting changes made by other systems. Pattern 2: Event-Driven Architecture — Decoupling for Resilience The Problem Synchronous API calls create tight coupling: Your ERP goes down → your visibility platform stops working A carrier API is slow → your entire workflow blocks Rate limits kick in → data stops flowing In supply chain, downtime isn&#39;t an option. Shipments don&#39;t pause because your API timed out. The Solution Event-driven architecture decouples systems through message queues. ┌─────────────┐ ┌──────────────┐ ┌─────────────┐ │ Your IoT │────▶│ Message Queue│◀────│ Consumer │ │ Platform │ │ (Kafka/ │ │ (ERP) │ └─────────────┘ │ RabbitMQ) │ └─────────────┘ └──────────────┘ │ ┌─────────────┐ │ Consumer │ │ (Analytics) │ └─────────────┘ Events flow: Shipment created Location updated Temperature excursion detected Delivery completed Each consumer processes at its own pace. If ERP is down, events queue. When it comes back, processing resumes. Event Schema Design Use CloudEvents or similar standard: { &amp;quot;specversion&amp;quot;: &amp;quot;1.0&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;com.decklar.shipment.delivered&amp;quot;, &amp;quot;source&amp;quot;: &amp;quot;iot-platform/v2.1&amp;quot;, &amp;quot;id&amp;quot;: &amp;quot;a89b6f90-12d4-11ef-b864&amp;quot;, &amp;quot;time&amp;quot;: &amp;quot;2026-05-15T14:23:11Z&amp;quot;, &amp;quot;data&amp;quot;: { &amp;quot;shipment_id&amp;quot;: &amp;quot;SHIP-88421&amp;quot;, &amp;quot;delivery_time&amp;quot;: &amp;quot;2026-05-15T14:22:45Z&amp;quot;, &amp;quot;recipient&amp;quot;: &amp;quot;ABC Distribution Center&amp;quot;, &amp;quot;signature&amp;quot;: &amp;quot;J. Smith&amp;quot; } } Key principles: Immutable events: Never change them. If you were wrong, emit a correction event. Complete context: Include enough data that consumers don&#39;t need to call back Versioned types: shipment.delivered.v1 → shipment.delivered.v2 for breaking changes When to Use Events vs Synchronous APIs Scenario Pattern Why Real-time status check Synchronous API User is waiting Shipment milestone updates Event-driven Eventually consistent is fine Critical safety alert Both Event for propagation + sync API for confirmation Bulk data export Event-driven Async processing, notify when ready Customer-facing delivery ETA Synchronous API Sub-second response required Pattern 3: Circuit Breakers — Failing Gracefully The Problem When an external API starts failing, your code retries. Harder. More frequently. Creating a retry storm that makes the problem worse. I&#39;ve seen a single slow carrier API bring down an entire...">
-    <div class="voice-player-row">
-      <button class="voice-play-btn" onclick="window.voicePlayer.play('api-design-patterns-supply-chain-integration', document.querySelector('.voice-player').dataset.postContent)" title="Play/Pause">
-        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </button>
-      
-      <div class="voice-controls">
-        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(-10)" title="Rewind 10s">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/>
-            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
-          </svg>
-        </button>
-        <span class="voice-status">Listen to this post</span>
-        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(10)" title="Forward 10s">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
-            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
-          </svg>
-        </button>
-      </div>
-      
-      <button class="voice-summarize-btn" onclick="window.voicePlayer.playSummary('api-design-patterns-supply-chain-integration', document.querySelector('.voice-player').dataset.postContent)" title="Summarize (~60 sec)">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-        </svg>
-        Summarize
-      </button>
-      
-      <span class="voice-powered-by">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-          <line x1="12" y1="19" x2="12" y2="23"/>
-          <line x1="8" y1="23" x2="16" y2="23"/>
-        </svg>
-        ElevenLabs
-      </span>
-    </div>
-    
-    <!-- Progress Bar -->
-    <div class="voice-progress-container" onclick="window.voicePlayer.seek(event.offsetX / this.offsetWidth)">
-      <div class="voice-progress-bar">
-        <div class="voice-progress-fill"></div>
-      </div>
-      <span class="voice-time-display">0:00 / 0:00</span>
-    </div>
+    </div></header>
+
+  <!-- Native Voice Button -->
+  <div class="post-header-actions">
+    <button class="native-voice-btn" onclick="window.nativeVoice.speak(document.querySelector('.post-content').innerText.slice(0, 500))">
+      <span class="voice-icon">🔊</span>
+      <span class="voice-label">Listen</span>
+    </button>
   </div>
+
 
   <article class="post-content">
     <h1>API Design Patterns That Don't Break Your Supply Chain</h1>
@@ -811,8 +767,10 @@ Content-Type: application/json
     </div>
   </footer>
   
-  <script src="/js/config.js?v=304"></script>
-  <script src="/js/voice-player.js?v=304"></script>
+  <script src="/js/config.js
+  <script src="/js/main.js?v=310"></script>
+  <script src="/js/config.js?v=305"></script>
+  
   <script src="/js/voice-comments.js"></script>
   <script src="/js/gavin-chat.js?v=304"></script>
   

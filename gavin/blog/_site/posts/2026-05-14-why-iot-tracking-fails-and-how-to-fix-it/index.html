@@ -48,7 +48,7 @@
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.0.0</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v3.1.1</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -85,60 +85,16 @@
       </span>
       <span class="separator">•</span>
       <span class="author">By Gavin</span>
-    </div>
-  </header>
-  
-  <!-- Voice Player -->
-  <div class="voice-player" data-post-id="why-iot-tracking-fails-and-how-to-fix-it" data-post-content="Why IoT Tracking Projects Fail (And the Fix That Actually Works) Reality check: Industry analysts estimate 60-75% of IoT projects fail to meet expectations. After seeing hundreds of supply chain visibility initiatives, I can tell you exactly why—and more importantly, how to be in the 25% that succeed. The Brutal Truth About IoT Failure Rates Let&#39;s dispense with the cheerleading. IoT tracking projects fail. A lot. Cisco&#39;s 2017 study: 60% of IoT initiatives stall at the proof-of-concept stage Microsoft&#39;s 2020 IoT Signals report: 30% fail in the deployment phase Supply chain-specific data: Even &amp;quot;successful&amp;quot; projects often deliver only 40-60% of promised value I&#39;ve seen $2M visibility platforms reduced to expensive map widgets because nobody thought about what happens after the data starts flowing. I&#39;ve watched companies with perfect technical implementations abandon projects because users never adopted them. The technology isn&#39;t the problem. The problem is how we think about IoT projects. Failure Pattern #1: The &amp;quot;Build It and They Will Come&amp;quot; Trap What Happens: Teams invest 90% of energy in sensor selection, network architecture, and data pipelines. They launch with fanfare. Then... crickets. Nobody uses it. The Root Cause: We treat IoT like infrastructure (build it once, it works forever) rather than a product (needs continuous iteration based on user behavior). What the Successful 25% Do Instead: They start with user stories, not technical specs: Instead of... They ask... &amp;quot;What sensors can we deploy?&amp;quot; &amp;quot;What decision does Maria make at 6 AM when a shipment is delayed?&amp;quot; &amp;quot;How do we stream GPS data?&amp;quot; &amp;quot;How does David&#39;s current workflow handle exceptions?&amp;quot; &amp;quot;What&#39;s our data retention policy?&amp;quot; &amp;quot;What would make Sarah check this dashboard daily?&amp;quot; The Fix: Before buying a single sensor, interview 5-10 people who will actually use the data. Not their managers. The operators. Map their current workflow, identify friction points, and design around existing habits. Customer Win: A beverage distributor almost killed their visibility project after warehouse staff ignored the new &amp;quot;shipment tracking portal.&amp;quot; Turns out, floor supervisors never used desktops during shifts—they lived on tablets and walkie-talkies. The fix: SMS alerts with one-tap status updates. Adoption went from 12% to 89% in two weeks. Failure Pattern #2: Perfect Data, Zero Action What Happens: The system captures beautiful, granular data. Temperature every 30 seconds. GPS coordinates accurate to 3 meters. And it all sits in a database while trucks keep spoiling cargo and missing delivery windows. The Root Cause: Confusing data collection with decision enablement. Raw telemetry is worthless without workflow integration. What the Successful 25% Do Instead: They build closed-loop systems: data → insight → action → feedback Here&#39;s the difference between open-loop (failing) and closed-loop (succeeding) architectures: Open-Loop (Fails) Closed-Loop (Works) Sensor reports high temperature Sensor reports high temperature Alert sent to generic email Alert sent to driver&#39;s mobile app Someone eventually sees it Driver confirms receipt (or auto-escalates) No record of response Response logged: &amp;quot;Moved to refrigerated section&amp;quot; Problem recurs Pattern analyzed, route adjusted, problem prevented The Fix: For every data point you plan to collect, ask: &amp;quot;What action should this trigger, and how do we know it happened?&amp;quot; If you can&#39;t answer both, don&#39;t collect the data yet. Customer Win: A pharma shipper had perfect temperature logging but still experienced spoilage. The gap: alerts went to a distribution list, and accountability was diffuse. They re-architected for closed-loop: critical alerts → specific driver&#39;s mobile app → required acknowledgment within 5 minutes → automatic escalation if no response. Temperature excursions dropped 78%. Failure Pattern #3: The Infinite Pilot What Happens: A proof-of-concept runs for 18 months, gathering &amp;quot;just a bit more data&amp;quot; before committing to scale. Meanwhile, competitors launch, learn, and iterate. The Root Cause: Fear of failure masquerading as due diligence. Organizations optimize for avoiding mistakes rather than maximizing learning velocity. What the Successful 25% Do Instead: They set deliberate pilot constraints: Time-boxed: 60-90 days maximum, with hard go/no-go date Scope-limited: One use case, one lane, one customer—not the entire network Decision-oriented: Pilots answer specific questions, not &amp;quot;see how it goes&amp;quot; Exit-defined: Clear criteria for expand, pivot, or kill The 90-Day Pilot Framework: Phase Days Key Activity Success Criteria Deploy 1-14 Install, configure, train first users Hardware online, users trained Operate 15-60 Run live shipments, gather feedback Daily active users, data flowing Evaluate 61-75 Measure outcomes vs. baseline KPI change statistically significant Decide 76-90 Document...">
-    <div class="voice-player-row">
-      <button class="voice-play-btn" onclick="window.voicePlayer.play('why-iot-tracking-fails-and-how-to-fix-it', document.querySelector('.voice-player').dataset.postContent)" title="Play/Pause">
-        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </button>
-      
-      <div class="voice-controls">
-        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(-10)" title="Rewind 10s">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/>
-            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
-          </svg>
-        </button>
-        <span class="voice-status">Listen to this post</span>
-        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(10)" title="Forward 10s">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
-            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
-          </svg>
-        </button>
-      </div>
-      
-      <button class="voice-summarize-btn" onclick="window.voicePlayer.playSummary('why-iot-tracking-fails-and-how-to-fix-it', document.querySelector('.voice-player').dataset.postContent)" title="Summarize (~60 sec)">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-        </svg>
-        Summarize
-      </button>
-      
-      <span class="voice-powered-by">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-          <line x1="12" y1="19" x2="12" y2="23"/>
-          <line x1="8" y1="23" x2="16" y2="23"/>
-        </svg>
-        ElevenLabs
-      </span>
-    </div>
-    
-    <!-- Progress Bar -->
-    <div class="voice-progress-container" onclick="window.voicePlayer.seek(event.offsetX / this.offsetWidth)">
-      <div class="voice-progress-bar">
-        <div class="voice-progress-fill"></div>
-      </div>
-      <span class="voice-time-display">0:00 / 0:00</span>
-    </div>
+    </div></header>
+
+  <!-- Native Voice Button -->
+  <div class="post-header-actions">
+    <button class="native-voice-btn" onclick="window.nativeVoice.speak(document.querySelector('.post-content').innerText.slice(0, 500))">
+      <span class="voice-icon">🔊</span>
+      <span class="voice-label">Listen</span>
+    </button>
   </div>
+
 
   <article class="post-content">
     <h1>Why IoT Tracking Projects Fail (And the Fix That Actually Works)</h1>
@@ -634,8 +590,10 @@
     </div>
   </footer>
   
-  <script src="/js/config.js?v=304"></script>
-  <script src="/js/voice-player.js?v=304"></script>
+  <script src="/js/config.js
+  <script src="/js/main.js?v=310"></script>
+  <script src="/js/config.js?v=305"></script>
+  
   <script src="/js/voice-comments.js"></script>
   <script src="/js/gavin-chat.js?v=304"></script>
   

@@ -23,7 +23,13 @@
                 <li><a href="/#about">About</a></li>
             </ul>
         </nav>
-    </header>
+    <!-- Native Voice Button -->
+    <div class="post-header-actions">
+      <button class="native-voice-btn" onclick="window.nativeVoice.speak(document.querySelector('.post-content').innerText.slice(0, 500))">
+        <span class="voice-icon">🔊</span>
+        <span class="voice-label">Listen</span>
+      </button>
+    </div>
 
     <article class="post-article">
         <div class="post-header">

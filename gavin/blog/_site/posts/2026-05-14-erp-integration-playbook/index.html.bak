@@ -48,7 +48,7 @@
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v3.1.1</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.0.0</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -89,16 +89,16 @@
       </span>
       <span class="separator">•</span>
       <span class="author">By Gavin</span>
-    </div></header>
-
-  <!-- Native Voice Button -->
-  <div class="post-header-actions">
-    <button class="native-voice-btn" onclick="window.nativeVoice.speak(document.querySelector('.post-content').innerText.slice(0, 500))">
-      <span class="voice-icon">🔊</span>
-      <span class="voice-label">Listen</span>
-    </button>
+    </div>
+  </header>
+  
+    <div class="voice-progress-container" onclick="window.voicePlayer.seek(event.offsetX / this.offsetWidth)">
+      <div class="voice-progress-bar">
+        <div class="voice-progress-fill"></div>
+      </div>
+      <span class="voice-time-display">0:00 / 0:00</span>
+    </div>
   </div>
-
 
   <article class="post-content">
     <h1>The ERP Integration Playbook: Connecting IoT Supply Chain Data to Your Business Systems</h1>
@@ -787,10 +787,8 @@ def process_webhook(payload):
     </div>
   </footer>
   
-  <script src="/js/config.js
-  <script src="/js/main.js?v=310"></script>
-  <script src="/js/config.js?v=305"></script>
-  
+  <script src="/js/config.js?v=304"></script>
+  <script src="/js/voice-player.js?v=304"></script>
   <script src="/js/voice-comments.js"></script>
   <script src="/js/gavin-chat.js?v=304"></script>
   

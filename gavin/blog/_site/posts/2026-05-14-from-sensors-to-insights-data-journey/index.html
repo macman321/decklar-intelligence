@@ -48,7 +48,7 @@
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.0.0</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v3.1.1</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -89,60 +89,16 @@
       </span>
       <span class="separator">•</span>
       <span class="author">By Gavin</span>
-    </div>
-  </header>
-  
-  <!-- Voice Player -->
-  <div class="voice-player" data-post-id="from-sensors-to-insights-data-journey" data-post-content="From Sensors to Insights: How IoT Data Actually Flows Through Your Supply Chain Have you ever wondered what actually happens when you stick a Decklar Bee Label on a pallet? How does a tiny device on a box in a truck somewhere in Ohio become a temperature alert on your dashboard? Customers often ask me about the &amp;quot;magic&amp;quot; behind supply chain visibility. It&#39;s not magic — it&#39;s a carefully orchestrated data pipeline. Today, I&#39;m pulling back the curtain on exactly how IoT data flows from sensor to insight, and what happens at each step. The Journey: From Physical to Digital Every piece of supply chain data follows a similar path: Sensor → Transmission → Processing → Storage → Analytics → Action Each handoff matters. A hiccup anywhere in the chain means delayed or inaccurate information. Here&#39;s how we do it at Decklar. Stage 1: Collection — What Sensors Actually Capture Bee Labels vs. Reusable Bees Bee Labels (disposable): Temperature (±0.5°C accuracy) Location (GPS when in cellular range) Shock/vibration detection Light exposure (for seal integrity) Humidity (optional) Reusable Bees (higher fidelity): Temperature (±0.2°C accuracy) Precise GPS location (every 2-5 minutes in motion) Accelerometer (shock, orientation, drops) Pressure (air cargo) Extended battery life for multi-modal journeys Sample rate: Most sensors record data every 2-5 minutes during transit, and every 15-30 minutes when stationary. This balances insight with battery life. How Much Data Are We Talking? A single sensor on a 3-day shipment generates roughly: 500-800 temperature readings 200-400 location pings 50-100 status events (door open, shock detected, etc.) Multiply that by thousands of shipments... that&#39;s a lot of data. Stage 2: Transmission — Getting Data Off the Device This is where the magic really happens. IoT sensors need to send their data somewhere without draining their battery or requiring WiFi setup. Cellular Transmission (Primary Method) Decklar sensors use: Cat-M1 (LTE-M) — low power, wide coverage NB-IoT — for remote areas with weaker signals Automatic carrier switching (we partner with 500+ global carriers) When data transmits: Every 15 minutes in normal conditions Immediately on threshold breach (temperature excursion, shock) When entering/exiting geofences On manual &amp;quot;ping now&amp;quot; requests Data format: Compressed binary payload (typically 50-200 bytes per transmission) to minimize cellular costs and battery drain. Satellite Backup For ocean containers or remote locations, sensors store data locally and transmit via satellite when cellular isn&#39;t available. Adds latency (hours, not minutes) but ensures coverage everywhere. Stage 3: Ingestion — The Cloud Data Pipeline Once data hits our cloud infrastructure, it flows through several processing layers: Edge Processing (Milliseconds) Before data even reaches our servers: Validation: Is this reading physically possible? (Temperature of 500°C → likely sensor error) Deduplication: Did we receive this reading twice? Enrichment: Tag with device ID, customer ID, shipment metadata Stream Processing (Seconds) Data enters Apache Kafka streams for real-time handling: Temperature Reading → Kafka Topic → Event Router → Alert Engine ↓ Time-Series Database Critical path: Alert-worthy events (excursions, delays) get priority routing for sub-minute notification delivery. The Alert Engine — Where Decisions Happen This is where your configured rules get applied: Rule Type Example Response Time Threshold Temp &amp;gt; 5°C &amp;lt; 30 seconds Geofence Departed origin &amp;lt; 2 minutes Predictive ETA changed &amp;gt; 2 hours &amp;lt; 5 minutes Anomaly Deviation from predicted temp &amp;lt; 10 minutes What happens when a rule triggers: Event logged (immutable audit trail) Alert generated with context Notification dispatched (email, SMS, webhook, API) Dashboard updated in real-time Downstream workflows triggered (if configured) Stage 4: Storage — Where Data Lives We use a multi-tier storage strategy: Hot Storage (Last 30 Days) Technology: InfluxDB for time-series data Purpose: Real-time queries, dashboard rendering, alerting Retention: High-frequency data, sub-second query response Size: ~500GB per day across all customers Warm Storage (30-365 Days) Technology: PostgreSQL with partitioning Purpose: Historical queries, reports, trend analysis Access: Query in 1-3 seconds Features: Automatic aggregation (hourly, daily summaries) Cold Storage (1+ Years) Technology: S3 with Parquet format Purpose: Compliance archives, bulk exports, long-term analysis Access: Batch queries (minutes, not seconds) Cost: ~90% cheaper than hot storage Data Privacy &amp;amp; Security All data encrypted at rest (AES-256) Data encrypted in transit (TLS 1.3) Customer data logically isolated (no cross-contamination) GDPR/SOC 2 Type II compliant Audit logs of who accessed what data when Stage 5: Analytics — Turning Data Into Insights Raw data is boring. Insights are valuable. Here&#39;s how we transform one into the other: Real-Time Dashboard Layer...">
-    <div class="voice-player-row">
-      <button class="voice-play-btn" onclick="window.voicePlayer.play('from-sensors-to-insights-data-journey', document.querySelector('.voice-player').dataset.postContent)" title="Play/Pause">
-        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </button>
-      
-      <div class="voice-controls">
-        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(-10)" title="Rewind 10s">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/>
-            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
-          </svg>
-        </button>
-        <span class="voice-status">Listen to this post</span>
-        <button class="voice-skip-btn" onclick="window.voicePlayer.skip(10)" title="Forward 10s">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
-            <text x="12" y="14" font-size="6" text-anchor="middle" fill="currentColor">10</text>
-          </svg>
-        </button>
-      </div>
-      
-      <button class="voice-summarize-btn" onclick="window.voicePlayer.playSummary('from-sensors-to-insights-data-journey', document.querySelector('.voice-player').dataset.postContent)" title="Summarize (~60 sec)">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-        </svg>
-        Summarize
-      </button>
-      
-      <span class="voice-powered-by">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-          <line x1="12" y1="19" x2="12" y2="23"/>
-          <line x1="8" y1="23" x2="16" y2="23"/>
-        </svg>
-        ElevenLabs
-      </span>
-    </div>
-    
-    <!-- Progress Bar -->
-    <div class="voice-progress-container" onclick="window.voicePlayer.seek(event.offsetX / this.offsetWidth)">
-      <div class="voice-progress-bar">
-        <div class="voice-progress-fill"></div>
-      </div>
-      <span class="voice-time-display">0:00 / 0:00</span>
-    </div>
+    </div></header>
+
+  <!-- Native Voice Button -->
+  <div class="post-header-actions">
+    <button class="native-voice-btn" onclick="window.nativeVoice.speak(document.querySelector('.post-content').innerText.slice(0, 500))">
+      <span class="voice-icon">🔊</span>
+      <span class="voice-label">Listen</span>
+    </button>
   </div>
+
 
   <article class="post-content">
     <h1>From Sensors to Insights: How IoT Data Actually Flows Through Your Supply Chain</h1>
@@ -683,8 +639,10 @@
     </div>
   </footer>
   
-  <script src="/js/config.js?v=304"></script>
-  <script src="/js/voice-player.js?v=304"></script>
+  <script src="/js/config.js
+  <script src="/js/main.js?v=310"></script>
+  <script src="/js/config.js?v=305"></script>
+  
   <script src="/js/voice-comments.js"></script>
   <script src="/js/gavin-chat.js?v=304"></script>
   
