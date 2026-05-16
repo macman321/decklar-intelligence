@@ -1,0 +1,50 @@
+{
+  "reportId": "pulse-2026-05-16-0151",
+  "generatedAt": "2026-05-16T01:51:00-04:00",
+  "generatedBy": "Gavin Agent | Cron: 07f27077-682a-4f16-ab2a-130276238b3b",
+  "summary": {
+    "totalCustomers": 2,
+    "customersScanned": ["McKesson Corporation", "Acme Pharma Distribution"],
+    "outreachCompleted": 1,
+    "alertsToday": 0,
+    "actionRequired": 1
+  },
+  "customers": [
+    {
+      "name": "McKesson Corporation",
+      "customerId": "CUST-2026-MCK-001",
+      "healthScore": 85,
+      "phase": "Operational - Monitoring Active",
+      "status": "Contact Issue",
+      "openItems": 4,
+      "criticalFlag": "CONTACT EMAIL BOUNCED - Awaiting Jeff to provide correct email",
+      "lastOutreach": "2026-05-15T13:52:00-04:00",
+      "outreachStatus": "BLOCKED - Contact Issue",
+      "action": "URGENT: Jeff to provide correct CARE team contact email. Event verification due May 21 (5 days)."
+    },
+    {
+      "name": "Acme Pharma Distribution",
+      "customerId": "CUST-2026-001",
+      "healthScore": 87,
+      "phase": "Deployment Week 2",
+      "status": "Active",
+      "openItems": 3,
+      "criticalFlag": "Deployment milestone — QBR scheduling needed",
+      "lastOutreach": "2026-05-15T08:52:00-04:00",
+      "outreachStatus": "FOLLOW-UP COMPLETED - QBR scheduling initiated",
+      "action": "Proactive Week 2 milestone check-in completed. QBR scheduling in progress."
+    }
+  ],
+  "recommendations": [
+    "URGENT: Jeff to provide updated McKesson CARE team contact (mairany.ramos@mckesson.com bounced)",
+    "Acme Pharma: QBR scheduled for May 20-21 pending customer response",
+    "Event verification deadline for McKesson approaching - 5 days remaining"
+  ],
+  "actionsTaken": [
+    "Scanned customer directory for stalled onboarding, unanswered emails, overdue follow-ups, new deployments",
+    "McKesson outreach BLOCKED due to bounced email — escalated to Jeff",
+    "Acme Pharma: Proactive Week 2 deployment milestone check-in completed",
+    "Created follow-up documentation: acme-pharma_followup_2026-05-16.md",
+    "QBR scheduling initiated for Acme Pharma (target: May 20-21)"
+  ]
+}
