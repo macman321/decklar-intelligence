@@ -32,6 +32,7 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-player.css">
   <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
@@ -49,7 +50,7 @@
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.1.0</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.1.2</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -93,54 +94,61 @@
     </div>
   </header>
   
-  <!-- ElevenLabs Voice Player (v4.1.0) - Enhanced Streaming -->
+  <!-- ElevenLabs Voice Player (v4.1.3) - Timeline centered controls -->
   
-  <div class="voice-player-wrapper" data-post-id="top-5-supply-chain-visibility-mistakes-(and-how-to-avoid-them)" data-post-content="Top 5 Supply Chain Visibility Mistakes (And How to Avoid Them) Real talk: I&#39;ve seen hundreds of visibility initiatives. Most fail for the same preventable reasons. After analyzing thousands of shipments through Decklar&#39;s platform, I&#39;ve identified the patterns that separate successful visibility programs from expensive disappointments. Here are the top 5 mistakes I see—and exactly how to avoid them. Mistake #1: Starting with Technology, Not Problems The Scenario: A VP reads about IoT tracking, gets excited, and mandates &amp;quot;visibility across the supply chain&amp;quot; without defining what problem they&#39;re solving. The Result: Six months later, they have data nobody uses, dashboards nobody looks at, and an initiative that stalls because stakeholders never bought in. How to Avoid It: Start with one specific pain point: &amp;quot;Where&#39;s my shipment?&amp;quot; delays? Temperature excursions? Proof-of-delivery disputes? Define success in business terms: &amp;quot;Reduce WISMO (Where Is My Order) calls by 40%&amp;quot; or &amp;quot;Cut temperature-related rejections by 60%&amp;quot; Map the decision chain: Who needs this data? When? To do what? Customer Win: A pharmaceutical shipper started with a laser focus: eliminate the 200 &amp;quot;where&#39;s my shipment?&amp;quot; calls per week from their customer service team. By tracking just their highest-value lanes first, they cut those calls by 85% in 90 days. Mistake #2: Treating All Shipments the Same The Scenario: A company deploys the same tracking approach for $50,000 pharmaceutical shipments and $500 commodity goods. The Result: Either over-spending on low-value shipments or under-protecting critical ones. How to Avoid It: Use a tiered visibility strategy: Tier Shipment Value Tracking Approach Investment Tier 1 &amp;gt;$10K or temp-sensitive Real-time GPS + condition monitoring $15-25/shipment Tier 2 $2K-$10K GPS + milestone alerts $5-10/shipment Tier 3 &amp;lt;$2K Milestone-based (scan events) $0.50-2/shipment Pro Tip: Start with Tier 1. Prove ROI. Expand downward once you&#39;ve demonstrated value. Mistake #3: Ignoring the &amp;quot;Last Mile&amp;quot; of Data The Scenario: A company invests heavily in shipment sensors but dumps raw data into a system nobody accesses. The Result: Technically successful deployment, zero business impact. How to Avoid It: Plan the last mile before you buy hardware: Who gets alerts? Customer service? Warehouse ops? The end customer? How do they consume it? Email? SMS? Slack? Integrated into their WMS/TMS? What&#39;s the action? When an alert fires, what happens? Escalation path? Auto-rerouting? Customer Win: A food distributor set up automated SMS alerts that notify receivers 30 minutes before delivery. Their on-time dock appointments jumped from 67% to 94%. The sensors were identical—the difference was building the right notification workflow. Mistake #4: Underestimating Change Management The Scenario: A visibility platform is rolled out to warehouse staff with a 30-minute training session and a PDF manual. The Result: Low adoption, inconsistent data quality, frustrated users who revert to old habits. How to Avoid It: Visibility isn&#39;t just a technology change—it&#39;s an operational change: Co-design with users: Involve warehouse staff, drivers, and customer service in the design phase Make it easier, not harder: If scanning a Bee Label takes longer than the old process, adoption will suffer Champion program: Identify power users who evangelize and support peers Measure and celebrate: Track adoption metrics and recognize teams hitting targets Reality Check: The best technology fails without change management. I&#39;ve seen &amp;quot;inferior&amp;quot; systems succeed because they were rolled out thoughtfully, while technically superior systems failed because users never adopted them. Mistake #5: Expecting Immediate Perfection The Scenario: A company launches visibility, sees gaps in the first week, and declares the initiative a failure. The Result: Visibility program abandoned before it had time to deliver value. How to Avoid It: Embrace the crawl-walk-run approach: Month 1-2: Crawl Deploy on 2-3 high-value lanes Expect 10-20% data gaps as you learn Focus on proving value, not perfection Month 3-6: Walk Expand to 10-20 lanes Refine alert thresholds based on learnings Build playbooks for common scenarios Month 6+: Run Scale across the network Optimize based on 6 months of data patterns Explore advanced use cases (predictive ETA, dynamic routing) Customer Win: A major retailer started with just their top 5 suppliers. They learned, adjusted, and built confidence. By month 6, they had rolled out to 200+ suppliers with a 98% data completeness rate. Rushing would have failed; patience delivered results. The Bottom Line Supply chain visibility isn&#39;t magic—it&#39;s disciplined execution on specific problems with clear business cases. The companies I see succeed share these traits: ✅ Start narrow, prove value, then expand ✅ Match tracking investment to shipment value ✅ Build the consumption workflow, not just the data pipeline ✅ Invest in change management like it&#39;s part of the technology ✅ Give themselves permission to learn and iterate Avoid these five mistakes, and you&#39;ll be ahead of 80% of visibility initiatives. Want help designing your visibility program? I&#39;m here to help. Reach out or check out my Implementation Playbook for a step-by-step deployment guide. — Gavin Related Reading: Bee Labels 101: Onboarding Your First Shipment Implementation Playbook: Rolling Out Supply Chain Visibility Hidden ROI: The Real Cost of Supply Chain Blind Spots">
+  
+  <div class="voice-player-wrapper" data-post-id="top-5-supply-chain-visibility-mistakes-(and-how-to-avoid-them)" data-post-content="Top 5 Supply Chain Visibility Mistakes (And How to Avoid Them) Real talk: I&#39;ve seen hundreds of visibility initiatives. Most fail for the same preventable reasons. After analyzing thousands of shipments through Decklar&#39;s platform, I&#39;ve identified the patterns that separate successful visibility programs from expensive disappointments. Here are the top 5 mistakes I see—and exactly how to avoid them. Mistake #1: Starting with Technology, Not Problems The Scenario: A VP reads about IoT tracking, gets excited, and mandates &amp;quot;visibility across the supply chain&amp;quot; without defining what problem they&#39;re solving. The Result: Six months later, they have data nobody uses, dashboards nobody looks at, and an initiative that stalls because stakeholders never bought in. How to Avoid It: Start with one specific pain point: &amp;quot;Where&#39;s my shipment?&amp;quot; delays? Temperature excursions? Proof-of-delivery disputes? Define success in business terms: &amp;quot;Reduce WISMO (Where Is My Order) calls by 40%&amp;quot; or &amp;quot;Cut temperature-related rejections by 60%&amp;quot; Map the decision chain: Who needs this data? When? To do what? Customer Win: A pharmaceutical shipper started with a laser focus: eliminate the 200 &amp;quot;where&#39;s my shipment?&amp;quot; calls per week from their customer service team. By tracking just their highest-value lanes first, they cut those calls by 85% in 90 days. Mistake #2: Treating All Shipments the Same The Scenario: A company deploys the same tracking approach for $50,000 pharmaceutical shipments and $500 commodity goods. The Result: Either over-spending on low-value shipments or under-protecting critical ones. How to Avoid It: Use a tiered visibility strategy: Tier Shipment Value Tracking Approach Investment Tier 1 &amp;gt;$10K or temp-sensitive Real-time GPS + condition monitoring $15-25/shipment Tier 2 $2K-$10K GPS + milestone alerts $5-10/shipment Tier 3 &amp;lt;$2K Milestone-based (scan events) $0.50-2/shipment Pro Tip: Start with Tier 1. Prove ROI. Expand downward once you&#39;ve demonstrated value. Mistake #3: Ignoring the &amp;quot;Last Mile&amp;quot; of Data The Scenario: A company invests heavily in shipment sensors but dumps raw data into a system nobody accesses. The Result: Technically successful deployment, zero business impact. How to Avoid It: Plan the last mile before you buy hardware: Who gets alerts? Customer service? Warehouse ops? The end customer? How do they consume it? Email? SMS? Slack? Integrated into their WMS/TMS? What&#39;s the action? When an alert fires, what happens? Escalation path? Auto-rerouting? Customer Win: A food distributor set up automated SMS alerts that notify receivers 30 minutes before delivery. Their on-time dock appointments jumped from 67% to 94%. The sensors were identical—the difference was building the right notification workflow. Mistake #4: Underestimating Change Management The Scenario: A visibility platform is rolled out to warehouse staff with a 30-minute training session and a PDF manual. The Result: Low adoption, inconsistent data quality, frustrated users who revert to old habits. How to Avoid It: Visibility isn&#39;t just a technology change—it&#39;s an operational change: Co-design with users: Involve warehouse staff, drivers, and customer service in the design phase Make it easier, not harder: If scanning a Bee Label takes longer than the old process, adoption will suffer Champion program: Identify power users who evangelize and support peers Measure and celebrate: Track adoption metrics and recognize teams hitting targets Reality Check: The best technology fails without change management. I&#39;ve seen &amp;quot;inferior&amp;quot; systems succeed because they were rolled out thoughtfully, while technically superior systems failed because users never adopted them. Mistake #5: Expecting Immediate Perfection The Scenario: A company launches visibility, sees gaps in the first week, and declares the initiative a failure. The Result: Visibility program abandoned before it had time to deliver value. How to Avoid It: Embrace the crawl-walk-run approach: Month 1-2: Crawl Deploy on 2-3 high-value lanes Expect 10-20% data gaps as you learn Focus on proving value, not perfection Month 3-6: Walk Expand to 10-20 lanes Refine alert thresholds based on learnings Build playbooks for common scenarios Month 6+: Run Scale across the network Optimize based on 6 months of data patterns Explore advanced use cases (predictive ETA, dynamic routing) Customer Win: A major retailer started with just their top 5 suppliers. They learned, adjusted, and built confidence. By month 6, they had rolled out to 200+ suppliers with a 98% data completeness rate. Rushing would have failed; patience delivered results. The Bottom Line Supply chain visibility isn&#39;t magic—it&#39;s disciplined execution on specific problems with clear business cases. The companies I see succeed share these traits: ✅ Start narrow, prove value, then expand ✅ Match tracking investment to shipment value ✅ Build the consumption workflow, not just the data pipeline ✅ Invest in change management like it&#39;s part of the technology ✅ Give themselves permission to learn and iterate Avoid these five mistakes, and you&#39;ll be ahead of 80% of visibility initiatives. Want help designing your visibility program? I&#39;m here to help. Reach out or check out my Implementation Playbook for a step-by-step deployment guide. — Gavin Related Reading: Bee Labels 101: Onboarding Your First Shipment Implementation Playbook: Rolling Out Supply Chain Visibility Hidden ROI: The Real Cost of Supply Chain Blind Spots" data-post-title="Top 5 Supply Chain Visibility Mistakes (And How to Avoid Them)">
     <div class="voice-player-container">
       <div class="voice-player">
+        <!-- Play button + Status -->
         <div class="voice-player-header">
           <button class="voice-play-btn" aria-label="Play" title="Space to play/pause">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z"/>
             </svg>
           </button>
-          <div class="voice-time-display">0:00 / 0:00</div>
+          <span class="voice-status">Listen with ElevenLabs</span>
         </div>
         
+        <!-- Progress bar -->
         <div class="voice-progress-container">
           <div class="voice-progress-bar" title="Click to seek">
             <div class="voice-progress-fill"></div>
           </div>
         </div>
         
+        <!-- Controls: Back, Time, Forward -->
         <div class="voice-controls">
           <button class="voice-skip-btn voice-skip-back" aria-label="Rewind 10 seconds" title="Ctrl+←">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 19V5M5 12l7-7 7 7"/>
-              <text x="12" y="22" text-anchor="middle" font-size="9" fill="currentColor" font-weight="bold">10</text>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 14L4 9l5-5"/>
+              <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/>
+              <text x="12" y="19" font-size="7" fill="currentColor" text-anchor="middle" font-weight="bold">10</text>
             </svg>
           </button>
           
-          <span class="voice-status">Listen with ElevenLabs</span>
+          <div class="voice-time-display">0:00 / 0:00</div>
           
           <button class="voice-skip-btn voice-skip-forward" aria-label="Forward 10 seconds" title="Ctrl+→">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-              <text x="12" y="22" text-anchor="middle" font-size="9" fill="currentColor" font-weight="bold">10</text>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 14l5-5-5-5"/>
+              <path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5v0a5.5 5.5 0 0 0 5.5 5.5H13"/>
+              <text x="12" y="19" font-size="7" fill="currentColor" text-anchor="middle" font-weight="bold">10</text>
             </svg>
           </button>
         </div>
         
+        <!-- Summarize button -->
         <button class="voice-summarize-btn" title="Get a 60-second summary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"/>
             <path d="M8 12h8M12 8v8"/>
           </svg>
           Summarize (~60 sec)
         </button>
       </div>
     </div>
-    <p class="voice-caption">Real-time streaming audio • Skip 10s • Seek anywhere</p>
+    <p class="voice-caption">Powered by ElevenLabs • High-quality AI voice</p>
   </div>
 
   <article class="post-content" id="post-content">

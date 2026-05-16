@@ -32,6 +32,7 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/voice-player.css">
   <link rel="stylesheet" href="/css/print.css" media="print">
 </head>
 <body>
@@ -49,7 +50,7 @@
       <li><a href="/#newsletter">Newsletter</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.1.0</span>
+      <span class="version-badge" style="background: var(--violet); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 1rem;">v4.1.2</span>
       <a href="https://decklar.com" target="_blank">Visit Decklar →</a>
     </div>
   </nav>
@@ -93,54 +94,61 @@
     </div>
   </header>
   
-  <!-- ElevenLabs Voice Player (v4.1.0) - Enhanced Streaming -->
+  <!-- ElevenLabs Voice Player (v4.1.3) - Timeline centered controls -->
   
-  <div class="voice-player-wrapper" data-post-id="the-customer-success-playbook:-qbr-metrics-that-actually-matter" data-post-content="The Customer Success Playbook: QBR Metrics That Actually Matter Your supply chain visibility platform is collecting data. But are you using it to drive decisions? I&#39;ve sat through enough QBRs to know the difference between a report and a roadmap. Most teams spend 45 minutes reviewing dashboards that tell them what they already know. The best teams? They use five questions to uncover the invisible friction that&#39;s costing them money. Here&#39;s the framework we use with Decklar customers. The Five Questions That Cut Through Noise 1. &amp;quot;Where are your alerts clustering?&amp;quot; Why it matters: An alert in isolation is noise. Fifteen alerts from the same facility in two weeks? That&#39;s a pattern. What to look for: Geofence violations at specific origin points (often indicates address/database errors) Temperature excursions on recurring lanes (cold chain calibration issues) Device &amp;quot;went dark&amp;quot; events in specific regions (connectivity dead zones) The pivot: Turn location-based alert clusters into operational tickets. One fix at the facility level prevents 20 future alerts. 2. &amp;quot;What percentage of shipments had zero incidents?&amp;quot; Why it matters: Everyone tracks when things go wrong. But &amp;quot;boring shipments&amp;quot; — the ones that went from A to B with no drama — tell you if your baseline configuration is actually working. The benchmark: &amp;gt;90% clean shipments: Your thresholds are calibrated correctly 70-90%: Review your geofence radii and alert sensitivity &amp;lt;70%: You have a configuration problem, not a supply chain problem The pivot: Don&#39;t optimize for the exceptions. Optimize the baseline so exceptions are actually exceptional. 3. &amp;quot;How many alerts converted into action?&amp;quot; Why it matters: An alert that&#39;s ignored is worse than no alert at all. It trains your team to ignore the system. What to measure: Alerts acknowledged within 15 minutes Alerts that triggered a workflow (driver called, customer notified, inspection scheduled) Alerts that led to a claim filed or damage prevented The pivot: If your alert-to-action ratio is low, you have an integration problem, not a visibility problem. Connect Decklar to your TMS or operational dashboards. 4. &amp;quot;Where are your customers checking tracking?&amp;quot; Why it matters: Your external tracking links aren&#39;t just for transparency — they&#39;re a heat map of customer anxiety. What to look for: High tracking volume on specific lanes = visibility gaps customers are manually filling Multiple checks on the same shipment = delivery expectation misalignment External shares to new email addresses = stakeholder expansion opportunities The pivot: High tracking activity is a signal. Either automate the update frequency on those lanes, or add proactive notifications before customers need to check. 5. &amp;quot;What&#39;s your time-to-resolution on exceptions?&amp;quot; Why it matters: The cost of an incident is directly proportional to how long it takes to resolve. The tiers: &amp;lt;2 hours: Real-time rerouting, driver contact, customer notification 2-6 hours: Standard exception workflow, next-day mitigation &amp;gt;6 hours: You&#39;re managing damage, not preventing it The pivot: If your time-to-resolution is creeping up, audit your escalation chains. The right person needs to know at the right time. The &amp;quot;Pipe-Cleaning&amp;quot; Phase: Month 2-3 Post-Go-Live Here&#39;s something most vendors won&#39;t tell you: Your first 30 days of data will be noisy. Geofences will be too tight or too loose. Ping frequencies will need tuning. Waypoint triggers will fire at the wrong times. We call this the &amp;quot;pipe-cleaning&amp;quot; phase, and it&#39;s critical. Month 1: Collect data. Don&#39;t optimize yet. Let the system show you where the friction is. Month 2-3: Review the five questions above. Adjust geofence radii based on actual facility layouts. Tune alert thresholds based on real temperature and shock readings. Consolidate waypoint alerts that fire too frequently. Month 4+: Your baseline is clean. Now you&#39;re optimizing for speed, cost, and expansion — not debugging configuration. The Red Flags We Watch For &amp;quot;We&#39;re getting too many alerts.&amp;quot; Usually means thresholds are too sensitive, not that your supply chain is broken. &amp;quot;The data doesn&#39;t match our TMS.&amp;quot; Check your shipment start/stop logic. A one-minute difference in when a shipment &amp;quot;starts&amp;quot; creates mismatches. &amp;quot;Our customers aren&#39;t using the tracking links.&amp;quot; Either they don&#39;t know about them (training gap) or they don&#39;t trust them (data quality issue). The One Metric That Rules Them All Incidents detected before the customer knew about them. That&#39;s it. That&#39;s the scoreboard. If Decklar is flagging temperature excursions, delays, or damage risks before your customer calls you — you&#39;re winning. If customers are calling you first, visibility isn&#39;t the problem. Reaction time is. A QBR Template You Can Steal Section Time Owner Output Alert Cluster Analysis 10 min Ops Lead 2-3 facility-specific tickets Clean Shipment % Review 5 min Account Manager Threshold adjustment plan Alert-to-Action Ratio 5 min Systems Lead Integration roadmap Tracking Heat Map 10 min Customer Success Proactive notification updates Time-to-Resolution Trend 10 min Ops Lead Escalation chain audit Pipe-Cleaning Status 10 min Account Manager Configuration update list Bottom Line QBRs aren&#39;t reports. They&#39;re working sessions. The best Decklar customers treat quarterly reviews as configuration checkpoints, not status updates. Every alert is a signal. Every signal is an opportunity to tighten the system. The goal isn&#39;t perfect data. It&#39;s actionable data. Want this framework customized for your account? Book a session with your Decklar account manager. We bring the data. You bring the operational context. Together, we build the playbook. Gavin Director of Customer Accounts &amp;amp; Customer Success, Decklar P.S. — If your QBRs are still just slide decks with screenshots of dashboards, you&#39;re leaving money on the table. The customers who operationalize these five questions? They see 40-60% faster resolution times in quarter two. That&#39;s not a coincidence. That&#39;s pipe-cleaning.">
+  
+  <div class="voice-player-wrapper" data-post-id="the-customer-success-playbook:-qbr-metrics-that-actually-matter" data-post-content="The Customer Success Playbook: QBR Metrics That Actually Matter Your supply chain visibility platform is collecting data. But are you using it to drive decisions? I&#39;ve sat through enough QBRs to know the difference between a report and a roadmap. Most teams spend 45 minutes reviewing dashboards that tell them what they already know. The best teams? They use five questions to uncover the invisible friction that&#39;s costing them money. Here&#39;s the framework we use with Decklar customers. The Five Questions That Cut Through Noise 1. &amp;quot;Where are your alerts clustering?&amp;quot; Why it matters: An alert in isolation is noise. Fifteen alerts from the same facility in two weeks? That&#39;s a pattern. What to look for: Geofence violations at specific origin points (often indicates address/database errors) Temperature excursions on recurring lanes (cold chain calibration issues) Device &amp;quot;went dark&amp;quot; events in specific regions (connectivity dead zones) The pivot: Turn location-based alert clusters into operational tickets. One fix at the facility level prevents 20 future alerts. 2. &amp;quot;What percentage of shipments had zero incidents?&amp;quot; Why it matters: Everyone tracks when things go wrong. But &amp;quot;boring shipments&amp;quot; — the ones that went from A to B with no drama — tell you if your baseline configuration is actually working. The benchmark: &amp;gt;90% clean shipments: Your thresholds are calibrated correctly 70-90%: Review your geofence radii and alert sensitivity &amp;lt;70%: You have a configuration problem, not a supply chain problem The pivot: Don&#39;t optimize for the exceptions. Optimize the baseline so exceptions are actually exceptional. 3. &amp;quot;How many alerts converted into action?&amp;quot; Why it matters: An alert that&#39;s ignored is worse than no alert at all. It trains your team to ignore the system. What to measure: Alerts acknowledged within 15 minutes Alerts that triggered a workflow (driver called, customer notified, inspection scheduled) Alerts that led to a claim filed or damage prevented The pivot: If your alert-to-action ratio is low, you have an integration problem, not a visibility problem. Connect Decklar to your TMS or operational dashboards. 4. &amp;quot;Where are your customers checking tracking?&amp;quot; Why it matters: Your external tracking links aren&#39;t just for transparency — they&#39;re a heat map of customer anxiety. What to look for: High tracking volume on specific lanes = visibility gaps customers are manually filling Multiple checks on the same shipment = delivery expectation misalignment External shares to new email addresses = stakeholder expansion opportunities The pivot: High tracking activity is a signal. Either automate the update frequency on those lanes, or add proactive notifications before customers need to check. 5. &amp;quot;What&#39;s your time-to-resolution on exceptions?&amp;quot; Why it matters: The cost of an incident is directly proportional to how long it takes to resolve. The tiers: &amp;lt;2 hours: Real-time rerouting, driver contact, customer notification 2-6 hours: Standard exception workflow, next-day mitigation &amp;gt;6 hours: You&#39;re managing damage, not preventing it The pivot: If your time-to-resolution is creeping up, audit your escalation chains. The right person needs to know at the right time. The &amp;quot;Pipe-Cleaning&amp;quot; Phase: Month 2-3 Post-Go-Live Here&#39;s something most vendors won&#39;t tell you: Your first 30 days of data will be noisy. Geofences will be too tight or too loose. Ping frequencies will need tuning. Waypoint triggers will fire at the wrong times. We call this the &amp;quot;pipe-cleaning&amp;quot; phase, and it&#39;s critical. Month 1: Collect data. Don&#39;t optimize yet. Let the system show you where the friction is. Month 2-3: Review the five questions above. Adjust geofence radii based on actual facility layouts. Tune alert thresholds based on real temperature and shock readings. Consolidate waypoint alerts that fire too frequently. Month 4+: Your baseline is clean. Now you&#39;re optimizing for speed, cost, and expansion — not debugging configuration. The Red Flags We Watch For &amp;quot;We&#39;re getting too many alerts.&amp;quot; Usually means thresholds are too sensitive, not that your supply chain is broken. &amp;quot;The data doesn&#39;t match our TMS.&amp;quot; Check your shipment start/stop logic. A one-minute difference in when a shipment &amp;quot;starts&amp;quot; creates mismatches. &amp;quot;Our customers aren&#39;t using the tracking links.&amp;quot; Either they don&#39;t know about them (training gap) or they don&#39;t trust them (data quality issue). The One Metric That Rules Them All Incidents detected before the customer knew about them. That&#39;s it. That&#39;s the scoreboard. If Decklar is flagging temperature excursions, delays, or damage risks before your customer calls you — you&#39;re winning. If customers are calling you first, visibility isn&#39;t the problem. Reaction time is. A QBR Template You Can Steal Section Time Owner Output Alert Cluster Analysis 10 min Ops Lead 2-3 facility-specific tickets Clean Shipment % Review 5 min Account Manager Threshold adjustment plan Alert-to-Action Ratio 5 min Systems Lead Integration roadmap Tracking Heat Map 10 min Customer Success Proactive notification updates Time-to-Resolution Trend 10 min Ops Lead Escalation chain audit Pipe-Cleaning Status 10 min Account Manager Configuration update list Bottom Line QBRs aren&#39;t reports. They&#39;re working sessions. The best Decklar customers treat quarterly reviews as configuration checkpoints, not status updates. Every alert is a signal. Every signal is an opportunity to tighten the system. The goal isn&#39;t perfect data. It&#39;s actionable data. Want this framework customized for your account? Book a session with your Decklar account manager. We bring the data. You bring the operational context. Together, we build the playbook. Gavin Director of Customer Accounts &amp;amp; Customer Success, Decklar P.S. — If your QBRs are still just slide decks with screenshots of dashboards, you&#39;re leaving money on the table. The customers who operationalize these five questions? They see 40-60% faster resolution times in quarter two. That&#39;s not a coincidence. That&#39;s pipe-cleaning." data-post-title="The Customer Success Playbook: QBR Metrics That Actually Matter">
     <div class="voice-player-container">
       <div class="voice-player">
+        <!-- Play button + Status -->
         <div class="voice-player-header">
           <button class="voice-play-btn" aria-label="Play" title="Space to play/pause">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z"/>
             </svg>
           </button>
-          <div class="voice-time-display">0:00 / 0:00</div>
+          <span class="voice-status">Listen with ElevenLabs</span>
         </div>
         
+        <!-- Progress bar -->
         <div class="voice-progress-container">
           <div class="voice-progress-bar" title="Click to seek">
             <div class="voice-progress-fill"></div>
           </div>
         </div>
         
+        <!-- Controls: Back, Time, Forward -->
         <div class="voice-controls">
           <button class="voice-skip-btn voice-skip-back" aria-label="Rewind 10 seconds" title="Ctrl+←">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 19V5M5 12l7-7 7 7"/>
-              <text x="12" y="22" text-anchor="middle" font-size="9" fill="currentColor" font-weight="bold">10</text>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 14L4 9l5-5"/>
+              <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/>
+              <text x="12" y="19" font-size="7" fill="currentColor" text-anchor="middle" font-weight="bold">10</text>
             </svg>
           </button>
           
-          <span class="voice-status">Listen with ElevenLabs</span>
+          <div class="voice-time-display">0:00 / 0:00</div>
           
           <button class="voice-skip-btn voice-skip-forward" aria-label="Forward 10 seconds" title="Ctrl+→">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-              <text x="12" y="22" text-anchor="middle" font-size="9" fill="currentColor" font-weight="bold">10</text>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 14l5-5-5-5"/>
+              <path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5v0a5.5 5.5 0 0 0 5.5 5.5H13"/>
+              <text x="12" y="19" font-size="7" fill="currentColor" text-anchor="middle" font-weight="bold">10</text>
             </svg>
           </button>
         </div>
         
+        <!-- Summarize button -->
         <button class="voice-summarize-btn" title="Get a 60-second summary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"/>
             <path d="M8 12h8M12 8v8"/>
           </svg>
           Summarize (~60 sec)
         </button>
       </div>
     </div>
-    <p class="voice-caption">Real-time streaming audio • Skip 10s • Seek anywhere</p>
+    <p class="voice-caption">Powered by ElevenLabs • High-quality AI voice</p>
   </div>
 
   <article class="post-content" id="post-content">

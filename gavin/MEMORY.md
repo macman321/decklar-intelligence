@@ -7,6 +7,8 @@
 - Primary communication: Discord via @GavinAI bot
 - Expects proactive customer insights and account management
 
+---
+
 ## Active Projects
 
 ### Gavin's Decklar Insights Blog
@@ -15,13 +17,15 @@
 - **Posts:** 37 published covering full customer journey
 - **New Features (3.0.0):** ElevenLabs voice integration, interactive author responses, CEO brand video
 - **Content strategy:** Supply chain logistics focus, ROI-driven, practical guides
-- **Next:** Monitor engagement, expand voice interaction capabilities
+- **Git Status:** 35+ uncommitted changes pending
 
 ### Customer Account Management System
-- **Status:** Infrastructure ready, awaiting first customer
+- **Status:** 2 active customers operational
 - **Portal:** Decklar_AI_Onboarding.html
-- **Directory:** ~/decklar-intelligence/gavin/customers/ (empty)
+- **Directory:** ~/decklar-intelligence/gavin/customers/
 - **Pulse scans:** Daily automated check for stalled onboarding, unanswered emails, overdue followups
+
+---
 
 ## Decisions Log
 
@@ -32,35 +36,93 @@
 | 2026-05-14 | Blog content: Reusable vs Labels as cornerstone | #1 customer question, 3,200-word comprehensive guide |
 | 2026-05-14 | Static HTML blog vs CMS | Agent-managed, version controlled, fast |
 | 2026-05-13 | Discord as primary channel | Jeff's preference, file upload support |
+| 2026-05-16 | Document device failure patterns proactively | Can differentiate Decklar with predictive health monitoring |
 
-## Lessons Learned
+---
 
-### What Works
-- **Long-form content**: The 3,200-word reusable vs labels post is the most comprehensive resource
-- **Practical guidance**: Customers want ROI calculations and use-case matching, not just features
-- **Proactive pulse scans**: Catching issues before customers complain
+## Critical Operational Alerts (As of May 16, 2026 16:07 ET)
 
-### What Needs Attention
-- **Discord bot error handling**: HTTP 400 errors on message send need graceful handling
-- **Customer onboarding**: Portal is ready but no customers yet - need activation strategy
+### 🔴 McKesson Corporation — CONTACT BLOCKER
+- **Issue:** mairany.ramos@mckesson.com email bounced (recipient not found)
+- **Deadline:** May 21 — 9 event types verification due
+- **Status:** BLOCKED pending Jeff intervention
+- **Action Required:** Jeff to provide updated CARE team contact
 
-## Preferences
-- **Communication:** Discord messages, file uploads for transcripts
-- **Reports:** Markdown summaries, actionable open items list
-- **Tone:** Professional but approachable, supply chain expertise
+### 🟢 Acme Pharma Distribution — DEPLOYMENT STEADY
+- **Health Score:** 87/100
+- **Status:** Week 2 deployment, 46/48 Bee Labels active (95.8%)
+- **Battery Optimization:** ✅ Lane 7 ocean freight configured (4-hour intervals)
+- **QBR:** Outreach sent May 16, awaiting response for 5/20 or 5/21 slot
+- **Alerts:** 2 alerts yesterday, within threshold, no action required
+
+---
+
+## Learning Repository — MILESTONE: 41 Documents
+
+**Total Documents:** 41 (+12 since May 15 consolidation)  
+**Total Word Count:** ~105,000 words  
+**Coverage:** Complete customer lifecycle + Device reliability analytics
+
+### Repository Composition
+| Category | Count | Key Documents |
+|----------|-------|---------------|
+| **Operational SOPs** | 12 | Device activation, temperature deviation, battery optimization |
+| **Customer Intelligence** | 8 | Conversation frameworks, QBR metrics, expansion strategies |
+| **Predictive Analytics** | 6 | Maturity model, advanced analytics, forecasting |
+| **Success Frameworks** | 4 | Onboarding playbooks, health checks, churn prevention |
+| **Platform Docs** | 9 | Honeycomb event types, API integration, webhook patterns |
+| **Device Reliability** | 1 | **NEW:** Failure patterns, warranty analytics, proactive monitoring |
+| **Multi-Modal** | 1 | Handoff risk management |
+
+### May 16 Learning Sprint (9 Documents Added)
+1. **Device Failure Patterns & Warranty Analytics** — 6 failure modes, MTBF metrics, proactive monitoring playbooks
+2. **Temperature Deviation Response Protocols** — 73-60-11 rule framework
+3. **The 73-60-11 Rule** — 73% preventable via config, 60% false positives, 11% require quarantine
+4. **Multi-Modal Handoff Risk Management** — Truck→Ocean→Truck orchestration
+5. **ERP Integration Patterns** — Enterprise connectivity strategies
+6. **Customer Success Playbooks** — End-to-end lifecycle management
+7. **Device Activation Workflows** — Pre-shipment validation, OTA configuration
+8. **Honeycomb Event Types** — Pharma compliance guide
+9. **Advanced Analytics & Predictive Insights** — Supply chain intelligence frameworks
+
+### Key Learning: Device Failure Patterns
+**Insight:** Decklar can differentiate with **proactive device health monitoring** that predicts hardware failures before they impact shipments.
+
+**6 Failure Modes Identified:**
+| Rank | Failure Mode | Prevention Key |
+|------|--------------|----------------|
+| 1 | Battery Depletion | Pre-shipment expiry validation (<6 months remaining) |
+| 2 | Cellular Modem Failure | Multi-carrier failover, proactive replacement |
+| 3 | GPS Module Failure | Geofence entry validation, accelerometer cross-check |
+| 4 | Temperature Sensor Drift | Regular calibration verification |
+| 5 | Accelerometer Failure | Impact-resistant packaging guidance |
+| 6 | Humidity Sensor Contamination | Sensor sealing validation |
+
+**Failure Signatures:**
+- **Sudden Death:** Normal → No reports (battery protection, physical damage)
+- **Degrading Performance:** Increasing intervals, lower battery % (battery depletion)
+- **Sensor Anomaly:** Impossible readings (sensor failure, firmware bug)
+- **Communication Blackout:** Location works, no cellular (SIM/modem failure)
+
+---
 
 ## Patterns Identified
 
 ### Content Strategy Insights
-- **Cornerstone content performs best**: The Reusable Bees vs Labels guide (3,200+ words) serves as the definitive resource for the #1 customer question
-- **Cold chain content is high-value**: Temperature-sensitive logistics (pharma, food) drives serious engagement
-- **ROI focus resonates**: Posts emphasizing cost savings and ROI calculations get more traction than feature descriptions
-- **Implementation guidance needed**: Customers want practical how-to content, not just marketing
+- **Cornerstone content performs best:** The Reusable Bees vs Labels guide (3,200+ words) serves as the definitive resource for the #1 customer question
+- **Cold chain content is high-value:** Temperature-sensitive logistics (pharma, food) drives serious engagement
+- **ROI focus resonates:** Posts emphasizing cost savings and ROI calculations get more traction than feature descriptions
+- **Implementation guidance needed:** Customers want practical how-to content, not just marketing
 
 ### System Patterns
-- **Discord bot stability**: HTTP 400 errors on message send occur when responses exceed 2000 characters (Discord limit). Bot successfully resumes after failures.
-- **Blog growth trajectory**: Expanded from 4 to 10+ posts in single day — covering full funnel from awareness to implementation
-- **Memory consolidation**: Daily logs in memory/YYYY-MM-DD.md working well for raw capture; MEMORY.md for curated wisdom
+- **Discord bot stability:** HTTP 400 errors on message send occur when responses exceed 2000 characters (Discord limit). Bot successfully resumes after failures.
+- **Blog growth trajectory:** Expanded from 4 to 37 posts — covering full funnel from awareness to implementation
+- **Memory consolidation:** Daily logs in memory/YYYY-MM-DD.md working well for raw capture; MEMORY.md for curated wisdom
+
+### Customer Patterns
+- **Battery drain is #1 preventable issue:** DISABLE interrupts for shipments >14 days
+- **3-Shipment Validation Rule:** First 3 shipments must be meticulously validated — cascade failures preventable with early detection
+- **Temperature deviations:** 73% preventable via configuration, 60% of remainder are false positives, only 11% require quarantine
 
 ---
 
@@ -79,51 +141,9 @@
 
 **Critical Sales Insight:** "Status quo" is our biggest competitor — $375K-725K/year cost of inaction for mid-size shippers
 
-**Next Learning Topic:** Decklar API & Integration Capabilities — Technical Enablement
-
 ---
 
-## Critical Operational Insights (Consolidated 2026-05-14)
-
-### The 5 Recurring Issue Categories (90% of All Issues)
-From troubleshooting playbook deep-dive:
-
-| Rank | Issue | Prevention Key |
-|------|-------|----------------|
-| 1 | **Battery Drain** | DISABLE interrupts for shipments >14 days |
-| 2 | **Activation Failures** | Require lamp at activation station (3% light minimum) |
-| 3 | **Account Config Issues** | Build 20% buffer in contract limits |
-| 4 | **Shipment Config Errors** | Define completion criteria BEFORE go-live |
-| 5 | **Device Quality Issues** | Check manufacture date (<9 months old) |
-
-### The 3-Shipment Validation Rule
-**Critical:** First 3 shipments must be meticulously validated. Cascade failures are preventable with early detection.
-
-### Customer Health Scores (Updated 2026-05-15 16:07 ET)
-- **McKesson:** 85/100 — Operational, event type verification due May 21
-- **Acme Pharma:** 87/100 — Deployment Week 2, Lane 7 battery risk flagged, QBR overdue
-- **Contact Issue:** McKesson CARE team email (mairany.ramos@mckesson.com) bounced — Jeff needs to provide updated contact
-
-### Active Projects (Updated 2026-05-15 17:07 ET)
-- **Blog 3.0.0:** ✅ COMPLETE — Interactive voice-enabled blog with ElevenLabs integration, 37 posts, CEO video delivered
-- **Acme Pharma QBR:** Battery optimization review for 35-day ocean lane (Lane 7) — Ocean freight battery strategies documented (4-hour ping intervals)
-- **McKesson Event Verification:** 9 event types validation by May 21 (4 days remaining)
-- **New Learnings:** Ocean freight strategies, IoT security frameworks, customer expansion playbooks
-
-### Active Alerts (As of May 15, 17:07 ET)
-🔴 **Acme Pharma Lane 7:** Battery optimization required for 35-day ocean lane. Ocean freight learning completed with 4-hour ping interval recommendations.
-🟡 **McKesson Contact Issue:** Mairany Ramos email still bouncing — alternate contact needed for CARE team event verification.
-
-### Knowledge Base Status (Updated 2026-05-15 17:07 ET)
-- **27 learning spikes** documented (~65,000+ words of operational intelligence)
-- **37 blog posts** published (http://jarvisai.tailf23089.ts.net:4000) — Blog 3.0.0 complete with voice features
-- **2 customers** onboarded with full profiles (Acme Pharma, McKesson)
-- **Pulse scan system** operational — daily automated checks for stalled onboarding, unanswered emails, overdue follow-ups
-- **Customer conversation frameworks** complete — 8 proven conversation structures documented
-
----
-
-## Value Quantification & ROI Frameworks (New — 2026-05-15)
+## Value Quantification & ROI Frameworks
 
 **Learning Completed:** Value Quantification & ROI Frameworks
 **Key Principle:** Every customer conversation must include quantifiable ROI using the 3-30-300 rule
@@ -143,47 +163,34 @@ From troubleshooting playbook deep-dive:
 | Perishables (F&B) | Spoilage reduction | 15–30% cost reduction |
 | Multi-Modal | Demurrage/detention avoidance | $100–$500/day saved |
 
-### Customer Conversation Framework
-1. **Discovery:** What's your annual spend on at-risk cargo?
-2. **Pain Valuation:** When compromised, what's the total cost?
-3. **Hypothesis:** Based on similar customers, we see X% reduction = $Y savings
+---
 
-**Source:** ~/decklar-intelligence/gavin/learnings/2026-05-15_value-quantification-roi-frameworks.md
+## The 5 Recurring Issue Categories (90% of All Issues)
+
+| Rank | Issue | Prevention Key |
+|------|-------|----------------|
+| 1 | **Battery Drain** | DISABLE interrupts for shipments >14 days |
+| 2 | **Activation Failures** | Require lamp at activation station (3% light minimum) |
+| 3 | **Account Config Issues** | Build 20% buffer in contract limits |
+| 4 | **Shipment Config Errors** | Define completion criteria BEFORE go-live |
+| 5 | **Device Quality Issues** | Check manufacture date (<9 months old) |
 
 ---
 
-*Previous Consolidation Below*
+## Preferences
+- **Communication:** Discord messages, file uploads for transcripts
+- **Reports:** Markdown summaries, actionable open items list
+- **Tone:** Professional but approachable, supply chain expertise
 
 ---
 
-*Curated memory — reviewed and updated 2026-05-14*
+## Git Repository Status
+- **Branch:** main
+- **Uncommitted Changes:** 35+ files (blog updates)
+- **Last Commit:** May 15, 2026
+- **Needs Commit:** Memory updates, blog improvements
 
 ---
 
-## Memory Consolidation Report — 2026-05-14 20:06 ET
-
-### Summary
-Gavin memory sync completed. Reviewed Discord conversations, daily memory logs, learning documents, and customer files.
-
-### Patterns Identified
-1. **Content Velocity:** Blog expanded from initial 4 posts to 18+ posts covering full customer journey (awareness → implementation → optimization)
-2. **Customer Portfolio:** 2 active customers operational (McKesson, Acme Pharma) with full profiles and health scores
-3. **Knowledge Base:** 11 comprehensive learning spikes (~50K+ words) covering supply chain use cases, competitive positioning, QBR frameworks, troubleshooting, and sensor data patterns
-4. **Prevention Focus:** 90% of issues preventable with proper SOP compliance — battery drain is #1 issue category
-
-### Critical Insights Consolidated
-- **Battery Drain Prevention:** DISABLE sensor interrupts for shipments >14 days (ocean, extended rail)
-- **Activation Protocol:** Minimum 3% light threshold required; desk lamp mandatory at activation stations
-- **3-Shipment Validation Rule:** First 3 shipments must be meticulously validated — cascade failures preventable
-- **Customer Health Scores:** McKesson 85/100, Acme Pharma 87/100 (Lane 7 battery risk flagged)
-
-### Files Updated
-- MEMORY.md (curated wisdom)
-- memory.json (working memory)
-- SESSION-STATE.md (current state)
-- Git commit: Pending (24 files, +3,428/-90 changes)
-
-### Next Actions
-1. 🔴 **URGENT:** Schedule Acme Pharma QBR — address Lane 7 battery optimization
-2. Audit existing customers for interrupt/PRF misconfiguration
-3. Log every issue with root cause, update prevention checklists
+*Memory consolidated: May 16, 2026 16:07 ET*
+*Previous consolidation: May 15, 2026*

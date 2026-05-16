@@ -84,54 +84,61 @@ layout: base.njk
     </div>
   </header>
   
-  <!-- ElevenLabs Voice Player (v4.1.0) - Enhanced Streaming -->
+  <!-- ElevenLabs Voice Player (v4.1.3) - Timeline centered controls -->
   {% set postTextContent = content | striptags | replace('"', '\"') %}
-  <div class="voice-player-wrapper" data-post-id="{{ title | slug }}" data-post-content="{{ postTextContent }}">
+  
+  <div class="voice-player-wrapper" data-post-id="{{ title | slug }}" data-post-content="{{ postTextContent }}" data-post-title="{{ title | replace('"', '\"') }}">
     <div class="voice-player-container">
       <div class="voice-player">
+        <!-- Play button + Status -->
         <div class="voice-player-header">
           <button class="voice-play-btn" aria-label="Play" title="Space to play/pause">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z"/>
             </svg>
           </button>
-          <div class="voice-time-display">0:00 / 0:00</div>
+          <span class="voice-status">Listen with ElevenLabs</span>
         </div>
         
+        <!-- Progress bar -->
         <div class="voice-progress-container">
           <div class="voice-progress-bar" title="Click to seek">
             <div class="voice-progress-fill"></div>
           </div>
         </div>
         
+        <!-- Controls: Back, Time, Forward -->
         <div class="voice-controls">
           <button class="voice-skip-btn voice-skip-back" aria-label="Rewind 10 seconds" title="Ctrl+←">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 19V5M5 12l7-7 7 7"/>
-              <text x="12" y="22" text-anchor="middle" font-size="9" fill="currentColor" font-weight="bold">10</text>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 14L4 9l5-5"/>
+              <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/>
+              <text x="12" y="19" font-size="7" fill="currentColor" text-anchor="middle" font-weight="bold">10</text>
             </svg>
           </button>
           
-          <span class="voice-status">Listen with ElevenLabs</span>
+          <div class="voice-time-display">0:00 / 0:00</div>
           
           <button class="voice-skip-btn voice-skip-forward" aria-label="Forward 10 seconds" title="Ctrl+→">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-              <text x="12" y="22" text-anchor="middle" font-size="9" fill="currentColor" font-weight="bold">10</text>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 14l5-5-5-5"/>
+              <path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5v0a5.5 5.5 0 0 0 5.5 5.5H13"/>
+              <text x="12" y="19" font-size="7" fill="currentColor" text-anchor="middle" font-weight="bold">10</text>
             </svg>
           </button>
         </div>
         
+        <!-- Summarize button -->
         <button class="voice-summarize-btn" title="Get a 60-second summary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"/>
             <path d="M8 12h8M12 8v8"/>
           </svg>
           Summarize (~60 sec)
         </button>
       </div>
     </div>
-    <p class="voice-caption">Real-time streaming audio • Skip 10s • Seek anywhere</p>
+    <p class="voice-caption">Powered by ElevenLabs • High-quality AI voice</p>
   </div>
 
   <article class="post-content" id="post-content">
