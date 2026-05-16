@@ -7,13 +7,17 @@
     
     const isGitHubPages = window.location.hostname.includes('github.io');
     
+    const isTailscale = window.location.hostname.includes('tailf23089.ts.net');
+    
     window.BLOG_CONFIG = {
         // Voice API endpoint
         VOICE_API_URL: isLocalhost 
             ? 'http://localhost:4005' 
-            : (isGitHubPages 
-                ? 'https://gavin-voice-api.onrender.com'  // Update this after Render deploy
-                : 'https://voice-api.decklar.io'),
+            : (isTailscale
+                ? 'http://jarvisai.tailf23089.ts.net:4005'
+                : (isGitHubPages 
+                    ? 'https://gavin-voice-api.onrender.com'
+                    : 'https://voice-api.decklar.io')),
         
         // Environment
         ENV: isLocalhost ? 'development' : 'production',

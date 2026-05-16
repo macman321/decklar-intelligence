@@ -19,9 +19,9 @@ class VoicePlayer {
     this.fullPostContent = '';
     this.postId = null;
     this.isPaused = false;
-    this.proxyUrl = 'http://localhost:4005/api/tts';
-    this.streamUrl = 'http://localhost:4005/api/tts/stream';
-    this.summarizeUrl = 'http://localhost:4005/api/summarize';
+    this.proxyUrl = (window.BLOG_CONFIG?.VOICE_API_URL || 'http://localhost:4005') + '/api/tts';
+    this.streamUrl = (window.BLOG_CONFIG?.VOICE_API_URL || 'http://localhost:4005') + '/api/tts/stream';
+    this.summarizeUrl = (window.BLOG_CONFIG?.VOICE_API_URL || 'http://localhost:4005') + '/api/summarize';
   }
 
   async init(apiKey) {
