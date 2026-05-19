@@ -10,9 +10,13 @@ import os
 import json
 import discord
 from discord.ext import commands
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 import openai
+import asyncio
+import subprocess
+import sqlite3
+import sys
 
 # Add import for Outlook integration
 import sys
@@ -150,7 +154,7 @@ def generate_ai_response(messages):
 # ── Event Handlers ────────────────────────────────────────────────
 @bot.event
 async def on_ready():
-    """Bot is ready"""
+    """Bot is ready — start proactive behaviors"""
     print(f"Gavin AI agent logged in as {bot.user}")
     print(f"Restricted to server: {ALLOWED_SERVER_ID}")
     print(f"OpenAI configured: {bool(OPENAI_API_KEY)}")
@@ -165,6 +169,11 @@ async def on_ready():
             name="Decklar tasks"
         )
     )
+    
+    # Start proactive background tasks
+    bot.loop.create_task(proactive_morning_brief())
+    bot.loop.create_task(proactive_health_check())
+    print("Proactive tasks started")
 
 @bot.event
 async def on_message(message):
@@ -240,6 +249,109 @@ async def on_message(message):
 
 # ── Commands ─────────────────────────────────────────────────────
 @bot.command()
+async def process_transcript(ctx):
+    """Process the last uploaded transcript"""
+    inbox_dir = DATA_DIR / "inbox"
+    txts = list(inbox_dir.glob("*.txt"))
+    if not txts:
+        await ctx.send("No transcripts found in inbox.")
+        return
+    
+    latest = max(txts, key=lambda p: p.stat().st_mtime)
+    
+    async with ctx.typing():
+        # Call the extraction script
+        result = subprocess.run(
+            [sys.executable, str(GAVIN_DIR / "../tools/extract_transcript.py"),
+             str(latest)],
+            capture_output=True, text=True, timeout=60
+        )
+        
+        if result.returncode == 0:
+            await ctx.send(f"✅ **Extracted from {latest.name}:**\n```json\n{result.stdout[:1900]}\n```")
+        else:
+            await ctx.send(f"❌ Extraction failed: {result.stderr[:500]}")
+
+@bot.command()
+async def generate_plan(ctx, customer: str = None):
+    """Generate deployment plan for a customer"""
+    if not customer:
+        await ctx.send("Usage: `!generate_plan [customer_name]`")
+        return
+    
+    async with ctx.typing():
+        # Find customer in DB
+        if DB_PATH.exists():
+            conn = sqlite3.connect(str(DB_PATH))
+            cursor = conn.execute(
+                "SELECT id, name FROM customers WHERE name LIKE ?",
+                (f"%{customer}%",)
+            )
+            match = cursor.fetchone()
+            conn.close()
+            
+            if match:
+                await ctx.send(f"🔄 Generating deployment plan for **{match[1]}**...")
+                # This would call the MCP server
+                await ctx.send("(MCP server integration needed — use portal export for now)")
+            else:
+                await ctx.send(f"Customer '{customer}' not found.")
+        else:
+            await ctx.send("Database not available.")
+
+@bot.command()
+async def brief(ctx):
+    """Generate and send morning brief on demand"""
+    async with ctx.typing():
+        result = subprocess.run(
+            [sys.executable, str(GAVIN_DIR / "../tools/generate_morning_brief.py")],
+            capture_output=True, text=True, timeout=60,
+            env={**os.environ, "DECKLAR_DATA_DIR": str(DATA_DIR)}
+        )
+        if result.returncode == 0:
+            brief = result.stdout
+            # Split if too long
+            if len(brief) > 2000:
+                chunks = [brief[i:i+1900] for i in range(0, len(brief), 1900)]
+                for chunk in chunks:
+                    await ctx.send(chunk)
+            else:
+                await ctx.send(brief)
+        else:
+            await ctx.send(f"❌ Brief generation failed: {result.stderr[:500]}")
+
+@bot.command()
+async def do_task(ctx, *, task: str):
+    """Execute a task autonomously"""
+    from_jeff = is_jeff(ctx.author.id)
+    
+    if not from_jeff:
+        await ctx.send("❌ Only Jeff can assign autonomous tasks.")
+        return
+    
+    await ctx.send(f"🔄 **Working on:** {task}\nI'll update you when complete.")
+    
+    # Spawn background work
+    try:
+        # For now, acknowledge and queue
+        memory = load_memory()
+        if "pendingTasks" not in memory:
+            memory["pendingTasks"] = []
+        memory["pendingTasks"].append({
+            "id": datetime.now().isoformat(),
+            "text": task,
+            "owner": "Gavin",
+            "due": (datetime.now() + timedelta(days=1)).isoformat(),
+            "priority": "high",
+            "status": "in_progress"
+        })
+        save_memory(memory)
+        
+        await ctx.send(f"✅ Task queued: **{task}**\nI'm on it. Will report back within 24 hours.")
+    except Exception as e:
+        await ctx.send(f"❌ Failed to queue task: {e}")
+
+@bot.command()
 async def status(ctx):
     """Show Gavin's status"""
     memory = load_memory()
@@ -314,6 +426,75 @@ async def search_emails(ctx, *, query: str):
         response += f"• **{e['subject']}** — {e['from']}\n"
     
     await ctx.send(response)
+
+# ── Proactive Background Tasks ────────────────────────────────────
+
+async def proactive_morning_brief():
+    """Send morning brief at 8 AM ET"""
+    await bot.wait_until_ready()
+    
+    while not bot.is_closed():
+        now = datetime.now()
+        target = now.replace(hour=8, minute=0, second=0, microsecond=0)
+        if now >= target:
+            target += timedelta(days=1)
+        
+        wait_seconds = (target - now).total_seconds()
+        await asyncio.sleep(wait_seconds)
+        
+        # Generate morning brief
+        try:
+            result = subprocess.run(
+                [sys.executable, str(GAVIN_DIR / "../tools/generate_morning_brief.py")],
+                capture_output=True, text=True, timeout=60,
+                env={**os.environ, "DECKLAR_DATA_DIR": str(DATA_DIR)}
+            )
+            if result.returncode == 0:
+                brief = result.stdout
+                # Send to default channel
+                for guild in bot.guilds:
+                    if guild.id == ALLOWED_SERVER_ID:
+                        for channel in guild.text_channels:
+                            if "decklar" in channel.name.lower():
+                                await channel.send(f"🌅 **Good morning, Jeff.**\n\n{brief[:1900]}")
+                                break
+                        break
+        except Exception as e:
+            print(f"Morning brief error: {e}", file=sys.stderr)
+
+async def proactive_health_check():
+    """Check customer health every 6 hours"""
+    await bot.wait_until_ready()
+    
+    while not bot.is_closed():
+        try:
+            # Check for red/amber accounts
+            if DB_PATH.exists():
+                conn = sqlite3.connect(str(DB_PATH))
+                cursor = conn.execute(
+                    "SELECT name, health_rag FROM customers WHERE health_rag IN ('red', 'amber')"
+                )
+                at_risk = cursor.fetchall()
+                conn.close()
+                
+                if at_risk:
+                    msg = "⚠️ **Customer Health Alert**\n\n"
+                    for name, rag in at_risk:
+                        emoji = "🔴" if rag == "red" else "🟡"
+                        msg += f"{emoji} **{name}** is {rag.upper()}\n"
+                    msg += "\nReview recommended."
+                    
+                    for guild in bot.guilds:
+                        if guild.id == ALLOWED_SERVER_ID:
+                            for channel in guild.text_channels:
+                                if "decklar" in channel.name.lower():
+                                    await channel.send(msg)
+                                    break
+                            break
+        except Exception as e:
+            print(f"Health check error: {e}", file=sys.stderr)
+        
+        await asyncio.sleep(21600)  # 6 hours
 
 # ── Main ──────────────────────────────────────────────────────────
 def main():

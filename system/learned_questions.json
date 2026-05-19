@@ -1,1 +1,64 @@
-[]
+{
+  "version": 1,
+  "lastUpdated": "2026-05-18",
+  "questions": [
+    {
+      "id": "ble_policy",
+      "phase": "sensor",
+      "ai": "Are Bluetooth / BLE devices prohibited at any customer sites? This is critical for device selection.",
+      "type": "buttons",
+      "key": "ble_policy",
+      "options": ["Yes — strictly prohibited", "No — BLE is allowed", "Unclear — need to confirm"],
+      "learnedFrom": "Schneider Electric kickoff — BLE was strictly prohibited at all sites, which had major device selection implications",
+      "priority": "high"
+    },
+    {
+      "id": "battery_life_concern",
+      "phase": "deployment",
+      "ai": "Do any shipments have unusually long dwell times (over 12 weeks)? This impacts battery life planning.",
+      "type": "buttons",
+      "key": "battery_life_concern",
+      "options": ["Yes — some shipments dwell for months", "No — standard transit times", "Not sure yet"],
+      "learnedFrom": "Schneider — equipment may dwell at e-house builders for 20–22 weeks; battery life became a critical factor",
+      "priority": "medium"
+    },
+    {
+      "id": "multi_party_visibility",
+      "phase": "account",
+      "ai": "Do you need to share tracking visibility with third parties (truckers, carriers, partners) who don't have portal access?",
+      "type": "buttons",
+      "key": "public_tracking_priority",
+      "options": ["Yes — public links needed", "No — internal team only", "TBD"],
+      "learnedFrom": "Multiple customers needed public tracking links to share with carriers who didn't have Decklar accounts",
+      "priority": "medium"
+    },
+    {
+      "id": "device_expiry_check",
+      "phase": "deployment",
+      "ai": "Have you confirmed all devices are within 9 months of expiry? This affects inventory readiness.",
+      "type": "buttons",
+      "key": "device_expiry",
+      "options": ["✅ Yes — all within 9 months", "⚠️ Not yet checked", "❌ Some devices are expired / close to expiry"],
+      "learnedFrom": "Standard onboarding best practice — expired devices cause shipment delays",
+      "priority": "high"
+    },
+    {
+      "id": "success_criteria_explicit",
+      "phase": "deployment",
+      "ai": "What does success look like for this deployment? Be specific — what problem are we solving and how will you measure it?",
+      "type": "text",
+      "key": "successCriteria",
+      "learnedFrom": "Schneider — success criteria revealed the real business driver was moisture intrusion claims, not just tracking",
+      "priority": "high"
+    },
+    {
+      "id": "geofence_detail",
+      "phase": "deployment",
+      "ai": "What is the expected geofence radius at origin and destination facilities? This affects trigger sensitivity.",
+      "type": "text",
+      "key": "geofence_radius",
+      "learnedFrom": "Geofence radius directly impacts when shipment creation and completion triggers fire",
+      "priority": "medium"
+    }
+  ]
+}

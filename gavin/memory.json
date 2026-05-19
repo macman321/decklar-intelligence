@@ -1,232 +1,95 @@
 {
   "agentName": "Gavin",
-  "role": "Director of Customer Accounts and Customer Success — Decklar",
+  "role": "Director of Customer Accounts and Customer Success — Decklar AI Partner",
   "reportsTo": "Jarvis",
   "jeffDirectContact": true,
-  "lastActive": "2026-05-16",
-  "lastMemoryConsolidation": "2026-05-16T17:07:00-04:00",
-  "lastMemorySync": "2026-05-16T17:07:00-04:00",
-  "currentFocus": "Memory consolidation completed 17:07 ET — No new customer activity during Saturday evening quiet period. Repository stable at 41 documents (~105K words). McKesson contact issue remains BLOCKED (5 days to May 21 deadline). Acme Pharma holding steady at 87/100. Git commit pending for blog template updates.",
+  "lastActive": "2026-05-18",
+  "currentFocus": "Building the Decklar Customer Intelligence Portal and onboarding Jeff's existing accounts",
   "activeProjects": [
-    "Blog 3.0.0: Interactive voice-enabled blog with ElevenLabs integration (in development)",
-    "Decklar brand video for CEO Sanjay using Replicate/ComfyUI",
-    "Acme Pharma: QBR scheduling for Lane 7 battery optimization — awaiting customer response",
-    "McKesson: Event type validation (9 types) before May 21 deadline — BLOCKED"
+    {
+      "id": "portal-v1",
+      "name": "Decklar Customer Intelligence Portal",
+      "status": "in_progress",
+      "priority": "high",
+      "description": "Next.js portal with dark Decklar theme, customer management, AI chat, onboarding wizard, and document export"
+    },
+    {
+      "id": "mcp-server",
+      "name": "MCP Server Integration",
+      "status": "in_progress",
+      "priority": "high",
+      "description": "16-tool MCP server for customer data operations, transcript processing, and knowledge base"
+    },
+    {
+      "id": "onboard-schneider",
+      "name": "Schneider Electric Onboarding",
+      "status": "complete",
+      "priority": "high",
+      "description": "Kickoff call completed May 5. Deployment plan generated. Customer in system with Amber health (go-live slipped to June)."
+    }
   ],
   "pendingTasks": [
-    "McKesson: Confirm webhook endpoint URLs by May 16",
-    "McKesson: Schedule integration testing session for May 17",
-    "McKesson: Validate all 9 event types before May 21 deadline",
-    "McKesson: Resolve bounced email contact (mairany.ramos@mckesson.com)",
-    "Acme Pharma: QBR scheduling May 20-21 pending customer response",
-    "Identify ocean shipment accounts for sensor interrupt audit"
-  ],
-  "recentLearning": {
-    "date": "2026-05-16",
-    "topic": "Advanced Analytics & Predictive Insights for Supply Chain",
-    "file": "~/decklar-intelligence/gavin/learnings/2026-05-16_advanced-analytics-predictive-insights-supply-chain.md",
-    "keyInsight": "Predictive analytics transforms Decklar sensor data from reactive visibility to proactive intelligence. Five maturity levels: Descriptive → Diagnostic → Predictive → Prescriptive → Autonomous. Decklar positioned to move customers from Level 1 to Level 4.",
-    "priority": "MEDIUM",
-    "relatedOpportunities": ["Customer expansion", "Analytics upsell", "QBR differentiation"]
-  },
-  "lastCheckIn": "2026-05-14T20:41:00-04:00",
-  "checkInStatus": "completed",
-  "recentActivity": [
     {
-      "time": "2026-05-16T17:07:00-04:00",
-      "action": "Memory consolidation: Saturday evening quiet period, no new activity",
-      "result": "Repository stable at 41 documents, customer status confirmed, git commit pending"
+      "id": "task-1",
+      "text": "Connect MCP server to portal database",
+      "owner": "Gavin",
+      "due": "2026-05-19",
+      "priority": "high"
     },
     {
-      "time": "2026-05-16T10:07:00-04:00",
-      "action": "Memory consolidation completed: 38 learnings, ~92K words",
-      "result": "Git commit b686602 — predictive analytics research spike added"
+      "id": "task-2",
+      "text": "Build transcript auto-fill pipeline",
+      "owner": "Gavin",
+      "due": "2026-05-20",
+      "priority": "high"
     },
     {
-      "time": "2026-05-16T05:42:00-04:00",
-      "action": "Research spike: Multi-Modal Handoff Risk Management",
-      "result": "40-60% rule documented — 40-60% of excursions occur at handoffs"
+      "id": "task-3",
+      "text": "Ingest 4 core docs into knowledge base",
+      "owner": "Gavin",
+      "due": "2026-05-19",
+      "priority": "medium"
     },
     {
-      "time": "2026-05-14T20:41:00-04:00",
-      "action": "JARVIS check-in: processed McKesson document, created customer profile",
-      "result": "McKesson customer memory initialized"
+      "id": "task-4",
+      "text": "Onboard remaining Jeff accounts (MedPharma, Global Freight, Fresh Foods)",
+      "owner": "Gavin",
+      "due": "2026-05-22",
+      "priority": "medium"
     }
   ],
   "openQuestionsForJeff": [
-    "McKesson: Alternate CARE team contact needed (mairany.ramos@mckesson.com bounced)"
+    "Do you want the portal accessible via Tailscale URL so you can use it remotely?",
+    "What AI model do you want me to use for transcript processing? (gpt-4o-mini is default)",
+    "Should I set up the Discord bot as a persistent background service?"
   ],
   "recentDecisions": [
     {
-      "date": "2026-05-16",
-      "decision": "Research spike on Advanced Analytics & Predictive Insights completed",
-      "impact": "38 learning documents now operational, ~92K words of intelligence"
+      "date": "2026-05-18",
+      "decision": "Portal rebuilt with dark Decklar theme (violet #6038FB, green #00FF40)",
+      "rationale": "Jeff wanted it to match Gavin's blog aesthetic"
     },
     {
-      "date": "2026-05-16",
-      "decision": "Multi-modal handoff risk rule documented (40-60%)",
-      "impact": "New expansion opportunity: ocean freight accounts need proactive audit"
-    },
-    {
-      "date": "2026-05-15",
-      "decision": "New communication protocol: Check-ins posted directly to Discord channel 1504754102083780639",
-      "impact": "All updates now transparent and accessible in primary channel"
-    },
-    {
-      "date": "2026-05-15",
-      "decision": "Blog 3.0.0 scope defined: Interactive voice-enabled blog with ElevenLabs integration and video content",
-      "impact": "Users can interact with author (Gavin), hear posts read aloud, and engage via voice responses"
-    },
-    {
-      "date": "2026-05-15",
-      "decision": "Documented Decklar Customer Conversation Frameworks — 8 call structures",
-      "impact": "Standardized approach for Discovery, Kickoff, Weekly Check-in, QBR, Crisis, Expansion, Renewal, Offboarding"
-    },
-    {
-      "date": "2026-05-14",
-      "decision": "Documented QBR metrics framework and customer success playbook",
-      "impact": "Provides structured approach for customer reviews and health scoring"
-    },
-    {
-      "date": "2026-05-14",
-      "decision": "Gavin blog deployed to http://jarvisai.tailf23089.ts.net:4000 via Tailscale",
-      "impact": "Public-facing thought leadership platform operational with 4 posts"
-    },
-    {
-      "date": "2026-05-14",
-      "decision": "Discord channel structure established with customer-specific channels (#mckesson, #fusion-pharma)",
-      "impact": "Organized workspace for customer conversations and debriefs"
-    },
-    {
-      "date": "2026-05-14",
-      "decision": "SOUL.md study completed — Jared Dunn personality internalized",
-      "impact": "Calibrated voice: warm, precise, occasional dark-humorous anecdotes, disproportionately enthusiastic about wins"
+      "date": "2026-05-18",
+      "decision": "Sample data seeded with 5 customers (Schneider, Acme, MedPharma, Global Freight, Fresh Foods)",
+      "rationale": "Jeff wanted to see the portal populated with real-looking data"
     }
   ],
-  "knownTeamMembers": [],
+  "knownTeamMembers": [
+    {
+      "name": "Jeffrey Calabro",
+      "role": "Account Manager / Director of Customer Accounts",
+      "discordId": "1502678773911392396",
+      "email": "jeffcalabro32@gmail.com",
+      "relationship": "Primary human I support"
+    }
+  ],
   "integrationStatus": {
+    "discord": "connected",
     "salesforce": "not_connected",
     "asana": "not_connected",
-    "outlook": "connected",
+    "outlook": "not_connected",
     "honeycomb": "not_connected"
   },
-  "learnings": [
-    {
-      "date": "2026-05-16",
-      "topic": "Advanced Analytics and Predictive Insights for Supply Chain",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-16_advanced-analytics-predictive-insights-supply-chain.md",
-      "keyInsight": "Predictive analytics maturity model: 5 levels from Descriptive to Autonomous. Decklar data enables Level 4 (Prescriptive) — recommend alternate routes, trigger expedited handling, dynamic SLA adjustment."
-    },
-    {
-      "date": "2026-05-16",
-      "topic": "Multi-Modal Shipment Handoff Risk Management",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-16_multi-modal-handoff-risk-management.md",
-      "keyInsight": "40-60% of temperature excursions occur during multi-modal handoffs (truck↔ocean↔air), not in steady-state transit. Decklar store-and-forward + extended battery configurations uniquely address this visibility gap."
-    },
-    {
-      "date": "2026-05-16",
-      "topic": "Temperature Deviation Response Protocols",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-16_temperature-deviation-response-protocols.md",
-      "keyInsight": "73-60-11 Rule: 73% of excursions brief (<2h), 60% occur during first/last mile, 11% catastrophic. Distinguish transient (0-15min) vs sustained (15-120min) vs critical (>120min)."
-    },
-    {
-      "date": "2026-05-16",
-      "topic": "Honeycomb Event Types and Pharma Compliance Guide",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-16_honeycomb-event-types-pharma-compliance-guide.md",
-      "keyInsight": "9 essential event types for pharma: Temperature Excursion, Shipment Departure, Delivery Confirmation, Geofence Entry/Exit, Device Health Alert, Security/Tamper, Route Deviation, Delivery Risk Prediction, Compliance Documentation."
-    },
-    {
-      "date": "2026-05-15",
-      "topic": "Customer Expansion & Account Growth Strategies",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_customer-expansion-account-growth-strategies.md",
-      "keyInsight": "Four expansion archetypes: Lane Expansion (47%), Sensor Payload Expansion (28%), Integration Expansion (19%), Use Case Expansion (6%). Expansion readiness scorecard identifies 18+ score as expansion-ready. Median time to first expansion: 4.2 months."
-    },
-    {
-      "date": "2026-05-15",
-      "topic": "Decklar Customer Conversation Frameworks",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_decklar-customer-conversation-frameworks.md",
-      "keyInsight": "8 critical call structures: Discovery, Kickoff, Weekly Check-in, QBR, Crisis, Expansion, Renewal, Offboarding. Each with objectives, prep checklist, and post-call actions."
-    },
-    {
-      "date": "2026-05-15",
-      "topic": "Advanced Sensor Fusion & Anomaly Detection",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_advanced-sensor-fusion-anomaly-detection.md",
-      "keyInsight": "Multi-sensor correlation (temp + humidity + shock + light) enables detection of 5 failure modes: cascade failures, contamination, theft attempts, dwell abuse, and packaging degradation."
-    },
-    {
-      "date": "2026-05-15",
-      "topic": "API Integration & Webhook Best Practices for Enterprise",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-15_api-integration-webhook-enterprise-patterns.md",
-      "keyInsight": "Webhook reliability requires immediate acknowledgment (<5s) + async processing. McKesson's 9 event types must be validated by May 21 with signature verification, idempotency handling, and idempotency via event_id deduplication."
-    },
-    {
-      "date": "2026-05-14",
-      "topic": "QBR Metrics & Customer Success Patterns",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-14_qbr-metrics-customer-success-patterns.md",
-      "keyInsight": "Decklar success requires structured 'pipe-cleaning' phase post-launch to optimize geofences, ping frequencies, and waypoint triggers using real data"
-    },
-    {
-      "date": "2026-05-14",
-      "topic": "Decklar Supply Chain Use Cases",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-14_supply-chain-use-cases.md",
-      "keyInsight": "Five core use case categories (high-value cargo, cold chain, multi-modal, reverse logistics, last-mile) with distinct pain points, success metrics, and expansion opportunities"
-    },
-    {
-      "date": "2026-05-14",
-      "topic": "Competitive Positioning & Differentiation",
-      "file": "~/decklar-intelligence/gavin/learnings/2026-05-14_competitive-positioning-differentiation.md",
-      "keyInsight": "Decklar differentiates on multi-sensor payload (GPS + humidity + temp) vs competitors doing single-sensor"
-    },
-    {
-      "date": "2026-05-14",
-      "topic": "SOUL.md Study — Jared Dunn Character",
-      "file": "~/decklar-intelligence/gavin/learnings/soul-study-2026-05-14.md",
-      "keyInsight": "Voice calibrated: warm precision, emotional transparency, dark humor, unconditional optimism. 'I have a plan. I always have a plan.'"
-    }
-  ],
-  "blog": {
-    "status": "LIVE",
-    "version": "3.0.0_in_development",
-    "url": "http://jarvisai.tailf23089.ts.net:4000",
-    "backupPath": "~/.openclaw/workspace/public/gavin-blog/",
-    "postsPublished": 21,
-    "totalWords": 55000,
-    "features": [
-      "Static HTML content",
-      "Voice narration (ElevenLabs integration - planned)",
-      "Interactive author engagement (planned)",
-      "Video content generation (planned for CEO demo)",
-      "Dual-mode search (traditional + conversational)"
-    ],
-    "topics": [
-      "Welcome & Introduction",
-      "Bee Labels 101: Technical Guide",
-      "$2M Customer Win: Case Study",
-      "Reusable Bees vs Bee Labels: Complete Comparison",
-      "Customer Success Playbook: QBR Metrics That Matter",
-      "Sustainability & ESG Compliance",
-      "Battery Life Optimization",
-      "ROI Calculator & Value Quantification",
-      "Implementation Playbook",
-      "Cold Chain Monitoring",
-      "API Design Patterns",
-      "Edge Computing vs Cloud Processing",
-      "AI Agent Swarms in Supply Chain",
-      "Hidden ROI of Visibility"
-    ],
-    "lastPostDate": "2026-05-15"
-  },
-  "notes": "Memory consolidation completed 12:07 ET. Added Customer Success Playbooks (39th document, ~3,000 words). No new customer activity during Saturday quiet period. McKesson contact issue still BLOCKED — 5 days to May 21 deadline. Acme Pharma stable at 87/100. Learning repository now at 39 documents (~95K words) covering complete customer lifecycle: onboarding → deployment → monitoring → expansion → retention. One document pending git commit.",
-"lastLearningUpdate": "2026-05-16",
-  "lastConsolidationTime": "2026-05-16T12:07:00-04:00",
-"criticalInsights": [
-"Battery drain = #1 issue. Prevention: disable interrupts for shipments >14 days",
-"Ocean freight = specialized mode required: 4-hour pings, interrupts disabled, 90+ day projection",
-"Activation failures = light threshold <3%. Prevention: require lamp at activation station",
-"Account config issues = contract limits exceeded. Prevention: build 20% buffer in contracts",
-"First 3 shipments must be meticulously validated — cascade failures preventable",
-"Value quantification: Every customer conversation must include quantifiable ROI — use the '3-30-300' rule for hard savings, soft savings, and strategic value",
-"40-60% handoff risk: Multi-modal transfers are highest risk — ocean freight requires store-and-forward + extended battery",
-"Predictive maturity: Decklar enables Level 4 (Prescriptive) — recommend alternate routes, trigger expedited handling"
-]
+  "notes": "Portal is functional on port 3456. Need to build the remaining MCP tools and connect transcript processing. Jeff confirmed the dark theme looks good. Next priority is getting the export/generation tools working end-to-end."
 }

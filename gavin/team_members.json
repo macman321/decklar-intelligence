@@ -1,13 +1,25 @@
-[
-  {
-    "name": "Jeff Calabro",
-    "role": "Director of Customer Accounts and Customer Success",
-    "department": "Customer Success",
-    "discordId": "1502678773911392396",
-    "email": "jeffcalabro32@gmail.com",
-    "authority": "full",
-    "status": "active",
-    "notes": "My boss. Can command me. Only person who can modify system state.",
-    "addedDate": "2026-05-13"
+{
+  "version": 1,
+  "team": [
+    {
+      "id": "jeff-calabro",
+      "name": "Jeffrey Calabro",
+      "role": "Director of Customer Accounts and Customer Success",
+      "discordId": "1502678773911392396",
+      "email": "jeffcalabro32@gmail.com",
+      "accessLevel": "admin",
+      "canModify": true,
+      "canExport": true,
+      "canDelete": true,
+      "notes": "Primary user. All state changes require his authorization unless explicitly delegated."
+    }
+  ],
+  "pendingInvites": [],
+  "accessPolicy": {
+    "default": "read_only",
+    "readOnlyCan": ["query_customers", "view_reports", "ask_questions"],
+    "readOnlyCannot": ["modify_customers", "delete_data", "change_config", "export_documents"],
+    "elevatedCan": ["modify_customers", "add_notes", "update_open_items"],
+    "adminCan": ["everything"]
   }
-]
+}

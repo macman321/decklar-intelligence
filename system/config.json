@@ -1,5 +1,70 @@
 {
-  "version": "1.0",
-  "initialized": "2026-05-14",
-  "accountManager": "Jeffrey Calabro"
+  "version": 1,
+  "dataDir": "~/decklar-intelligence",
+  "mcpServerPath": "~/decklar-intelligence/tools/mcp_server.py",
+  "defaultAccountManager": "Jeffrey Calabro",
+  "ai": {
+    "model": "gpt-4o-mini",
+    "temperature": 0.7,
+    "maxTokens": 2000
+  },
+  "exports": {
+    "format": "docx",
+    "brand": {
+      "primaryColor": "#6038FB",
+      "accentColor": "#00CC55",
+      "darkText": "#1F2937",
+      "font": "Arial",
+      "pageSize": "US Letter",
+      "margins": {
+        "left": 0.875,
+        "right": 0.875,
+        "top": 0.75,
+        "bottom": 0.75
+      }
+    }
+  },
+  "features": {
+    "transcriptAutoFill": true,
+    "learnedQuestions": true,
+    "knowledgeBase": true,
+    "healthScoring": true,
+    "qbrGeneration": true,
+    "valuePropGeneration": true,
+    "callSummaryGeneration": true
+  },
+  "integrations": {
+    "discord": {
+      "enabled": true,
+      "serverId": "1504191076683223210",
+      "botUserId": "1504192604638548100"
+    },
+    "salesforce": {
+      "enabled": false,
+      "status": "not_connected"
+    },
+    "asana": {
+      "enabled": false,
+      "status": "not_connected"
+    },
+    "outlook": {
+      "enabled": false,
+      "status": "not_connected"
+    },
+    "honeycomb": {
+      "enabled": false,
+      "status": "not_connected"
+    }
+  },
+  "notifications": {
+    "healthAlertThreshold": "amber",
+    "weeklyDigestDay": "Monday",
+    "digestTime": "09:00",
+    "timezone": "America/New_York"
+  },
+  "security": {
+    "isolationMode": "strict",
+    "nonJeffAccess": "read_only",
+    "transcriptStorage": "local_encrypted"
+  }
 }

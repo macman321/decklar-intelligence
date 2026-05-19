@@ -1,163 +1,48 @@
-[
-  {
-    "projectId": "init-001",
-    "name": "Gavin System Initialization",
-    "description": "Set up Gavin's infrastructure: Discord bot, data directory, memory files",
-    "status": "completed",
-    "owner": "Jarvis",
-    "priority": "high",
-    "createdDate": "2026-05-13",
-    "targetDate": "2026-05-13",
-    "completedDate": "2026-05-13",
-    "openItems": [],
-    "completedItems": [
-      "Created decklar-intelligence directory structure",
-      "Wrote identity.md",
-      "Initialized memory.json",
-      "Loaded Discord bot credentials",
-      "Created persistent Discord bot listener",
-      "Tested message reception from Jeff",
-      "Verified file upload handling"
-    ]
-  },
-  {
-    "projectId": "blog-001",
-    "name": "Gavin's Decklar Insights Blog",
-    "description": "Build and deploy professional blog for Gavin with real content about supply chain visibility",
-    "status": "completed",
-    "owner": "Jarvis",
-    "priority": "high",
-    "createdDate": "2026-05-14",
-    "targetDate": "2026-05-14",
-    "completedDate": "2026-05-14",
-    "openItems": [
-      "Deploy to public hosting (Netlify/Surge/GitHub Pages)"
-    ],
-    "completedItems": [
-      "Created directory structure at ~/decklar-intelligence/gavin/blog/",
-      "Built clean, professional HTML/CSS/JS blog",
-      "Applied blue/cyan Decklar-inspired color scheme",
-      "Wrote 21 blog posts (55,000 words total)",
-      "Created hero section with animated pulse rings",
-      "Built posts grid with hover effects",
-      "Added About section with stats",
-      "Implemented responsive design",
-      "Updated identity.md with blog status",
-      "Updated memory.json with blog completion",
-      "Created deployment package at ~/.openclaw/workspace/public/gavin-blog/",
-      "Live at http://jarvisai.tailf23089.ts.net:4000 via Tailscale"
-    ],
-    "deliverables": {
-      "site_location": "~/.openclaw/workspace/public/gavin-blog/",
-      "deploy_package": "~/decklar-intelligence/gavin/blog/gavin-blog.zip",
-      "posts_count": 21,
-      "total_words": 55000,
-      "url": "http://jarvisai.tailf23089.ts.net:4000",
-      "deployment_options": [
-        "Netlify Drop (easiest)",
-        "GitHub Pages",
-        "Surge.sh",
-        "Vercel",
-        "Cloudflare Pages"
+{
+  "version": 1,
+  "projects": [
+    {
+      "id": "portal-v1",
+      "name": "Decklar Customer Intelligence Portal",
+      "status": "active",
+      "priority": "P0",
+      "owner": "Gavin (AI) / Jeffrey Calabro",
+      "startDate": "2026-05-14",
+      "targetCompletion": "2026-05-25",
+      "description": "Full-featured customer management portal with dark Decklar theme, AI chat, onboarding wizard, and document exports.",
+      "milestones": [
+        { "name": "Database + API layer", "status": "complete", "date": "2026-05-18" },
+        { "name": "Dark theme reskin", "status": "complete", "date": "2026-05-18" },
+        { "name": "Customer CRUD + tabs", "status": "complete", "date": "2026-05-18" },
+        { "name": "Onboarding wizard", "status": "complete", "date": "2026-05-18" },
+        { "name": "AI chat (Gavin panel)", "status": "complete", "date": "2026-05-18" },
+        { "name": "Document export API", "status": "complete", "date": "2026-05-18" },
+        { "name": "MCP server integration", "status": "in_progress", "date": "2026-05-18" },
+        { "name": "Transcript auto-fill", "status": "pending", "date": "2026-05-20" },
+        { "name": "Report generation (.docx)", "status": "pending", "date": "2026-05-22" },
+        { "name": "Production deployment", "status": "pending", "date": "2026-05-25" }
+      ],
+      "blockers": []
+    },
+    {
+      "id": "customer-onboardings",
+      "name": "Q2 Customer Onboardings",
+      "status": "active",
+      "priority": "P1",
+      "owner": "Jeffrey Calabro",
+      "startDate": "2026-05-05",
+      "targetCompletion": "2026-06-30",
+      "description": "Onboard all Q2 customers with full deployment plans and go-live support.",
+      "customers": [
+        { "name": "Schneider Electric", "status": "in_progress", "goLiveTarget": "2026-06-15" },
+        { "name": "Acme Supply Chain Co", "status": "not_started", "goLiveTarget": "TBD" },
+        { "name": "MedPharma Logistics", "status": "not_started", "goLiveTarget": "TBD" },
+        { "name": "Global Freight Partners", "status": "not_started", "goLiveTarget": "TBD" },
+        { "name": "Fresh Foods Distribution", "status": "not_started", "goLiveTarget": "TBD" }
+      ],
+      "blockers": [
+        "Schneider go-live slipped from May to June — need facility list from Nick Dorsey"
       ]
     }
-  },
-  {
-    "projectId": "blog-002",
-    "name": "Blog 3.0.0 - Interactive Voice Experience",
-    "description": "Next-generation blog with ElevenLabs voice integration for interactive author engagement",
-    "status": "in_progress",
-    "owner": "Dinesh",
-    "priority": "high",
-    "createdDate": "2026-05-15",
-    "targetDate": "2026-05-15",
-    "openItems": [
-      "ElevenLabs API integration for voice narration",
-      "Interactive comment/respond system with voice responses",
-      "Audio player UI for blog posts",
-      "Voice config and testing"
-    ],
-    "completedItems": [
-      "Requirements defined with Jeff",
-      "4-hour timeline committed"
-    ],
-    "features": [
-      "Users can listen to blog posts read aloud by Gavin",
-      "Users can interact with Gavin (the author) via comments",
-      "Gavin responds with ElevenLabs voice",
-      "Seamless audio experience like an audiobook"
-    ]
-  },
-  {
-    "projectId": "mckesson-001",
-    "name": "McKesson Corporation - Enterprise Onboarding",
-    "description": "Enterprise healthcare customer using Decklar for pharmaceutical cold chain monitoring",
-    "status": "active",
-    "owner": "Jeff Calabro",
-    "priority": "high",
-    "createdDate": "2026-05-14",
-    "targetDate": "2026-05-21",
-    "openItems": [
-      "Confirm webhook endpoint URLs by May 16",
-      "Schedule integration testing session for May 17",
-      "Validate all 9 RADAR event types before May 21 deadline"
-    ],
-    "completedItems": [
-      "Customer profile initialized in decklar-intelligence",
-      "Knowledge base document processed",
-      "9 RADAR event types configured",
-      "Platform modules identified (RADAR, BeeCentral, iShip CARE)",
-      "Go-live date set: May 14, 2026"
-    ],
-    "key_dates": {
-      "go_live": "2026-05-14",
-      "webhook_confirm": "2026-05-16",
-      "integration_test": "2026-05-17",
-      "event_validation_deadline": "2026-05-21"
-    }
-  },
-  {
-    "projectId": "readai-001",
-    "name": "Read.ai MCP Integration",
-    "description": "Model Context Protocol server for real-time meeting queries and transcript access",
-    "status": "in_progress",
-    "owner": "Dinesh",
-    "priority": "medium",
-    "createdDate": "2026-05-15",
-    "targetDate": "2026-05-16",
-    "openItems": [
-      "Obtain Read.ai API credentials",
-      "Test MCP server with live meeting data",
-      "Integrate with Gavin's query system"
-    ],
-    "completedItems": [
-      "MCP server built (port 4002)",
-      "OpenClaw bridge created (port 4003)",
-      "Documentation complete (MCP-EXPLAINED.md, GAVIN-QUICKSTART.md)",
-      "4 tools defined: meetings.list, meetings.get, meetings.search, action_items.list"
-    ],
-    "architecture": "Gavin → OpenClaw → Bridge (4003) → MCP Server (4002) → Read.ai API"
-  },
-  {
-    "projectId": "video-001",
-    "name": "Decklar Brand Video for CEO Sanjay",
-    "description": "Beautiful video blog generated from existing post using Replicate and ComfyUI",
-    "status": "planned",
-    "owner": "Gavin",
-    "priority": "medium",
-    "createdDate": "2026-05-15",
-    "targetDate": "2026-05-16",
-    "openItems": [
-      "Select high-impact blog post for video",
-      "Generate visuals/images using Replicate",
-      "Create voiceover using ElevenLabs",
-      "Select/generate background music",
-      "Assemble in ComfyUI",
-      "Review with Jeff"
-    ],
-    "completedItems": [
-      "Requirements received from Jeff",
-      "Replicate/ComfyUI access confirmed"
-    ]
-  }
-]
+  ]
+}
